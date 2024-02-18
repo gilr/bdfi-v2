@@ -9,7 +9,7 @@
 ## A propos
 
 Dévelopemment d'une nouvelle version d'un site web dédié à l'imaginaire (science-fiction, fantastique, fantasy...) 
-Le projet est développé en supportant partiellement le multi-langue, même si son but premier est d'être un site web francophone.
+Le projet est développé sans support réel du multi-langue, sa vocation première atant d'être un site web francophone.
 Le site web est un site associatif, non commercial, sans publicité.
 
 Etant donné sa cible très spécifique, il n'est pas d'un grand intérêt pour des personnes hors de notre équipe, sauf éventuellement comme exemple d'un projet Laravel.
@@ -45,7 +45,7 @@ Jetstream is designed using [Tailwind CSS](https://tailwindcss.com) and offers y
 - **[debugbar](https://github.com/barryvdh/laravel-debugbar)** (outils de débug orienté PHP + Laravel)
 - **[revisionable](https://packagist.org/packages/venturecraft/revisionable)** (extension permettant de stocker les modifications des tables)
 - **[Laravel-Userstamps](https://github.com/WildsideUK/Laravel-Userstamps)** (extension qui ajoute les informations "créé par" et "mis à jour par", en plus des informations de base "créé le" et "mis à jour le")
-- **[Nova](https://nova.laravel.com/)** (administration - Payant mais évite une énorme part de travail une fois pris en main)
+- **[filament](https://filamentphp.com//)** (administration)
 
 ## Failles de sécurité
 
@@ -59,7 +59,7 @@ Le projet est totalement open-source.
 ## About
 
 Development of the new version of a website dedicated to speculative fiction. 
-The project will be developed as a multi-language project, even if its primary target is a french-speaking website.
+The project won't be developed as a multi-language project, as its primary aim is to be a french-speaking website.
 This website will be a non-commercial and non-profit project, without any advertising.
 
 As it is developed for a specific scope, it should not be of great interests for people outside our small team, except maybe as an example of a laravel project.
@@ -95,7 +95,7 @@ Jetstream is designed using [Tailwind CSS](https://tailwindcss.com) and offers y
 - **[debugbar](https://github.com/barryvdh/laravel-debugbar)**
 - **[revisionable](https://packagist.org/packages/venturecraft/revisionable)**
 - **[Laravel-Userstamps](https://github.com/WildsideUK/Laravel-Userstamps)**
-- **[Nova](https://nova.laravel.com/)**
+- **[filament](https://filamentphp.com//)** (administration)
 
 ## Security Vulnerabilities
 

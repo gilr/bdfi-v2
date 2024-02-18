@@ -1,0 +1,1 @@
+<a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='{{ $link }}'>{{ $slot }}</a>

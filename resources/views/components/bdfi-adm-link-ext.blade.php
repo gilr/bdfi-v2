@@ -1,0 +1,1 @@
+<a class="text-yellow-800 border-b border-yellow-600 hover:bg-yellow-100 hover:text-purple-700 hover:border-purple-800" href="{{ $lien }}" target="_blank">{{ $slot }}</a>

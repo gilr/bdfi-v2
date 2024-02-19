@@ -33,12 +33,13 @@ Laravel est accessible, puissant, et fournit les outils nécessaires pour des ap
 
 ## ... Et Jetstream
 
-Laravel Jetstream is a beautifully designed application scaffolding for Laravel. Jetstream provides the perfect starting point for your next Laravel application and includes login, registration, email verification, two-factor authentication, session management, API support via [Laravel Sanctum](https://github.com/laravel/sanctum), and optional team management.
+Laravel Jetstream est un starter kit de Laravel. Outre qu'il offre de base l'ensemble des IHM de connection, inscription, vérification d'em-ail, authentication double facteur et la gestion des sessions (via [Laravel Sanctum](https://github.com/laravel/sanctum), il est également le point de départ des IHM d'administrations maison.
 
-Jetstream is designed using [Tailwind CSS](https://tailwindcss.com) and offers your choice of [Livewire](https://jetstream.laravel.com/1.x/stacks/livewire.html) or [Inertia](https://jetstream.laravel.com/1.x/stacks/inertia.html) scaffolding.
+Le choix du stack sous-jacent a été [Livewire](https://jetstream.laravel.com/1.x/stacks/livewire.html), basé sur les mêmes template Blade que Laravel (au contraire de Inertia, basé sur jvue).
 
 ## ... Et Tailwind
-(bientôt)
+
+[Tailwind CSS](https://tailwindcss.com) est un framework CSS moderne qui va à l'encontre totale des anciens principes et usages relatifs aux design de pages web (le "separation of concerns", la stricte séparation entre code HTML et feuilles de styles). Facile à utiliser, ultra-souple pour la mise au point, il se base sur l'idée que si réutilisation il doit y avoir, c'est la réutilisation de composants IHM communs, pas d'innombrables définitions de styles très ciblés.
 
 ## Packages et repositories utilisées
 
@@ -85,10 +86,10 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 Laravel Jetstream is a beautifully designed application scaffolding for Laravel. Jetstream provides the perfect starting point for your next Laravel application and includes login, registration, email verification, two-factor authentication, session management, API support via [Laravel Sanctum](https://github.com/laravel/sanctum), and optional team management.
 
-Jetstream is designed using [Tailwind CSS](https://tailwindcss.com) and offers your choice of [Livewire](https://jetstream.laravel.com/1.x/stacks/livewire.html) or [Inertia](https://jetstream.laravel.com/1.x/stacks/inertia.html) scaffolding.
+The chosen scaffolding stack is [Livewire](https://jetstream.laravel.com/1.x/stacks/livewire.html), which is based on the Laravel Blade templates, rather than Inertia, based on jvue.
 
 ## ... And Tailwind
-(soon)
+[Tailwind CSS](https://tailwindcss.com) is a modern CSS framework that goes against the old principles and rules for the definition of the style sheets of the web sites. Easy to understand, and of a great help for the development, it aim is to move towards the definition of some common HMI components, and never the definition of numerous styles classes as it was nearly recommended by the "separation of concerns" approach.
 
 ## Used packages & repositories
 

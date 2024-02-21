@@ -18,7 +18,7 @@
     <div class="h-full w-full flex bg-gray-100 pb-8">
 
         <!-- container -->
-        <x-bdfi-menu zone="{{ $area }}"/>
+        <x-front.menu zone="{{ $area }}"/>
 
         <div class='flex flex-col w-full'>
             <div class="text-sm p-2 mx-8 hidden sm:flex justify-between">
@@ -36,11 +36,11 @@
                 </div>
                 <div>
                   <!-- barre d'authent -->
-                    <x-bdfi-authent/>
+                    <x-front.authent/>
                 </div>
             </div>
 
-            <x-bdfi-flashs/>
+            <x-front.flashs/>
 
             @yield('content')
         </div>

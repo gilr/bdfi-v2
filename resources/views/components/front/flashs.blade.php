@@ -1,15 +1,15 @@
 @if (session('info'))
-   <x-bdfi-alert type='info'>
+   <x-front.alert type='info'>
     {{ session()->pull('info') }}
-  </x-bdfi-alert>
+  </x-front.alert>
 @endif
 @if (session('warning'))
-   <x-bdfi-alert type='warning'>
+   <x-front.alert type='warning'>
     {{ session()->pull('warning') }}
-  </x-bdfi-alert>
+  </x-front.alert>
 @endif
 @if (session('danger'))
-   <x-bdfi-alert type='danger'>
+   <x-front.alert type='danger'>
     {{ session()->pull('danger') }}
-  </x-bdfi-alert>
+  </x-front.alert>
 @endif

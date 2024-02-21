@@ -21,13 +21,13 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-6">
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Author'>auteurs</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Signature'>signatures</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Website'>sites web</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Relationship'>relations entre auteurs</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Country'>pays</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Translator'>traducteurs</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Illustrator'>illustrateurs</x-bdfi-adm-link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Author'>auteurs</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Signature'>signatures</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Website'>sites web</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Relationship'>relations entre auteurs</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Country'>pays</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Translator'>traducteurs</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Illustrator'>illustrateurs</x-admin.link></li>
                             </ul>
                         </div>
                     </div>
@@ -37,11 +37,11 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-6">
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Publication'>Publications</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Collection'>Collections</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Publisher'>Editeurs</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Reprint'>Retirages</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/TableOfContent'>Sommaires</x-bdfi-adm-link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Publication'>Publications</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Collection'>Collections</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Publisher'>Editeurs</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Reprint'>Retirages</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/TableOfContent'>Sommaires</x-admin.link></li>
                             </ul>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-6">
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Title'>Oeuvres</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Cycle'>Cycles</x-bdfi-adm-link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Title'>Oeuvres</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Cycle'>Cycles</x-admin.link></li>
                             </ul>
                         </div>
                     </div>
@@ -62,9 +62,9 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-6">
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Award'>Prix</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/AwardCategory'>Catégories</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/AwardWinner'>Lauréats</x-bdfi-adm-link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Award'>Prix</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/AwardCategory'>Catégories</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/AwardWinner'>Lauréats</x-admin.link></li>
                             </ul>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-6">
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Event'>salons et évènements</x-bdfi-adm-link></li>
-                                <li><x-bdfi-adm-link lien='/admin/telechargements/Announcement'>news et annonces sites</x-bdfi-adm-link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Event'>salons et évènements</x-admin.link></li>
+                                <li><x-admin.link lien='/admin/telechargements/Announcement'>news et annonces sites</x-admin.link></li>
                             </ul>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 @extends('front.layout')
 @section('content')
 
-<x-bdfi-menu-site tab='contact' />
+<x-front.menu-site tab='contact' />
 
 <div class='text-2xl my-2 md:mt-8 bold self-center'>
     <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>Contacter le site ou ses membres</b>

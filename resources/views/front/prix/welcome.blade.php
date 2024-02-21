@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <x-bdfi-menu-prix-pays tab='welcome' :pays="$pays"/>
-    <x-bdfi-menu-prix-type tab='welcome' :types="$types"/>
-    <x-bdfi-menu-prix-genre tab='welcome' :genres="$genres"/>
+    <x-front.menu-prix-pays tab='welcome' :pays="$pays"/>
+    <x-front.menu-prix-type tab='welcome' :types="$types"/>
+    <x-front.menu-prix-genre tab='welcome' :genres="$genres"/>
 
 <div class='text-2xl mt-2 md:mt-8 bold self-center'>
     <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>Prix</b>
@@ -21,6 +21,6 @@
     </div>
 
     <div class='mx-2'>Prix par année</div>
-    <x-bdfi-menu-prix-annee tab='welcome' :annees="$annees"/>
+    <x-front.menu-prix-annee tab='welcome' :annees="$annees"/>
 
 @endsection

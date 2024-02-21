@@ -96,7 +96,7 @@
                         @if ($title->pivot->number)
                             {{ $title->pivot->number }} -
                         @endif
-                        <x-bdfi-lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-bdfi-lien-texte>
+                        <x-front.lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-front.lien-texte>
                         ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo), " . StrDateformat($title->copyright_fr) : ")"}}
 
                         @if(count($title->authors) != 0)
@@ -105,7 +105,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                         @endif
                     </div>
@@ -139,18 +139,18 @@
                                     @else
                                         <i>Sous</i>
                                     @endif
-                                    <x-bdfi-lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-bdfi-lien-texte>,
+                                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>,
                                     {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse
                                 @else
-                                    <x-bdfi-lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-bdfi-lien-texte>,
+                                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>,
                                     nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse

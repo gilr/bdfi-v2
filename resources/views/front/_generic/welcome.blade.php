@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-bdfi-menu-index tab='welcome' zone='{{ $area }}' digit='{{ $digit }}'/>
+    <x-front.menu-index tab='welcome' zone='{{ $area }}' digit='{{ $digit }}'/>
     <div class='text-sm -my-1 p-0 bold self-center hidden sm:inline'>
         La barre d'initiales ci-dessus donne accès aux index paginés.
     </div>

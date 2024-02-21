@@ -1,7 +1,7 @@
 @extends('front.layout')
 @section('content')
 
-<x-bdfi-menu-site tab='about' />
+<x-front.menu-site tab='about' />
 
 <div class='text-2xl my-2 md:mt-8 bold self-center'>
      <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>A propos de BDFI</b>

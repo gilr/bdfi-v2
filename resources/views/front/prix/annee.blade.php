@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-bdfi-menu-prix-annee tab='{{ $annee }}' :annees="$annees"/>
+    <x-front.menu-prix-annee tab='{{ $annee }}' :annees="$annees"/>
 
     <div class='text-xl text-purple-800 mt-2 bold self-center pt-2'>
         Récompenses décernées l'année {{ $annee }}

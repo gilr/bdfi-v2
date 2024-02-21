@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-bdfi-menu-prix-genre tab='{{ $genre }}' :genres="$genres"/>
+    <x-front.menu-prix-genre tab='{{ $genre }}' :genres="$genres"/>
 
     <div class='text-xl text-purple-800 my-2 bold self-center py-2'>
         Liste des prix et catégories concernant le genre : {{ App\Enums\AwardCategoryGenre::from($genre)->GetLabel() }}

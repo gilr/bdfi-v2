@@ -9,7 +9,7 @@
             <li> Des formulaire de création rapide : ouvrage à paraître par exemple</li>
             <li> Des outils de détections d'erreurs potentielles : les rapports</li>
             <li> Des aides diverses, des rappels, la récupération des sauvegardes des tables</li>
-            <li> Pour l'accès à la gestion fine des tables, voir le menu du haut ou <x-bdfi-adm-link lien='/filament'>Gestion des tables (FILAMENT)</x-bdfi-adm-link></li>
+            <li> Pour l'accès à la gestion fine des tables, voir le menu du haut ou <x-admin.link lien='/filament'>Gestion des tables (FILAMENT)</x-admin.link></li>
         </ul>
     </div>
 </div>

@@ -19,7 +19,7 @@
             @if (!$loop->first)
                 ,
             @endif
-            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
             @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                 <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
             @endif
@@ -347,7 +347,7 @@
                         @endif
                     </span>
 
-                    <x-bdfi-lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-bdfi-lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-front.lien-texte>
 
                     <span class='hidden lg:inline'>
                         @if($title->type != App\Enums\TitleType::SECTION)
@@ -363,7 +363,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                     @endif
                     <span class='hidden lg:inline'>

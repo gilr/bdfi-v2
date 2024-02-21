@@ -3,7 +3,7 @@
         @if($publication->pivot->number)
             {{ $publication->pivot->number }} -
         @endif
-        <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>,
+        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>,
 
         <span class='hidden md:inline text-gray-800'>{{ $publication->type->getLabel() }}</span>
         @if(count($publication->authors) > 0)
@@ -12,7 +12,7 @@
                 @if (!$loop->first)
                     ,
                 @endif
-                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                 @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                     <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
                 @endif

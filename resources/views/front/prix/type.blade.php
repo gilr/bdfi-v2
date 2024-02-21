@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-bdfi-menu-prix-type tab='{{ $type }}' :types="$types"/>
+    <x-front.menu-prix-type tab='{{ $type }}' :types="$types"/>
 
     <div class='text-xl text-purple-800 my-2 bold self-center py-2'>
         Liste des prix et catégories pour le type : {{ App\Enums\AwardCategoryType::from($type)->GetLabel() }}

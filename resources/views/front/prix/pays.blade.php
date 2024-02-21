@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-bdfi-menu-prix-pays tab='{{ $pays }}' :pays="$listepays"/>
+    <x-front.menu-prix-pays tab='{{ $pays }}' :pays="$listepays"/>
 
     <div class='text-xl text-purple-800 my-2 bold self-center py-2'>
         Liste des prix d'un pays : {{ $pays }}

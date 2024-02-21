@@ -19,7 +19,7 @@
 
     <div class='text-base'>Auteur(s) :
         @forelse($results->authors as $author)
-            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
         @empty
             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
         @endforelse
@@ -74,14 +74,14 @@
             @else
                 Première publication française sous :
             @endif
-            <x-bdfi-lien-texte link='/textes/{{ $results->parent_id }}'>{{ $results->parent->name }}</x-bdfi-lien-texte>
+            <x-front.lien-texte link='/textes/{{ $results->parent_id }}'>{{ $results->parent->name }}</x-front.lien-texte>
             {{-- on affiche l'auteur que si la variante courante est une variante incluant la  signature --}}
             @if (($results->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                 -
                 @forelse($results->parent->authors as $author)
-                    <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                    <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                 @empty
                     <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                 @endforelse
@@ -97,7 +97,7 @@
             @foreach ($results->parent->variants as $variant)
                 <div class='text-base ml-2 md:ml-8'>
                     @if ($results->id !== $variant->id)
-                        <x-bdfi-lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-bdfi-lien-texte>
+                        <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>
 {{--
     case PREMIER       = 'premier';
     case VIRTUEL       = 'virtuel';
@@ -117,7 +117,7 @@
                              ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                             <span class='italic'> - signé</span>
                             @forelse($variant->authors as $author)
-                                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @empty
                                 <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                             @endforelse
@@ -139,14 +139,14 @@
             <span class='font-semibold'>Variantes :</span>
             @foreach ($results->variants as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-bdfi-lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-bdfi-lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>
 
                     @if (($variant->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                         <span class='italic'>- signé</span>
                         @forelse($variant->authors as $author)
-                            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
@@ -164,9 +164,9 @@
             <span class='font-semibold'>Episodes :</span>
             @foreach ($results->episodes as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-bdfi-lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-bdfi-lien-texte> -
+                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte> -
                     @forelse($variant->authors as $author)
-                        <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                     @empty
                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                     @endforelse
@@ -215,7 +215,7 @@
             @endif
             @foreach ($results->cycles as $cycle)
                 <div class='ml-2 md:ml-8'>
-                    <x-bdfi-lien-serie link='/series/{{ $cycle->id }}'>{{ $cycle->name }}</x-bdfi-lien-serie>
+                    <x-front.lien-serie link='/series/{{ $cycle->id }}'>{{ $cycle->name }}</x-front.lien-serie>
                     @if($cycle->pivot->number)
                     (n° {{ $cycle->pivot->number }})
                     @endif
@@ -256,24 +256,24 @@
 
                                 <div class='ml-2 md:ml-8'>
 
-                                    <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                                       @if(count($publication->authors) > 0)
                                         -
                                         @foreach($publication->authors as $author)
                                             @if (!$loop->first)
                                                 ,
                                             @endif
-                                            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                         @endforeach
                                     @endif
 
                                     @if($publication->publisher)
-                                        - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                                     @endif
 
                                     @if(count($publication->collections) !== 0)
                                         @if($publication->collections)
-                                            / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                             @if($publication->collections[0]->pivot->number)
                                                 n° {{ $publication->collections[0]->pivot->number }}
                                             @endif
@@ -305,24 +305,24 @@
                 <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                 <div class='ml-2 md:ml-8'>
-                    <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                     @if(count($publication->authors) > 0)
                         -
                         @foreach($publication->authors as $author)
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                     @endif
 
                     @if($publication->publisher)
-                        - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                     @endif
 
                     @if(count($publication->collections) !== 0)
                         @if($publication->collections)
-                            / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                             @if($publication->collections[0]->pivot->number)
                                 n° {{ $publication->collections[0]->pivot->number }}
                             @endif
@@ -351,24 +351,24 @@
                         <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                         <div class='ml-2 md:ml-8'>
-                            <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                            <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                             @if(count($publication->authors) > 0)
                             -
                                 @foreach($publication->authors as $author)
                                     @if (!$loop->first)
                                         ,
                                     @endif
-                                    <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                    <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                 @endforeach
                             @endif
 
                             @if($publication->publisher)
-                                - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                                - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                             @endif
 
                             @if(count($publication->collections) !== 0)
                                 @if($publication->collections)
-                                    / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                    / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                     @if($publication->collections[0]->pivot->number)
                                         n° {{ $publication->collections[0]->pivot->number }}
                                     @endif
@@ -407,24 +407,24 @@
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -455,24 +455,24 @@
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -500,24 +500,24 @@
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -543,24 +543,24 @@
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-bdfi-lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-bdfi-lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-bdfi-lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-bdfi-lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-bdfi-lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-bdfi-lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-bdfi-lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-bdfi-lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif

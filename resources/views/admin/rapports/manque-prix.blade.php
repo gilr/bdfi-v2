@@ -32,7 +32,7 @@
                             <td class="py-1 px-2 border border-blue-500">{{ $result[1] }}</td>
                             <td>
                                 @foreach ($result[2] as $categ)
-                                    <x-bdfi-adm-link-ext lien='/filament/award-categories/{{ $categ->id }}'>{{ $categ->name }}<br /></x-bdfi-adm-link-ext>
+                                    <x-admin.link-ext lien='/filament/award-categories/{{ $categ->id }}'>{{ $categ->name }}<br /></x-admin.link-ext>
                                 @endforeach
                             </td>
                         </tr>

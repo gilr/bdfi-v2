@@ -80,6 +80,6 @@
     Dernière mise à jour : {{ $prix->updated_at }}
 </div>
 
-<x-bdfi-info-fiche filament='{{ $filament }}' area='{{ $area }}' :results='$prix'/>
+<x-front.info-fiche filament='{{ $filament }}' area='{{ $area }}' :results='$prix'/>
 
 @endsection

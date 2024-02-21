@@ -6,7 +6,7 @@
 <script type='text/javascript' src="/js/morris.min.js"></script>
 <script type='text/javascript' src="/js/raphael-min.js"></script>
 
-<x-bdfi-menu-site tab='base' />
+<x-front.menu-site tab='base' />
 
 <div class='text-2xl my-2 md:mt-8 bold self-center'>
     <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>Evolution de la base BDFI - Historique & stats des référencements</b>

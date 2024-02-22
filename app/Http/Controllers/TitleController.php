@@ -44,13 +44,20 @@ class TitleController extends Controller
 
     public function search(Request $request)
     {
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         $text = $request->input('s');
         $large = $request->input('m');
         if ($large !== "on")
         {
             $results = Title::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
         }
         else
         {
@@ -59,7 +66,7 @@ class TitleController extends Controller
                 ->orWhere('title_vo', 'like', '%' . $text .'%')
                 ->orWhere('information', 'like', '%' . $text .'%')
                 ->orWhere('synopsis', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
 
         }
 
@@ -73,16 +80,23 @@ class TitleController extends Controller
      */
     public function index(Request $request, $initial)
     {
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             $this->context['page'] = 'Index ' . strtoupper($initial);
-            $results = Title::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate(800);
+            $results = Title::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else if ((strlen($initial) == 1) && ctype_digit($initial))
         {
             $this->context['page'] = 'Index 0-9';
-            $results = Title::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate(800);
+            $results = Title::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin);
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -110,11 +124,18 @@ class TitleController extends Controller
         }
         else
         {
+            $pagin = 1000;
+            $user = Auth::user();
+            if ($user)
+            {
+                $pagin = $user->items_par_page;
+            }
+
             // /textes/{pattern}
             // Recherche de tous les textes  avec le pattern fourni
             $results = Title::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
 
             if ($results->total() == 0) {
                 // Aucun résultat, redirection vers l'accueil textes

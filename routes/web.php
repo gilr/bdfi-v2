@@ -15,6 +15,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,12 +120,14 @@ Route::get('/forums', function () { return view('forums', ['area'  => 'forums', 
 
 // Authentification
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    // Accès restreint aux roles "user" (si existe)
-    // ...
+    // Accès restreint aux utilisateurs connectés - Roles "user" et tout type d'admin (y compris "visitor")
+    Route::get('/user', function () { return view('user/welcome'); })->name('user');
+    Route::get('/user/preferences', function () { return view('user/preferences'); })->name('preferences.show');
+    Route::post('/user/preferences', [UserController::class, 'storepref']);
+    Route::get('/user/bibliotheque', function () { return view('user/bibliotheque'); })->name('user/bibliotheque');
 
-    // Accès restreints de la zone admin :
-    Route::middleware(['auth.bdfiadmin'])->group(function () {
-
+    Route::middleware('auth.bdfiadmin')->group(function () {
+        // Accès restreints de la zone admin (y compris visitor - les restrictions sont au niveau filament & admin) :
         Route::get('/admin', function () { return view('admin/welcome'); })->name('admin');
 
         Route::get('/admin/formulaires', [FormController::class, 'index'])->name('admin/formulaires');

@@ -31,6 +31,13 @@ class ReprintController extends Controller
 
     public function search(Request $request)
     {
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         $text = $request->input('s');
         $large = $request->input('m');
         if ($large !== "on")
@@ -40,7 +47,7 @@ class ReprintController extends Controller
                 ->orWhere(function ($query) use($text) {
                     $query->join('publications', 'publication.name', 'like', '%' . $text .'%');
                 });
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
         }
         else
         {
@@ -52,7 +59,7 @@ class ReprintController extends Controller
                 ->orWhere(function ($query) use($text) {
                     $query->join('publications', 'publication.alt_names', 'like', '%' . $text .'%');
                 });
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
 
         }
 
@@ -66,22 +73,29 @@ class ReprintController extends Controller
      */
     public function index(Request $request, $initial)
     {
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         $this->context['page'] = 'Index ' . strtoupper($initial);
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             // OK mais 1 seul ! :
-            // $results = Reprint::find(1)->publication()->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate(120);
+            // $results = Reprint::find(1)->publication()->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
 
             $results = Reprint::whereHas('publication', function($q) use ($initial) {
                 $q->where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc');
-                })->simplePaginate(800);
+                })->simplePaginate($pagin);
 
             // La solution suivante fonctionne aussi... mais donne l'id de la publication donc à affiner
 /*            $results = Reprint::join('publications', 'publication_id', '=', 'publications.id')
                 ->where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc')
-                ->simplePaginate(120);
+                ->simplePaginate($pagin);
 */
 
             return view('front._generic.index', compact('initial', 'results'), $this->context);
@@ -112,11 +126,18 @@ class ReprintController extends Controller
         }
         else
         {
+            $pagin = 1000;
+            $user = Auth::user();
+            if ($user)
+            {
+                $pagin = $user->items_par_page;
+            }
+
             // /ouvrages/{pattern}
             // Recherche de tous les ouvrages avec le pattern fourni
             $results = Reprint::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
 
             if ($results->total() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages

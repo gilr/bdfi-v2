@@ -1,6 +1,8 @@
 @if (Route::has('login'))
         @auth
-            @if (Auth::user()->role != 'user')
+            @if (Auth::user()->role->value === App\Enums\UserRole::USER->value)
+                <a href="{{ url('/user') }}" class="text-sm text-gray-700 underline"> {{ __('Mon compte') }} </a> -
+            @else
                 <a href="{{ url('/admin') }}" class="text-sm text-gray-700 underline"> {{ __('Administration') }} </a> -
                 <a href="{{ url('/filament') }}" class="text-sm text-gray-700 underline"> {{ __('Gestion des tables') }} </a> -
             @endif

@@ -5,30 +5,38 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('admin') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                    </a>
+                    <x-application-mark class="block h-9 w-auto" />
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                        {{ __('Administration') }}
+                    <x-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
+                        {{ __('Utilisateur') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
-                        {{ __('Formulaires') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
-                        {{ __('Rapports') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
-                        {{ __('Outils') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ url('/filament') }}">
-                        {{ __('Gestion des tables (Filament)') }}
-                    </x-nav-link>
+                    @if (Auth::user()->gestion_biblio)
+                        <x-nav-link href="{{ route('user/bibliotheque') }}" :active="request()->routeIs('user/bibliotheque')">
+                            {{ __('Ma biblio') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::user()->role->value != App\Enums\UserRole::USER->value)
+                        <x-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                            {{ __('Administration') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
+                            {{ __('Formulaires') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
+                            {{ __('Rapports') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
+                            {{ __('Outils') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ url('/filament') }}">
+                            {{ __('Gestion tables') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-link href="{{ route('welcome') }}" >
-                        {{ __('Site BDFI (de test)') }}
+                        {{ __('Retour site') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -111,6 +119,10 @@
                                 {{ __('Manage Account') }}
                             </div>
 
+                            <x-dropdown-link href="{{ route('preferences.show') }}">
+                                {{ __('Preferences') }}
+                            </x-dropdown-link>
+
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -153,20 +165,30 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                {{ __('Administration') }}
+            <x-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
+                {{ __('Utilisateur') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
-                {{ __('Rapports') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
-                {{ __('Outils') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ config('nova.path') }}" :active="request()->routeIs('nova.index')">
-                {{ __('les tables (NOVA)') }}
-            </x-responsive-nav-link>
+            @if (Auth::user()->gestion_biblio)
+                <x-responsive-nav-link href="{{ route('user/bibliotheque') }}" :active="request()->routeIs('user/bibliotheque')">
+                    {{ __('Ma biblio') }}
+                </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->role->value != App\Enums\UserRole::USER->value)
+                <x-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                    {{ __('Administration') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
+                    {{ __('Rapports') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
+                    {{ __('Outils') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ config('nova.path') }}" :active="request()->routeIs('nova.index')">
+                    {{ __('Gestion tables') }}
+                </x-responsive-nav-link>
+            @endif
             <x-responsive-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
-                {{ __('Site BDFI (de test)') }}
+                {{ __('Retour BDFI') }}
             </x-responsive-nav-link>
         </div>
         <!-- Responsive Settings Options -->
@@ -186,6 +208,10 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+                <x-responsive-nav-link href="{{ route('preferences.show') }}" :active="request()->routeIs('preferences.show')">
+                    {{ __('Preferences') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

@@ -114,6 +114,38 @@ function StrDetectCentury($aa, $publi): string
  */
 function StrDateformat ($date)
 {
+    $format = 'abr';
+    $user = Auth::user();
+    if ($user)
+    {
+        $format = $user->format_date;
+    }
+
+    if ($format === 'abr')
+    {
+        return StrDateformatClair($date, 1);
+    }
+    elseif ($format === 'clair')
+    {
+        return StrDateformatClair($date, 0);
+    }
+    elseif ($format === 'fr')
+    {
+        return StrDateformatFR($date, 0);
+    }
+    elseif ($format === 'fru')
+    {
+        return StrDateformatFR($date, 1);
+    }
+    else // format db
+    {
+        return $date;
+    }
+}
+
+
+function StrDateformatClair ($date, $abrege)
+{
     $formatted_date = "";
 
     if ($date == "0")
@@ -145,7 +177,14 @@ function StrDateformat ($date)
     }
     else if (substr($date, 5, 1) == "T")
     {
-        $formatted_date = StrTrimtoStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        if ($abrege == 1)
+        {
+            $formatted_date = StrTrimtoStrAbr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
+        else
+        {
+            $formatted_date = StrTrimtoStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
     }
     else if (substr($date, 5) == "00-00")
     {
@@ -153,7 +192,14 @@ function StrDateformat ($date)
     }
     else if (substr($date, 8) == "00")
     {
-        $formatted_date = StrMonthToStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        if ($abrege == 1)
+        {
+            $formatted_date = StrMonthToStrAbr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
+        else
+        {
+            $formatted_date = StrMonthToStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
     }
     else
     {
@@ -166,13 +212,86 @@ function StrDateformat ($date)
         {
             $jour = "1er";
         }
-        $formatted_date = $jour . " " . StrMonthToStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        if ($abrege == 1)
+        {
+            $formatted_date = $jour . " " . StrMonthToStrAbr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
+        else
+        {
+            $formatted_date = $jour . " " . StrMonthToStr(substr($date, 5, 2)) . " " . substr($date, 0, 4);
+        }
     }
 
     return $formatted_date;
 }
 
-function StrTrimToStr ($trim)
+function StrDateformatFR ($date, $uniforme)
+{
+    $formatted_date = "";
+
+    if ($date == "0")
+    {
+        $formatted_date = "inconnue";
+    }
+    else if ($date == "n.i.")
+    {
+        $formatted_date = "non indiquée";
+    }
+    else if (($date == "A parution") || ($date == ""))
+    {
+        $formatted_date = $date;
+    }
+    else if (substr($date, 4) == "-circa")
+    {
+        if (substr($date, 0, 1) == "-")
+        {
+            $formatted_date = "circa " . substr($date, 1, 3) . " av. J.-C.";
+        }
+        else
+        {
+            $formatted_date = "circa " . substr($date, 0, 4);
+        }
+    }
+    else if (substr($date, 0, 1) == "-")
+    {
+        $formatted_date = substr($date, 1, 3) . " av. J.-C.";
+    }
+    else if (substr($date, 5, 1) == "T")
+    {
+        $formatted_date = substr($date, 5, 2) . "/" . substr($date, 0, 4);
+    }
+    else if (substr($date, 5) == "00-00")
+    {
+        $formatted_date = substr($date, 0, 4);
+    }
+    else if (substr($date, 8) == "00")
+    {
+        $mois = substr($date, 5, 2);
+        if ((substr($mois,0,1) == "0") && ($uniforme == 0))
+        {
+            $mois = substr($mois,1,1);
+        }
+        $formatted_date = $mois . "/" . substr($date, 0, 4);
+    }
+    else
+    {
+        $jour = substr($date, 8, 2);
+        $mois = substr($date, 5, 2);
+        if ((substr($jour,0,1) == "0") && ($uniforme == 0))
+        {
+            $jour = substr($jour,1,1);
+        }
+        if ((substr($mois,0,1) == "0") && ($uniforme == 0))
+        {
+            $mois = substr($mois,1,1);
+        }
+        $formatted_date = $jour . "/" . $mois . "/" . substr($date, 0, 4);
+    }
+
+    return $formatted_date;
+}
+
+function StrTrimToStrAbr ($trim)
 {
     if ($trim == "T1") { return "1er trim."; }
     else if ($trim == "T2") { return "2ième trim."; }
@@ -180,8 +299,16 @@ function StrTrimToStr ($trim)
     else if ($trim == "T4") { return "4ième trim."; }
     else { return "avr."; }
 }
+function StrTrimToStr ($trim)
+{
+    if ($trim == "T1") { return "1er trimestre"; }
+    else if ($trim == "T2") { return "2ième trimestre"; }
+    else if ($trim == "T4") { return "3ième trimestre"; }
+    else if ($trim == "T4") { return "4ième trimestre"; }
+    else { return "avr."; }
+}
 
-function StrMonthToStr ($month)
+function StrMonthToStrAbr ($month)
 {
     if ($month == "01") { return "janv."; }
     else if ($month == "02") { return "févr."; }
@@ -195,6 +322,21 @@ function StrMonthToStr ($month)
     else if ($month == "10") { return "oct."; }
     else if ($month == "11") { return "nov."; }
     else if ($month == "12") { return "déc."; }
+}
+function StrMonthToStr ($month)
+{
+    if ($month == "01") { return "janvier"; }
+    else if ($month == "02") { return "février"; }
+    else if ($month == "03") { return "mars"; }
+    else if ($month == "04") { return "avril"; }
+    else if ($month == "05") { return "mai"; }
+    else if ($month == "06") { return "juin"; }
+    else if ($month == "07") { return "juillet"; }
+    else if ($month == "08") { return "août"; }
+    else if ($month == "09") { return "septembre"; }
+    else if ($month == "10") { return "octobre"; }
+    else if ($month == "11") { return "novembre"; }
+    else if ($month == "12") { return "décembre"; }
 }
 
 // Sur base du JS github : /hecaxmmx/ISBNConverter

@@ -23,6 +23,11 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
 
+            $table->string('format_date')->default('abr');; // 'clair', 'abr', 'fr', 'fru', 'db']
+            $table->unsignedInteger('items_par_page')->default(1000);
+            $table->boolean('fonction_aide')->default(false);
+            $table->boolean('gestion_biblio')->default(false);
+
             $table->timestamps();
 
             $table->unsignedSmallInteger('created_by')->nullable();

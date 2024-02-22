@@ -12,6 +12,7 @@ use App\Models\Author;
 use App\Models\Title;
 use DB;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorController extends Controller
 {
@@ -36,6 +37,14 @@ class AuthorController extends Controller
 
     public function search(Request $request)
     {
+
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         $text = $request->input('s');
         $large = $request->input('m');
         if ($large !== "on")
@@ -43,7 +52,7 @@ class AuthorController extends Controller
             $results = Author::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%')
                 ->orWhere('first_name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
         }
         else
         {
@@ -52,7 +61,7 @@ class AuthorController extends Controller
                 ->orWhere('first_name', 'like', '%' . $text .'%')
                 ->orWhere('legal_name', 'like', '%' . $text .'%')
                 ->orWhere('alt_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+            })->orderBy('name', 'asc')->simplePaginate($pagin);
 
         }
 
@@ -74,10 +83,17 @@ class AuthorController extends Controller
      */
     public function index(Request $request, $initial)
     {
+
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
         $this->context['page'] = 'Index ' . strtoupper($initial);
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
-            $results = Author::where('is_visible', 1)->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate(1000);
+            $results = Author::where('is_visible', 1)->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -99,6 +115,14 @@ class AuthorController extends Controller
      */
     public function pays(Request $request, $text)
     {
+
+        $pagin = 1000;
+        $user = Auth::user();
+        if ($user)
+        {
+            $pagin = $user->items_par_page;
+        }
+
         $this->context['page'] = 'Index ' . ucfirst($text);
         $this->context['subarea'] = 'pays';
         $this->context['subtitle'] = 'Pays';

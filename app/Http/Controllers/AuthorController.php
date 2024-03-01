@@ -250,12 +250,12 @@ class AuthorController extends Controller
                         ->orWhere('first_name', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->paginate(60);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil auteurs
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone auteurs.');
                 return redirect('auteurs');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

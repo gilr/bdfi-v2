@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class PublicationController extends Controller
 {
@@ -173,12 +174,12 @@ class PublicationController extends Controller
                 $query->where ('name', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone ouvrages.');
                 return redirect('ouvrages');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

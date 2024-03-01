@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Reprint;
 use App\Http\Requests\StoreReprintRequest;
 use App\Http\Requests\UpdateReprintRequest;
-
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class ReprintController extends Controller
 {
@@ -139,12 +139,12 @@ class ReprintController extends Controller
                 $query->where ('name', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone ouvrages.');
                 return redirect('ouvrages');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

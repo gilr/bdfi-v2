@@ -7,6 +7,7 @@ use App\Http\Requests\StorePublisherRequest;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Publisher;
+use Illuminate\Support\Facades\Auth;
 
 class PublisherController extends Controller
 {
@@ -122,12 +123,12 @@ class PublisherController extends Controller
                         ->orWhere('alt_names', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil éditeurs
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone éditeurs.');
                 return redirect('editeurs');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

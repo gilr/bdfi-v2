@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -120,12 +121,12 @@ class EventController extends Controller
                 $query->where ('name', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil evenements
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone evenements.');
                 return redirect('evenements');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

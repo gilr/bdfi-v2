@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateCycleRequest;
 use App\Http\Requests\StoreCycleRequest;
 use Illuminate\Http\Request;
 use App\Models\Cycle;
+use Illuminate\Support\Facades\Auth;
 
 class CycleController extends Controller
 {
@@ -127,7 +128,7 @@ class CycleController extends Controller
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone series.');
                 return redirect('series');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];
@@ -146,7 +147,8 @@ class CycleController extends Controller
                 $this->context['page'] = "/$text/";
                 $request->session()->flash('warning', 'La série ou l\'extrait de titre de série demandé ("' . $text . '") n\'existe pas de façon unique. Nous vous redirigeons vers une page de choix en espérant que vous y trouviez votre bonheur. Utilisez de préférence notre moteur de recherche ou les index.');
                 // Page de choix sur base du pattern fourni
-                return view ('front._generic.choix', compact('text', 'results'), $this->context);
+                $large = 'off';
+                return view ('front._generic.choix', compact('text', 'results','large'), $this->context);
             }
         }
     }

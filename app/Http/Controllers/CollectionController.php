@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateCollectionRequest;
 use App\Http\Requests\StoreCollectionRequest;
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -121,12 +122,12 @@ class CollectionController extends Controller
                         ->orWhere('alt_names', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin);
 
-            if ($results->total() == 0) {
+            if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil collections
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone collections.');
                 return redirect('collections');
             }
-            else if($results->total() == 1)
+            else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
                 $results = $results[0];

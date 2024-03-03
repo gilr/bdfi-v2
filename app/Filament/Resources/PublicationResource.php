@@ -78,11 +78,13 @@ class PublicationResource extends Resource
                             ->searchable(['name']),
                         Forms\Components\Select::make('type')
                             ->label('Type de contenu')
+                            ->enum(PublicationContent::class)
                             ->options(PublicationContent::class)
                             ->helperText('Type global, texte seul, groupe de textes, groupe de romans, revue/magazine/journal, non-fiction.')
                             ->required(),
                         Forms\Components\Select::make('support')
                             ->label('Type de support')
+                            ->enum(PublicationSupport::class)
                             ->options(PublicationSupport::class)
                             ->default(PublicationSupport::PAPIER)
                             ->helperText('Papier par défaut, à modifier si besoin. Le support "Autre" corresponde aux cas particuliers, affiche, miroir, objet divers... A détailler alors dans la description.')
@@ -131,16 +133,19 @@ class PublicationResource extends Resource
                             ->required(),
                         Forms\Components\Select::make('is_genre')
                             ->label('Appartenance au genres référencés')
+                            ->enum(GenreAppartenance::class)
                             ->options(GenreAppartenance::class)
                             ->helperText('Attention, n\'influe pas sur l\'affichage ou non sur le site. Pour ça, voir le commutateur "Visible sur le site".')
                             ->required(),
                         Forms\Components\Select::make('genre_stat')
                             ->label('Genre général pour statistique')
                             ->helperText(' Si référencé sans trace SF-Fa-FY (par exemple Préhistorique ou Gore), indiquer "Autre".')
+                            ->enum(GenreStat::class)
                             ->options(GenreStat::class)
                             ->required(),
                         Forms\Components\Select::make('target_audience')
                             ->label('Public visé')
+                            ->enum(AudienceTarget::class)
                             ->options(AudienceTarget::class)
                             ->default(AudienceTarget::INCONNU)
                             ->required(),
@@ -206,6 +211,7 @@ class PublicationResource extends Resource
                             ->numeric(),
                         Forms\Components\Select::make('format')
                             ->label('Format')
+                            ->enum(PublicationFormat::class)
                             ->options(PublicationFormat::class)
                             ->default(PublicationFormat::INCONNU)
                             ->required(),

@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^3.0@beta",
+        "mohamedsabil83/filament-forms-tinyeditor": "^2.2",
         "wildside/userstamps": "^2.3"
     },
     "require-dev": {

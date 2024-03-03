@@ -54,6 +54,7 @@ class UserResource extends Resource
                             ->required()
                             ->maxLength(64),
                         Forms\Components\Select::make('role')
+                            ->enum(UserRole::class)
                             ->options(UserRole::class)
                             ->default(UserRole::USER->value)
                             ->required(),

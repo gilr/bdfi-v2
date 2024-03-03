@@ -61,6 +61,7 @@ class TitleResource extends Resource
                             ->required()
                             ->maxLength(256),
                         Forms\Components\Select::make('type')
+                            ->enum(TitleType::class)
                             ->options(TitleType::class)
                             ->default(TitleType::INCONNU)
                             ->required(),
@@ -70,14 +71,17 @@ class TitleResource extends Resource
                             ->maxLength(512),
                         Forms\Components\Select::make('is_genre')
                             ->label('Appartenance au genre')
+                            ->enum(GenreAppartenance::class)
                             ->options(GenreAppartenance::class)
                             ->required(),
                         Forms\Components\Select::make('genre_stat')
                             ->label('Genre général pour les stats')
+                            ->enum(GenreStat::class)
                             ->options(GenreStat::class)
                             ->required(),
                         Forms\Components\Select::make('target_audience')
                             ->label('Public visé')
+                            ->enum(AudienceTarget::class)
                             ->options(AudienceTarget::class)
                             ->default(AudienceTarget::INCONNU)
                             ->required(),
@@ -102,6 +106,7 @@ class TitleResource extends Resource
 
                         Forms\Components\Select::make('is_novelization')
                             ->label('Novelisation ?')
+                            ->enum(IsNovelization::class)
                             ->options(IsNovelization::class)
                             ->default(IsNovelization::NON)
                             ->required(),

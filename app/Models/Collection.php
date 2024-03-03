@@ -15,6 +15,7 @@ use App\Enums\CollectionCible;
 use App\Enums\CollectionGenre;
 use App\Enums\CollectionType;
 use App\Enums\QualityStatus;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Collection extends Model
 {
@@ -70,6 +71,14 @@ class Collection extends Model
                 ->withTimestamps()
                 ->withPivot('id', 'order','number')
                 ->orderByPivot('order', 'asc');
+    }
+
+    /**
+     * Get the collection's article.
+     */
+    public function article(): MorphOne
+    {
+        return $this->morphOne(Article::class, 'item');
     }
 
     /*

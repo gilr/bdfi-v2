@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -82,6 +83,50 @@ class User extends Authenticatable
     public function revisionable_type() {
         return "Utilisateur";
     }
+
+    public function collections()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->withTimestamps();
+    }
+    public function collections_en_cours()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->wherePivot('status', 'en_cours');
+    }
+    public function collections_quasi_ok()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->wherePivot('status', 'quasi_ok');
+    }
+    public function collections_terminees()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->wherePivot('status', 'terminee');
+    }
+    public function collections_en_pause()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->wherePivot('status', 'en_pause');
+    }
+    public function collections_cachees()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
+                    ->withPivot(['status'])
+                    ->wherePivot('status', 'cachee');
+    }
+
+    public function publications()
+    {
+        return $this->belongsToMany('App\Models\Publication', 'user_publication', 'user_id', 'publication_id')
+                    ->withTimestamps();
+    }
+
     public function hasSysAdminRole()
     {
         return $this->role->value === UserRole::SYSADMIN->value;

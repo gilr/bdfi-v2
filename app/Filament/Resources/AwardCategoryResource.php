@@ -70,9 +70,11 @@ class AwardCategoryResource extends Resource
                             ->required(),
                         Forms\Components\Select::make('type')
                             ->label('Type')
+                            ->enum(AwardCategoryType::class)
                             ->options(AwardCategoryType::class)
                             ->required(),
                         Forms\Components\Select::make('genre')
+                            ->enum(AwardCategoryGenre::class)
                             ->options(AwardCategoryGenre::class)
                             ->required(),
                         Forms\Components\TextInput::make('subgenre')

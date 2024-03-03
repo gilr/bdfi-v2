@@ -79,6 +79,7 @@ class CycleResource extends Resource
                             ->required(),
 */
                         Forms\Components\Select::make('type')
+                            ->enum(CycleType::class)
                             ->options(CycleType::class)
                             ->required(),
                         Forms\Components\Select::make('parent_id')
@@ -108,6 +109,7 @@ class CycleResource extends Resource
                             ->columnSpanFull(),
                         Forms\Components\Select::make('quality')
                             ->label('Etat d\'avancement fiche')
+                            ->enum(QualityStatus::class)
                             ->options(QualityStatus::class)
                             ->default(QualityStatus::VIDE)
                             ->required(),

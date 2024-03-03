@@ -98,23 +98,28 @@ class CollectionResource extends Resource
                         ->numeric(),
                     Forms\Components\Select::make('type')
                         ->label('Type d\'ensemble d\'ouvrages')
+                        ->enum(CollectionType::class)
                         ->options(CollectionType::class)
                         ->required(),
                     Forms\Components\Select::make('support')
                         ->label('Type de support')
+                        ->enum(CollectionSupport::class)
                         ->options(CollectionSupport::class)
                         ->required(),
                     Forms\Components\Select::make('format')
                         ->label('Format')
+                        ->enum(CollectionFormat::class)
                         ->options(CollectionFormat::class),
                     Forms\Components\TextInput::make('dimensions')
                         ->helperText('Dimension des ouvrages du groupe, en millimètres (+/- 1 mm) sous la forme "largeur x hauteur", exemple "110 x 178". Ne renseigner que si uniforme.')
                         ->maxLength(10),
                     Forms\Components\Select::make('cible')
                         ->label('Cible d\'âge')
+                        ->enum(CollectionCible::class)
                         ->options(CollectionCible::class),
                     Forms\Components\Select::make('genre')
                         ->label('Genre')
+                        ->enum(CollectionGenre::class)
                         ->options(CollectionGenre::class),
                     Forms\Components\Textarea::make('information')
                         ->label('Informations notables à afficher')
@@ -126,6 +131,7 @@ class CollectionResource extends Resource
                         ->columnSpanFull(),
                     Forms\Components\Select::make('quality')
                         ->label('Etat d\'avancement fiche')
+                        ->enum(QualityStatus::class)
                         ->options(QualityStatus::class)
                         ->default(QualityStatus::VIDE)
                         ->required(),

@@ -66,6 +66,7 @@ class PublisherResource extends Resource
                             ->searchable()
                             ->required(),
                         Forms\Components\Select::make('type')
+                            ->enum(PublisherType::class)
                             ->options(PublisherType::class)
                             ->default(PublisherType::EDITEUR)
                             ->required(),
@@ -91,6 +92,7 @@ class PublisherResource extends Resource
                             ->columnSpanFull(),
                         Forms\Components\Select::make('quality')
                             ->label('Etat d\'avancement fiche')
+                            ->enum(QualityStatus::class)
                             ->options(QualityStatus::class)
                             ->default(QualityStatus::VIDE)
                             ->required(),

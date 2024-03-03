@@ -54,6 +54,7 @@ class EventResource extends Resource
                             ->maxLength(128)
                             ->required(),
                         Forms\Components\Select::make('type')
+                            ->enum(EventType::class)
                             ->options(EventType::class)
                             ->required(),
                         Forms\Components\Toggle::make('is_confirmed')

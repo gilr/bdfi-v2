@@ -62,6 +62,7 @@ class IllustratorResource extends Resource
                             ->maxLength(512),
                         Forms\Components\Select::make('gender')
                             ->label('H/F & co')
+                            ->enum(AuthorGender::class)
                             ->options(AuthorGender::class)
                             ->default(AuthorGender::INCONNU)
                             ->required(),
@@ -74,6 +75,7 @@ class IllustratorResource extends Resource
                             ->nullable(),
                         Forms\Components\Select::make('quality')
                             ->label('Etat d\'avancement fiche')
+                            ->enum(QualityStatus::class)
                             ->options(QualityStatus::class)
                             ->default(QualityStatus::VIDE)
                             ->required(),

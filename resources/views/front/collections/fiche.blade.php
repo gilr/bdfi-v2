@@ -128,7 +128,8 @@
 </div>
 </div>
 
-@if(count($results->publications) < 21)
+
+@if((count($results->publications) < 21) && (!$results->article))
     <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
         @if(count($results->publications) != 0)
             <hr class="mx-24 my-2 border-dotted border-purple-800"/>
@@ -160,6 +161,7 @@
 
     #tab1:checked ~ .tab.content1,
     #tab2:checked ~ .tab.content2 { display: block; }
+    #tab3:checked ~ .tab.content3 { display: block; }
 
     input + label {
       border: 1px solid #999;
@@ -187,11 +189,12 @@
     <hr class="mx-24 my-2 border-dotted border-purple-800 pt-2 display:block"/>
 
     <div class='block pt-2 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
-
-    <input type="radio" name="tabs" checked="checked" id="tab1" />
-    <label for="tab1">Liste des publications</label>
-    <input type="radio" name="tabs" id="tab2" />
-    <label for="tab2">Galerie</label>
+        <input type="radio" name="tabs" checked="checked" id="tab1" />
+        <label for="tab1">Liste des publications</label>
+        <input type="radio" name="tabs" id="tab2" />
+        <label for="tab2">Galerie</label>
+        <input type="radio" name="tabs" id="tab3" />
+        <label for="tab3">Article</label>
 
         <div class="tab content1 text-base">
             @include ('front.collections.include.publications')
@@ -199,7 +202,12 @@
 
         <div class="tab content2 text-base">
             @include ('front.collections.include.gallery')
-       </div>
+        </div>
 
+        @if($results->article)
+            <div class="tab content3 text-base">
+                {!! $results->article->content !!}
+            </div>
+        @endif
     </div>
 @endif

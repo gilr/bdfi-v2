@@ -50,6 +50,7 @@ class AnnouncementResource extends Resource
                 Section::make()
                     ->schema([
                         Forms\Components\Select::make('type')
+                            ->enum(AnnouncementType::class)
                             ->options(AnnouncementType::class)
                             ->required(),
                         Forms\Components\DatePicker::make('date')

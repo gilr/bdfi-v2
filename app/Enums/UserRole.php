@@ -4,20 +4,22 @@ namespace App\Enums;
 use Filament\Support\Contracts\HasLabel;
 
 enum UserRole: string implements HasLabel {
-    case USER     = 'user';
-    case GUEST    = 'guest';
-    case MEMBER   = 'member';
-    case ADMIN    = 'admin';
-    case SYSADMIN = 'sysadmin';
+    case USER      = 'user';
+    case GUEST     = 'guest';
+    case PROPONENT = 'proponent';
+    case MEMBER    = 'member';
+    case ADMIN     = 'admin';
+    case SYSADMIN  = 'sysadmin';
 
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::USER      => 'Utilisateur',
-            self::GUEST     => 'Invité',
-            self::MEMBER    => 'Membre',
-            self::ADMIN     => 'Administrateur',
-            self::SYSADMIN  => 'Administrateur système',
+            self::USER       => 'Utilisateur',
+            self::GUEST      => 'Invité',
+            self::PROPOSENT  => 'Proposant',
+            self::MEMBER     => 'Membre',
+            self::ADMIN      => 'Administrateur',
+            self::SYSADMIN   => 'Administrateur système',
         };
     }
 }

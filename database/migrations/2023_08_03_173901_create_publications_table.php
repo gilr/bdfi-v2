@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('status')->default('paru');
+                // Enum PublicationStatus PUBLIE ('paru'), ANNONCE ('annonce'), PROPOSE ('proposal'), ABANDONNE ('abandon')
+
             $table->string('cycle', 128)->nullable();
             $table->string('cyclenum', 10)->nullable();
 

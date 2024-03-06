@@ -9,7 +9,7 @@
             <li> Des formulaire de création rapide : ouvrage à paraître par exemple</li>
             <li> Des outils de détections d'erreurs potentielles : les rapports</li>
             <li> Des aides diverses, des rappels, la récupération des sauvegardes des tables</li>
-            <li> Pour l'accès à la gestion fine des tables, voir le menu du haut ou <x-admin.link lien='/filament'>Gestion des tables (FILAMENT)</x-admin.link></li>
+            <li> Pour l'accès à la gestion fine des tables au travers des menus Filament, voir le menu du haut ou <x-admin.link lien='/filament'>Gestion des tables</x-admin.link></li>
         </ul>
     </div>
 </div>
@@ -23,8 +23,33 @@
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                A venir !
+                Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" pour la liste complète.
             </div>
+
+            <a href="admin/rapports/dates-bizarres">
+                <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
+                    Ajouter un ouvrage paru
+                    <div class="ml-1 text-indigo-500">
+                        <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </div>
+                </div>
+            </a>
+            <a href="admin/rapports/dates-bizarres">
+                <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
+                    Ajouter un ouvrage à paraître
+                    <div class="ml-1 text-indigo-500">
+                        <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </div>
+                </div>
+            </a>
+            <a href="admin/rapports/dates-bizarres">
+                <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
+                    Proposer l'ajout d'une publication non référencée
+                    <div class="ml-1 text-indigo-500">
+                        <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -36,7 +61,7 @@
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                Ensemble de pages listant des éléments potentiellement érronés ou à compléter. Quelques exemples ci-dessous, passer par le menu rapports pour la liste complète.
+                Ensemble de pages listant des éléments potentiellement érronés ou à compléter. Passer par le menu "rapports" pour la liste complète.
             </div>
 
             <a href="admin/rapports/dates-bizarres">

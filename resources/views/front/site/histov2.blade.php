@@ -18,7 +18,11 @@
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
-            <li>Réinstallation sous Git avec stockage sur github</li>
+            <li>Réinstallation sous Git avec stockage github</li>
+            <li>Ajout d'un "compte" utilisateur et de quelques préférences (format date, nombre d'items par page)</li>
+            <li>Ajout de la possibilité d'avoir un article approfondi pour certaines collections (pourra être étendu plus tard à d'autres types de fiches)</li>
+            <li>Ajout statut pour les publication (paru, annoncé, jamais paru, proposition)</li>
+            <li>Ebauche de gestion de bibliothèque/collection personnelle</li>
         </ul>
     </div>
 

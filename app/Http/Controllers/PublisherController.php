@@ -166,7 +166,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.formulaires.creer_editeur');
     }
 
     /**
@@ -177,7 +177,7 @@ class PublisherController extends Controller
      */
     public function store(StorePublisherRequest $request)
     {
-        //
+        // A FAIRE
     }
 
     /**

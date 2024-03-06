@@ -68,6 +68,31 @@ class Collection extends Model
     public function publications()
     {
         return $this->belongsToMany('App\Models\Publication')
+                ->where('status', 'paru')
+                ->withTimestamps()
+                ->withPivot('id', 'order','number')
+                ->orderByPivot('order', 'asc');
+    }
+    public function publication_announced()
+    {
+        return $this->belongsToMany('App\Models\Publication')
+                ->where('status', 'annonce')
+                ->withTimestamps()
+                ->withPivot('id', 'order','number')
+                ->orderByPivot('order', 'asc');
+    }
+    public function publication_proposals()
+    {
+        return $this->belongsToMany('App\Models\Publication')
+                ->where('status', 'proposal')
+                ->withTimestamps()
+                ->withPivot('id', 'order','number')
+                ->orderByPivot('order', 'asc');
+    }
+    public function publication_abandonned()
+    {
+        return $this->belongsToMany('App\Models\Publication')
+                ->where('status', 'abandon')
                 ->withTimestamps()
                 ->withPivot('id', 'order','number')
                 ->orderByPivot('order', 'asc');

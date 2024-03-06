@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use App\Enums\TitleType;
+use Illuminate\Support\Number;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Number::useLocale('fr');
+
         // TODO si on peut trouver mieux (secure ?)
         Model::unguard();
 

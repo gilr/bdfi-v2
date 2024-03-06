@@ -14,6 +14,7 @@ use App\Enums\PublicationFormat;
 use App\Enums\GenreAppartenance;
 use App\Enums\GenreStat;
 use App\Enums\AudienceTarget;
+use App\Enums\PublicationStatus;
 
 class Publication extends Model
 {
@@ -29,6 +30,7 @@ class Publication extends Model
         'is_genre' => GenreAppartenance::class,
         'genre_stat' => GenreStat::class,
         'target_audience' => AudienceTarget::class,
+        'status' => PublicationStatus::class,
     ];
 
     protected $revisionEnabled = true;

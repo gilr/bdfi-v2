@@ -40,4 +40,12 @@ class CollectionPolicy
     {
         return $user->hasSysAdminRole();
     }
+
+/*  Pas besoin, traité dans le StoreCollectionRequest
+    public function store(User $user)
+    {
+        return true;
+        //return $user->hasMemberRole();
+    }
+*/
 }

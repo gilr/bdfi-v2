@@ -181,6 +181,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Venturecraft\Revisionable\RevisionableServiceProvider::class,
         App\Providers\Filament\AdminPanelProvider::class,
+        Spatie\Html\HtmlServiceProvider::class,
 
     ],
 

@@ -158,7 +158,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.formulaires.creer_collection');
     }
 
     /**
@@ -169,7 +169,21 @@ class CollectionController extends Controller
      */
     public function store(StoreCollectionRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        //$collection = new Collection;
+        //$collection->name = $request->name;
+        //$collection->save();
+        $collection = Collection::create([
+            'name' => $request->name,
+            'shortname' => $request->shortname,
+            'year_start' => $request->year_start,
+            'type' => $request->type,
+            'support' => $request->support,
+            'quality' => 'vide',
+        ]);
+
+        return view ('admin.formulaires.creer_collection', $this->context)->with('status', true)->with('id', $collection->id);
     }
 
     /**

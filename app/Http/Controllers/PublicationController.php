@@ -256,7 +256,27 @@ class PublicationController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.formulaires.creer_publication');
+    }
+    public function createFuture()
+    {
+        return view ('admin.formulaires.programme_parution');
+    }
+    public function propose()
+    {
+        return view ('admin.formulaires.proposer_publication');
+    }
+    public function indexProposal()
+    {
+        return view ('admin.formulaires.publications_proposees');
+    }
+    public function indexExpiredFuture()
+    {
+        return view ('admin.formulaires.programmes_echus');
+    }
+    public function indexFuture()
+    {
+        return view ('admin.formulaires.programmes_non_echus');
     }
 
     /**
@@ -267,7 +287,7 @@ class PublicationController extends Controller
      */
     public function store(StorePublicationRequest $request)
     {
-        //
+        // A FAIRE
     }
 
     /**

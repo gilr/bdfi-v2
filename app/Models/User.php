@@ -15,6 +15,7 @@ use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Wildside\Userstamps\Userstamps;
 use App\Enums\UserRole;
+use App\Enums\BiblioCollectionStatus;
 
 class User extends Authenticatable
 {
@@ -26,6 +27,7 @@ class User extends Authenticatable
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -56,7 +58,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'role' => UserRole::class
+        'role' => UserRole::class,
+        'status' => BiblioCollectionStatus::class,
     ];
 
     /**
@@ -129,43 +132,52 @@ class User extends Authenticatable
 
     public function hasSysAdminRole()
     {
-        return $this->role->value === UserRole::SYSADMIN->value;
+        return $this->role === UserRole::SYSADMIN;
     }
     public function isSysAdmin()
     {
-        return $this->role->value === UserRole::SYSADMIN->value;
+        return $this->role === UserRole::SYSADMIN;
     }
 
     public function hasAdminRole()
     {
-        return (($this->role->value === UserRole::ADMIN->value) || ($this->role->value === UserRole::SYSADMIN->value));
+        return (($this->role === UserRole::ADMIN) || ($this->role === UserRole::SYSADMIN));
     }
     public function isAdmin()
     {
-        return ($this->role->value === UserRole::ADMIN->value);
+        return ($this->role === UserRole::ADMIN);
     }
 
     public function hasMemberRole()
     {
-        return (($this->role->value === UserRole::ADMIN->value) || ($this->role->value === UserRole::SYSADMIN->value) || ($this->role->value === UserRole::MEMBER->value));
+        return (($this->role === UserRole::ADMIN) || ($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::MEMBER));
     }
     public function isMember()
     {
-        return ($this->role->value === UserRole::MEMBER->value);
+        return ($this->role === UserRole::MEMBER);
+    }
+
+    public function hasProponentRole()
+    {
+        return (($this->role === UserRole::ADMIN) || ($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::MEMBER) || ($this->role === UserRole::PROPONENT));
+    }
+    public function isProponent()
+    {
+        return ($this->role === UserRole::PROPONENT);
     }
 
     public function hasGuestRole()
     {
-        return (($this->role->value === UserRole::ADMIN->value) || ($this->role->value === UserRole::SYSADMIN->value) || ($this->role->value === UserRole::MEMBER->value) || ($this->role->value === UserRole::GUEST->value));
+        return (($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::ADMIN) || ($this->role === UserRole::MEMBER) || ($this->role === UserRole::PROPONENT) || ($this->role === UserRole::GUEST));
     }
     public function isGuest()
     {
-        return ($this->role->value === UserRole::GUEST->value);
+        return ($this->role === UserRole::GUEST);
     }
 
     public function isUser()
     {
-        return ($this->role->value === UserRole::USER->value);
+        return ($this->role === UserRole::USER);
     }
 
     /*

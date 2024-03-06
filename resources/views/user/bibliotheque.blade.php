@@ -8,7 +8,7 @@
 <div class="py-6">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+            <div class="p-6">
 @php
 $user = Auth::user()
 @endphp
@@ -21,53 +21,54 @@ $user = Auth::user()
     </div>
     @forelse ($user->collections_en_cours as $collection)
         <div class='ml-2 md:ml-8'>
-            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }}
+            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
         </div>
     @empty
-        néant
+        <span class='italic ml-2 md:ml-8'>aucune</span>
     @endforelse
     <div>
-        Collections presque OK :
+        Collections suivies et presque OK :
     </div>
     @forelse ($user->collections_quasi_ok as $collection)
         <div class='ml-2 md:ml-8'>
-            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }}
+            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
         </div>
     @empty
-        néant
+        <span class='italic ml-2 md:ml-8'>aucune</span>
     @endforelse
     <div>
-        Collections terminées :
+        Collections suivies et terminées :
     </div>
     @forelse ($user->collections_terminees as $collection)
         <div class='ml-2 md:ml-8'>
-            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }}
+            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
         </div>
     @empty
-        néant
+        <span class='italic ml-2 md:ml-8'>aucune</span>
     @endforelse
     <div>
-        Collections en pause :
+        Collections en pause (plus suivies pour l'instant) :
     </div>
     @forelse ($user->collections_en_pause as $collection)
         <div class='ml-2 md:ml-8'>
-            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }}
+            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
         </div>
     @empty
-        néant
+        <span class='italic ml-2 md:ml-8'>aucune</span>
     @endforelse
     <div>
         Collections cachées :
     </div>
     @forelse ($user->collections_cachees as $collection)
         <div class='ml-2 md:ml-8'>
-            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }}
+            {{ $collection->pivot->status }} : <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
         </div>
     @empty
-        néant
+        <span class='italic ml-2 md:ml-8'>aucune</span>
     @endforelse
 @endif
 
+            </div>
         </div>
     </div>
 </div>

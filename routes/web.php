@@ -40,6 +40,7 @@ Route::get('/auteurs/pays/{name}', [AuthorController::class, 'pays']);
 Route::get('/auteurs/{name}', [AuthorController::class, 'page']);
 
 // Zone salons et autres évènements
+// A revoir pour évènement générique, et édition particulière année X
 Route::get('/evenements', [EventController::class, 'welcome'])->name('evenements');
 Route::get('/evenements/search/', [EventController::class, 'search'])->name('evenements.search');
 Route::get('/evenements/index/{i}', [EventController::class, 'index']);       // --> Index évènement {initiale} (y compris 0 ou 9)
@@ -47,6 +48,7 @@ Route::get('/evenements/{name}', [EventController::class, 'page']);      // --> 
 // Route::get('/evenements/historique', ...);   --> Liste des évènements y compris passés
 
 // Zone ouvrages
+// Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/ouvrages', [PublicationController::class, 'welcome'])->name('ouvrages');
 Route::get('/ouvrages/search/', [PublicationController::class, 'search'])->name('ouvrages.search');
 Route::get('/ouvrages/index/{i}', [PublicationController::class, 'index']);   // --> Index ouvrages {initiale} (y compris 0 ou 9)
@@ -54,9 +56,6 @@ Route::get('/ouvrages/{name}', [PublicationController::class, 'page']);     // -
 
 // Zone retirages
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    // Accès restreint aux roles "user" (si existe)
-    // ...
-
     // Accès restreints de la zone admin :
     Route::middleware(['auth.bdfiadmin'])->group(function () {
         Route::get('/retirages', [ReprintController::class, 'welcome'])->name('retirages');
@@ -79,6 +78,7 @@ Route::get('/series/index/{i}', [CycleController::class, 'index']); // --> Index
 Route::get('/series/{name}', [CycleController::class, 'page']);    // --> Une page série avec ID (futur => => slug !)
 
 // Zone collections
+// Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/collections', [CollectionController::class, 'welcome'])->name('collections');
 Route::get('/collections/search/', [CollectionController::class, 'search'])->name('collections.search');
 Route::get('/collections/index/{i}', [CollectionController::class, 'index']);       // --> Index collections {initiale} (y compris 0 ou 9)
@@ -87,6 +87,7 @@ Route::get('/collections/{name}', [CollectionController::class, 'page']);      /
 // Route::get('/collections/{*}', [CollectionController::class, 'welcome'])->name('collections');
 
 // Zone éditeurs
+// Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/editeurs', [PublisherController::class, 'welcome'])->name('editeurs');
 Route::get('/editeurs/search/', [PublisherController::class, 'search'])->name('editeurs.search');
 Route::get('/editeurs/index/{i}', [PublisherController::class, 'index']);   // --> Index éditeurs {initiale} (y compris 0 ou 9)
@@ -123,14 +124,34 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Accès restreint aux utilisateurs connectés - Roles "user" et tout type d'admin (y compris "visitor")
     Route::get('/user', function () { return view('user/welcome'); })->name('user');
     Route::get('/user/preferences', function () { return view('user/preferences'); })->name('preferences.show');
-    Route::post('/user/preferences', [UserController::class, 'storepref']);
+    Route::post('/user/preferences', [UserController::class, 'storePreferences']);
     Route::get('/user/bibliotheque', function () { return view('user/bibliotheque'); })->name('user/bibliotheque');
 
     Route::middleware('auth.bdfiadmin')->group(function () {
         // Accès restreints de la zone admin (y compris visitor - les restrictions sont au niveau filament & admin) :
         Route::get('/admin', function () { return view('admin/welcome'); })->name('admin');
 
+        // Create et store supplémentaires à Filament pour actions "rapides"
         Route::get('/admin/formulaires', [FormController::class, 'index'])->name('admin/formulaires');
+        Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
+        Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
+        Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
+        Route::post('/admin/formulaires/ajout-collection', [CollectionController::class, 'store']);
+        Route::get('/admin/formulaires/ajout-publication', [PublicationController::class, 'create']);
+        Route::get('/admin/formulaires/programme-parution', [PublicationController::class, 'createFuture']);
+        Route::get('/admin/formulaires/proposer-publication', [PublicationController::class, 'propose']);
+        // les 3 publis sont des store classiques :
+        Route::post('/admin/formulaires/ajout-publication', [PublicationController::class, 'store']);
+        Route::post('/admin/formulaires/programme-parution', [PublicationController::class, 'store']);
+        Route::post('/admin/formulaires/proposer-publication', [PublicationController::class, 'store']);
+        // Mais aussi les autres actions comme validation et confirmation
+        Route::get('/admin/formulaires/publications-proposees', [PublicationController::class, 'indexProposal']);
+        Route::get('/admin/formulaires/programmes-echus', [PublicationController::class, 'indexExpiredFuture']);
+        Route::get('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'indexFuture']);
+        // plus les put pour valider/confirmer unitairement...
+        Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
+        Route::put('/admin/formulaires/programmes-echus', [PublicationController::class, 'updateExpiredFuture']);
+        Route::put('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'updateFuture']);
 
         Route::get('/admin/rapports', [ReportController::class, 'index'])->name('admin/rapports');
         Route::get('/admin/rapports/dates-bizarres', [ReportController::class, 'getStrangeDates']);

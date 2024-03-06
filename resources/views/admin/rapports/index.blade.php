@@ -37,7 +37,8 @@
                         <ul class="list-disc pl-4">
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 3 }}'>Manquants avant {{ date("Y") - 3 }} (ou prix arrété non indiqué)</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 2 }}'>Manquants en {{ date("Y") - 2 }} ou avant</x-admin.link></li>
-                            <li><x-admin.link lien='rapports/prix-{{ date("Y") - 1 }}'>Manquants en {{ date("Y") - 1 }} ou avant</x-admin.link></li>                        </ul>
+                            <li><x-admin.link lien='rapports/prix-{{ date("Y") - 1 }}'>Manquants en {{ date("Y") - 1 }} ou avant</x-admin.link></li>
+                        </ul>
                     </div>
                 </div>
             </div>

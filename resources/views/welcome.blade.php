@@ -77,6 +77,7 @@
             Les comptes utilisables avec accès administration sont :<br />
             <ul class="list-disc pl-12">
                 <li><span class="font-bold text-blue-800">visitor@bdfi.net</span> : ne permet aucune modification</li>
+                <li><span class="font-bold text-blue-800">proposant@bdfi.net</span> : permet de demander un ajout</li>
                 <li><span class="font-bold text-blue-800">editor@bdfi.net</span>, <span class="font-bold text-blue-800">editor2@bdfi.net</span> et <span class="font-bold text-blue-800">editor3@bdfi.net</span> : gestion des tables biblios</li>
                 <li><span class="font-bold text-blue-800">admin@bdfi.net</span>, <span class="font-bold text-blue-800">admin2@bdfi.net</span> et <span class="font-bold text-blue-800">admin3@bdfi.net</span> : quelques droits supplémentaires</li>
                 <li><span class="font-bold text-blue-800">sysadmin@bdfi.net</span> : pas de limitations (sauf si pas de sens)</li>

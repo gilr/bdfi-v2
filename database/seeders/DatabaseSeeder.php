@@ -162,6 +162,19 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'name'     => 'proposant',
+            'role'     => UserRole::PROPONENT->value,
+            'email'    => 'proposant@bdfi.net',
+            'password' => Hash::make('password'),
+            'format_date'  => 'clair',
+            'created_at'   => today(),
+            'updated_at'   => today(),
+            'deleted_at'   => NULL,
+            'created_by'   => 1,
+            'updated_by'   => 1,
+            'deleted_by'   => NULL
+        ]);
+        DB::table('users')->insert([
             'name'     => 'visitor',
             'role'     => UserRole::GUEST->value,
             'email'    => 'visitor@bdfi.net',

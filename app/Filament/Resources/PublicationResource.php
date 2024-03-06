@@ -21,9 +21,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Support\HtmlString;
 use App\Enums\PublicationContent;
 use App\Enums\PublicationSupport;
+use App\Enums\PublicationStatus;
 use App\Enums\PublicationFormat;
 use App\Enums\GenreAppartenance;
 use App\Enums\GenreStat;
@@ -66,6 +69,12 @@ class PublicationResource extends Resource
                     ->badge('!')
                     ->schema([
                         // Forms
+                        Forms\Components\Select::make('status')
+                            ->label('Etat de publication')
+                            ->enum(PublicationStatus::class)
+                            ->options(PublicationStatus::class)
+                            ->default(PublicationStatus::PUBLIE)
+                            ->required(),
                         Forms\Components\TextInput::make('name')
                             ->label('Titre de l\'ouvrage')
                             ->helperText('Titre indiqué en page titre intérieure (et non en couverture - Si différent, utiliser le champ "autres titres" pour le titre de couverture, dos, quatrième... Les titres, sous-titres, collections sont séparés par des tirets, exemple "Titre - Sous-titre".')
@@ -428,6 +437,9 @@ class PublicationResource extends Resource
                     ->sortable(),
             ])
             ->filters([
+                SelectFilter::make('status')
+                    ->label('Etat de publication')
+                    ->options(PublicationStatus::class),
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([

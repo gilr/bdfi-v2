@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function storepref(Request $request)
+    public function storePreferences(Request $request)
     {
         $user = Auth::user();
 

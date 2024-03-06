@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\CollectionType;
+use App\Enums\CollectionSupport;
+use Illuminate\Validation\Rule;
 
 class StoreCollectionRequest extends FormRequest
 {
@@ -13,7 +16,7 @@ class StoreCollectionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->hasMemberRole();
     }
 
     /**
@@ -24,7 +27,12 @@ class StoreCollectionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => 'required|max:128',
+            'shortname'     => 'required|max:128',
+            'year_start'    => 'required|numeric',
+            'type'          => [Rule::enum(CollectionType::class)],
+            'support'       => [Rule::enum(CollectionSupport::class)
+            ]
         ];
     }
 }

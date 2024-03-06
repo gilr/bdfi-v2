@@ -20,8 +20,24 @@ class StorePublicationRequest extends FormRequest
      */
     public function authorize()
     {
-        // TO DO : Attention, si même action, il faut checker la vue de provenance
-        return $this->user()->hasMemberRole();
+        // Attention, check de la vue de provenance et/ou de l'action demandée
+        if ($this->publication_status === PublicationStatus::PUBLIE->value)
+        {
+            return $this->user()->hasMemberRole();
+        }
+        else if ($this->publication_status === PublicationStatus::ANNONCE->value)
+        {
+            return $this->user()->hasMemberRole();
+        }
+        else if ($this->publication_status === PublicationStatus::PROPOSE->value)
+        {
+            return $this->user()->hasProponentRole();
+        }
+        else
+        {
+            // Strange ?!
+            return false;
+        }
     }
 
     /**

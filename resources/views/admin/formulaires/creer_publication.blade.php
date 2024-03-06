@@ -126,6 +126,7 @@
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Les autres informations pourront être renseignées sur la page filament après création.
+                {{ html()->hidden($name = "private", $value="") }}
             </div>
             <div class="p-2 text-xl border-yellow-800">
                 {{ html()->submit($text = "Créer la publication")->class("bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2") }}

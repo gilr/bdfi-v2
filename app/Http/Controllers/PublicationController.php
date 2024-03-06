@@ -269,15 +269,42 @@ class PublicationController extends Controller
     }
     public function indexProposal()
     {
-        return view ('admin.formulaires.publications_proposees');
+        $results = Publication::where('status', PublicationStatus::PROPOSE->value)
+                ->orderBy('created_at', 'desc')
+                ->get();
+        return view ('admin.formulaires.publications_proposees', compact('results'));
     }
     public function indexExpiredFuture()
     {
-        return view ('admin.formulaires.programmes_echus');
+        $today = date("Y-m-d");
+        // dd($today);
+        $results = Publication::where('status', PublicationStatus::ANNONCE->value)
+                ->where('approximate_parution', '<=', $today)
+                ->orderBy('approximate_parution', 'desc')
+                ->get();
+        return view ('admin.formulaires.programmes_echus', compact('results'));
     }
     public function indexFuture()
     {
-        return view ('admin.formulaires.programmes_non_echus');
+        $today = date("Y-m-d");
+        $results = Publication::where('status', PublicationStatus::ANNONCE->value)
+                ->where('approximate_parution', '>=', $today)
+                ->orderBy('approximate_parution', 'asc')
+                ->get();
+
+        return view ('admin.formulaires.programmes_non_echus', compact('results'));
+    }
+    public function validateProposal()
+    {
+        //Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
+    }
+    public function updateExpiredFuture()
+    {
+        //Route::put('/admin/formulaires/programmes-echus', [PublicationController::class, 'updateExpiredFuture']);
+    }
+    public function updateFuture()
+    {
+        //Route::put('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'updateFuture']);
     }
 
     /**
@@ -301,7 +328,7 @@ class PublicationController extends Controller
             'target_audience' => $request->target_audience,
             'isbn' => $request->isbn,
             'is_verified' => false,
-//            'quality' => 'vide',
+            'private' => $request->private,
         ]);
 
         // Trier en fonction de la provenance pour ré-aiguiller sur la bonne page

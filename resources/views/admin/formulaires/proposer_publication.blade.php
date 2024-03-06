@@ -28,10 +28,10 @@
             @if (isset($status))
                 <div class="p-2">
                     <div class="p-2 text-xl border-b border-green-800 bg-green-100">
-                        Proposition faite !
+                        Proposition faite, merci !
                     </div>
                     <div class="p-2">
-                        Les administrateurs vont être prévenus, la proposition d'ajout sera étudiée.<br />
+                        Les administrateurs vont être prévenus et la proposition d'ajout sera étudiée.<br />
                     </div>
                     <div class="p-2 bg-green-100">
                         Vous pouvez en proposer un autre :
@@ -42,7 +42,7 @@
     </div>
     <div">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{ html()->form('POST', '/admin/formulaires/ajout-publication')->open() }}
+            {{ html()->form('POST', '/admin/formulaires/proposer-publication')->open() }}
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Etat de parution :
                 {{ html()->select($name = "publication_status")->class("m-2 p-2 border-dotted bg-gray-300 text-gray-500")->disabled()->open() }}
@@ -101,14 +101,6 @@
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach
                 {{ html()->select($name = "genre_stat")->close() }}
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                Public cible :
-                {{ html()->select($name = "target_audience")->class("m-2 bg-yellow-100")->open() }}
-                @foreach (App\Enums\AudienceTarget::cases() as $type)
-                    {{ html()->option($text = $type->getLabel(), $value = $type->value) }}
-                @endforeach
-                {{ html()->select($name = "target_audience")->close() }}
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Public cible :

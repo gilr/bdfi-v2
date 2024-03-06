@@ -125,6 +125,7 @@
                 Couverture à rabat : {{ html()->checkbox($name = "has_coverflaps", $checked = false, $value = '0')->class("m-2 bg-yellow-200 font-mono") }}
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                {{ html()->hidden($name = "private", $value="") }}
                 Les autres informations pourront être renseignées sur la page filament après création.
             </div>
             <div class="p-2 text-xl border-yellow-800">

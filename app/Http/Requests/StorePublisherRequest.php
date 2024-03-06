@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\PublisherType;
+use Illuminate\Validation\Rule;
 
 class StorePublisherRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class StorePublisherRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->hasMemberRole();
     }
 
     /**
@@ -24,7 +26,11 @@ class StorePublisherRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => 'required|max:128',
+            'year_start'    => 'required|numeric',
+            'pays'          => Rule::in(['France', 'Canada', 'Suisse', 'Belgique', 'Luxembourg']),
+            'type'          => [Rule::enum(PublisherType::class)],
+            'alt_names'     => 'max:512',
         ];
     }
 }

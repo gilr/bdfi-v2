@@ -7,6 +7,7 @@ use App\Http\Requests\StorePublisherRequest;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Publisher;
+use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 
 class PublisherController extends Controller
@@ -177,7 +178,30 @@ class PublisherController extends Controller
      */
     public function store(StorePublisherRequest $request)
     {
-        // A FAIRE
+        $validated = $request->validated();
+        $liste_pays = [
+            'France' => Country::select('id')->where('name', 'France')->get(),
+            'Canada' => Country::select('id')->where('name', 'canada')->get(),
+            'Suisse' => Country::select('id')->where('name', 'Suisse')->get(),
+            'Belgique' => Country::select('id')->where('name', 'Belgique')->get(),
+            'Luxembourg' => Country::select('id')->where('name', 'Luxembourg')->get()
+        ];
+
+
+        $pays = $liste_pays["$request->pays"];
+        //$collection = new Collection;
+        //$collection->name = $request->name;
+        //$collection->save();
+        $editeur = Publisher::create([
+            'name' => $request->name,
+            'alt_names' => $request->alt_names,
+            'year_start' => $request->year_start,
+            'type' => $request->type,
+            'country_id' => $pays[0]['id'],
+            'quality' => 'vide',
+        ]);
+
+        return view ('admin.formulaires.creer_editeur', $this->context)->with('status', true)->with('id', $editeur->id);
     }
 
     /**

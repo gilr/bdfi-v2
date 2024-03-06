@@ -31,8 +31,7 @@ class StoreCollectionRequest extends FormRequest
             'shortname'     => 'required|max:128',
             'year_start'    => 'required|numeric',
             'type'          => [Rule::enum(CollectionType::class)],
-            'support'       => [Rule::enum(CollectionSupport::class)
-            ]
+            'support'       => [Rule::enum(CollectionSupport::class)]
         ];
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Collection;
 use Illuminate\Support\Facades\Auth;
+use App\Enums\PublicationStatus;
 
 class PublicationController extends Controller
 {
@@ -287,7 +288,41 @@ class PublicationController extends Controller
      */
     public function store(StorePublicationRequest $request)
     {
-        // A FAIRE
+
+        $validated = $request->validated();
+        $publication = Publication::create([
+            'status' => $request->publication_status,
+            'name' => $request->name,
+            'type' => $request->type,
+            'support' => $request->support,
+            'approximate_parution' => $request->approximate_parution,
+            'is_genre' => $request->is_genre,
+            'genre_stat' => $request->genre_stat,
+            'target_audience' => $request->target_audience,
+            'isbn' => $request->isbn,
+            'is_verified' => false,
+//            'quality' => 'vide',
+        ]);
+
+        // Trier en fonction de la provenance pour ré-aiguiller sur la bonne page
+        if ($request->publication_status === PublicationStatus::PUBLIE->value)
+        {
+            return view ('admin.formulaires.creer_publication', $this->context)->with('status', true)->with('id', $publication->id);
+        }
+        else if ($request->publication_status === PublicationStatus::ANNONCE->value)
+        {
+            return view ('admin.formulaires.programme_parution', $this->context)->with('status', true)->with('id', $publication->id);
+        }
+        else if ($request->publication_status === PublicationStatus::PROPOSE->value)
+        {
+            return view ('admin.formulaires.proposer_publication', $this->context)->with('status', true)->with('id', $publication->id);
+        }
+        else
+        {
+            // Strange ?!
+            return view ('admin.formulaires.index');
+        }
+
     }
 
     /**

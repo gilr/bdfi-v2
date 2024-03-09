@@ -11,7 +11,7 @@
 
     <div class='text-base p-4 m-4 bg-sky-100 self-center border border-blue-400'>
         <span class="font-bold text-slate-600">/!\ Version de test BDFI</span>. Pour les informations de test, voir un peu plus bas.
-        <br />L'historique du développement en cours a été déplacée sur la page des <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>versions V2</a>. Vous pouvez aussi consulter <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> (doc Google). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées. On peut néanmoins y trouver :
+        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> (le <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> n'est plus maintenu). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées. On peut néanmoins y trouver :
         <ul class="list-disc pl-4 ml-4">
             <li>Des listes d'ouvrages vérifiées (au moins partiellement) : collections 'Dimensions SF' et 'Fantasy' de l'éditeur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/calmann-lévy'>Calmann-Levy</a>, 'Epées et Dragons', 'Super Fiction' et 'Super + Fiction' de <a class='text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/albin%20michel'>Albin Michel</a>, plusieurs mini-collections (Shadowrun, Tomb Raider, Titan AE, Thraxas, Vampires, Virtuel et Wacraft) ainsi que les Thriller Fantastique chez <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/fleuve%20noir'>Fleuve Noir</a>, les collections <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/payot%20sf'>Payot SF</a>, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/millénaires'>J'ai Lu Millénaires</a>, les ouvrages de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/argyll'>Argyll</a>, ainsi que les Folio Fantasy, Rivages fantasy, et Alire Grand Format.</li>
             <li>D'autres collections non vérifiées, ajoutées afin d'augmenter un peu la taille des biblios et séries, et de voir l'impact de collections de 100, 200 ou 300 ouvrages : Le Masque fantastique (rouge et noir), le Masque SF, Galaxie bis, les différentes éditions "Dumarest", et la collection Angoisse Fleuve noir.
@@ -22,43 +22,66 @@
 
         <br />Sont envisagés - à priori - pour la prochaine release :
         <ul class="list-disc pl-4 ml-4">
-            <li>Tests et adaptations de pages biblios de pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent</li>
-            <li>Ajout de la gestion des ouvrages "à paraître"</li>
-            <li>Première mouture d'une gestion de bibliothèque pour les inscrits</li>
-            <li>Création de quelques interfaces d'admin "conviviales", parmi : création publi, création éditeur, création collection, clone publi...</li>
-            <li>Voir comment gérer les traducteurs, les illustrateurs</li>
-            <li>La suite des tests et corrections de l'administration classique</li>
+            <li>(données en base) Ajout de collections supplémentaires et gestion des "vrais" auteurs</li>
+            <li>Finaliser la gestion des pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent</li>
+            <li>Voir comment gérer les traducteurs et les illustrateurs</li>
+            <li>Tests approfondis et corrections (site, administration classique)</li>
     </div>
 
     <div class='text-base p-4 m-4 self-center border border-orange-400'>
         Le site BDFI (Base de Données Francophone de l'Imaginaire)  est consacré aux parutions et traductions francophones de l'imaginaire (science-fiction, fantastique, horreur, fantasy...). Il présente les bibliographies de plus de 16 000 auteurs, les éditeurs, les collections, les cycles, les principaux prix français et étrangers, ainsi que les évènements littéraires francophones associés à ces domaines de l'imaginaire.
         Visitez également nos forums et n'hésitez pas à participer !
     </div>
-    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 text-sm m-4 self-center'>
+
+    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-1 text-sm m-4 self-center'>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold'>Anniversaires de naissance</div>
+            @foreach($births as $auteur)
+                <div>{{ substr($auteur->birth_date, 0, 4) }} :
+                    <x-front.lien-auteur link='/auteurs/{{ $auteur->id }}'>{{ $auteur->first_name }} {{ $auteur->name }}</x-front.lien-auteur>
+                    @if (substr($auteur->date_death, 0, 4) !== '0000')
+                        (&dagger; {{ substr($auteur->date_death, 0, 4) }})
+                    @endif
+                </div>
+            @endforeach
+        </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Programmes et parutions</div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold'>Dernières publications ajoutées</div>
+            @foreach($created as $result)
+                <div>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                </div>
+            @endforeach
+        </div>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold'>Auteurs décédés ce jour</div>
+            @foreach($deaths as $auteur)
+                <div>{{ substr($auteur->birth_date, 0, 4) }}-{{ substr($auteur->date_death, 0, 4) }} :
+                    <x-front.lien-auteur link='/auteurs/{{ $auteur->id }}'>{{ $auteur->first_name }} {{ $auteur->name }}</x-front.lien-auteur>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 text-sm m-4 self-center'>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Annonces</div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Dernières mises à jour</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
-        </div>
-    </div>
-    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 text-sm m-4 self-center'>
-        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Anniversaires de naissance</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
+            <div class='text-center font-bold'>Dernières publications mises à jour</div>
+            @foreach($updated as $result)
+                <div>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                </div>
+            @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Dernières discussions forum</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
-        </div>
-        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Auteurs décédés ce jour</div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
         </div>
     </div>

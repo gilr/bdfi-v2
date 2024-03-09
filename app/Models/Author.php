@@ -11,6 +11,7 @@ use Wildside\Userstamps\Userstamps;
 use App\Enums\AuthorGender;
 use App\Enums\QualityStatus;
 use App\Enums\TitleType;
+use DB;
 
 
 class Author extends Model
@@ -226,6 +227,30 @@ class Author extends Model
     public function getInverseRelationsCountAttribute()
     {
         return $this->inverserelations()->count();
+    }
+
+    /*
+     * autres Fonctions publices
+    */
+    public static function getBirthsOfDay()
+    {
+        $today = date("-m-d");
+
+        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            SUBSTR(birth_date,5,6) = '$today'
+            ORDER BY birth_date");
+
+        return $auteurs;;
+    }
+    public static function getDeathsOfDay()
+    {
+        $today = date("-m-d");
+
+        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            SUBSTR(date_death,5,6) = '$today'
+            ORDER BY date_death");
+
+        return $auteurs;;
     }
 
 

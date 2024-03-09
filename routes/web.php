@@ -29,7 +29,16 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/', function () { return view('welcome', ['area'  => '', 'title'  => '', 'page'  => '']); })->name('welcome');
+Route::get('/', function () {
+    $births= App\Models\Author::getBirthsOfDay();
+    $deaths = App\Models\Author::getDeathsOfDay();
+    $updated = App\Models\Publication::orderBy('updated_at', 'desc')->limit(15)->get();
+    $created = App\Models\Publication::where('status', '<>', 'propose')->orderBy('created_at', 'desc')->limit(15)->get();
+    $area = '';
+    $title = '';
+    $page = '';
+    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'area', 'title', 'page'));
+})->name('welcome');
 
 // Zone Auteurs
 Route::get('/auteurs', [AuthorController::class, 'welcome'])->name('auteurs');

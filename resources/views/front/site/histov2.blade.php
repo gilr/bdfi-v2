@@ -14,15 +14,18 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 6 - ../../2024
+        Version V2 bêta 6 - 16/03/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
             <li>Réinstallation sous Git avec stockage github</li>
-            <li>Ajout d'un "compte" utilisateur et de quelques préférences (format date, nombre d'items par page)</li>
+            <li>Ajout d'un "compte" utilisateur et de quelques préférences (format date, nombre d'items par page, gestion collection)</li>
             <li>Ajout de la possibilité d'avoir un article approfondi pour certaines collections (pourra être étendu plus tard à d'autres types de fiches)</li>
             <li>Ajout statut pour les publication (paru, annoncé, jamais paru, proposition)</li>
-            <li>Ebauche de gestion de bibliothèque/collection personnelle</li>
+            <li>... et donc prise en compte des ouvrages annoncés non encore parus</li>
+            <li>... et ajout d'un rôle membre "proposant"</li>
+            <li>Une première mouture de la gestion de collection/bibliothèque personnelle</li>
+            <li>Ajout en page d'accueil des auteurs nés et décédés ce jour, et des dernières publications crées et modifiées</li>
         </ul>
     </div>
 

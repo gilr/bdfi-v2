@@ -100,6 +100,7 @@ class Author extends Model
     public function publications()
     {
         return $this->belongsToMany('App\Models\Publication')
+                    ->where('status', 'paru')
                     ->withPivot(['id', 'role'])
                     ->withTimestamps()
                     ->using('App\Models\AuthorPublication');

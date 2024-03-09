@@ -126,6 +126,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/preferences', function () { return view('user/preferences'); })->name('preferences.show');
     Route::post('/user/preferences', [UserController::class, 'storePreferences']);
     Route::get('/user/bibliotheque', function () { return view('user/bibliotheque'); })->name('user/bibliotheque');
+    Route::get('/user/gestion-biblio', function () { return view('user/gestionbiblio'); });
+    Route::post('/user/ajouter-collection', [UserController::class, 'addBiblioCollection']);
+    Route::post('/user/modifier-collection', [UserController::class, 'updateBiblioCollection']);
+    Route::post('/user/retirer-collection', [UserController::class, 'removeBiblioCollection']);
 
     Route::middleware('auth.bdfiadmin')->group(function () {
         // Accès restreints de la zone admin (y compris visitor - les restrictions sont au niveau filament & admin) :

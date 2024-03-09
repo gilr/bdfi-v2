@@ -10,6 +10,7 @@ use App\Models\Publication;
 use App\Models\Collection;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\PublicationStatus;
+use App\Enums\PublicationFormat;
 
 class PublicationController extends Controller
 {
@@ -329,6 +330,7 @@ class PublicationController extends Controller
             'isbn' => $request->isbn,
             'is_verified' => false,
             'private' => $request->private,
+            'format' => PublicationFormat::INCONNU->value,
         ]);
 
         // Trier en fonction de la provenance pour ré-aiguiller sur la bonne page

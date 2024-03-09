@@ -1,6 +1,18 @@
-<div class='grid grid-cols-1 lg:grid-cols-2 gap-1 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
+@auth
+@php
+    $suivie = auth()->user() && (auth()->user()->statusCollection($results->id)) && (auth()->user()->statusCollection($results->id) != 'cachee');
+@endphp
+<span class='text-lg mb-8 self-center'>
+    @if ($suivie)
+        <span class='bg-green-200 shadow-sm shadow-gray-400 rounded-sm px-1'>Collection suivie,
+    {{ auth()->user()->statusCollection($results->id) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)</span>
+    @endif
+@endauth
+</span>
 
-<div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+
+<div class='grid grid-cols-1 lg:grid-cols-2 gap-1 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
+ <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
          {{ $results->name }}
     </div>

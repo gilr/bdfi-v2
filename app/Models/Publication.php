@@ -80,9 +80,19 @@ class Publication extends Model
     */
     public function fullName(): Attribute
     {
-        return Attribute::make(
-            get: fn($value) => $this->name . " (" . $this->publisher->name . ")",
-        );
+        if (isset($this->publisher))
+        {
+            return Attribute::make(
+                get: fn($value) => $this->name . " (" . $this->publisher->name . ")",
+            );
+        }
+        else
+        {
+            return Attribute::make(
+                get: fn($value) => $this->name . " (éditeur inconnu)",
+            );
+
+        }
     }
 
     public function recordName(): Attribute

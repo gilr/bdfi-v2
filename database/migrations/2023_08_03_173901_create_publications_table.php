@@ -69,7 +69,7 @@ return new class extends Migration
             $table->string('approximate_price', 32)->nullable();
 
             $table->string('support'); // Enum PublicationSupport ['papier', 'numerique', 'audio', 'autre']
-            $table->string('format')->nullable(); // Enum PublicationFormat ['poche', 'moyen format', 'grand format', 'autre', 'n/a']
+            $table->string('format')->nullable(); // Enum PublicationFormat ['poche', 'moyen format', 'grand format', 'autre', 'n/a', 'inconnu']
             $table->string('type'); // Enum PublicationType // ['fiction', 'assemblage', 'omnibus', 'revue', 'non-fiction']
 
             // Genre - thésaurus : à revoir

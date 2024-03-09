@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     public function storePreferences(Request $request)
     {
         $user = Auth::user();
@@ -55,6 +57,55 @@ class UserController extends Controller
         $user->save();
 
         return view('user.preferences');
+    }
+
+    public function addBiblioCollection(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->filled('col')) {
+            $col = $request->input('col');
+
+            // TO DO : contrôler pas d'ajout en double !!  (tuple (user, collection) unique)
+            DB::table('user_collection')->insert([
+                'status' => "en_cours", // BiblioCollectionStatus
+                'user_id' => $user->id,
+                'collection_id' => $col
+            ]);
+        }
+
+        return redirect('/user/gestion-biblio');
+    }
+    public function updateBiblioCollection(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->filled('col')) {
+            $col = $request->input('col');
+            $col_status = $request->input('col_status');
+
+            DB::table('user_collection')
+                    ->where('user_id', $user->id)
+                    ->where('collection_id', $col)
+                    ->update(['status' => $col_status]);
+        }
+
+        return redirect('/user/gestion-biblio');
+    }
+    public function removeBiblioCollection(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->filled('col')) {
+            $col = $request->input('col');
+
+            DB::table('user_collection')
+                    ->where('user_id', $user->id)
+                    ->where('collection_id', $col)
+                    ->delete();
+        }
+
+        return redirect('/user/gestion-biblio');
     }
 
 }

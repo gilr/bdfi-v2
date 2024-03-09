@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Wildside\Userstamps\Userstamps;
 use App\Enums\UserRole;
 use App\Enums\BiblioCollectionStatus;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -190,4 +192,35 @@ class User extends Authenticatable
         );
     }
 
+
+    public function statusCollection($id)
+    {
+        $user = Auth::user();
+
+        if (isset($user))
+        {
+            $status = DB::table('user_collection')
+                    ->where('user_id', $user->id)
+                    ->where('collection_id', $id)
+                    ->select('status')
+                    ->value('status');
+            return $status;
+        }
+
+        return false;
+    }
+
+    public function statusPublication($id)
+    {
+        $user = Auth::user();
+
+        if (isset($user))
+        {
+            return DB::table('user_publication')
+                    ->where('user_id', $user->id)
+                    ->where('publication_id', $id)
+                    ->exists();
+        }
+        return false;
+    }
 }

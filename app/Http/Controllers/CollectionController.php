@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCollectionRequest;
 use Illuminate\Http\Request;
 use App\Models\Collection;
 use Illuminate\Support\Facades\Auth;
+use App\Enums\QualityStatus;
 
 class CollectionController extends Controller
 {
@@ -180,7 +181,7 @@ class CollectionController extends Controller
             'year_start' => $request->year_start,
             'type' => $request->type,
             'support' => $request->support,
-            'quality' => 'vide',
+            'quality' => QualityStatus::VIDE->value,
         ]);
 
         return view ('admin.formulaires.creer_collection', $this->context)->with('status', true)->with('id', $collection->id);

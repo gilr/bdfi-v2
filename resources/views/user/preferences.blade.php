@@ -20,23 +20,23 @@
                     </div>
                     <ul class="p-2">
                         <li>
-                            <input type="radio" name="fad" value="abr" {{ Auth::user()->format_date === "abr" ? "checked" : "" }} /> Clair abrégé : <span class='font-semibold'>JJ mmmm AAAA</span>
+                            <input type="radio" name="fad" value="abr" class="bg-blue-200" {{ Auth::user()->format_date === "abr" ? "checked" : "" }} /> Clair abrégé : <span class='font-semibold'>JJ mmmm AAAA</span>
                             (<span class='hidden sm:inline'>Exemples : </span>6 sept. 1987<span class='hidden lg:inline'> ; août 2012 ; 1er trim. 2022 ; c. 1570 ; c. 200 av. J.-C.</span>)
                         </li>
                         <li>
-                            <input type="radio" name="fad" value="clair" {{ Auth::user()->format_date === "clair" ? "checked" : "" }} /> Clair complet : <span class='font-semibold'>JJ mmmmmm AAAA</span>
+                            <input type="radio" name="fad" value="clair" class="bg-blue-200" {{ Auth::user()->format_date === "clair" ? "checked" : "" }} /> Clair complet : <span class='font-semibold'>JJ mmmmmm AAAA</span>
                             (<span class='hidden sm:inline'>Exemples : </span>6 septembre 1987<span class='hidden lg:inline'> ; août 2012 ; 1er trimestre 2022 ; circa 1570 ; circa 200 avant J.-C.</span>)
                         </li>
                         <li>
-                            <input type="radio" name="fad" value="fr" {{ Auth::user()->format_date === "fr" ? "checked" : "" }} /> Abrégé : <span class='font-semibold'>J/M/AAAA</span>
+                            <input type="radio" name="fad" value="fr" class="bg-blue-200" {{ Auth::user()->format_date === "fr" ? "checked" : "" }} /> Abrégé : <span class='font-semibold'>J/M/AAAA</span>
                             (<span class='hidden sm:inline'>Exemples : </span>6/9/1987<span class='hidden lg:inline'> ; 8/2012 ; T1/2022 ; c. 1570. ; c. 200 av. J.-C.</span>)
                         </li>
                         <li>
-                            <input type="radio" name="fad" value="fru" {{ Auth::user()->format_date === "fru" ? "checked" : "" }} /> Abrégé uniforme : <span class='font-semibold'>JJ/MM/AAAA</span>
+                            <input type="radio" name="fad" value="fru" class="bg-blue-200" {{ Auth::user()->format_date === "fru" ? "checked" : "" }} /> Abrégé uniforme : <span class='font-semibold'>JJ/MM/AAAA</span>
                             (<span class='hidden sm:inline'>Exemples : </span>06/09/1987<span class='hidden lg:inline'> ; 08/2012 ; T1/2022 ; circa 1570 ; circa 200 av. J.-C.</span>)
                         </li>
                         <li>
-                            <input type="radio" name="fad" value="db" {{ Auth::user()->format_date === "db" ? "checked" : "" }} /> Interne : <span class='font-semibold'>AAAA-MM-JJ</span>
+                            <input type="radio" name="fad" value="db" class="bg-blue-200" {{ Auth::user()->format_date === "db" ? "checked" : "" }} /> Interne : <span class='font-semibold'>AAAA-MM-JJ</span>
                             (<span class='hidden sm:inline'>Exemples : </span>1987-19-06<span class='hidden lg:inline'> ; 2012-08-00 ; 2022-T1-00 ; 1570-circa ; -200-circa</span>)
                         </li>
                     </ul>
@@ -48,7 +48,7 @@
                         $tabval = [ 50, 100, 250, 500, 1000, 5000 ];
                     @endphp
                     <div class="p-2">
-                        <select name="ipp">
+                        <select name="ipp" class="bg-blue-200">
                             @foreach ($tabval as $val)
                                 <option name="ipp" value="{{ $val }}" {{ Auth::user()->items_par_page == $val ? "selected" : "" }}> {{ $val }}</option>
                             @endforeach
@@ -59,26 +59,11 @@
                     </div>
 
                     <div class="px-2 pt-4 text-lg sm:text-2xl border-b border-blue-800">
-                        Fonction permettant la possibilité de proposer des correctifs
-                    </div>
-                    <div class="p-2">
-                        <span>
-                            <input type="checkbox" name="cor" {{ Auth::user()->fonction_aide ? "checked" : "" }} /> Possibilité de proposition d'aide et corrections activée si cochée
-                        </span>
-                    </div>
-                    <div class='hidden sm:block'>
-                        @if (!Auth::user()->is_participant)
-                            L'activation ajoute sur la plupart des fiches un formulaire (discret, dépliable) permettant d'indiquer des erreurs et proposer des correctifs.
-                        @else
-                            Il vous est possible de proposer des corrections sur chaque fiche au travers d'un formulaire spécifique.
-                        @endif
-                    </div>
-                    <div class="px-2 pt-4 text-lg sm:text-2xl border-b border-blue-800">
                         Gestion de bibliothèque
                     </div>
                     <div class="p-2">
                         <span>
-                            <input type="checkbox" name="bib" {{ Auth::user()->gestion_biblio ? "checked" : "" }} /> Gestion activée  si cochée
+                            <input type="checkbox" name="bib" class="bg-blue-200" {{ Auth::user()->gestion_biblio ? "checked" : "" }} /> Gestion activée  si cochée
                         </span>
                     </div>
                     <div class='hidden sm:block'>
@@ -86,6 +71,22 @@
                             Une fois la gestion activée, vous aurez accès aux menus de gestion sur cette page, ainsi que des affichages complémentaires en zone collections et publications.
                         @else
                             Vous pouvez gérer votre bibliothèque grâce à la page dédiée accessible sur la page d'accueil "Utilisateur" ou via le menu supérieur "Ma bibliothèque".
+                        @endif
+                    </div>
+
+                    <div class="px-2 pt-4 text-lg sm:text-2xl border-b border-blue-800">
+                        (A venir) Fonction permettant la possibilité de proposer des correctifs
+                    </div>
+                    <div class="p-2">
+                        <span>
+                            <input type="checkbox" name="cor" class="bg-blue-200" {{ Auth::user()->fonction_aide ? "checked" : "" }} disabled /> Possibilité de proposition d'aide et corrections activée si cochée
+                        </span>
+                    </div>
+                    <div class='hidden sm:block'>
+                        @if (!Auth::user()->is_participant)
+                            L'activation ajoute sur la plupart des fiches un formulaire (discret, dépliable) permettant d'indiquer des erreurs et proposer des correctifs.
+                        @else
+                            Il vous est possible de proposer des corrections sur chaque fiche au travers d'un formulaire spécifique.
                         @endif
                     </div>
                     <button class="bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2" type="submit">Valider les modifications</button>

@@ -1,3 +1,20 @@
+@auth
+    @if (count($results->collections))
+        @foreach ($results->collections as $collection)
+            @if (auth()->user() && (auth()->user()->statusCollection($collection->id)) && (auth()->user()->statusCollection($collection->id) != 'cachee'))
+                <div class='text-lg mb-8 self-center bg-green-200 shadow-sm shadow-gray-400 rounded-sm px-1'>
+                    @if (auth()->user()->statusPublication($results->id))
+                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-green-300 inline"><rect x="0" fill="none" width="20" height="20"/><g><path d="M5 17h13v2H5c-1.66 0-3-1.34-3-3V4c0-1.66 1.34-3 3-3h13v14H5c-.55 0-1 .45-1 1s.45 1 1 1zm2-3.5v-11c0-.28-.22-.5-.5-.5s-.5.22-.5.5v11c0 .28.22.5.5.5s.5-.22.5-.5z"/></g></svg> Ouvrage possédé -
+                    @else
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-red-300 inline"><circle cx="12" cy="12" r="10" stroke="#33363F" stroke-width="1" stroke-linecap="round"/><path d="M7.88124 16.2441C8.37391 15.8174 9.02309 15.5091 9.72265 15.3072C10.4301 15.103 11.2142 15 12 15C12.7858 15 13.5699 15.103 14.2774 15.3072C14.9769 15.5091 15.6261 15.8174 16.1188 16.2441" stroke="#33363F" stroke-width="1" stroke-linecap="round"/><circle cx="9" cy="10" r="1.25" fill="#33363F" stroke="#33363F" stroke-width="0.5" stroke-linecap="round"/><circle cx="15" cy="10" r="1.25" fill="#33363F" stroke="#33363F" stroke-width="0.5" stroke-linecap="round"/></svg> Ouvrage non possédé -
+                    @endif
+                    Collection suivie, {{ auth()->user()->statusCollection($collection->id) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
+                </div>
+            @endif
+        @endforeach
+    @endif
+@endauth
+
 <div class='grid grid-cols-1 lg:grid-cols-12 gap-0.5 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
 
 <div class='bg-gray-100 lg:col-span-5 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
@@ -9,8 +26,8 @@
         Type : <span>{{ $results->type->getLabel() }}</span>
     </div>
 
-    @if(count($results->authors))
-        @if(count($results->authors) == 1)
+    @if (count($results->authors))
+        @if (count($results->authors) == 1)
             <div class='text-base'>Auteur crédité :
         @else
             <div class='text-base'>Auteurs crédités :
@@ -31,7 +48,7 @@
             Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher->name }}</a></span>
         </div>
     @endif
-    @if(count($results->collections))
+    @if (count($results->collections))
         @foreach ($results->collections as $collection)
             <div class='text-base'>Collection :
                 <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a></span>
@@ -66,17 +83,19 @@
         <div class='text-base'>
             Série : <span class='font-semibold'>
             <!-- TODO :
-                Si $results->cycle id $results->titles[0]->cycles[0]->name
+                Si $results->cycle id $results->'title's[0]->cycles[0]->name
                     Série : <lien> - n°
                 Sinon
                     Série : <$results->cycle> - n° (voir <lien>)
             -->
+            @if (isset($results->titles[0]))
             @if (count ($results->titles[0]->cycles) > 0)
                 @if ($results->cycle == $results->titles[0]->cycles[0]->name)
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> {{ $results->cyclenum }}
                 @else
                      {{ $results->cycle }}  {{ $results->cyclenum }} (<a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->titles[0]->cycles[0]->name }} </a>)
                 @endif
+            @endif
             @endif
         </div>
     @endif
@@ -112,15 +131,17 @@
         </div>
     @endif
 
-    @if (($results->titles[0]->translators) && ($results->titles[0]->translators != "?"))
-        <div class='text-base'>
-            Traduction : <span class='font-semibold'>{{ normalizeTraducteurs($results->titles[0]->translators) }}</span>
-        </div>
+    @if (isset($results->titles[0]))
+        @if (($results->titles[0]->translators) && ($results->titles[0]->translators != "?"))
+            <div class='text-base'>
+                Traduction : <span class='font-semibold'>{{ normalizeTraducteurs($results->titles[0]->translators) }}</span>
+            </div>
+        @endif
     @endif
 
     <div class='text-base'>
         ISBN : <span class='font-semibold'>
-            @if($results->isbn == "-")
+            @if ($results->isbn == "-")
                 n/a
             @else
                 {{ $results->isbn }}
@@ -308,7 +329,7 @@
         @endif
     </div>
 
-    @if(count($results->reprints) != 0)
+    @if (count($results->reprints) != 0)
         <hr class="mx-24 my-2 border-dotted border-purple-800"/>
 
         <div class='text-base'>
@@ -330,7 +351,9 @@
 </div>
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @if(count($results->titles) <> 0)
+
+    @if (isset($results->titles))
+    @if (count($results->titles) != 0)
         <hr class="mx-24 my-2 border-dotted border-purple-800"/>
 
         <div class='text-base'>
@@ -350,14 +373,14 @@
                     <x-front.lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-front.lien-texte>
 
                     <span class='hidden lg:inline'>
-                        @if($title->type != App\Enums\TitleType::SECTION)
+                        @if ($title->type != App\Enums\TitleType::SECTION)
                             ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo)" : ")"}},
                         @else
                             ,
                         @endif
                     </span>
                     <span class='hidden md:inline text-gray-800'>{{ $title->type->getLabel() }}</span>
-                    @if((count($title->authors) > 0) && ($title->type != App\Enums\TitleType::SECTION))
+                    @if ((count($title->authors) > 0) && ($title->type != App\Enums\TitleType::SECTION))
                     de
                         @foreach($title->authors as $author)
                             @if (!$loop->first)
@@ -367,17 +390,17 @@
                         @endforeach
                     @endif
                     <span class='hidden lg:inline'>
-                    @if($title->pivot->start_page != '')
+                    @if ($title->pivot->start_page != '')
                         - Page {{ $title->pivot->start_page }}
                     @endif
-                    @if($title->pivot->end_page)
+                    @if ($title->pivot->end_page)
                         à {{ $title->pivot->end_page }}
                     @endif
                     </span>
 
                     <span class='hidden sm:inline'>
-                    @if(count($title->cycles))
-                        @if(count($title->cycles) > 1)
+                    @if (count($title->cycles))
+                        @if (count($title->cycles) > 1)
                             - séries :
                         @else
                             - série :
@@ -394,6 +417,7 @@
                 </div>
             @endforeach
         </div>
+    @endif
     @endif
 </div>
 

@@ -13,8 +13,12 @@
 $user = Auth::user()
 @endphp
 
-    <span class="font-semibold bg-gray-100 border px-4 py-1 m-4 border-gray-600 rounded shadow-lg">Affichage</span>
-    <a class="font-semibold bg-blue-200 border px-4 py-1 m-4 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded shadow-lg" href="/user/gestion-biblio">Gestion</a>
+    <div class="border-b-2 border-blue-400">
+        <span class="font-semibold bg-gray-100 border px-2 py-1 m-2 border-gray-600 rounded-t shadow-lg">En bref</span>
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/gestion-biblio">Gestion</a>
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/affiche-collection">Listing</a>
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/mancoliste">Mancoliste</a>
+    </div>
 
     @if (count($user->collections) == 0)
         Aucune collection suivie pour l'instant.

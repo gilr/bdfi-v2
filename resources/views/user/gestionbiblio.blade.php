@@ -12,16 +12,22 @@
 @php
 $user = Auth::user()
 @endphp
+    <div class="border-b-2 border-blue-400">
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/bibliotheque">En bref</a>
+        <span class="font-semibold bg-gray-200 border px-2 py-1 m-2 border-gray-600 rounded-t shadow-lg">Gestion</span>
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/affiche-collection">Listing</a>
+        <a class="font-semibold bg-blue-200 border px-2 py-1 m-2 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded-t shadow-lg" href="/user/mancoliste">Mancoliste</a>
+    </div>
 
-    <a class="font-semibold bg-blue-200 border px-4 py-1 m-4 border-blue-600 hover:bg-purple-100 hover:text-purple-800 hover:border-blue-800 rounded shadow-lg" href="/user/bibliotheque">Affichage</a>
-    <span class="font-semibold bg-gray-200 border px-4 py-1 m-4 border-gray-600 rounded shadow-lg">Gestion</span>
-
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2">
         {{ html()->form('POST', '/user/ajouter-collection')->open() }}
             ID (numéro fiche) de collection :
             {{ html()->text($name = "col")->size(5)->class("p-1 m-1 bg-blue-200") }}
             {{ html()->submit($text = "Ajouter collection")->class("bg-blue-400 font-semibold border border-blue-800 rounded p-1 m-1 shadow-lg") }}
             {{ html()->form()->close() }}
+    </div>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2 border-b border-gray-400">
+        L'ajout ou le retrait d'ouvrages se fait dans l'onglet Listing.
     </div>
 
     @if (count($user->collections) == 0)

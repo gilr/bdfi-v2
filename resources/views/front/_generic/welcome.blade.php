@@ -6,13 +6,13 @@
     <div class='text-sm -my-1 p-0 bold self-center hidden sm:inline'>
         La barre d'initiales ci-dessus donne accès aux index paginés.
     </div>
-    @includeIf('front.'. $area. '.include.submenu')
+    @includeIf('front.'. $area. '._submenu')
 
     <div class='text-2xl my-2 md:mt-8 bold self-center'>
         <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>{{ $title }}</b>
     </div>
 
-    @includeIf('front.'. $area. '.include.message')
+    @includeIf('front.'. $area. '._message')
 
     <div class='text-lg mx-2 my-1 md:my-2 bold self-center'>
         <form action="{{ route($area . '.search') }}" method="GET">

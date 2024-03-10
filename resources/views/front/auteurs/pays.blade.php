@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @includeIf('front.'. $area. '.include.submenu')
+    @includeIf('front.'. $area. '._submenu')
 
     <div class='text-2xl mx-2 mt-2 self-center'>
         {{ $pays }}

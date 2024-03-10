@@ -266,14 +266,14 @@
 <!--- Si moins de 25, affichage à plat !-->
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @include ('front.auteurs.include.biblio')
+    @include ('front.auteurs._biblio')
 </div>
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     @if(count($results->publications) !== 0)
         <div class='text-base pt-4'>
             <span class='font-semibold'>Galerie :</span>
-            @include ('front.auteurs.include.gallery')
+            @include ('front.auteurs._gallery')
         </div>
     @endif
 </div>
@@ -281,7 +281,7 @@
     @if($laureats && (count($laureats) !== 0))
         <div class='text-base pt-2'>
             <span class='font-semibold'>Prix décernés :</span>
-            @include ('front.auteurs.include.prix')
+            @include ('front.auteurs._prix')
         </div>
     @endif
 </div>
@@ -337,14 +337,14 @@
             <label for="tab3">Récompenses</label>
         @endif
         <div class="tab content1 text-base">
-            @include ('front.auteurs.include.biblio')
+            @include ('front.auteurs._biblio')
         </div>
         <div class="tab content2 text-base">
-            @include ('front.auteurs.include.gallery')
+            @include ('front.auteurs._gallery')
        </div>
         @if($laureats && (count($laureats) !== 0))
             <div class="tab content3 text-base">
-                @include ('front.auteurs.include.prix')
+                @include ('front.auteurs._prix')
             </div>
         @endif
     </div>

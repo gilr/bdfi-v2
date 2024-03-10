@@ -148,12 +148,12 @@
 
             <div class='text-base'>
                 <span class='font-semibold'>Liste des publications :</span>
-                @include ('front.collections.include.publications')
+                @include ('front.collections._publications')
             </div>
 
             <div class='text-base pt-4'>
                 <span class='font-semibold'>Galerie :</span>
-                @include ('front.collections.include.gallery')
+                @include ('front.collections._gallery')
             </div>
         @endif
     </div>
@@ -209,11 +209,11 @@
         <label for="tab3">Article</label>
 
         <div class="tab content1 text-base">
-            @include ('front.collections.include.publications')
+            @include ('front.collections._publications')
         </div>
 
         <div class="tab content2 text-base">
-            @include ('front.collections.include.gallery')
+            @include ('front.collections._gallery')
         </div>
 
         @if($results->article)

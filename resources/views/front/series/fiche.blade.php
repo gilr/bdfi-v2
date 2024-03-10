@@ -175,7 +175,7 @@
     @if(count($unique) != 0)
         <div class='text-base pt-4'>
             <span class='font-semibold'>Galerie :</span>
-            @include ('front.series.include.gallery', ['pubs' => $unique])
+            @include ('front.series._gallery', ['pubs' => $unique])
         </div>
     @endif
 </div>

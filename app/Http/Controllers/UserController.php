@@ -76,6 +76,7 @@ class UserController extends Controller
 
         return redirect('/user/gestion-biblio');
     }
+
     public function updateBiblioCollection(Request $request)
     {
         $user = Auth::user();
@@ -92,6 +93,7 @@ class UserController extends Controller
 
         return redirect('/user/gestion-biblio');
     }
+
     public function removeBiblioCollection(Request $request)
     {
         $user = Auth::user();
@@ -108,4 +110,38 @@ class UserController extends Controller
         return redirect('/user/gestion-biblio');
     }
 
+    public function addBiblioPublication(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->filled('pub')) {
+            $pub = $request->input('pub');
+
+            // TO DO : contrôler pas d'ajout en double !!  (tuple (user, collection) unique)
+            DB::table('user_publication')->insert([
+                'user_id' => $user->id,
+                'publication_id' => $pub
+            ]);
+        }
+
+        return redirect('/user/affiche-collection');
+    }
+
+    public function removeBiblioPublication(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->filled('pub')) {
+            $pub = $request->input('pub');
+
+            DB::table('user_publication')
+                    ->where('user_id', $user->id)
+                    ->where('publication_id', $pub)
+                    ->delete();
+        }
+
+        return redirect('/user/affiche-collection');
+    }
+
 }
+

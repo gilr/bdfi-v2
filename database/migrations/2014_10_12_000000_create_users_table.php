@@ -25,6 +25,7 @@ return new class extends Migration
 
             $table->string('format_date')->default('abr');; // 'clair', 'abr', 'fr', 'fru', 'db']
             $table->unsignedInteger('items_par_page')->default(1000);
+            $table->boolean('with_icons')->default(true);
             $table->boolean('fonction_aide')->default(false);
             $table->boolean('gestion_biblio')->default(false);
 

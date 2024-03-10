@@ -26,7 +26,7 @@
                 Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" pour la liste complète.
             </div>
 
-            <a href="admin/rapports/dates-bizarres">
+            <a href="admin/formulaires/ajout-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Ajouter un ouvrage paru
                     <div class="ml-1 text-indigo-500">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </a>
-            <a href="admin/rapports/dates-bizarres">
+            <a href="admin/formulaires/programme-parution">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Ajouter un ouvrage à paraître
                     <div class="ml-1 text-indigo-500">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </a>
-            <a href="admin/rapports/dates-bizarres">
+            <a href="admin/formulaires/proposer-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Proposer l'ajout d'une publication non référencée
                     <div class="ml-1 text-indigo-500">

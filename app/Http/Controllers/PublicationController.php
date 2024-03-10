@@ -24,12 +24,27 @@ class PublicationController extends Controller
     ];
 
     /**
-     * Accueil de la zone serie : /ouvrages
+     * Accueil de la zone ouvrages : /welcome
      */
     public function welcome()
     {
         $results = Publication::orderBy('updated_at', 'desc')->limit(25)->get();
         return view('front._generic.welcome', compact('results'), $this->context);
+    }
+
+    /**
+     * Accueil de la zone des programmes : /programme
+     */
+    public function programme()
+    {
+        $context = [
+            'area'     => 'programme',
+            'title'    => 'Programme',
+            'icon'     => 'programme.png',
+            'page'     => '',
+        ];
+        $results = Publication::where('status', PublicationStatus::ANNONCE->value)->orderBy('approximate_parution', 'asc')->get();
+        return view('front.programme.welcome', compact('results'), $context);
     }
 
     public function search(Request $request)

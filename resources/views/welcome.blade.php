@@ -11,21 +11,15 @@
 
     <div class='text-base p-4 m-4 bg-sky-100 self-center border border-blue-400'>
         <span class="font-bold text-slate-600">/!\ Version de test BDFI</span>. Pour les informations de test, voir un peu plus bas.
-        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> (le <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> n'est plus maintenu). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées. On peut néanmoins y trouver :
+        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> (le <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> n'est plus maintenu). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées (et qu'un gros travail de vérification reste à faire). On peut néanmoins y trouver :
         <ul class="list-disc pl-4 ml-4">
             <li>Des listes d'ouvrages vérifiées (au moins partiellement) : collections 'Dimensions SF' et 'Fantasy' de l'éditeur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/calmann-lévy'>Calmann-Levy</a>, 'Epées et Dragons', 'Super Fiction' et 'Super + Fiction' de <a class='text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/albin%20michel'>Albin Michel</a>, plusieurs mini-collections (Shadowrun, Tomb Raider, Titan AE, Thraxas, Vampires, Virtuel et Wacraft) ainsi que les Thriller Fantastique chez <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/fleuve%20noir'>Fleuve Noir</a>, les collections <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/payot%20sf'>Payot SF</a>, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/millénaires'>J'ai Lu Millénaires</a>, les ouvrages de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/argyll'>Argyll</a>, ainsi que les Folio Fantasy, Rivages fantasy, et Alire Grand Format.</li>
             <li>D'autres collections non vérifiées, ajoutées afin d'augmenter un peu la taille des biblios et séries, et de voir l'impact de collections de 100, 200 ou 300 ouvrages : Le Masque fantastique (rouge et noir), le Masque SF, Galaxie bis, les différentes éditions "Dumarest", et la collection Angoisse Fleuve noir.
-            <li>Un exemple de support de type magazine : <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/v%20_%20Voir'>V magazine</a></li>
-            <li>Un exemple de support de type revue/fanzine, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/basis'>Basis</a></li>
+            <li>Un exemple de support de type revue/fanzine, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/basis'>Basis</a>, et un exemple de support de type magazine : <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/v%20_%20Voir'>V magazine</a></li>
             <li>Des exemples de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/textes/chaise%20infernale'>feuilleton (parus en épisodes)</a>, de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/ouvrages/route%20étoilée'>retirage (réimpression)</a>, de texte repris dans plusieurs publications, et de gestion de "variantes" de texte (signature modifiée, titre modifié, traduction modifiée).
         </ul>
 
-        <br />Sont envisagés - à priori - pour la prochaine release :
-        <ul class="list-disc pl-4 ml-4">
-            <li>(données en base) Ajout de collections supplémentaires et gestion des "vrais" auteurs</li>
-            <li>Finaliser la gestion des pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent</li>
-            <li>Voir comment gérer les traducteurs et les illustrateurs</li>
-            <li>Tests approfondis et corrections (site, administration classique)</li>
+        Est envisagé pour la prochaine version, l'ajout en base de test de collections supplémentaires, la finalisation de  la gestion des pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent, la gestion des traducteurs et des illustrateurs, et surtout des tests plus approfondis, des corrections et des compléments (pour administration par table).
     </div>
 
     <div class='text-base p-4 m-4 self-center border border-orange-400'>
@@ -99,8 +93,8 @@
             Le mot de passe de tous les comptes de test pré-créés est <span class="font-bold text-blue-800">password</span>.<br />
             Les comptes utilisables avec accès administration sont :<br />
             <ul class="list-disc pl-12">
-                <li><span class="font-bold text-blue-800">visitor@bdfi.net</span> : ne permet aucune modification</li>
-                <li><span class="font-bold text-blue-800">proposant@bdfi.net</span> : permet de demander un ajout</li>
+                <li><span class="font-bold text-blue-800">visitor@bdfi.net</span> : ne permet aucune modification - pour visite d'un futur proposant ou membre</li>
+                <li><span class="font-bold text-blue-800">proposant@bdfi.net</span> : permet de demander l'ajout d'une publication</li>
                 <li><span class="font-bold text-blue-800">editor@bdfi.net</span>, <span class="font-bold text-blue-800">editor2@bdfi.net</span> et <span class="font-bold text-blue-800">editor3@bdfi.net</span> : gestion des tables biblios</li>
                 <li><span class="font-bold text-blue-800">admin@bdfi.net</span>, <span class="font-bold text-blue-800">admin2@bdfi.net</span> et <span class="font-bold text-blue-800">admin3@bdfi.net</span> : quelques droits supplémentaires</li>
                 <li><span class="font-bold text-blue-800">sysadmin@bdfi.net</span> : pas de limitations (sauf si pas de sens)</li>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('collection_publication', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('order');
-            $table->string('number',16)->nullable;
+            $table->string('number',16)->nullable();
 
             $table->unsignedInteger('collection_id');
             $table->foreign('collection_id')

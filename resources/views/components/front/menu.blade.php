@@ -42,6 +42,12 @@
             'icon' => 'collection.png',
             'title' => "Collections et sous-collections"
         ],
+        'programmes' => [
+            'name' => 'Programme',
+            'zone' => 'programme',
+            'icon' => 'programme.png',
+            'title' => "Programme de publication"
+        ],
         'prix' => [
             'name' => 'Prix',
             'zone' => 'prix',
@@ -78,7 +84,9 @@
                 @if (($item['name'] != "Retirages") || (auth()->user() && auth()->user()->hasGuestRole()))
                     <li class="pl-1 md:pl-2 border-r-4 {{ ($zone == $item['zone'] ? 'bg-purple-200 border-purple-600' : 'border-gray-500 hover:bg-yellow-100 hover:border-yellow-500') }}">
                         <a href="/{{$item['zone']}}" class="h-12 flex items-center focus:text-yellow-600">
-                            <img sb-icon src="/img/{{$item['icon']}}" class="w-7" title="{{$item['title']}}"/>
+                            @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
+                                <img sb-icon src="/img/{{$item['icon']}}" class="w-7" title="{{$item['title']}}"/>
+                            @endif
                             <span class="text-lg pl-2">{{$item['name']}}</span>
                         </a>
                     </li>
@@ -87,7 +95,9 @@
 
             <li class="pl-1 md:pl-2 border-r-4 border-red-800 {{ ($zone == 'forums' ? 'bg-purple-200 border-purple-600' : 'hover:bg-yellow-100 hover:border-yellow-500') }}">
                 <a href="/forums" class="h-16 flex items-center focus:text-yellow-600" title="Nos forums">
-                    <img sb-icon src="/img/forum.png" class="w-7" />
+                    @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
+                        <img sb-icon src="/img/forum.png" class="w-7" />
+                    @endif
                     <span class="text-lg pl-2">Forums</span>
                 </a>
             </li>

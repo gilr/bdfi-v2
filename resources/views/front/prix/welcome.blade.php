@@ -7,7 +7,10 @@
     <x-front.menu-prix-genre tab='welcome' :genres="$genres"/>
 
 <div class='text-2xl mt-2 md:mt-8 bold self-center'>
-    <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>Prix</b>
+    @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
+        <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/>
+    @endif
+    <b>Prix</b>
 </div>
     <div class='text-xl text-purple-800 mb-2 bold self-center pb-2'>
         Liste des prix récompensant ou ayant récompensé des oeuvres d'imaginaire

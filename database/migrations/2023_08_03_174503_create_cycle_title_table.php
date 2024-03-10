@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cycle_title', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('number',16)->nullable;
+            $table->string('number',16)->nullable();
             $table->unsigneddecimal('order', 5,2)->default(0);
 
             $table->unsignedInteger('cycle_id');

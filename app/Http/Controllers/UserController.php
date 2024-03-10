@@ -28,6 +28,7 @@ class UserController extends Controller
                 $user->format_date = 'abr';
             }
         }
+
         if ($request->filled('ipp')) {
             $ipp = $request->input('ipp');
             if (($ipp == 50) || ($ipp == 100) || ($ipp == 250) || ($ipp == 500) || ($ipp == 1000) || ($ipp == 5000))
@@ -39,6 +40,15 @@ class UserController extends Controller
                 $user->items_par_page = 1000;
             }
         }
+
+        if ($request->filled('icon')) {
+            $user->with_icons = 1;
+        }
+        else
+        {
+            $user->with_icons = 0;
+        }
+
         if ($request->filled('cor')) {
             $user->fonction_aide = 1;
         }
@@ -46,6 +56,7 @@ class UserController extends Controller
         {
             $user->fonction_aide = 0;
         }
+
         if ($request->filled('bib')) {
             $user->gestion_biblio = 1;
         }

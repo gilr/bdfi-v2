@@ -9,7 +9,10 @@
     @includeIf('front.'. $area. '._submenu')
 
     <div class='text-2xl my-2 md:mt-8 bold self-center'>
-        <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/> <b>{{ $title }}</b>
+        @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
+            <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/>
+        @endif
+        <b>{{ $title }}</b>
     </div>
 
     @includeIf('front.'. $area. '._message')

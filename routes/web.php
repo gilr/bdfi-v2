@@ -62,6 +62,8 @@ Route::get('/ouvrages', [PublicationController::class, 'welcome'])->name('ouvrag
 Route::get('/ouvrages/search/', [PublicationController::class, 'search'])->name('ouvrages.search');
 Route::get('/ouvrages/index/{i}', [PublicationController::class, 'index']);   // --> Index ouvrages {initiale} (y compris 0 ou 9)
 Route::get('/ouvrages/{name}', [PublicationController::class, 'page']);     // --> Une page publi avec ID (futur => => slug !)
+// Zone programmes
+Route::get('/programme', [PublicationController::class, 'programme'])->name('programme');
 
 // Zone retirages
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

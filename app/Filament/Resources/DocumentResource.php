@@ -2,32 +2,30 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ArticleResource\Pages;
-use App\Filament\Resources\ArticleResource\RelationManagers;
-use App\Models\Article;
-use App\Models\Collection;
-use App\Models\Publisher;
+use App\Filament\Resources\DocumentResource\Pages;
+use App\Filament\Resources\DocumentResource\RelationManagers;
+use App\Models\Document;
+use App\Models\Author;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\MorphToSelect;
-//use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\MarkdownEditor;
-//use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
-class ArticleResource extends Resource
+
+class DocumentResource extends Resource
 {
-    protected static ?string $model = Article::class;
+    protected static ?string $model = Document::class;
 
-    protected static ?string $modelLabel = 'Article';
-    protected static ?string $pluralModelLabel = 'Articles';
-    protected static ?string $navigationLabel = 'Articles';
-    protected static ?int $navigationSort = 3;
+    protected static ?string $modelLabel = 'Document';
+    protected static ?string $pluralModelLabel = 'Documents';
+    protected static ?string $navigationLabel = 'Documents';
+    protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup  = 'Site';
 
     public static function getNavigationBadge(): ?string
@@ -40,23 +38,43 @@ class ArticleResource extends Resource
         return $form
         ->schema([
             Section::make()
+                ->description('Le document ne peut concerner qu\'un auteur pour l\'instant')
                 ->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->label('Nom')
+                        ->maxLength(32)
+                        ->helperText('Nom/titre en clair du document')
+                        ->required(),
+                    FileUpload::make('file')
+                        ->label('Fichier')
+                        ->helperText('Fichier PDF à uploader')
+                        ->directory('documents')
+                        ->preserveFilenames()
+                        ->acceptedFileTypes(['application/pdf'])
+                        ->openable()
+                        ->downloadable(),
+//                        ->visibility('private'),
+                    Forms\Components\Select::make('author_id')
+                        ->label('Auteur')
+                        ->relationship('author', 'name')
+                        ->getOptionLabelFromRecordUsing(fn (Author $record) => "{$record->fullName}")
+                        ->helperText('Nom de l\'auteur du document. Peut être vide. Pour le chercher, taper un début de prénom OU de nom')
+                        ->searchable(['name', 'first_name'])
+                        ->nullable(),
                     MorphToSelect::make('item')
-                        ->label('Attachement de l\'article à la fiche concernée')
+                        ->label('Attachement du document à la fiche concernée')
                         ->types([
-                            MorphToSelect\Type::make(Collection::class)
-                                ->label ('Collection')
+                            MorphToSelect\Type::make(Author::class)
+                                ->label ('Author')
                                 ->titleAttribute('name')
-                                ->getOptionLabelFromRecordUsing(fn (Collection $record): string => "{$record->fullName}"),
-                            MorphToSelect\Type::make(Publisher::class)
+                                ->getOptionLabelFromRecordUsing(fn (Author $record): string => "{$record->fullName}"),
+/*                            MorphToSelect\Type::make(Publisher::class)
                                 ->label ('Editeur')
                                 ->titleAttribute('name'),
-                        ])->searchable(),
-                    MarkdownEditor::make('content')
-                        ->disableToolbarButtons([
-                            'attachFiles',
-                            'codeBlock',
+*/
                         ])
+                        ->searchable(),
+
                 ]),
                 Section::make('Historique de la fiche / donnée')
                     ->schema([
@@ -88,9 +106,16 @@ class ArticleResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->description('Attention ! Un article créé sera visible en zone collection (uniquement pour l\'instant, même si on peut en créer aussi pour un éditeur). Cependant, les différents formatages d\'article essayés (markdown, richeditor, ckeditor) n\'ont pas vraiment donné satisfaction. La solution de contournement actuelle est une utilisation de markdown mais avec des adaptations manuelle avec du HTML local pour les images. A discuter en forum.')
+            ->description('Ne sont gérés actuellement que des documents attachés à un auteur (biblio, bio etc...).')
             ->columns([
+                Tables\Columns\TextColumn::make('file')
+                    ->label('Fichier'),
+                Tables\Columns\TextColumn::make('author.fullName')
+                    ->label('Auteur du document'),
+                Tables\Columns\TextColumn::make('item_type')
+                    ->label('Pour la zone ...'),
                 Tables\Columns\TextColumn::make('item.fullName')
+                    ->label('... concerne la fiche'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -118,10 +143,10 @@ class ArticleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListArticles::route('/'),
-            'create' => Pages\CreateArticle::route('/create'),
-            'view' => Pages\ViewArticle::route('/{record}'),
-            'edit' => Pages\EditArticle::route('/{record}/edit'),
+            'index' => Pages\ListDocuments::route('/'),
+            'create' => Pages\CreateDocument::route('/create'),
+            'view' => Pages\ViewDocument::route('/{record}'),
+            'edit' => Pages\EditDocument::route('/{record}/edit'),
         ];
     }
 

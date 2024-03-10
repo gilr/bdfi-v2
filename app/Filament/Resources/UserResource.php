@@ -24,7 +24,7 @@ class UserResource extends Resource
     protected static ?string $modelLabel = 'Inscrit';
     protected static ?string $pluralModelLabel = 'Inscrits';
     protected static ?string $navigationLabel = 'Inscrits';
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 6;
     protected static ?string $navigationGroup  = 'Site';
 
 //    protected static ?string $maxContentWidth = '3xl'; Ne marche plus avec 3.x

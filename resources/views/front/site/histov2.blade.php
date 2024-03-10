@@ -21,6 +21,7 @@
             <li>Réinstallation sous Git avec stockage github</li>
             <li>Ajout d'un "compte" utilisateur et de quelques préférences (format date, nombre d'items par page, gestion collection)</li>
             <li>Ajout de la possibilité d'avoir un article approfondi pour certaines collections (pourra être étendu plus tard à d'autres types de fiches)</li>
+            <li>Possibilité de stockage et présentations de documents PDF (type bibliographie) sur des auteurs (pourra être étendu plus tard à d'autres types de fiches)</li>
             <li>Ajout statut pour les publication (paru, annoncé, jamais paru, proposition)</li>
             <li>... et donc prise en compte des ouvrages annoncés non encore parus</li>
             <li>... et ajout d'un rôle membre "proposant"</li>

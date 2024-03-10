@@ -48,4 +48,20 @@ input.swap:checked ~ .pub { display: block; }
             @include ('front.auteurs._titre')
         @endforeach
     @endif
+
+    @if ($results->writtenDocuments->count() > 0)
+        <div class="mt-2">
+            <span class='font-semibold'>Documents de l'auteur stockés sur BDFI :</span>
+            @foreach ($results->writtenDocuments as $doc)
+                <a class="block underline" href="/storage/{{ $doc->file }}" target="_blank">{{ $doc->name }}</a>
+            @endforeach
+        </div>
+    @endif
+
+    @if ($results->aboutDocument)
+        <div class="mt-2">
+            <span class='font-semibold'>Document concernant l'auteur stocké sur BDFI :</span>
+            <a class="block underline" href="/storage/{{ $results->aboutDocument->file }}" target="_blank">{{ $results->aboutDocument->name }}</a>
+        </div>
+    @endif
 </div>

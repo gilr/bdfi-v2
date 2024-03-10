@@ -20,7 +20,7 @@ class StatResource extends Resource
     protected static ?string $modelLabel = 'Statistique';
     protected static ?string $pluralModelLabel = 'Statistique';
     protected static ?string $navigationLabel = 'Stats';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 5;
     protected static ?string $navigationGroup  = 'Site';
 
 //    protected static ?string $maxContentWidth = '3xl'; Ne marche plus avec 3.x

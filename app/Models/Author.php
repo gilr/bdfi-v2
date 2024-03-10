@@ -12,6 +12,7 @@ use App\Enums\AuthorGender;
 use App\Enums\QualityStatus;
 use App\Enums\TitleType;
 use DB;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 
 class Author extends Model
@@ -113,6 +114,22 @@ class Author extends Model
                     ->orderBy('copyright', 'asc')
                     ->withTimestamps();
     }
+
+    public function writtenDocuments()
+    {
+        return $this->hasMany('App\Models\Document');
+    }
+
+
+    /**
+     * Get the collection's documents.
+     */
+    public function aboutDocument(): MorphOne
+    {
+        return $this->morphOne(Document::class, 'item');
+    }
+
+
 /*
     public function title_novels()
     {

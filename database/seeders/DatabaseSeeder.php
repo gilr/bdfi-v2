@@ -205,19 +205,23 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             WebsiteTypeSeeder::class,
             RelationshipTypeSeeder::class,
+
             AnnouncementSeeder::class,
             EventSeeder::class,
             StatSeeder::class,
 
             AuthorSeeder::class,
+
             WebsiteSeeder::class,
             SignatureSeeder::class,
             RelationshipSeeder::class,
+
 /*
             AwardSeeder::class,
             AwardCategorySeeder::class,
             AwardWinnerSeeder::class,
 */
+
             CycleSeeder::class,
 
             PublisherSeeder::class,
@@ -233,6 +237,9 @@ class DatabaseSeeder extends Seeder
             TableOfContentSeeder::class, // = PublicationTitle
 
             CycleTitleSeeder::class,
+
+            ArticleSeeder::class,
+            DocumentSeeder::class,
         ]);
     }
 }

@@ -61,15 +61,21 @@ class PublicationController extends Controller
         if ($large !== "on")
         {
             $results = Publication::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%');
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
         }
         else
         {
             $results = Publication::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%')
-                ->orWhere('cycle', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%')
+                        ->orWhere('cycle', 'like', '%' . $text .'%');
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
         }
 
@@ -101,13 +107,21 @@ class PublicationController extends Controller
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             $this->context['page'] = 'Index ' . strtoupper($initial);
-            $results = Publication::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Publication::where('name', 'like', $initial.'%')
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else if ((strlen($initial) == 1) && ctype_digit($initial))
         {
             $this->context['page'] = 'Index 0-9';
-            $results = Publication::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Publication::whereBetween('name', ['0','9'])
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -188,8 +202,11 @@ class PublicationController extends Controller
             // /ouvrages/{pattern}
             // Recherche de tous les ouvrages avec le pattern fourni
             $results = Publication::where(function($query) use($text) {
-                $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where ('name', 'like', '%' . $text .'%');
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages
@@ -286,8 +303,9 @@ class PublicationController extends Controller
     public function indexProposal()
     {
         $results = Publication::where('status', PublicationStatus::PROPOSE->value)
-                ->orderBy('created_at', 'desc')
-                ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view ('admin.formulaires.publications_proposees', compact('results'));
     }
     public function indexExpiredFuture()
@@ -295,18 +313,19 @@ class PublicationController extends Controller
         $today = date("Y-m-d");
         // dd($today);
         $results = Publication::where('status', PublicationStatus::ANNONCE->value)
-                ->where('approximate_parution', '<=', $today)
-                ->orderBy('approximate_parution', 'desc')
-                ->get();
+            ->where('approximate_parution', '<=', $today)
+            ->orderBy('approximate_parution', 'desc')
+            ->get();
+
         return view ('admin.formulaires.programmes_echus', compact('results'));
     }
     public function indexFuture()
     {
         $today = date("Y-m-d");
         $results = Publication::where('status', PublicationStatus::ANNONCE->value)
-                ->where('approximate_parution', '>=', $today)
-                ->orderBy('approximate_parution', 'asc')
-                ->get();
+            ->where('approximate_parution', '>=', $today)
+            ->orderBy('approximate_parution', 'asc')
+            ->get();
 
         return view ('admin.formulaires.programmes_non_echus', compact('results'));
     }

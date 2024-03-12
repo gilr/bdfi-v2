@@ -58,7 +58,7 @@ class TitleController extends Controller
         {
             $results = Title::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
         }
         else
         {
@@ -67,7 +67,7 @@ class TitleController extends Controller
                 ->orWhere('title_vo', 'like', '%' . $text .'%')
                 ->orWhere('information', 'like', '%' . $text .'%')
                 ->orWhere('synopsis', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
         }
 
@@ -91,13 +91,13 @@ class TitleController extends Controller
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             $this->context['page'] = 'Index ' . strtoupper($initial);
-            $results = Title::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Title::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else if ((strlen($initial) == 1) && ctype_digit($initial))
         {
             $this->context['page'] = 'Index 0-9';
-            $results = Title::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Title::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -136,7 +136,7 @@ class TitleController extends Controller
             // Recherche de tous les textes  avec le pattern fourni
             $results = Title::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil textes

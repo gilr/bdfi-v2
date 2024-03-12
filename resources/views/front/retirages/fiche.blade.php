@@ -26,10 +26,10 @@
     @endif
 
     <div class='text-base'>
-        DL d'origine : <span class='font-semibold'>{{ $results->publication->dl }}</span>
+        DL d'origine : <span class='font-semibold'>{{ StrDateformat($results->publication->dl) }}</span>
     </div>
     <div class='text-base'>
-        AI d'origine : <span class='font-semibold'>{{ $results->publication->ai }}</span>
+        AI d'origine : <span class='font-semibold'>{{ StrDateformat($results->publication->ai) }}</span>
     </div>
     <div class='text-base'>
         Parution d'origine : <span class='font-semibold'>{{ StrDateformat($results->publication->approximate_parution) }}</span>

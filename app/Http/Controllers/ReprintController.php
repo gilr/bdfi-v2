@@ -47,7 +47,7 @@ class ReprintController extends Controller
                 ->orWhere(function ($query) use($text) {
                     $query->join('publications', 'publication.name', 'like', '%' . $text .'%');
                 });
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
         }
         else
         {
@@ -59,7 +59,7 @@ class ReprintController extends Controller
                 ->orWhere(function ($query) use($text) {
                     $query->join('publications', 'publication.alt_names', 'like', '%' . $text .'%');
                 });
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
         }
 
@@ -84,18 +84,18 @@ class ReprintController extends Controller
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             // OK mais 1 seul ! :
-            // $results = Reprint::find(1)->publication()->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            // $results = Reprint::find(1)->publication()->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
             $results = Reprint::whereHas('publication', function($q) use ($initial) {
                 $q->where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc');
-                })->simplePaginate($pagin);
+                })->simplePaginate($pagin)->withQueryString();
 
             // La solution suivante fonctionne aussi... mais donne l'id de la publication donc à affiner
 /*            $results = Reprint::join('publications', 'publication_id', '=', 'publications.id')
                 ->where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc')
-                ->simplePaginate($pagin);
+                ->simplePaginate($pagin)->withQueryString();
 */
 
             return view('front._generic.index', compact('initial', 'results'), $this->context);
@@ -137,7 +137,7 @@ class ReprintController extends Controller
             // Recherche de tous les ouvrages avec le pattern fourni
             $results = Reprint::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages

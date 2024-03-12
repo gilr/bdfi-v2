@@ -30,8 +30,13 @@ class AuthorController extends Controller
      */
     public function welcome()
     {
-        $countries = Country::select('name', 'code')->orderBy('name', 'asc')->get();
-        $results = Author::orderBy('updated_at', 'desc')->limit(25)->get();
+        $countries = Country::select('name', 'code')
+            ->orderBy('name', 'asc')
+            ->get();
+        $results = Author::orderBy('updated_at', 'desc')
+            ->limit(25)
+            ->get();
+
         return view('front._generic.welcome', compact('countries', 'results'), $this->context);
     }
 
@@ -50,18 +55,24 @@ class AuthorController extends Controller
         if ($large !== "on")
         {
             $results = Author::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%')
-                ->orWhere('first_name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%')
+                        ->orWhere('first_name', 'like', '%' . $text .'%');
+                    })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
         }
         else
         {
             $results = Author::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%')
-                ->orWhere('first_name', 'like', '%' . $text .'%')
-                ->orWhere('legal_name', 'like', '%' . $text .'%')
-                ->orWhere('alt_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%')
+                        ->orWhere('first_name', 'like', '%' . $text .'%')
+                        ->orWhere('legal_name', 'like', '%' . $text .'%')
+                        ->orWhere('alt_names', 'like', '%' . $text .'%');
+                    })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
         }
 
@@ -93,7 +104,12 @@ class AuthorController extends Controller
         $this->context['page'] = 'Index ' . strtoupper($initial);
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
-            $results = Author::where('is_visible', 1)->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Author::where('is_visible', 1)
+                ->where('name', 'like', $initial.'%')
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -106,7 +122,10 @@ class AuthorController extends Controller
     public function index_pays(Request $request)
     {
         $this->context['page'] = 'Index pays';
-        $countries = Country::select('name', 'code')->orderBy('name', 'asc')->get();
+        $countries = Country::select('name', 'code')
+            ->orderBy('name', 'asc')
+            ->get();
+
         return view('front.auteurs.indexpays', compact('countries'), $this->context);
     }
 
@@ -129,8 +148,15 @@ class AuthorController extends Controller
         if ($searched_country = Country::where('name', $text)->get())
         {
             $pays = $searched_country[0]->name;
-            $countries = Country::select('name', 'code')->orderBy('name', 'asc')->get();
-            $results = Author::where('is_visible', 1)->where('country_id', $searched_country[0]->id)->orderBy('name', 'asc')->simplePaginate(1000);
+            $countries = Country::select('name', 'code')
+                ->orderBy('name', 'asc')
+                ->get();
+            $results = Author::where('is_visible', 1)
+                ->where('country_id', $searched_country[0]->id)
+                ->orderBy('name', 'asc')
+                ->simplePaginate(1000)
+                ->withQueryString();
+
             return view('front.auteurs.pays', compact('pays', 'countries', 'results'), $this->context);
         }
     }
@@ -246,9 +272,11 @@ class AuthorController extends Controller
             // /auteurs/{pattern}
             // Recherche de tous les auteurs avec le pattern fourni
             $results = Author::where('is_visible', 1)->where(function($query) use($text) {
-                $query->where ('name', 'like', '%' . $text .'%')
-                        ->orWhere('first_name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->paginate(60);
+                                $query->where ('name', 'like', '%' . $text .'%')
+                                ->orWhere('first_name', 'like', '%' . $text .'%');
+                            })
+                            ->orderBy('name', 'asc')
+                            ->paginate(60)->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil auteurs
@@ -313,7 +341,14 @@ class AuthorController extends Controller
                     // Moyen détourné pour caster le résultat stdClass en modèle Laravel :
                     $autres_pseudos = Author::hydrate($rrr);
                 }
-                $award_years = AwardWinner::where('author_id', $id)->orWhere('author2_id', $id)->orWhere('author3_id', $id)->get('year')->sort()->unique('year')->toArray();
+                $award_years = AwardWinner::where('author_id', $id)
+                    ->orWhere('author2_id', $id)
+                    ->orWhere('author3_id', $id)
+                    ->get('year')
+                    ->sort()
+                    ->unique('year')
+                    ->toArray();
+
                 return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos'), $this->context);
             }
             else

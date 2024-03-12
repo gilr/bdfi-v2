@@ -24,7 +24,10 @@ class CycleController extends Controller
      */
     public function welcome()
     {
-        $results = Cycle::orderBy('updated_at', 'desc')->limit(25)->get();
+        $results = Cycle::orderBy('updated_at', 'desc')
+            ->limit(25)
+            ->get();
+
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
@@ -42,16 +45,22 @@ class CycleController extends Controller
         if ($large !== "on")
         {
             $results = Cycle::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%');
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
         }
         else
         {
             $results = Cycle::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%')
-                ->orWhere('alt_names', 'like', '%' . $text .'%')
-                ->orWhere('vo_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                    $query->where('name', 'like', '%' . $text .'%')
+                    ->orWhere('alt_names', 'like', '%' . $text .'%')
+                    ->orWhere('vo_names', 'like', '%' . $text .'%');
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
         }
 
@@ -75,13 +84,21 @@ class CycleController extends Controller
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             $this->context['page'] = 'Index ' . strtoupper($initial);
-            $results = Cycle::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Cycle::where('name', 'like', $initial.'%')
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else if ((strlen($initial) == 1) && ctype_digit($initial))
         {
             $this->context['page'] = 'Index 0-9';
-            $results = Cycle::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Cycle::whereBetween('name', ['0','9'])
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -119,9 +136,12 @@ class CycleController extends Controller
             // /series/{pattern}
             // Recherche de tous les series avec le pattern fourni
             $results = Cycle::where(function($query) use($text) {
-                $query->where ('name', 'like', '%' . $text .'%')
+                    $query->where ('name', 'like', '%' . $text .'%')
                         ->orWhere('alt_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+                })
+                ->orderBy('name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
             if ($results->isEmpty()) {
                 // Aucun résultat, redirection vers l'accueil series

@@ -39,7 +39,7 @@ class Reprint extends Model
     public function name(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $this->publication->name . " - Retirage " . $this->ai,
+            get: fn($value) => $this->publication->name . " - Retirage " . StrDateformat($this->ai),
         );
     }
     public function recordName(): Attribute

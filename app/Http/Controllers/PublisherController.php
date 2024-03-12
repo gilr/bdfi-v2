@@ -46,14 +46,14 @@ class PublisherController extends Controller
         {
             $results = Publisher::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
         }
         else
         {
             $results = Publisher::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%')
                 ->orWhere('alt_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
         }
 
@@ -76,13 +76,13 @@ class PublisherController extends Controller
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
             $this->context['page'] = 'Index ' . strtoupper($initial);
-            $results = Publisher::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Publisher::where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else if ((strlen($initial) == 1) && ctype_digit($initial))
         {
             $this->context['page'] = 'Index 0-9';
-            $results = Publisher::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin);
+            $results = Publisher::whereBetween('name', ['0','9'])->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
         else
@@ -122,7 +122,7 @@ class PublisherController extends Controller
             $results = Publisher::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%')
                         ->orWhere('alt_names', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin);
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil éditeurs

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\PublicationSupport;
 use App\Enums\PublicationFormat;
+use App\Models\Publication;
 
 class PublicationSeeder extends Seeder
 {
@@ -80,5 +81,9 @@ class PublicationSeeder extends Seeder
                 'deleted_by'   => NULL
             ]);
         }
+
+        Publication::factory()
+            ->count(20)
+            ->create();
     }
 }

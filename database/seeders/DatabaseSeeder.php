@@ -216,11 +216,11 @@ class DatabaseSeeder extends Seeder
             SignatureSeeder::class,
             RelationshipSeeder::class,
 
-/*
+///*
             AwardSeeder::class,
             AwardCategorySeeder::class,
             AwardWinnerSeeder::class,
-*/
+//*/
 
             CycleSeeder::class,
 

@@ -46,7 +46,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Etat de parution :
                 {{ html()->select($name = "publication_status")->class("m-2 p-2 border-dotted bg-gray-300 text-gray-500")->disabled()->open() }}
-                @foreach (App\Enums\publicationStatus::cases() as $type)
+                @foreach (App\Enums\PublicationStatus::cases() as $type)
                     @if ($type === App\Enums\PublicationStatus::PROPOSE)
                         {{ html()->option($text = $type->getLabel(), $value = $type->value)->selected() }}
                     @else
@@ -66,7 +66,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Type :
                 {{ html()->select($name = "type")->class("m-2 bg-yellow-100")->placeholder('Choisir un contenu')->class("text-gray-400")->open() }}
-                @foreach (App\Enums\publicationContent::cases() as $type)
+                @foreach (App\Enums\PublicationContent::cases() as $type)
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach
                 {{ html()->select($name = "type")->close() }}
@@ -74,7 +74,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Support :
                 {{ html()->select($name = "support")->class("m-2 bg-yellow-100")->placeholder('Choisir un support')->class("text-gray-400")->open() }}
-                @foreach (App\Enums\publicationSupport::cases() as $type)
+                @foreach (App\Enums\PublicationSupport::cases() as $type)
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach
                 {{ html()->select($name = "support")->close() }}

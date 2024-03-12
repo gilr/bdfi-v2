@@ -40,6 +40,10 @@ Route::get('/', function () {
     return view('welcome', compact('births', 'deaths', 'updated', 'created', 'area', 'title', 'page'));
 })->name('welcome');
 
+Route::get('/symlinkstorage', function () {
+    Artisan::call('storage:link');
+});
+
 // Zone Auteurs
 Route::get('/auteurs', [AuthorController::class, 'welcome'])->name('auteurs');
 Route::get('/auteurs/search/', [AuthorController::class, 'search'])->name('auteurs.search');

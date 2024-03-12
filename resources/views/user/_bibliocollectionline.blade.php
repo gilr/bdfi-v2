@@ -4,7 +4,7 @@
     {{ html()->form('POST', '/user/modifier-collection')->class("inline-block")->open() }}
         - Changement du suivi :
         {{ html()->select("col_status")->class("px-2 p-0 border-dotted bg-gray-300 text-gray-500")->open() }}
-        @foreach (App\Enums\biblioCollectionStatus::cases() as $type)
+        @foreach (App\Enums\BiblioCollectionStatus::cases() as $type)
             @if ($type->value === $collection->pivot->status)
                 {{ html()->option($type->getLabel(), $type->value)->class("text-black")->selected() }}
             @else

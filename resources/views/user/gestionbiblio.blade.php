@@ -20,14 +20,15 @@ $user = Auth::user()
     </div>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2">
+        Attention, l'ajout du suivi d'une collection se fait pour l'instant via son numéro de fiche (à récupérer sur la fiche ou dans l'URL de la collection). Dans le prochaine version, l'ajout se fera via une recherche à partir d'un extrait du nom de la collection.<br />
         {{ html()->form('POST', '/user/ajouter-collection')->open() }}
             ID (numéro fiche) de collection :
             {{ html()->text($name = "col")->size(5)->class("p-1 m-1 bg-blue-200") }}
             {{ html()->submit($text = "Ajouter collection")->class("bg-blue-400 font-semibold border border-blue-800 rounded p-1 m-1 shadow-lg") }}
             {{ html()->form()->close() }}
     </div>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2 border-b border-gray-400">
-        L'ajout ou le retrait d'ouvrages se fait dans l'onglet Listing.
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2 border-b border-gray-400 pb-2">
+        L'ajout (ou le retrait) des ouvrages possédés se fait dans l'onglet "Listing".
     </div>
 
     @if (count($user->collections) == 0)

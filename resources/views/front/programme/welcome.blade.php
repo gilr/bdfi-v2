@@ -28,7 +28,9 @@
                 </div>
             @endif
             <div class='pl-1 lg:pl-4'>
-                {{ $result->name }}, {{ $result->type }}
+                <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->name }}</x-front.lien-ouvrage>,
+
+                {{ $result->type }}
                     @if (count($result->authors) > 0)
                         de
                         @foreach ($result->authors as $author)

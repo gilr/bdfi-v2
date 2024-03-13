@@ -32,12 +32,13 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     $births= App\Models\Author::getBirthsOfDay();
     $deaths = App\Models\Author::getDeathsOfDay();
-    $updated = App\Models\Publication::orderBy('updated_at', 'desc')->limit(15)->get();
+    $updated = App\Models\Publication::where('status', '<>', 'annonce')->orderBy('updated_at', 'desc')->limit(15)->get();
     $created = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('created_at', 'desc')->limit(15)->get();
+    $programme = App\Models\Publication::where('status', 'annonce')->orderBy('created_at', 'desc')->limit(15)->get();
     $area = '';
     $title = '';
     $page = '';
-    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'area', 'title', 'page'));
+    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'programme', 'area', 'title', 'page'));
 })->name('welcome');
 
 Route::get('/symlinkstorage', function () {

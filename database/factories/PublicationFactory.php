@@ -36,6 +36,14 @@ class PublicationFactory extends Factory
             'is_verified' => false,
             'private' => $this->faker->text(),
             'format' => PublicationFormat::INCONNU->value,
+
+            'created_at'   => today(),
+            'updated_at'   => today(),
+            'deleted_at'   => NULL,
+
+            'created_by'   => 1,
+            'updated_by'   => 1,
+            'deleted_by'   => NULL
         ];
     }
 }

@@ -30,20 +30,21 @@
             <div class='pl-1 lg:pl-4'>
                 <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->name }}</x-front.lien-ouvrage>,
 
-                {{ $result->type }}
-                    @if (count($result->authors) > 0)
-                        de
-                        @foreach ($result->authors as $author)
-                            @if (!$loop->first)
-                                ,
-                            @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
-                            @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
-                                <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
-                            @endif
-                        @endforeach
-                        </div>
-                    @endif
+                {{ $result->type->getLabel() }}
+
+                @if (count($result->authors) > 0)
+                    de
+                    @foreach ($result->authors as $author)
+                        @if (!$loop->first)
+                            ,
+                        @endif
+                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                        @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
+                            <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
+                        @endif
+                    @endforeach
+                    </div>
+                @endif
             </div>
         @endforeach
     </div>

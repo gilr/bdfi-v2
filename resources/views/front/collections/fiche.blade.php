@@ -126,7 +126,7 @@
 
     @endif
 
-    @if(count($results->subcollections) != 0)
+    @if (count($results->subcollections) != 0)
         <div class='text-base'>
             <span class='font-semibold'>Sous-collection, sous-ensembles :</span>
             @foreach ($results->subcollections as $subcollection)
@@ -141,16 +141,15 @@
 </div>
 
 
-@if((count($results->publications) < 21) && (!$results->article))
+@if ((count($results->publications) < 21) && (!isset($results->article)))
     <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-        @if(count($results->publications) != 0)
+        @if (count($results->publications) != 0)
             <hr class="mx-24 my-2 border-dotted border-purple-800"/>
 
             <div class='text-base'>
                 <span class='font-semibold'>Liste des publications :</span>
                 @include ('front.collections._publications')
             </div>
-
             <div class='text-base pt-4'>
                 <span class='font-semibold'>Galerie :</span>
                 @include ('front.collections._gallery')
@@ -205,8 +204,10 @@
         <label for="tab1">Liste des publications</label>
         <input type="radio" name="tabs" id="tab2" />
         <label for="tab2">Galerie</label>
-        <input type="radio" name="tabs" id="tab3" />
-        <label for="tab3">Article</label>
+        @if (isset($results->article))
+            <input type="radio" name="tabs" id="tab3" />
+            <label for="tab3">Article</label>
+        @endif
 
         <div class="tab content1 text-base">
             @include ('front.collections._publications')
@@ -216,7 +217,7 @@
             @include ('front.collections._gallery')
         </div>
 
-        @if($results->article)
+        @if (isset($results->article))
             <div class="tab content3 text-base">
                 {!! $results->article->content !!}
             </div>

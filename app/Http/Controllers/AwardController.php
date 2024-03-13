@@ -100,34 +100,47 @@ class AwardController extends Controller
 
     public function categorie(Request $request, $category_id)
     {
-        $result = AwardCategory::find($category_id);
-        $prix = $result->award;
-        $categorie = $result;
+        if ($result = AwardCategory::find($category_id))
+        {
+            $prix = $result->award;
+            $categorie = $result;
 
-        $this->context['page'] = $categorie->name;
-        $this->context['subarea'] = $prix->id;
-        $this->context['subtitle'] = $prix->name;
+            $this->context['page'] = $categorie->name;
+            $this->context['subarea'] = $prix->id;
+            $this->context['subtitle'] = $prix->name;
 
-        //$laureats = $result->award_winners()->orderBy('year', 'asc')->get();
-        $laureats = AwardWinner::where('award_category_id', $category_id)->orderBy('year', 'asc')->get();
+            //$laureats = $result->award_winners()->orderBy('year', 'asc')->get();
+            $laureats = AwardWinner::where('award_category_id', $category_id)->orderBy('year', 'asc')->get();
 
-        return view('front.prix.categorie', compact('result', 'prix', 'categorie', 'laureats'), $this->context);
+            return view('front.prix.categorie', compact('result', 'prix', 'categorie', 'laureats'), $this->context);
+        }
+        else
+        {
+            $request->session()->flash('warning', 'Pas de catégorie de ce nom. Pour la peine, nous vous renvoyons directement à la case départ...');
+            return redirect('prix');
+        }
     }
 
     public function prix(Request $request, $award)
     {
-        if (!$prix=Award::find($award))
+        if ($prix = Award::find($award))
         {
             $prix = Award::where('name', $award)->first();
-        }
-        $this->context['page'] = $prix->name;
+            $this->context['page'] = $prix->name;
 
-        $categories = AwardCategory::where('award_id', $prix->id)->orderBy('internal_order', 'asc')->get();
-        $laureats = NULL;
-        if ($categories->count() == 1) {
-            $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
+            $categories = AwardCategory::where('award_id', $prix->id)->orderBy('internal_order', 'asc')->get();
+            $laureats = NULL;
+            if ($categories->count() == 1) {
+                $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
+            }
+            return view('front.prix.prix', compact('prix', 'categories', 'laureats'), $this->context);
         }
-        return view('front.prix.prix', compact('prix', 'categories', 'laureats'), $this->context);
+        else
+        {
+            $request->session()->flash('warning', 'Pas de prix à ce nom. Pour la peine, nous vous renvoyons directement à la case départ...');
+            return redirect('prix');
+        }
+
     }
 
     /**

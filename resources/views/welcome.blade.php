@@ -11,7 +11,7 @@
 
     <div class='text-base p-4 m-4 bg-sky-100 self-center border border-blue-400'>
         <span class="font-bold text-slate-600">/!\ Version de test BDFI</span>. Pour les informations de test, voir un peu plus bas.
-        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> (le <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> n'est plus maintenu). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées (et qu'un gros travail de vérification reste à faire). On peut néanmoins y trouver :
+        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> ou les commits sur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://github.com/gilr/bdfi-v2'>github</a> (le <a class='underline text-blue-800 sm:p-0.5 md:px-0.5' href='https://docs.google.com/spreadsheets/d/1TpwE3NHkqAyoUvy53aJ76SZpF0ZY87gl6y3EUMfq1pM'>fichier de suivi</a> n'est plus maintenu). La base des ouvrages est volontairement limitée tant que toutes les fonctionnalités ne sont pas développées (et qu'un gros travail de vérification reste à faire). On peut néanmoins y trouver :
         <ul class="list-disc pl-4 ml-4">
             <li>Des listes d'ouvrages vérifiées (au moins partiellement) : collections 'Dimensions SF' et 'Fantasy' de l'éditeur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/calmann-lévy'>Calmann-Levy</a>, 'Epées et Dragons', 'Super Fiction' et 'Super + Fiction' de <a class='text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/albin%20michel'>Albin Michel</a>, plusieurs mini-collections (Shadowrun, Tomb Raider, Titan AE, Thraxas, Vampires, Virtuel et Wacraft) ainsi que les Thriller Fantastique chez <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/fleuve%20noir'>Fleuve Noir</a>, les collections <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/payot%20sf'>Payot SF</a>, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/millénaires'>J'ai Lu Millénaires</a>, les ouvrages de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/argyll'>Argyll</a>, ainsi que les Folio Fantasy, Rivages fantasy, et Alire Grand Format.</li>
             <li>D'autres collections non vérifiées, ajoutées afin d'augmenter un peu la taille des biblios et séries, et de voir l'impact de collections de 100, 200 ou 300 ouvrages : Le Masque fantastique (rouge et noir), le Masque SF, Galaxie bis, les différentes éditions "Dumarest", et la collection Angoisse Fleuve noir.
@@ -19,6 +19,7 @@
             <li>Des exemples de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/textes/chaise%20infernale'>feuilleton (parus en épisodes)</a>, de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/ouvrages/route%20étoilée'>retirage (réimpression)</a>, de texte repris dans plusieurs publications, et de gestion de "variantes" de texte (signature modifiée, titre modifié, traduction modifiée).
         </ul>
 
+        <span class="font-semibold text-red-800">Attention, la duplication d'images sur chaque ouvrage est volontaire, à fin de test. Idem pour les faux ouvrages "programmés" (fake data).</span><br />
         Est envisagé pour la prochaine version, l'ajout en base de test de collections supplémentaires, la finalisation de  la gestion des pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent, la gestion des traducteurs et des illustrateurs, et surtout des tests plus approfondis, des corrections et des compléments (pour administration par table).
     </div>
 
@@ -40,12 +41,16 @@
             @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Programmes et parutions</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
-        </div>
-        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Dernières publications ajoutées</div>
             @foreach($created as $result)
+                <div>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                </div>
+            @endforeach
+        </div>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold'>Programmes et parutions</div>
+            @foreach($programme as $result)
                 <div>
                     <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
                 </div>
@@ -82,11 +87,6 @@
 
     <div class='text-base bg-sky-100 pt-1 p-5 mx-4 self-center border border-blue-400 text-blue-900 shadow-sm shadow-blue-600 rounded-sm px-1'>
         <div class='p-1'>
-            <span class='text-base bg-sky-200 text-red-800 mt-1'>Informations de test</span> :
-            Le menu latéral permet de naviguer de zone en zone. Il est possible de plier ou déplier ce menu, et votre configuration est conservée. Au survol en mode icone, le nom de la zone apparait.<br />
-            La connexion n'est pas obligatoire pour naviguer sur le site.
-        </div>
-        <div class='p-1'>
             <span class='text-base bg-sky-200 text-red-800 mt-1'>Comptes de test</span> :
             Un membre connecté avec assez de droits peut voir en supplément sur les pages/fiches du site quelques infos internes ainsi que des liens d'accès directs aux fiches, permettant ainsi des modifications (données de test, sans risques donc).
             N'ont pas accès aux zones d'administration par défaut, les personnes non connectées, le compte <span class="font-bold text-blue-800">user@bdfi.net</span></li> ainsi que les comptes créés via le lien <span class="font-bold text-yellow-800">Inscription</span>.
@@ -102,7 +102,7 @@
             L'accès administration s'effectue via  les liens en haut à droite, <span class="font-bold text-yellow-800">Se connecter</span> si non déjà authentifié, ou <span class="font-bold text-yellow-800">Administration</span> ou <span class="font-bold text-yellow-800">Gestion des tables</span> si vous l'êtes.<br />
         </div>
         <div class='p-1'>
-            <span class='text-base bg-sky-200 text-red-800 mt-1'>Nota</span> : Un mode debug est temporairement activé, mais vous pouvez cliquer sur la petite croix (extrémité droite) de la barre de debug en bas de page pour la réduire.
+            <span class='text-base bg-sky-200 text-red-800 mt-1'>Nota</span> : Un mode debug peut parfois être activé (si j'ai besoin pour analyse), mais vous pouvez cliquer sur la petite croix (extrémité droite) de la barre de debug en bas de page pour la réduire.
         </div>
         <div class='p-1 mt-2'>
                 Ci-dessous en image, la visualisation des différents domaines et zones du site et la navigation :

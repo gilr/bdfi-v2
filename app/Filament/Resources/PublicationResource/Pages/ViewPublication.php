@@ -16,6 +16,7 @@ class ViewPublication extends ViewRecord
     {
         return [
             Action::make('back')
+                ->label ('Retour liste')
                 ->url(static::getResource()::getUrl())
                 ->button()
                 ->color('info'),

@@ -11,35 +11,39 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
                 <div class="p-6">
-                    <div class="p-2 text-2xl border-b border-yellow-800">
-                        Propositions
-                    </div>
-                    <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
-                        </ul>
-                    </div>
-                    <div class="p-2 text-2xl border-b border-yellow-800">
-                        Création rapide
-                    </div>
-                    <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue non déjà recensée</x-admin.link></li>
-                            <li><x-admin.link lien='formulaires/programme-parution'>Ajout publication à paraître</x-admin.link></li>
-                            <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou inconnu</x-admin.link></li>
-                            <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou inconnue</x-admin.link></li>
-                        </ul>
-                    </div>
-                    <div class="p-2 text-2xl border-b border-yellow-800">
-                        Autres opérations
-                    </div>
-                    <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='formulaires/publications-proposees'>Validation de proposition</x-admin.link></li>
-                            <li><x-admin.link lien='formulaires/programmes-echus'>Confirmation publication programmée, date échue</x-admin.link></li>
-                            <li><x-admin.link lien='formulaires/programmes-non-echus'>Confirmation publication programmée, date non échue</x-admin.link></li>
-                        </ul>
-                    </div>
+                    @if (auth()->user()->hasProponentRole())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Propositions
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
+                            </ul>
+                        </div>
+                    @endif
+                    @if (auth()->user()->isMember())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Création rapide
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue non déjà recensée</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/programme-parution'>Ajout publication à paraître</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou inconnu</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou inconnue</x-admin.link></li>
+                            </ul>
+                        </div>
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Autres opérations
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/publications-proposees'>Validation de proposition</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/programmes-echus'>Confirmation publication programmée, date échue</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/programmes-non-echus'>Confirmation publication programmée, date non échue</ x-admin.link></li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

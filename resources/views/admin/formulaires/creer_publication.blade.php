@@ -66,7 +66,7 @@
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Type :
-                {{ html()->select($name = "type")->class("m-2 bg-yellow-100")->placeholder('Choisir un contenu')->class("text-gray-400")->open() }}
+                {{ html()->select($name = "type")->class("m-2 bg-yellow-100")->placeholder('Choisir un contenu')->class("text-gray-800")->open() }}
                 @foreach (App\Enums\PublicationContent::cases() as $type)
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach
@@ -74,7 +74,7 @@
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Support :
-                {{ html()->select($name = "support")->class("m-2 bg-yellow-100")->placeholder('Choisir un support')->class("text-gray-400")->open() }}
+                {{ html()->select($name = "support")->class("m-2 bg-yellow-100")->placeholder('Choisir un support')->class("text-gray-800")->open() }}
                 @foreach (App\Enums\PublicationSupport::cases() as $type)
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach
@@ -97,7 +97,7 @@
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Genre général ouvrage :
-                {{ html()->select($name = "genre_stat")->class("m-2 bg-yellow-100")->placeholder('Choisir le genre')->class("text-gray-400")->open() }}
+                {{ html()->select($name = "genre_stat")->class("m-2 bg-yellow-100")->placeholder('Choisir le genre')->class("text-gray-800")->open() }}
                 @foreach (App\Enums\GenreStat::cases() as $type)
                     {{ html()->option($text = $type->getLabel(), $value = $type->value)->class("text-black") }}
                 @endforeach

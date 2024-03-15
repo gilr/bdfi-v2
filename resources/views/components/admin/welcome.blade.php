@@ -26,6 +26,7 @@
                 Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" pour la liste complète.
             </div>
 
+            @if (auth()->user()->isMember())
             <a href="admin/formulaires/ajout-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Ajouter un ouvrage paru
@@ -42,6 +43,16 @@
                     </div>
                 </div>
             </a>
+            @else
+                <div class="mt-2 flex items-center text-sm text-gray-700">
+                    Ajouter un ouvrage paru
+                </div>
+                <div class="mt-2 flex items-center text-sm text-gray-700">
+                    Ajouter un ouvrage à paraître
+                </div>
+            @endif
+
+            @if (auth()->user()->hasProponentRole())
             <a href="admin/formulaires/proposer-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Proposer l'ajout d'une publication non référencée
@@ -50,6 +61,11 @@
                     </div>
                 </div>
             </a>
+            @else
+                <div class="mt-2 flex items-center text-sm text-gray-700">
+                    Proposer l'ajout d'une publication non référencée
+                </div>
+            @endif
         </div>
     </div>
 

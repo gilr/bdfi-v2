@@ -22,9 +22,11 @@
                         <x-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                             {{ __('Administration') }}
                         </x-nav-link>
-                        <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
-                            {{ __('Formulaires') }}
-                        </x-nav-link>
+                        @if (auth()->user()->isProponent())
+                            <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
+                                {{ __('Formulaires') }}
+                            </x-nav-link>
+                        @endif
                         <x-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
                             {{ __('Rapports') }}
                         </x-nav-link>

@@ -185,10 +185,10 @@
     <!-- zone couverture -->
     @foreach ($images as $key => $value)
         @if ($loop->first)
-            <img style="max-width: 250px; max-height:450px" class='px-1 mx-auto hover-shadow preview' src="https://www.bdfi.info/couvs/{{ substr($value, 0, 1) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide(1)" alt="couverture" title="Couverture {{ $key }}">
+            <img style="max-width: 250px; max-height:450px" class='px-1 mx-auto hover-shadow preview' src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide(1)" alt="couverture" title="Couverture {{ $key }}">
             <div class="grid grid-cols-{{ $loop->count - 1 }} mx-auto max-w-fit">
         @else
-            <div class="w-14 py-2 px-0.5"><img class="px-0.5 hover-shadow preview" src="https://www.bdfi.info/couvs/{{ substr($value, 0, 1) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide({{ $loop->iteration }})" /></div>
+            <div class="w-14 py-2 px-0.5"><img class="px-0.5 hover-shadow preview" src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide({{ $loop->iteration }})" /></div>
         @endif
         @if ($loop->last)
             </div>
@@ -551,7 +551,7 @@
     <div class="modal-content">
         @foreach ($images as $key => $value)
             <div class="slide">
-                <img src="https://www.bdfi.info/couvs/{{ substr($value, 0, 1) }}/{{ $value }}.jpg" class="image-slide" alt="{{ $key }}." /> <span class="rounded ml-2 px-1 bg-gray-200"> {{ $loop->iteration }} / {{ $loop->count }} - {{ $key }} </span>
+                <img src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" class="image-slide" alt="{{ $key }}." /> <span class="rounded ml-2 px-1 bg-gray-200"> {{ $loop->iteration }} / {{ $loop->count }} - {{ $key }} </span>
             </div>
             @if (($loop->last) && ($loop->count > 1))
                 <a class="previous" onclick="changeSlide(-1)">&#10094;</a>

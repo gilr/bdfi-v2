@@ -1,10 +1,23 @@
 <?php
 
+
+function InitialeCouv($file): string
+{
+    $initiale = substr($file, 0, 1);
+    if (($initiale >= '0') && ($initiale <= '9'))
+    {
+        return '09';
+    }
+    return $initiale;
+}
+
+
 /**
  * Conversion d'une date DL ou AI type CM au format BDFI (aaaa-mm-jj)
  *
  * @return string
  */
+
 function StrDLAItoBDFI($date, $approx_publi): string
 {
     $date = strtolower(trim($date));
@@ -705,3 +718,4 @@ function get_locale() {
      */
     return $locale;
 }
+

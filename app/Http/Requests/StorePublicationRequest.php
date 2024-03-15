@@ -4,8 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Enums\PublicationStatus;
-use App\Enums\publicationContent;
-use App\Enums\publicationSupport;
+use App\Enums\PublicationContent;
+use App\Enums\PublicationSupport;
 use App\Enums\GenreAppartenance;
 use App\Enums\GenreStat;
 use App\Enums\AudienceTarget;
@@ -50,8 +50,8 @@ class StorePublicationRequest extends FormRequest
         return [
             'publication_status'    => [Rule::enum(PublicationStatus::class)],
             'name'                  => 'required|max:128',
-            'type'                  => [Rule::enum(publicationContent::class)],
-            'support'               => [Rule::enum(publicationSupport::class)],
+            'type'                  => [Rule::enum(PublicationContent::class)],
+            'support'               => [Rule::enum(PublicationSupport::class)],
             'approximate_parution'  => ['required', 'max:10', 'regex:/([\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2}))/'],
             'is_genre'              => [Rule::enum(GenreAppartenance::class)],
             'genre_stat'            => [Rule::enum(GenreStat::class)],

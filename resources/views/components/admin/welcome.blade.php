@@ -26,7 +26,7 @@
                 Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" pour la liste complète.
             </div>
 
-            @if (auth()->user()->isMember())
+            @if (auth()->user()->hasMemberRole())
             <a href="admin/formulaires/ajout-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Ajouter un ouvrage paru
@@ -52,7 +52,7 @@
                 </div>
             @endif
 
-            @if (auth()->user()->hasProponentRole())
+            @if (auth()->user()->isProponent())
             <a href="admin/formulaires/proposer-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Proposer l'ajout d'une publication non référencée

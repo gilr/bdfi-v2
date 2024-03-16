@@ -27,9 +27,6 @@ class ReprintController extends Controller
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
-//            $results = Author::where('is_visible', 1)->where(function($query) use($text) {
-//                $query->where ('name', 'like', '%' . $text .'%')
-
     public function search(Request $request)
     {
         $pagin = 1000;
@@ -83,20 +80,17 @@ class ReprintController extends Controller
         $this->context['page'] = 'Index ' . strtoupper($initial);
         if ((strlen($initial) == 1) && ctype_alpha($initial))
         {
-            // OK mais 1 seul ! :
-            // $results = Reprint::find(1)->publication()->where('name', 'like', $initial.'%')->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
-
-            $results = Reprint::whereHas('publication', function($q) use ($initial) {
-                $q->where('name', 'like', $initial.'%')
-                ->orderBy('name', 'asc');
-                })->simplePaginate($pagin)->withQueryString();
-
             // La solution suivante fonctionne aussi... mais donne l'id de la publication donc à affiner
-/*            $results = Reprint::join('publications', 'publication_id', '=', 'publications.id')
+            /*
+            $results = Reprint::join('publications', 'publication_id', '=', 'publications.id')
                 ->where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc')
                 ->simplePaginate($pagin)->withQueryString();
-*/
+            */
+            $results = Reprint::whereHas('publication', function($q) use ($initial) {
+                    $q->where('name', 'like', $initial.'%')
+                    ->orderBy('name', 'asc');
+                })->simplePaginate($pagin)->withQueryString();
 
             return view('front._generic.index', compact('initial', 'results'), $this->context);
         }
@@ -135,9 +129,13 @@ class ReprintController extends Controller
 
             // /ouvrages/{pattern}
             // Recherche de tous les ouvrages avec le pattern fourni
-            $results = Reprint::where(function($query) use($text) {
-                $query->where ('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
+            $results = Reprint::select('reprints.*')
+                ->leftJoin('publications', 'reprints.publication_id', '=', 'publications.id')
+                ->where('reprints.ai', 'like', '%' . $text .'%')
+                ->orwhere('publications.name', 'like', '%' . $text .'%')
+                ->orderBy('publications.name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
 
             if ($results->count() == 0) {
                 // Aucun résultat, redirection vers l'accueil ouvrages
@@ -163,7 +161,8 @@ class ReprintController extends Controller
                 $this->context['page'] = "/$text/";
                 $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'existe pas de façon unique. Nous vous redirigeons vers une page de choix en espérant que vous y trouviez votre bonheur. Utilisez de préférence notre moteur de recherche.');
                 // Page de choix sur base du pattern fourni
-                return view ('front._generic.choix', compact('text', 'results'), $this->context);
+                $large = 'off';
+                return view ('front._generic.choix', compact('text', 'results','large'), $this->context);
             }
         }
     }

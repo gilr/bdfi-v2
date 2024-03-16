@@ -53,7 +53,7 @@ input.swap:checked ~ .pub { display: block; }
         <div class="mt-2">
             <span class='font-semibold'>Documents de l'auteur stockés sur BDFI :</span>
             @foreach ($results->writtenDocuments as $doc)
-                <a class="block underline ml-2 md:ml-8" href="/storage/{{ $doc->file }}" target="_blank">{{ $doc->name }}</a>
+                <a class="block underline ml-2 md:ml-8" href="/{{ $doc->file }}" target="_blank">{{ $doc->name }}</a>
             @endforeach
         </div>
     @endif
@@ -61,7 +61,7 @@ input.swap:checked ~ .pub { display: block; }
     @if ($results->aboutDocument)
         <div class="mt-2">
             <span class='font-semibold'>Document concernant l'auteur stocké sur BDFI :</span>
-            <a class="block underline ml-2 md:ml-8" href="/storage/{{ $results->aboutDocument->file }}" target="_blank">{{ $results->aboutDocument->name }}</a>
+            <a class="block underline ml-2 md:ml-8" href="/{{ $results->aboutDocument->file }}" target="_blank">{{ $results->aboutDocument->name }}</a>
         </div>
     @endif
 </div>

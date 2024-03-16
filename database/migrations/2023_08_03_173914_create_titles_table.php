@@ -33,7 +33,7 @@ return new class extends Migration
             $table->boolean('is_visible')->default(true);
             $table->boolean('is_serial')->default(false);
             $table->boolean('is_fullserial')->default(false); // TBD TODO temporaire si ensuite via une table
-            $table->string('serial_info', 512);
+            $table->string('serial_info', 512)->nullable();
 
             $table->text('synopsis')->nullable();
 

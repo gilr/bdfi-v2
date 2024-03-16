@@ -21,6 +21,7 @@ use App\Enums\GenreStat;
 use App\Enums\TitleType;
 use App\Enums\IsNovelization;
 use App\Enums\AudienceTarget;
+use App\Enums\TitleVariantType;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -103,6 +104,12 @@ class TitleResource extends Resource
                             ->relationship('parent', 'name')
                             ->visibleOn('create')
                             ->searchable(['name']),
+                        Forms\Components\Select::make('variant_type')
+                            ->label('Première publi ou type de variante')
+                            ->enum(TitleVariantType::class)
+                            ->options(TitleVariantType::class)
+                            ->default(TitleVariantType::PREMIER)
+                            ->required(),
 
                         Forms\Components\Select::make('is_novelization')
                             ->label('Novelisation ?')
@@ -112,18 +119,28 @@ class TitleResource extends Resource
                             ->required(),
                         Forms\Components\Toggle::make('is_serial')
                             ->label('Episode feuilleton, serialisation ?')
+                            ->helperText("Oui s'il s'agit de la publication d'une simple partie d'un texte. Ce texte devra alors être rattaché au texte complet, en tant que variante 'épisode'.")
                             ->default(0)
                             ->required(),
                         Forms\Components\Toggle::make('is_fullserial')
                             ->label('Feuilleton complet paru en morceaux ?')
+                            ->helperText("Oui s'il s'agit d'un texte complet paru en morceau. Renseignez alors le champ suivant pour les conditions de publication.")
                             ->default(0)
                             ->required(),
                         Forms\Components\TextInput::make('serial_info')
                             ->label('Info de publication si feuilleton.')
+                            ->helperText("Indiquer les publications concernées par cette publication en épisode, par exemple 'Revue XYZ n° 72 de juin 2015 au n° 83 de janvier 2016'.")
+                            ->default("...")
                             ->maxLength(512),
                         Forms\Components\Toggle::make('is_visible')
+                            ->label('Visible sur le site')
+                            ->default(True)
                             ->required(),
+                        Forms\Components\TextInput::make('translators')
+                            ->label('Nom des traducteurs')
+                            ->maxLength(512),
                         Forms\Components\Textarea::make('synopsis')
+                            ->label('Synopsis')
                             ->maxLength(65535)
                             ->columnSpanFull(),
                         Forms\Components\TextInput::make('copyright_fr')
@@ -131,13 +148,14 @@ class TitleResource extends Resource
                             ->helperText("Date de première publication du texte en Français")
                             ->maxLength(10),
                         Forms\Components\TextInput::make('pub_vo')
+                            ->label('Informations de première publication VO')
                             ->maxLength(256),
-                        Forms\Components\TextInput::make('translators')
-                            ->maxLength(512),
                         Forms\Components\Textarea::make('information')
+                            ->label('Informations notables à afficher')
                             ->maxLength(65535)
                             ->columnSpanFull(),
                         Forms\Components\Textarea::make('private')
+                            ->label('Informations de travail ou privées - Non affichées')
                             ->maxLength(65535)
                             ->columnSpanFull(),
                     ])

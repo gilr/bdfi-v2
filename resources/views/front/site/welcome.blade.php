@@ -40,8 +40,13 @@
             $old = Str::limit($result->old_value, 40, "...");
             $new = Str::limit($result->new_value, 40, "...");
         ?>
-            <div class='hover:bg-orange-100 border-b hover:border-purple-600'>
-                {{ $result->created_at }} - <span class='font-semibold'>{{ $title }}</span> : {{ __($result->key) }}</a> (de "{{ $old }}"" à "{{ $new }}"")
+            <div class='border-b'>
+                {{ $result->created_at }} -
+                <span class='font-semibold'>{{ $title }}</span> :
+                @if(isset($result->key))
+                    {{ $result->key }}
+                @endif
+                (de "{{ $old }}"" à "{{ $new }}"")
             </div>
         @endforeach
     </div>

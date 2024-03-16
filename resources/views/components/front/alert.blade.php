@@ -19,7 +19,7 @@
 ])
 
 <style>
-    @keyframes mymove { to { height: 0px; } }
+    @keyframes mymove { to { height: 0px; width:0px; } }
 </style>
 
 <div class="mt-1 ml-8 w-8/12 shadow-md">

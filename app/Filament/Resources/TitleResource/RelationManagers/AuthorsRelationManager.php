@@ -7,8 +7,11 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions\AttachAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\AuthorResource;
+use App\Models\Author;
 
 class AuthorsRelationManager extends RelationManager
 {
@@ -16,12 +19,8 @@ class AuthorsRelationManager extends RelationManager
 
     public function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+        // Re-utilisation de la form de vue/modification
+        return AuthorResource::form($form);
     }
 
     public function table(Table $table): Table
@@ -29,18 +28,24 @@ class AuthorsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('fullName')
+                    ->label('Nom'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make()
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AttachAction::make(),
+//                Tables\Actions\CreateAction::make(),
+                Tables\Actions\AttachAction::make()
+                    ->recordSelectSearchColumns(['name', 'first_name'])
+                    ->form(fn (AttachAction $action): array => [
+                        $action->getRecordSelect()
+                            ->helperText('Recherche par le nom OU le prénom'),
+                ])
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+//                Tables\Actions\EditAction::make(),
                 Tables\Actions\DetachAction::make(),
                 Tables\Actions\DeleteAction::make(),
                 Tables\Actions\ForceDeleteAction::make(),

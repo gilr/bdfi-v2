@@ -308,17 +308,17 @@ function StrTrimToStrAbr ($trim)
 {
     if ($trim == "T1") { return "1er trim."; }
     else if ($trim == "T2") { return "2ième trim."; }
-    else if ($trim == "T4") { return "3ième trim."; }
+    else if ($trim == "T3") { return "3ième trim."; }
     else if ($trim == "T4") { return "4ième trim."; }
-    else { return "avr."; }
+    else { return "err."; }
 }
 function StrTrimToStr ($trim)
 {
     if ($trim == "T1") { return "1er trimestre"; }
     else if ($trim == "T2") { return "2ième trimestre"; }
-    else if ($trim == "T4") { return "3ième trimestre"; }
+    else if ($trim == "T3") { return "3ième trimestre"; }
     else if ($trim == "T4") { return "4ième trimestre"; }
-    else { return "avr."; }
+    else { return "err."; }
 }
 
 function StrMonthToStrAbr ($month)

@@ -8,6 +8,7 @@ use App\Http\Requests\StoreReprintRequest;
 use App\Http\Requests\UpdateReprintRequest;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class ReprintController extends Controller
 {
@@ -42,25 +43,24 @@ class ReprintController extends Controller
         $large = $request->input('m');
         if ($large !== "on")
         {
-            $results = Reprint::where(function($query) use($text) {
-                $query->where('ai', 'like', '%' . $text .'%')
-                ->orWhere(function ($query) use($text) {
-                    $query->join('publications', 'publication.name', 'like', '%' . $text .'%');
-                });
-            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
+            $results = Reprint::select('reprints.*')
+                ->leftJoin('publications', 'reprints.publication_id', '=', 'publications.id')
+                ->where('reprints.ai', 'like', '%' . $text .'%')
+                ->orwhere('publications.name', 'like', '%' . $text .'%')
+                ->orderBy('publications.name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
         }
         else
         {
-            $results = Reprint::where(function($query) use($text) {
-                $query->where('ai', 'like', '%' . $text .'%')
-                ->orWhere(function ($query) use($text) {
-                    $query->join('publications', 'publication.name', 'like', '%' . $text .'%');
-                })
-                ->orWhere(function ($query) use($text) {
-                    $query->join('publications', 'publication.alt_names', 'like', '%' . $text .'%');
-                });
-            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
-
+            $results = Reprint::select('reprints.*')
+                ->leftJoin('publications', 'reprints.publication_id', '=', 'publications.id')
+                ->where('reprints.ai', 'like', '%' . $text .'%')
+                ->orwhere('publications.name', 'like', '%' . $text .'%')
+                ->orwhere('publications.cycle', 'like', '%' . $text .'%')
+                ->orderBy('publications.name', 'asc')
+                ->simplePaginate($pagin)
+                ->withQueryString();
         }
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix

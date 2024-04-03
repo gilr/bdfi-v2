@@ -14,6 +14,25 @@
     <div class='text-base'>
         Achevé d'imprimer du retirage : <span class='font-semibold'>{{ StrDateformat($results->ai) }}</span>
     </div>
+    <div class='text-base'>
+        Date de publication : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
+    </div>
+    <div class='pl-2'>
+        @if ($results->is_verified)
+        Retirage vérifié
+        @if (Illuminate\Support\Str::contains($results->verified_by,";"))
+            <img src='/img/ok.png' class="inline w-5 mb-1" />
+        @endif
+        <img src='/img/ok.png' class="inline w-5 mb-1" />
+        @auth
+            @if (auth()->user()->hasGuestRole())
+                <span class='text-blue-900 bg-sky-200 shadow-sm shadow-blue-600 rounded-sm px-1'> ({{ $results->verified_by }})</span>
+            @endif
+        @endauth
+    @else
+        <img src='/img/error.png' class="inline w-5 mb-1" /> Retirage non vérifié
+    @endif
+    </div>
 
     @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->information))
         <div class='text-base my-4 p-2 border border-yellow-500 bg-yellow-50'>

@@ -28,7 +28,8 @@ function StrDLAItoBDFI($date, $approx_publi): string
 
     $specialCases = [
         'a parution' => 'A parution',
-        'n.i.' => 'Non indiq.'
+        'n.i.' => 'Non indiq.',
+        'n.c' => 'Non indiq.'
     ];
 
     if (array_key_exists($date, $specialCases)) {
@@ -45,18 +46,18 @@ function StrDLAItoBDFI($date, $approx_publi): string
     $year_approx=substr($approx_publi, 0, 4);
 
     $monthMappings = [
-        'jan' => '01', 'janv' => '01',  'janv.' => '01',
-        'fev' => '02', 'fevr' => '02', 'fevr.' => '02', 'fév' => '02', 'févr' => '02', 'févr.' => '02', 'feb' => '02',
-        'mar' => '03', 'mars' => '03', 'march' => '03',
-        'avr' => '04', 'avr.' => '04', 'apr' => '04',
+        'january' => '01', 'jan' => '01', 'janv' => '01',  'janv.' => '01',
+        'february' => '02', 'fev' => '02', 'fevr' => '02', 'fevr.' => '02', 'fév' => '02', 'févr' => '02', 'févr.' => '02', 'feb' => '02',
+        'march' => '03', 'mar' => '03', 'mars' => '03',
+        'april' => '04', 'avr' => '04', 'avr.' => '04', 'apr' => '04',
         'mai' => '05', 'may' => '05',
-        'jun' => '06', 'juin' => '06',
-        'jul' => '07', 'juil' => '07', 'juil.' => '07',
-        'aug' => '08', 'aou' => '08', 'aout' => '08', 'août' => '08',
-        'sep' => '09', 'sept' => '09', 'sept.' => '09',
-        'oct' => '10', 'oct.' => '10',
-        'nov' => '11', 'nov.' => '11',
-        'dec' => '12', 'dec.' => '12', 'déc' => '12', 'déc.' => '12',
+        'june' => '06', 'jun' => '06', 'juin' => '06',
+        'july' => '07', 'jul' => '07', 'juil' => '07', 'juil.' => '07',
+        'august' => '08', 'aug' => '08', 'aou' => '08', 'aout' => '08', 'août' => '08',
+        'september' => '09', 'sep' => '09', 'sept' => '09', 'sept.' => '09',
+        'october' => '10', 'oct' => '10', 'oct.' => '10',
+        'november' => '11', 'nov' => '11', 'nov.' => '11',
+        'december' => '12', 'dec' => '12', 'dec.' => '12', 'déc' => '12', 'déc.' => '12',
         't1' => 'T1', '1t' => 'T1',
         't2' => 'T2', '2t' => 'T2',
         't3' => 'T3', '3t' => 'T3',

@@ -23,6 +23,9 @@ return new class extends Migration
                 ->onDelete('restrict');
 
             $table->string('ai', 10)->nullable();
+            $table->string('approximate_parution', 10)->nullable();
+            $table->boolean('is_verified');
+            $table->string('verified_by', 256)->nullable();
             $table->text('information')->nullable();
             $table->text('private')->nullable();
 

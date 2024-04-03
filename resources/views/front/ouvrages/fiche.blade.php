@@ -91,7 +91,7 @@
             @if (isset($results->titles[0]))
             @if (count ($results->titles[0]->cycles) > 0)
                 @if ($results->cycle == $results->titles[0]->cycles[0]->name)
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> {{ $results->cyclenum }}
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> - {{ $results->cyclenum }}
                 @else
                      {{ $results->cycle }}  {{ $results->cyclenum }} (<a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->titles[0]->cycles[0]->name }} </a>)
                 @endif
@@ -342,6 +342,11 @@
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat($reprint->ai) }} </a>
                 @else
                     {{ StrDateformat($reprint->ai) }}
+                @endif
+                @if ($reprint->is_verified)
+                    <img src='/img/ok.png' class="inline w-5 mb-1" />
+                @else
+                    <img src='/img/error.png' class="inline w-5 mb-1" />
                 @endif
             @endforeach
         </div>

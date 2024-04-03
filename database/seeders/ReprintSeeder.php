@@ -22,7 +22,10 @@ class ReprintSeeder extends Seeder
             DB::table('reprints')->insert([
                 'publication_id'   => $obj->id_pub,
                 'ai'               => $obj->ai,
+                'approximate_parution'   => $obj->approximate_parution ?: "",
 
+                'is_verified'      => $obj->is_verified ?: "0",
+                'verified_by'      => $obj->verified_by ?: "",
                 'information'      => "",
                 'private'          => "",
 

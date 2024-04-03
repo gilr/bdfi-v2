@@ -14,6 +14,14 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
+        Version V2 bêta 7 - xx/04/2024
+    </div>
+    <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
+        <ul class="list-disc pl-4 ml-4">
+            <li>Ajout de l'info "vérifié" aux retirages</li>
+        </ul>
+    </div>
+    <div class='text-lg font-bold text-purple-900'>
         Version V2 bêta 6 - 16/03/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>

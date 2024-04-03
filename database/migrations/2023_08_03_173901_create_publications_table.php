@@ -57,7 +57,7 @@ return new class extends Migration
             $table->string('edition', 64)->nullable();
             $table->string('dimensions', 10)->nullable();
             $table->string('thickness', 4)->nullable();
-            $table->string('printer', 64)->nullable();
+            $table->string('printer', 128)->nullable();
             $table->string('printed_price', 32)->nullable();
             $table->string('pagination', 32)->nullable();
             $table->string('pages_dpi')->nullable();

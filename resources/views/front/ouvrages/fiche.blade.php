@@ -272,9 +272,15 @@
                 </div>
             @endif
 
+            @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->printed_price))
+                <div class='text-base'>
+                    Information de prix : {{ $results->printed_price }}
+                </div>
+            @endif
+
             @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->printed_info))
                 <div class='text-base'>
-                    Autres infos imprimées : {{ $results->printed_info }}
+                    Autres informations imprimées : {{ $results->printed_info }}
                 </div>
             @endif
         </div>

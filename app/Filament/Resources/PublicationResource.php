@@ -208,15 +208,15 @@ class PublicationResource extends Resource
                             ->maxLength(64),
                         Forms\Components\TextInput::make('pagination')
                             ->label('Nombre total de page effectif')
-                            ->helperText("Nombre de pages total en comptant toutes les pages de fin, y compris blanches. Si présence de pages en chiffres romains au départ (la numérotion à 1 commençant ensuite), indiquer par exemple \"xiv + 256\".")
+                            ->helperText("Nombre de pages total (façon Gilles :-)) en comptant toutes les pages de fin, y compris blanches. Si présence de pages en chiffres romains au départ (la numérotion à 1 commençant ensuite), indiquer par exemple \"xiv + 256\".")
                             ->maxLength(32),
                         Forms\Components\TextInput::make('pages_dpi')
                             ->label('Dernière page numérotée')
                             ->helperText("Dernier numéro de page visible (façon BNF)")
                             ->numeric(),
-                        Forms\Components\TextInput::make('pages_dpi')
+                        Forms\Components\TextInput::make('pages_dpu')
                             ->label('Dernière page utile')
-                            ->helperText("Dernier numéro de page visible (façon BNF)")
+                            ->helperText("Dernier numéro de page utile (façon Christian :-))")
                             ->numeric(),
                         Forms\Components\Select::make('format')
                             ->label('Format')

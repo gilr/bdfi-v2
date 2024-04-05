@@ -163,23 +163,32 @@ class PublicationController extends Controller
             }
 
             $images = array();
-            if ($results->dustjacket_front != "") {
-                $images["jaquette"] = $results->cover_front;
-            }
             if ($results->cover_front != "") {
                 $images["couverture"] = $results->cover_front;
             }
-            if ($results->withband_front != "") {
-                $images["bandeau"] = $results->cover_front;
+            if ($results->cover_back != "") {
+                $images["4ième"] = $results->cover_back;
+            }
+            if ($results->cover_spine != "") {
+                $images["dos"] = $results->cover_spine;
+            }
+            if ($results->dustjacket_front != "") {
+                $images["jaquette"] = $results->dustjacket_front;
             }
             if ($results->dustjacket_back != "") {
-                $images["4ième avec jaquette"] = $results->cover_front;
+                $images["4ième jaquette"] = $results->dustjacket_back;
             }
-            if ($results->cover_back != "") {
-                $images["4ième"] = $results->cover_front;
+            if ($results->dustjacket_spine != "") {
+                $images["dos jaquette"] = $results->dustjacket_spine;
+            }
+            if ($results->withband_front != "") {
+                $images["bandeau"] = $results->withband_front;
             }
             if ($results->withband_back != "") {
-                $images["4ième avec bandeau"] = $results->cover_front;
+                $images["4ième avec bandeau"] = $results->withband_back;
+            }
+            if ($results->withband_spine != "") {
+                $images["dos avec bandeau"] = $results->withband_spine;
             }
 
             return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'images'), $this->context);

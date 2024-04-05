@@ -44,7 +44,7 @@
             <div class='text-center font-bold'>Dernières publications ajoutées</div>
             @foreach($created as $result)
                 <div>
-                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
                 </div>
             @endforeach
         </div>
@@ -52,7 +52,7 @@
             <div class='text-center font-bold'>Programmes et parutions</div>
             @foreach($programme as $result)
                 <div>
-                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
                 </div>
             @endforeach
         </div>
@@ -69,13 +69,17 @@
     <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 text-sm m-4 self-center'>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Annonces</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
+            @foreach($events as $result)
+                <div>
+                    <x-front.lien-texte link='/evenements/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-texte>
+                </div>
+            @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
             <div class='text-center font-bold'>Dernières publications mises à jour</div>
             @foreach($updated as $result)
                 <div>
-                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-auteur>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
                 </div>
             @endforeach
         </div>

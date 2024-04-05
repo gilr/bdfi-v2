@@ -10,6 +10,7 @@ use App\Models\AwardWinner;
 use App\Models\Award;
 use App\Enums\AwardCategoryType;
 use App\Enums\AwardCategoryGenre;
+use Illuminate\Support\Facades\Auth;
 
 class AwardController extends Controller
 {
@@ -121,24 +122,70 @@ class AwardController extends Controller
         }
     }
 
-    public function prix(Request $request, $award)
+    public function prix(Request $request, $text)
     {
-        if ($prix = Award::find($award))
-        {
-            $prix = Award::where('name', $award)->first();
-            $this->context['page'] = $prix->name;
 
-            $categories = AwardCategory::where('award_id', $prix->id)->orderBy('internal_order', 'asc')->get();
+        if ($results=Award::find($text))
+        {
+            // /prix/{id}
+            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page éditeur
+            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            $this->context['page'] = $results->name;
+
+            $categories = AwardCategory::where('award_id', $results->id)->orderBy('internal_order', 'asc')->get();
             $laureats = NULL;
             if ($categories->count() == 1) {
                 $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
             }
-            return view('front.prix.prix', compact('prix', 'categories', 'laureats'), $this->context);
+            return view('front.prix.prix', compact('results', 'categories', 'laureats'), $this->context);
         }
         else
         {
-            $request->session()->flash('warning', 'Pas de prix à ce nom. Pour la peine, nous vous renvoyons directement à la case départ...');
-            return redirect('prix');
+            $pagin = 1000;
+            $user = Auth::user();
+            if ($user)
+            {
+                $pagin = $user->items_par_page;
+            }
+
+            // /prix/{pattern}
+            // Recherche de tous les prix avec le pattern fourni
+            $results = Award::where(function($query) use($text) {
+                $query->where ('name', 'like', '%' . $text .'%')
+                        ->orWhere('alt_names', 'like', '%' . $text .'%');
+            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
+
+            if ($results->count() == 0) {
+                // Aucun résultat, redirection vers l'accueil éditeurs
+                $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'est pas trouvé. Vous avez été redirigé sur l\'accueil de la zone prix.');
+                return redirect('prix');
+            }
+            else if($results->count() == 1)
+            {
+                // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
+                $results = $results[0];
+                if (strtolower($text) != strtolower($results->name)) {
+                    $this->context['page'] = "/$text/ ⇒ $results->name";
+                    $request->session()->flash('warning', 'Le nom demandé ("' . $text . '") n\'existe pas exactement sous cette forme. Mais comme chez BDFI on est cool, on a fouillé un peu et on vous a trouvé un résultat possible. Essayez quand même d\'indiquer un nom exact la prochaine fois, ou passez par le moteur de recherche.');
+                }
+                else {
+                    $this->context['page'] = "$text";
+                }
+                $categories = AwardCategory::where('award_id', $results->id)->orderBy('internal_order', 'asc')->get();
+                $laureats = NULL;
+                if ($categories->count() == 1) {
+                    $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
+                }
+                return view('front.prix.prix', compact('results', 'categories', 'laureats'), $this->context);
+            }
+            else
+            {
+                // Résultats multiples, on propose une page de choix
+                $this->context['page'] = "/$text/";
+                $large = "";
+                $request->session()->flash('warning', 'Le nom ou l\'extrait de nom demandé ("' . $text . '") n\'existe pas de façon unique. Nous vous redirigeons vers une page de choix en espérant que vous y trouviez votre bonheur. Utilisez de préférence notre moteur de recherche.');
+                return view ('front._generic.choix', compact('text', 'results', 'large'), $this->context);
+            }
         }
 
     }

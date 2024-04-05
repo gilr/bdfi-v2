@@ -152,7 +152,7 @@
         </span>
     </div>
     @if ($results->isbn != "-")
-        <div class='text-xs'>
+        <div class='text-xs ml-2'>
             {{ isbnCheckAndConvert($results->isbn) }}
         </div>
     @endif

@@ -3,10 +3,10 @@
 @section('content')
 
 <div class='font-bold text-2xl mt-8 self-center'>
-        {{ $prix->name }}
+        {{ $results->name }}
 </div>
 <div class='text-base mb-8 self-center'>
-    {{ $title }} - <i>Fiche n° {{ $prix->id }}</i>
+    {{ $title }} - <i>Fiche n° {{ $results->id }}</i>
 </div>
 
 <div class='grid grid-cols-1 lg:grid-cols-2 gap-1 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
@@ -14,27 +14,27 @@
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
-         {{ $prix->name }}
+         {{ $results->name }}
     </div>
 
     <div class='text-base'>
-        <span class='font-semibold'>{{ $prix->country->name }} ({{ $prix->year_start }} - {{ $prix->year_end != "" ? $prix->year_end : "..." }})</span>
+        <span class='font-semibold'>{{ $results->country->name }} ({{ $results->year_start }} - {{ $results->year_end != "" ? $results->year_end : "..." }})</span>
     </div>
 
     <div class='text-base'>
-        URL : <a class='border-b border-dotted border-red-700 hover:text-red-700 focus:text-red-900' href='{{ $prix->url }}'>{{ $prix->url }}</a>
+        URL : <a class='border-b border-dotted border-red-700 hover:text-red-700 focus:text-red-900' href='{{ $results->url }}'>{{ $results->url }}</a>
     </div>
 
     <div class='text-base'>
-        Autres noms : <span class='font-semibold'>{{ $prix->short_name }} {{ $prix->alt_names }}</span>
+        Autres noms : <span class='font-semibold'>{{ $results->short_name }} {{ $results->alt_names }}</span>
     </div>
 
     <div class='text-base'>
-        Attribué pour : <span class='font-semibold'>{{ $prix->given_for }}</span>
+        Attribué pour : <span class='font-semibold'>{{ $results->given_for }}</span>
     </div>
 
     <div class='text-base my-4 p-2 border border-yellow-500 bg-yellow-50'>
-        {!! $prix->information !!}
+        {!! $results->information !!}
     </div>
 
 </div>
@@ -77,9 +77,9 @@
 </div>
 
 <div class='text-l py-1 mt-5 bold self-center border-t-2 border-yellow-600'>
-    Dernière mise à jour : {{ $prix->updated_at }}
+    Dernière mise à jour : {{ $results->updated_at }}
 </div>
 
-<x-front.info-fiche filament='{{ $filament }}' area='{{ $area }}' :results='$prix'/>
+<x-front.info-fiche filament='{{ $filament }}' area='{{ $area }}' :results='$results'/>
 
 @endsection

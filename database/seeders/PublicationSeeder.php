@@ -45,6 +45,7 @@ class PublicationSeeder extends Seeder
                 'pages_dpi'        => $obj->dpi ?: '',  // dernière page imprimée
                 'pages_dpu'        => $obj->dpu ?: '',  // dernière page charge utile
                 'pagination'       => $obj->pto ?: '',  // pagination totale
+                'printed_price'    => $obj->codeprix ?: "",
 
                 'cover'                  => $obj->cover ?: "",
                 'illustrators'           => $obj->illustrators ?: "",

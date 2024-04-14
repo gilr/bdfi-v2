@@ -23,6 +23,12 @@
         </div>
     @endif
 
+    @if ($results->type != App\Enums\CollectionType::COLLECTION)
+        <div class='text-base'>
+            Type : <span class='font-semibold'>{{ $results->type->getLabel() }}</span>
+        </div>
+    @endif
+
     <div class='text-base'>
         Nombre de publications : <span class='font-semibold'>{{ count($results->publications) }}</span>
     </div>
@@ -38,10 +44,6 @@
             @endif
         </div>
     @endif
-
-    <div class='text-base'>
-        Type : <span class='font-semibold'>{{ $results->type->getLabel() }}</span>
-    </div>
 
     <div class='text-base'>
         Support : <span class='font-semibold'>{{ $results->support->getLabel() }}</span>

@@ -19,6 +19,8 @@
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
             <li>Ajout de l'info "vérifié" aux retirages</li>
+            <li>Ajout des annonces de salons en page d'accueil</li>
+            <li>Corrections diverses</li>
         </ul>
     </div>
     <div class='text-lg font-bold text-purple-900'>

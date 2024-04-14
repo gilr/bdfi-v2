@@ -38,18 +38,4 @@
         @endforeach
     </div>
 
-    <div class='text-2xl pt-12 bold self-center'>
-        <b>Infos site test & membres</b>
-    </div>
-    <div class='text-base my-2 mx-2 md:mx-20 lg:mx-60 bold self-center'>
-        En cliquant sur un item des index, on accède à une page très simplifiée (données minimales).
-        Si vous êtes identifié avec des droits suffisants (i.e. non simple "user"), un accès direct à la fiche permet de  modifier ou corriger rapidement.
-    </div>
-    <div class='text-base my-2 mx-2 md:mx-20 lg:mx-60 bold self-center'>
-        En modifiant une fiche dans le domaine administration, la page de cette zone sera mise à jour (il faut rafraichir la page).
-    </div>
-    <div class='text-base my-2 mx-2 md:mx-20 lg:mx-60 bold self-center bg-red-200 p-2 shadow-lg'>
-        Rappel : pas d' inquiétude, il  s'agit bien de données de test (copie de test de la base de donnée BDFI).
-    </div>
-
 @endsection

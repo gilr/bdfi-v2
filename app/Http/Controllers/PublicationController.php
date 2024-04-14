@@ -28,7 +28,7 @@ class PublicationController extends Controller
      */
     public function welcome()
     {
-        $results = Publication::orderBy('updated_at', 'desc')->limit(25)->get();
+        $results = Publication::orderBy('updated_at', 'desc')->limit(50)->get();
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
@@ -164,31 +164,31 @@ class PublicationController extends Controller
 
             $images = array();
             if ($results->cover_front != "") {
-                $images["couverture"] = $results->cover_front;
+                $images["Couverture"] = $results->cover_front;
             }
             if ($results->cover_back != "") {
-                $images["4ième"] = $results->cover_back;
+                $images["4ième de couverture"] = $results->cover_back;
             }
             if ($results->cover_spine != "") {
-                $images["dos"] = $results->cover_spine;
+                $images["Dos"] = $results->cover_spine;
             }
             if ($results->dustjacket_front != "") {
-                $images["jaquette"] = $results->dustjacket_front;
+                $images["Couverture avec jaquette"] = $results->dustjacket_front;
             }
             if ($results->dustjacket_back != "") {
-                $images["4ième jaquette"] = $results->dustjacket_back;
+                $images["4ième de couverture avec jaquette"] = $results->dustjacket_back;
             }
             if ($results->dustjacket_spine != "") {
-                $images["dos jaquette"] = $results->dustjacket_spine;
+                $images["Dos avec jaquette"] = $results->dustjacket_spine;
             }
             if ($results->withband_front != "") {
-                $images["bandeau"] = $results->withband_front;
+                $images["Couverture avec bandeau"] = $results->withband_front;
             }
             if ($results->withband_back != "") {
-                $images["4ième avec bandeau"] = $results->withband_back;
+                $images["4ième de couverture avec bandeau"] = $results->withband_back;
             }
             if ($results->withband_spine != "") {
-                $images["dos avec bandeau"] = $results->withband_spine;
+                $images["Dos avec bandeau"] = $results->withband_spine;
             }
 
             return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'images'), $this->context);

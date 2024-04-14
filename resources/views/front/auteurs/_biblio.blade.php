@@ -12,7 +12,7 @@ input.swap:checked ~ .pub { display: block; }
 @endphp
 
 <div class='text-base'>
-<input class='swap mx-4 my-1 accent-pink-400' type="checkbox" unchecked>Afficher les publications<br />
+<input class='swap mx-4 my-1 accent-purple-200' type="checkbox" unchecked>Afficher les publications<br />
 
     @if (!$novels->isEmpty())
         <span class='font-semibold'>Romans et courts romans :</span>

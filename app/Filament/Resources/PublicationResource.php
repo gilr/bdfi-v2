@@ -436,6 +436,7 @@ class PublicationResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 SelectFilter::make('status')
                     ->label('Etat de publication')

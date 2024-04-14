@@ -287,7 +287,11 @@
     @endif
 
     <div class='text-base pt-2'>
+    @if ($results->is_verified)
+        Autres informations :
+    @else
         Informations indicatives :
+    @endif
     </div>
     <div class='border border-purple-800 p-1'>
         <div class='text-base'>
@@ -312,6 +316,12 @@
             @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->ai))
                 <div class='text-base'>
                     Achevé d'imprimé : {{ StrDateformat($results->ai) }}
+                </div>
+            @endif
+
+            @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->printed_price))
+                <div class='text-base'>
+                    Information de prix : {{ $results->printed_price }}
                 </div>
             @endif
 
@@ -562,7 +572,7 @@
     <div class="modal-content">
         @foreach ($images as $key => $value)
             <div class="slide">
-                <img src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" class="image-slide" alt="{{ $key }}." /> <span class="rounded ml-2 px-1 bg-gray-200"> {{ $loop->iteration }} / {{ $loop->count }} - {{ $key }} </span>
+                <span class="rounded ml-2 px-1 bg-violet-100"> {{ $loop->iteration }} / {{ $loop->count }} - {{ $key }} </span><img src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" class="image-slide" alt="{{ $key }}." />
             </div>
             @if (($loop->last) && ($loop->count > 1))
                 <a class="previous" onclick="changeSlide(-1)">&#10094;</a>

@@ -45,7 +45,7 @@
     @endif
     @if ($results->publisher_id)
         <div class='text-base'>
-            Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher->name }}</a></span>
+            Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher_name != "" ? $results->publisher_name : $results->publisher->name }}</a></span>
         </div>
     @endif
     @if (count($results->collections))

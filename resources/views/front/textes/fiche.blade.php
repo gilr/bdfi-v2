@@ -268,7 +268,7 @@
                                     @endif
 
                                     @if($publication->publisher)
-                                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                                     @endif
 
                                     @if(count($publication->collections) !== 0)
@@ -317,7 +317,7 @@
                     @endif
 
                     @if($publication->publisher)
-                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                     @endif
 
                     @if(count($publication->collections) !== 0)
@@ -363,7 +363,7 @@
                             @endif
 
                             @if($publication->publisher)
-                                - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                                - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                             @endif
 
                             @if(count($publication->collections) !== 0)
@@ -419,7 +419,7 @@
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
@@ -467,7 +467,7 @@
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
@@ -512,7 +512,7 @@
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
@@ -555,7 +555,7 @@
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)

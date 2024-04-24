@@ -59,6 +59,7 @@ class PublicationSeeder extends Seeder
                 'has_coverflaps'     => 0,
 
                 'publisher_id'     => $obj->id_ed,
+                'publisher_name'   => $obj->name_ed,
 
                 'cover_front'      => $obj->cover_front ?: '',
                 'cover_back'       => $obj->cover_back ?: '',

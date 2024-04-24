@@ -69,28 +69,38 @@ class PublicationResource extends Resource
                     ->badge('!')
                     ->schema([
                         // Forms
-                        Forms\Components\Select::make('status')
-                            ->label('Etat de publication')
-                            ->enum(PublicationStatus::class)
-                            ->options(PublicationStatus::class)
-                            ->default(PublicationStatus::PUBLIE)
-                            ->required(),
                         Forms\Components\TextInput::make('name')
                             ->label('Titre de l\'ouvrage')
                             ->helperText('Titre indiqué en page titre intérieure (et non en couverture - Si différent, utiliser le champ "autres titres" pour le titre de couverture, dos, quatrième... Les titres, sous-titres, collections sont séparés par des tirets, exemple "Titre - Sous-titre".')
                             ->required()
                             ->maxLength(128),
-                        Forms\Components\Select::make('publisher_id')
-                            ->label('Editeur')
-                            ->relationship('publisher', 'name')
-                            ->helperText('Pour les collections, voir l\'onglet dédié')
-                            ->searchable(['name']),
                         Forms\Components\Select::make('type')
                             ->label('Type de contenu')
                             ->enum(PublicationContent::class)
                             ->options(PublicationContent::class)
                             ->helperText('Type global, texte seul, groupe de textes, groupe de romans, revue/magazine/journal, non-fiction.')
                             ->required(),
+                        Forms\Components\Select::make('status')
+                            ->label('Etat de publication')
+                            ->enum(PublicationStatus::class)
+                            ->options(PublicationStatus::class)
+                            ->default(PublicationStatus::PUBLIE)
+                            ->required(),
+                        Forms\Components\TextInput::make('approximate_parution')
+                            ->label('Date de parution')
+                            ->helperText("Format 'AAAA-MM-00' (exemple : 1983-05-00). 'AAAA-00-00' si l\'année seule est connue, ou éventuellement 'AAAA-MM-JJ' si le jour est donné par l\'éditeur.")
+                            ->regex('/([\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2}))/')
+                            ->maxLength(10),
+                        Forms\Components\Select::make('publisher_id')
+                            ->label('Editeur')
+                            ->relationship('publisher', 'name')
+                            ->helperText('Pour les collections, voir l\'onglet dédié')
+                            ->searchable(['name']),
+                        Forms\Components\TextInput::make('publisher_name')
+                            ->label('Nom éditeur (surcharge)')
+                            ->helperText('A n\'utiliser que si l\'éditeur à changé de nom, pour les ouvrages associés à l\ancien nom. Par exemple, pour les publications Pocket d\'avant 1993, l\'éditeur associé est bien Pocket, mais indiquer ici "Presses Pocket".')
+                            ->required()
+                            ->maxLength(128),
                         Forms\Components\Select::make('support')
                             ->label('Type de support')
                             ->enum(PublicationSupport::class)
@@ -101,11 +111,6 @@ class PublicationResource extends Resource
                         Forms\Components\TextInput::make('isbn')
                             ->helperText('Ne renseigner qu\'en cas de certitude : livre entre les mains, photo 4ième de couv, informations croisées (éditeur, BNF, libraire...).')
                             ->maxLength(18),
-                        Forms\Components\TextInput::make('approximate_parution')
-                            ->label('Date de parution')
-                            ->helperText("Format 'AAAA-MM-00' (exemple : 1983-05-00). 'AAAA-00-00' si l\'année seule est connue, ou éventuellement 'AAAA-MM-JJ' si le jour est donné par l\'éditeur.")
-                            ->regex('/([\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2}))/')
-                            ->maxLength(10),
                         Forms\Components\TextInput::make('cover')
                             ->label('Illustrateur de couverture')
                             ->helperText('Ne renseigner qu\'en cas de certitude (signature visible sur l\'illustration, indication intérieure du livre, informations croisées).')

@@ -27,6 +27,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('publishers')
                 ->onDelete('restrict');
+            $table->string('publisher_name', 128)->nullable(); // Surcharge pour si renommage
 
             $table->boolean('is_visible')->default(true);
 

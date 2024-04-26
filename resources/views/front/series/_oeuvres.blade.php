@@ -9,7 +9,7 @@
                     @endforeach
                     <div class='ml-2 md:ml-8'>
                         @if ($title->pivot->number)
-                            {{ $title->pivot->number }} -
+                            {{ StrConvCycleNum($title->pivot->number) }} -
                         @endif
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $title->id }}'>{{ $title->name }}</a>
                         ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo), " . StrDateformat($title->copyright_fr) : ")"}}

@@ -7,7 +7,8 @@
 
     <title>Site de test</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
 <body class="bg-gray-100">
@@ -28,9 +29,9 @@
                     <span class="text-xs border-b-2 border-yellow-300">{{ env('VERSION') }}</span>
                     {{ ($title == "" ? "" : "→") }}
                     <a class='border-b-2 border-yellow-300 hover:border-purple-400' href="/{{ $area }}">{{ $title }}</a>
-                    @isset($subarea)
+                    @if ((isset($subarea)) && ($subarea != ""))
                     → <a class='border-b-2 border-yellow-300 hover:border-purple-400' href="/{{ $area }}/{{ $subarea }}">{{ $subtitle }}</a>
-                    @endisset
+                    @endif
                     {{ ($page == "" ? "" : "→") }}
                     <span class="border-b-2 border-yellow-300">{{ ($page == "" ? "" : $page) }}</span>
                 </div>

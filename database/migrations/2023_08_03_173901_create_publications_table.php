@@ -64,7 +64,7 @@ return new class extends Migration
             $table->string('pages_dpi')->nullable();
             $table->string('pages_dpu')->nullable();
 
-            // Si non vérifié :
+            // Données indicatives :
             $table->string('approximate_pages')->nullable();
             $table->string('approximate_parution', 10)->nullable();
             $table->string('approximate_price', 32)->nullable();

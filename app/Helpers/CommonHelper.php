@@ -11,6 +11,34 @@ function InitialeCouv($file): string
     return $initiale;
 }
 
+function StrConvCycleNum($num): string
+{
+    $numParts = explode('/', $num);
+
+    if (count($numParts) === 1)
+    {
+        return $num;
+    }
+    else if (count($numParts) === 2)
+    {
+        $start = intval($numParts[0]);
+        $end = intval($numParts[1]);
+
+        if (($start + 1) === $end)
+        {
+            return "$start et $end";
+        }
+        else
+        {
+            return "$start à $end";
+        }
+    }
+    else
+    {
+        // TO DO : à optimiser si le cas existe
+        return $num;
+    }
+}
 
 /**
  * Conversion d'une date DL ou AI type CM au format BDFI (aaaa-mm-jj)

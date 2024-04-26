@@ -24,20 +24,18 @@
     </div>
     <div class='text-base p-1 mt-1 md:px-10 mx:4 md:mx-20'>
         Vous pourrez discuter avec l'ensemble des membres en rejoignant notre
-        <a class='font-semibold border-purple-300 border-b hover:bg-orange-100 border-b hover:border-purple-600' href='/forums'>Forum</a> (il faudra vous inscrire).
+        <a class='font-semibold border-purple-300 border-b hover:bg-orange-100 border-b hover:border-purple-600' href='/forums'>Forum</a> (il faudra vous inscrire sur le forum lui-même).
     </div>
     <div class='text-base p-2 m-5 mx:4 md:mx-40 bg-yellow-200 border-l-4 border-red-600'>
-        En s'inscrivant / se connectant sur le site
+        Bientôt...
     </div>
     <div class='text-base p-1 mt-1 md:px-10 mx:4 md:mx-20'>
-         (A venir) Après être inscrit ou connecté (utiliser les liens en haut à droite ou l'icone en bas de la sidebar), vous aurez la possibilité de nous contacter via un système de ticket
-         (messages, corrections, aides, idées) et ensuite de suivre vos échanges.
-    </div>
-    <div class='text-base p-2 m-5 mx:4 md:mx-40 bg-yellow-200 border-l-4 border-red-600'>
-        Par formulaire direct (sans inscription)
-    </div>
-    <div class='text-base p-1 mt-1 md:px-10 mx:4 md:mx-20'>
-        (à venir)
+        Il sera bientôt également possible de contacter l'équipe BDFI :
+        <ul class="list-disc pl-4 md:pl-12">
+            <li>Via un système de ticket (messages, corrections, aides, idées) après inscription/connexion sur le site</li>
+            <li>Par formulaire direct (sans inscription)</li>
+        </ul>
+         Ces fonctions sont en cours de développement.
     </div>
 
 </div>

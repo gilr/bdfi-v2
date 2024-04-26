@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('table_of_content', function (Blueprint $table) {
             // Ex : Schema::create('publication_title', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsigneddecimal('level', 2,1)->default(0);
+            $table->decimal('level', 2,1)->default(0);
             $table->unsignedInteger('order')->default(1);
             $table->string('start_page',8)->nullable();
             $table->string('end_page',8)->nullable();

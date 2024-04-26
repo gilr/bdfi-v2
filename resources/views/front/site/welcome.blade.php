@@ -1,7 +1,7 @@
 @extends('front.layout')
 @section('content')
 
-<x-front.menu-site tab='welcome' />
+<x-front.menu-site tab='accueil' />
 
 <div class='text-2xl my-2 md:mt-8 bold self-center'>
     @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
@@ -36,13 +36,13 @@
         @foreach($results2 as $result)
         <?php
             $href = "/nova/resources/". Str::plural(Str::kebab(class_basename($result->revisionable_type))) . "/" . $result->revisionable_id;
-            $title = class_exists($class = $result->revisionable_type) ? $class::withTrashed()->find($result->revisionable_id)->name : "...";
+            $pubtitle = class_exists($class = $result->revisionable_type) ? $class::withTrashed()->find($result->revisionable_id)->name : "...";
             $old = Str::limit($result->old_value, 40, "...");
             $new = Str::limit($result->new_value, 40, "...");
         ?>
             <div class='border-b'>
                 {{ $result->created_at }} -
-                <span class='font-semibold'>{{ $title }}</span> :
+                <span class='font-semibold'>{{ $pubtitle }}</span> :
                 @if(isset($result->key))
                     {{ $result->key }}
                 @endif

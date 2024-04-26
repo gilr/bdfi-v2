@@ -21,7 +21,7 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-            {{-- Ce menu se situe actuellement à la racine --}}
+            {{-- Ce menu se situe actuellement à la racine : /resources/navigation-menu.blade.php --}}
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

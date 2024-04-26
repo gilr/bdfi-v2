@@ -16,6 +16,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,6 +121,12 @@ Route::get('/prix/annee/{an}', [AwardController::class, 'annee']);
 Route::get('/prix/genre/{name}', [AwardController::class, 'genre']);
 Route::get('/prix/type/{name}', [AwardController::class, 'type']);
 Route::get('/prix/pays/{name}', [AwardController::class, 'pays']);
+
+// Zone statistiques
+Route::get('/stats', [StatController::class, 'welcome'])->name('stats');
+Route::get('/stats/bdfi', [StatController::class, 'bdfi']);
+Route::get('/stats/production', [StatController::class, 'production']);
+Route::get('/stats/analyse', [StatController::class, 'analyse']);
 
 // Zone infos du site
 Route::get('/site', [AnnouncementController::class, 'welcome'])->name('site');

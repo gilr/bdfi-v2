@@ -91,7 +91,7 @@
             @if (isset($results->titles[0]))
             @if (count ($results->titles[0]->cycles) > 0)
                 @if ($results->cycle == $results->titles[0]->cycles[0]->name)
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> - {{ $results->cyclenum }}
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> - {{ StrConvCycleNum($results->cyclenum) }}
                 @else
                      {{ $results->cycle }}  {{ $results->cyclenum }} (<a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->titles[0]->cycles[0]->name }} </a>)
                 @endif

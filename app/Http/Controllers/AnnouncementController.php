@@ -15,6 +15,7 @@ class AnnouncementController extends Controller
 
     public $context = [
         'area'     => 'site',
+        'subarea'  => '',
         'title'    => 'Le site',
         'icon'     => 'annonces.png',
         'filament' => 'announcements',
@@ -22,6 +23,7 @@ class AnnouncementController extends Controller
     ];
     public function welcome()
     {
+        $this->context['page'] = '';
         $results = Publication::orderBy('created_at', 'desc')
             ->limit(25)
             ->get();

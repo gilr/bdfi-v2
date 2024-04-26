@@ -66,6 +66,12 @@
             'icon' => 'annonces.png',
             'title' => "Informations du site"
         ],
+        'stats' => [
+            'name' => 'Chiffres',
+            'zone' => 'stats',
+            'icon' => 'stats.png',
+            'title' => "Statistiques BDFI & imaginaire"
+        ],
     ];
 ?>
 
@@ -81,7 +87,7 @@
             </li>
             <!-- Items Section -->
             @foreach($menulist as $item)
-                @if (($item['name'] != "Retirages") || (auth()->user() && auth()->user()->hasGuestRole()))
+                @if (($item['name'] != "Retirages") || ($item['name'] != "Statistiques") || (auth()->user() && auth()->user()->hasGuestRole()))
                     <li class="pl-1 md:pl-2 border-r-4 {{ ($zone == $item['zone'] ? 'bg-purple-200 border-purple-600' : 'border-gray-500 hover:bg-yellow-100 hover:border-yellow-500') }}">
                         <a href="/{{$item['zone']}}" class="h-12 flex items-center focus:text-yellow-600">
                             @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
@@ -150,7 +156,7 @@
             </li>
             <!-- Items Section -->
             @foreach($menulist as $item)
-                @if (($item['name'] != "Retirages") || (auth()->user() && auth()->user()->hasGuestRole()))
+                @if (($item['name'] != "Retirages") || ($item['name'] != "Sattistiques") || (auth()->user() && auth()->user()->hasGuestRole()))
                     <li class="pl-1 border-r-4 {{ ($zone == $item['zone'] ? 'bg-purple-200 border-purple-600' : 'border-gray-500 hover:bg-yellow-100 hover:border-yellow-500') }}">
                         <a href="/{{$item['zone']}}" class="h-12 flex items-center focus:text-yellow-600">
                             <img sb-icon src="/img/{{$item['icon']}}" class="w-7" title="{{$item['title']}}"/>

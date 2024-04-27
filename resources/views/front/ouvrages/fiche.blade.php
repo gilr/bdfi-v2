@@ -355,7 +355,7 @@
                     ,
                 @endif
                 @if (auth()->user() && auth()->user()->hasGuestRole())
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat($reprint->ai) }} </a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat($reprint->approximate_parution) }} </a>
                 @else
                     {{ StrDateformat($reprint->ai) }}
                 @endif

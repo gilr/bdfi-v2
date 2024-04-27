@@ -162,21 +162,23 @@
 @else
 
     <style>
-    input { display: none; }
-    input + label { display: inline-block; }
+    input.rad { display: none; }
+    input.rad + label { display: inline-block; }
 
-    input ~ .tab {
+    input.rad ~ .tab {
         display: none;
         overflow: hidden;
         border-top: 1px solid blue;
         padding: 12px;
     }
 
+    input#tab1, input#tab2 { display: none; }
+
     #tab1:checked ~ .tab.content1,
     #tab2:checked ~ .tab.content2 { display: block; }
     #tab3:checked ~ .tab.content3 { display: block; }
 
-    input + label {
+    input.rad + label {
       border: 1px solid #999;
       background: #EEE;
       padding: 4px 12px;
@@ -186,7 +188,7 @@
       top: 1px;
       width:240px;
     }
-    input:checked + label {
+    input.rad:checked + label {
       background-color: rgb(233 213 255);
       border-bottom: 1px solid transparent;
       font-weight: 600;
@@ -202,9 +204,9 @@
     <hr class="mx-24 my-2 border-dotted border-purple-800 pt-2 display:block"/>
 
     <div class='block pt-2 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
-        <input type="radio" name="tabs" checked="checked" id="tab1" />
+        <input class='rad' type="radio" name="tabs" checked="checked" id="tab1" />
         <label for="tab1">Liste des publications</label>
-        <input type="radio" name="tabs" id="tab2" />
+        <input class='rad' type="radio" name="tabs" id="tab2" />
         <label for="tab2">Galerie</label>
         @if (isset($results->article))
             <input type="radio" name="tabs" id="tab3" />

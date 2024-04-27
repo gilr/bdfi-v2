@@ -12,7 +12,7 @@
     </div>
 
     <div class='text-base'>
-        Achevé d'imprimer du retirage : <span class='font-semibold'>{{ StrDateformat($results->ai) }}</span>
+        Date d'Achevé d'Imprimer du retirage : <span class='font-semibold'>{{ StrDateformat(StrDLAItoBDFI($results->ai, $results->approximate_parution)) }}</span>
     </div>
     <div class='text-base'>
         Date de publication : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
@@ -39,7 +39,7 @@
             @if ($results->information)
                 {!! $results->information !!}
             @else
-                <span class='italic'>... pas d'informations</span>
+                <span class='italic'>... pas d'informations spécifiques.</span>
             @endif
         </div>
     @endif
@@ -62,9 +62,9 @@
             @foreach ($results->publication->reprints as $reprint)
                 <div class='ml-2 md:ml-8'>
                     @if ($results->id == $reprint->id)
-                        <i>{{ StrDateformat($reprint->ai) }}</i>
+                        <i>{{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }}</i>
                     @else
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat($reprint->ai) }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </a>
                     @endif
                 </div>
             @endforeach

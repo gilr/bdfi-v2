@@ -1,3 +1,4 @@
+['Accueil docs'](welcome.md)
 
 # Autres tables du site
 
@@ -111,4 +112,65 @@
 | deleted_by    | smallint unsigned | YES  |     | NULL    |                |
 | deleted_at    | timestamp         | YES  |     | NULL    |                |
 +---------------+-------------------+------+-----+---------+----------------+
+</code>
+
+## Tables des usagers
+
+<code>
++---------------------------+-------------------+------+-----+---------+----------------+
+| Field                     | Type              | Null | Key | Default | Extra          |
++---------------------------+-------------------+------+-----+---------+----------------+
+| id                        | bigint unsigned   | NO   | PRI | NULL    | auto_increment |
+| name                      | varchar(64)       | NO   |     | NULL    |                |
+| role                      | varchar(255)      | NO   |     | user    |                |
+| email                     | varchar(64)       | NO   | UNI | NULL    |                |
+| email_verified_at         | timestamp         | YES  |     | NULL    |                |
+| password                  | varchar(64)       | NO   |     | NULL    |                |
+| two_factor_secret         | text              | YES  |     | NULL    |                |
+| two_factor_recovery_codes | text              | YES  |     | NULL    |                |
+| two_factor_confirmed_at   | timestamp         | YES  |     | NULL    |                |
+| remember_token            | varchar(100)      | YES  |     | NULL    |                |
+| current_team_id           | bigint unsigned   | YES  |     | NULL    |                |
+| profile_photo_path        | varchar(2048)     | YES  |     | NULL    |                |
+| format_date               | varchar(255)      | NO   |     | abr     |                |
+| items_par_page            | int unsigned      | NO   |     | 1000    |                |
+| with_icons                | tinyint(1)        | NO   |     | 1       |                |
+| fonction_aide             | tinyint(1)        | NO   |     | 0       |                |
+| gestion_biblio            | tinyint(1)        | NO   |     | 0       |                |
+| created_at                | timestamp         | YES  |     | NULL    |                |
+| updated_at                | timestamp         | YES  |     | NULL    |                |
+| created_by                | smallint unsigned | YES  |     | NULL    |                |
+| updated_by                | smallint unsigned | YES  |     | NULL    |                |
+| deleted_by                | smallint unsigned | YES  |     | NULL    |                |
+| deleted_at                | timestamp         | YES  |     | NULL    |                |
++---------------------------+-------------------+------+-----+---------+----------------+
+</code>
+
+## Table de bibliothèque : collections suivies par un usager
+
+<code>
++---------------+-----------------+------+-----+---------+----------------+
+| Field         | Type            | Null | Key | Default | Extra          |
++---------------+-----------------+------+-----+---------+----------------+
+| id            | int unsigned    | NO   | PRI | NULL    | auto_increment |
+| status        | varchar(255)    | NO   |     | NULL    |                |
+| user_id       | bigint unsigned | NO   | MUL | NULL    |                |
+| collection_id | int unsigned    | NO   | MUL | NULL    |                |
+| created_at    | timestamp       | YES  |     | NULL    |                |
+| updated_at    | timestamp       | YES  |     | NULL    |                |
++---------------+-----------------+------+-----+---------+----------------+
+</code>
+
+## Table de bibliothèque : ouvrages possédés par un usager
+
+<code>
++----------------+-----------------+------+-----+---------+----------------+
+| Field          | Type            | Null | Key | Default | Extra          |
++----------------+-----------------+------+-----+---------+----------------+
+| id             | int unsigned    | NO   | PRI | NULL    | auto_increment |
+| user_id        | bigint unsigned | NO   | MUL | NULL    |                |
+| publication_id | int unsigned    | NO   | MUL | NULL    |                |
+| created_at     | timestamp       | YES  |     | NULL    |                |
+| updated_at     | timestamp       | YES  |     | NULL    |                |
++----------------+-----------------+------+-----+---------+----------------+
 </code>

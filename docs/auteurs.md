@@ -5,6 +5,8 @@
 
 ## Table principale des (signatures d') auteurs
 
+(description à compléter - pré-existait en V1)
+
 <code>
 +--------------+-------------------+------+-----+---------+----------------+
 | Field        | Type              | Null | Key | Default | Extra          |
@@ -38,6 +40,8 @@
 
 ## Table des signatures et pseudonymes
 
+Table des liens d'une nom/signature vers un autre.
+
 <code>
 +--------------+-------------------+------+-----+---------+----------------+
 | Field        | Type              | Null | Key | Default | Extra          |
@@ -55,6 +59,8 @@
 </code>
 
 ## Table des sites web
+
+Table des URL de sites d'auteur.
 
 <code>
 +-----------------+-------------------+------+-----+---------+----------------+
@@ -75,6 +81,8 @@
 </code>
 
 ## Table des relations entre auteurs
+
+Table stockant les relations entre auteurs de la base. Pré-existait en V1 mais non utilisé. Permet de rebondir d'une page auteur à une autre s'ils sont en relation.
 
 <code>
 +----------------------+-------------------+------+-----+---------+----------------+

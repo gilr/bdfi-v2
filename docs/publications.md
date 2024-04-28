@@ -4,6 +4,14 @@
 
 ## Table des éditeurs
 
+- sigle_bdfi : [TEMPORAIRE] (si pas de collection] - Sigle utilisé actuellement sur BDFI, pour permettre une éventuelle transition
+- alt_names : variantes, noms longs, avec prénom, ou par exemple si le nom de l'éditeur à historiquement évolué et qu'il n'y a pas de raisons de scinder en deux
+- type : le type d'éditeur ; codé comme  énuméré : 'editeur', 'microediteur', 'autoediteur', 'compte d'auteur', 'autre' - A affiner si besoin
+- year_start : l'année de création
+- year_end : l'année de dissolution
+- address : la dernière localisation connue;  dernière ville/localisation/adresse connue...
+- information : Petite description, historique, appartenance à un groupe, autre informations...
+
 <code>
 +-------------+-------------------+------+-----+---------+----------------+
 | Field       | Type              | Null | Key | Default | Extra          |
@@ -30,6 +38,22 @@
 </code>
 
 ## Table des collections
+
+- name : nom complet collection ou sous-collection ; exemple : "Vertige", "Vertige fantastique", "Super luxe lendemains retrouvés", "Terrific"
+- type: le type d'ensemble de publication = énuméré : 'collection', 'ensemble', 'revue', 'fanzine', 'magazine', 'journal', antho-periodique'... - 'collection' par défaut
+- alt_names : les autres dénominations, variantes, long noms, nom court - exemple : "Lendemains retrouvés" - Ou si le nom 'officiel' de la même collection a évolué au fil du temps, variantes de présentation, "surnom" officieux.
+- sigle_bdfi : [TEMPORAIRE] sigle utilisé actuellement sur BDFI pour permettre une éventuelle transition"
+- publisher_id : l'id de l'éditeur (virtuellement non obligatoire, mais accélére les requêtes & affichages)
+- publisher2_id : éditeur 2 si besoin
+- publisher3_id : éditeur 3 si besoin
+- parent id : identifiant de la collection 'mère' dans cette même table - si sous-série, sous-collection, sous-ensemble...
+- year_start : année de création
+- year_end : année de fin = année du dernier élément de la série/collection
+- support : codé en énuméré : 'papier', 'numerique', 'audio', 'mixte', 'autre'
+- format : codé en énuméré : 'poche', 'moyen', 'grand', 'mixte'
+- les dimensions (dimensions) = texte - dimensions en mm (format 100 x 200)
+- cible : le public visé; codé en énuméré : 'jeunesse', 'YA', 'adulte' - A discuter et affiner
+- genre : le genre annoncé ou majoritaire = énuméré : 'sf', 'fantasy', 'fantastique', 'gore', 'policier', 'autre', 'N/A'
 
 <code>
 +---------------+-------------------+------+-----+---------+----------------+

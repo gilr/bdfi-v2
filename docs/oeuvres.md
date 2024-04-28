@@ -4,6 +4,22 @@
 
 ## Table des oeuvres
 
+- name : Le titre indiqué en page de titre de l'ouvrage (pas en couverture)
+- TBD ajouter alt-names pour éventuel titre en couv ?
+- type : énuméré : roman, novella, nouvelle, preface, postface, poeme, chanson, biblio, bio, essai, article, partie/groupe de textes
+- parent_id : premier texte en français, identifiant dans cette même table [Nécessite informations complémentaire surtout pour cas particuliers]
+- copyright : la première date de publication
+- is_novelization : flag novelisation
+- is_visible : flag affichage = permet de préciser si ce texte ne doit pas être affiché - hors genre stocké en base par exemple
+- is_nongenre : flag précisant si hors genre - Distinct du précédent pour pouvoir exceptionnellement de rendre affichage un texte hors genre
+- title_vo : titre VO si traduit
+- copyright_vo : date VO
+- translators : les traducteurs = une liste "nom prénom, nom prénom, etc..." [A REVOIR] (pour gérer en base)
+- synopsis : pitch de l'histoire
+- information : information sur le texte (pas le synopsis, mais relativement à son historique - écrit bien avant par exemple, ou anecdote)
+
+(à compléter)
+
 <code>
 +-----------------+-------------------+------+-----+---------+----------------+
 | Field           | Type              | Null | Key | Default | Extra          |
@@ -40,6 +56,13 @@
 </code>
 
 ## Table des cycles
+
+- name : nom le plus habituel - exemple : "La Guerre éternelle", "Luna"
+- nom_bdfi : [TEMPORAIRE] nom actuel site BDFI pour permettre la transition (exemple pour un "Luna" ci-dessus : "Luna (Ian McDonald)")
+- alt_names : autres noms usuels ou admis ; exemples pour "Doc Savage" : "Franck Sauvage; Franck Sauvage, l'homme miracle"
+- vo_names : le nom ou les noms en VO - au même format : "Titre VO 1; Titre VO 2; Titre VO 3")
+- type : [A RETRAVAILLER] le type de série; codé sous forme d'énuméré : 'serie', 'cycle', 'univers', 'feuilleton', 'autre' - Serie & cycle seront sans doute traités pareil, ou unifiés...
+- parent_id : la série parente, si existe = identifiant dans la même table de la série/cycle parent - Une série ne peut avoir qu'une seule série parente (à noter : un ouvrage, lui, pourra appartenir à plusieurs séries)
 
 <code>
 +-------------+-------------------+------+-----+---------+----------------+
@@ -86,6 +109,8 @@
 
 ## Table des rattachements des oeuvres aux auteurs
 
+(à compléter)
+
 <code>
 +------------+-------------------+------+-----+---------+----------------+
 | Field      | Type              | Null | Key | Default | Extra          |
@@ -103,6 +128,8 @@
 </code>
 
 ## Table des rattachements des oeuvres aux publications
+
+(à compléter)
 
 <code>
 +----------------+-------------------+------+-----+---------+----------------+

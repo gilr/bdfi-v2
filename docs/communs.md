@@ -4,6 +4,8 @@
 
 ## Table des pays
 
+(à compléter)
+
 <code>
 +----------------+-------------------+------+-----+---------+----------------+
 | Field          | Type              | Null | Key | Default | Extra          |
@@ -24,6 +26,8 @@
 
 ## Table des types de site
 
+(à compléter)
+
 <code>
 +----------------+-------------------+------+-----+---------+----------------+
 | Field          | Type              | Null | Key | Default | Extra          |
@@ -43,6 +47,8 @@
 </code>
 
 ## Table des types de lien
+
+(à compléter)
 
 <code>
 +----------------------+-------------------+------+-----+---------+----------------+

@@ -4,6 +4,8 @@
 
 ## Table des évènements
 
+(à compléter)
+
 <code>
 +------------------+-------------------+------+-----+---------+----------------+
 | Field            | Type              | Null | Key | Default | Extra          |
@@ -30,6 +32,8 @@
 
 ## Table des annonces
 
+(à compléter)
+
 <code>
 +-------------+-------------------+------+-----+---------+----------------+
 | Field       | Type              | Null | Key | Default | Extra          |
@@ -51,6 +55,8 @@
 
 ## Table des articles
 
+(à compléter)
+
 <code>
 +------------+-------------------+------+-----+---------+----------------+
 | Field      | Type              | Null | Key | Default | Extra          |
@@ -69,6 +75,8 @@
 </code>
 
 ## Table des documents
+
+(à compléter)
 
 <code>
 +------------+-------------------+------+-----+---------+----------------+
@@ -90,6 +98,8 @@
 </code>
 
 ## Table des statistiques
+
+(à compléter)
 
 <code>
 +---------------+-------------------+------+-----+---------+----------------+
@@ -115,6 +125,8 @@
 </code>
 
 ## Tables des usagers
+
+(à compléter)
 
 <code>
 +---------------------------+-------------------+------+-----+---------+----------------+
@@ -148,6 +160,8 @@
 
 ## Table de bibliothèque : collections suivies par un usager
 
+(à compléter)
+
 <code>
 +---------------+-----------------+------+-----+---------+----------------+
 | Field         | Type            | Null | Key | Default | Extra          |
@@ -162,6 +176,8 @@
 </code>
 
 ## Table de bibliothèque : ouvrages possédés par un usager
+
+(à compléter)
 
 <code>
 +----------------+-----------------+------+-----+---------+----------------+

@@ -7,7 +7,8 @@ enum CollectionGenre: string implements HasLabel {
     case SF          = 'sf';
     case FANTASY     = 'fantasy';
     case FANTASTIQUE = 'fantastique';
-    case GORE        = 'hybride';
+    case HYBRIDE     = 'hybride';
+    case GORE        = 'gore';
     case POLICIER    = 'policier';
     case AUTRE       = 'autre';
     case NA          = 'na';
@@ -18,10 +19,11 @@ enum CollectionGenre: string implements HasLabel {
             self::SF          => 'Science-fiction',
             self::FANTASY     => 'Fantasy',
             self::FANTASTIQUE => 'Fantastique',
+            self::HYBRIDE     => 'Hybride',
             self::GORE        => 'Gore',
             self::POLICIER    => 'Policier',
             self::AUTRE       => 'Autre',
-            self::NA          => 'N/A',
+            self::NA          => 'Non applicable',
         };
     }
 }

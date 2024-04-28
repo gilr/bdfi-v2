@@ -95,6 +95,12 @@
         </div>
     @endif
 
+    @if ($results->forum_topic_id != 0)
+        <div class='text-base'>
+            Consulter la page consacrée sur nos <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='https://forums.bdfi.net/viewtopic.php?id={{ $results->forum_topic_id }}'>forums</a></span>
+        </div>
+    @endif
+
 </div>
 
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>

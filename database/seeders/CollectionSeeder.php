@@ -25,7 +25,7 @@ class CollectionSeeder extends Seeder
                 'name'             => $obj->name ?: "",
                 'shortname'        => $obj->subcoll == "" ? $obj->name : $obj->subcoll,
                 'sigle_bdfi'       => $obj->sigle ?: "",
-                'alt_names'        => "",
+                'alt_names'        => $obj->alt_names ?: "",
 
                 'publisher_id'     => $obj->id_ed,
                 'publisher2_id'    => NULL,
@@ -36,14 +36,16 @@ class CollectionSeeder extends Seeder
 
                 'support'          => $obj->support ?: CollectionSupport::PAPIER,
                 'type'             => $obj->type ?: "collection",
+                'periodicity'      => $obj->periodicite ?: "n-a",
                 'format'           => $obj->format ?: NULL,
-                'dimensions'       => "",
+                'dimensions'       => $obj->dimensions ?: "",
                 'cible'            => $obj->cible ?: NULL,
                 'genre'            => $obj->genre ?: NULL,
 
-                'information' => "",
-                'private'     => "",
-                'quality'     => QualityStatus::VIDE,
+                'forum_topic_id'   => $obj->forum_topic_id ?: 0,
+                'information'      => $obj->description ?: "",
+                'private'          => $obj->private ?: "",
+                'quality'          => QualityStatus::VIDE,
 
                 'created_at'   => today(),
                 'updated_at'   => today(),

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use App\Enums\CollectionType;
+use App\Enums\CollectionPeriodicity;
 use App\Enums\CollectionSupport;
 use App\Enums\CollectionFormat;
 use App\Enums\CollectionGenre;
@@ -101,6 +102,12 @@ class CollectionResource extends Resource
                         ->enum(CollectionType::class)
                         ->options(CollectionType::class)
                         ->required(),
+                    Forms\Components\Select::make('periodicity')
+                        ->label('Periodicité (si applicable)')
+                        ->enum(CollectionPeriodicity::class)
+                        ->options(CollectionPeriodicity::class)
+                        ->default(CollectionPeriodicity::NA)
+                        ->required(),
                     Forms\Components\Select::make('support')
                         ->label('Type de support')
                         ->enum(CollectionSupport::class)
@@ -121,6 +128,12 @@ class CollectionResource extends Resource
                         ->label('Genre')
                         ->enum(CollectionGenre::class)
                         ->options(CollectionGenre::class),
+                    Forms\Components\TextInput::make('topic_forum_id')
+                            ->helperText('Le numéro du topic de la collection sur le forum (par exemple, 3728 est exofiction). Cf. "Accès rapide à une collection". 0 si inexistant ou inconnu.')
+                            ->numeric()
+                            ->minValue(0)
+                            ->maxValue(50000)
+                            ->default(0),
                     Forms\Components\Textarea::make('information')
                         ->label('Informations notables à afficher')
                         ->maxLength(65535)

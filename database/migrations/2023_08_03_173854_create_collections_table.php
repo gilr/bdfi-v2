@@ -17,7 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name', 128);
             $table->string('shortname', 128);
-            $table->string('type'); // ['book-collection', 'revue', 'fanzine', 'magazine', 'journal', 'antho-periodique', 'hors-collection']
+            $table->string('type'); // collection, ensemble, revue, fanzine, magazine, journal, antho-p
+            $table->string('periodicity'); // na, quotidien, hebdo, bimensuel, mensuel, ...
             $table->string('sigle_bdfi', 8)->nullable();
             $table->string('alt_names', 512)->nullable();
 
@@ -55,6 +56,8 @@ return new class extends Migration
             // A transformer en morph2many vers des tags cible et genre
             $table->string('cible')->nullable(); // ['jeunesse', 'YA', 'adulte']
             $table->string('genre')->nullable(); // ['sf', 'fantasy', 'fantastique','gore','policier']
+
+            $table->unsignedInteger('forum_topic_id')->nullable();
 
             $table->text('information')->nullable();
             $table->text('private')->nullable();

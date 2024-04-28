@@ -1,4 +1,4 @@
-['Accueil docs'](welcome.md)
+[Accueil documentation](welcome.md)
 
 # Tables de la zone 'Publications'
 

@@ -1,4 +1,4 @@
-['Accueil docs'](welcome.md)
+[Accueil documentation](welcome.md)
 
 # Autres tables du site
 

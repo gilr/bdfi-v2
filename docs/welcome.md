@@ -1,20 +1,21 @@
 
+
 # Description des tables de la base de données
 
-Les tables des la zone ['Auteurs'](auteurs.md)
+- Les tables des la zone ['Auteurs'](auteurs.md)
+- Les tables des la zone ['publications'](publications.md)
+- Les tables des la zone ['prix'](prix.md)
+- Les tables des la zone ['oeuvres'](oeuvres.md)
+- Les tables des la zone ['site'](site.md)
+- Les tables [communes](communs.md)
 
-Les tables des la zone ['publications'](publications.md)
+Les informations communes à plusieurs tables sont décrites plus bas.
 
-Les tables des la zone ['prix'](prix.md)
+# Les valeurs énumérées
 
-Les tables des la zone ['oeuvres'](oeuvres.md)
-
-Les tables des la zone ['site'](site.md)
-
-Les tables [communes](communs.md)
+(à venir)
 
 # Informations communes
-
 Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs tables. Ces champs seront listés dans les pages par zone mais  non décrits; des exemples peuvent pas contre être donnés.
 
 - id : évidemment commun à toutes les tables sans exception, c'est l'identifiant unique dans une table
@@ -32,6 +33,7 @@ Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs table
 - deleted_by : id de l'utilisateur ayant supprimé l'élément
 - deleted_at : date et heure de suppression (soft-delete)
 
+<code>
 +--------------+-------------------+------+-----+---------+----------------+
 | Field        | Type              | Null | Key | Default | Extra          |
 +--------------+-------------------+------+-----+---------+----------------+
@@ -50,3 +52,4 @@ Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs table
 | deleted_by   | smallint unsigned | YES  |     | NULL    |                |
 | deleted_at   | timestamp         | YES  |     | NULL    |                |
 +--------------+-------------------+------+-----+---------+----------------+
+</code>

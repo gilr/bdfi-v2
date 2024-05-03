@@ -23,6 +23,7 @@ class PublicationSeeder extends Seeder
         $data = json_decode($json);
         foreach ($data as $obj) {
             DB::table('publications')->insert([
+                'status'           => $obj->status ?: "",
                 'name'             => $obj->name ?: "",
                 'cycle'            => $obj->cycle ?: "",
                 'cyclenum'         => $obj->indice ?: "",

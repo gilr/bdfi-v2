@@ -243,20 +243,20 @@
 <?php $laureats=array(); ?>
 @if(count($results->winners) !== 0)
     @foreach ($results->winners as $laureat)
-        <?php $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->category->award->name, "categorie_id" => $laureat->category->id, "categorie_name" => $laureat->category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title); ?>
+        <?php $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->award_category->award->name, "categorie_id" => $laureat->award_category->id, "categorie_name" => $laureat->award_category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title); ?>
     @endforeach
 @endif
 @if(count($results->winners2) !== 0)
     @foreach ($results->winners2 as $laureat)
         @php
-            $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->category->award->name, "categorie_id" => $laureat->category->id, "categorie_name" => $laureat->category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title);
+            $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->award_category->award->name, "categorie_id" => $laureat->award_category->id, "categorie_name" => $laureat->award_category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title);
         @endphp
     @endforeach
 @endif
 @if(count($results->winners3) !== 0)
     @foreach ($results->winners3 as $laureat)
         @php
-            $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->category->award->name, "categorie_id" => $laureat->category->id, "categorie_name" => $laureat->category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title);
+            $laureats[] = array("year" => $laureat->year, "award_name" => $laureat->award_category->award->name, "categorie_id" => $laureat->award_category->id, "categorie_name" => $laureat->award_category->name, "title" => $laureat->title, "vo_title" => $laureat->vo_title);
         @endphp
     @endforeach
 @endif

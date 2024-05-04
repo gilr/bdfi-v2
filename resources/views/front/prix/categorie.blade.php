@@ -44,14 +44,14 @@
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-xl font-semibold my-2 mt-4 bold self-center m-auto'>
-        @if (count($prix->categories) != 1)
+        @if (count($prix->award_categories) != 1)
             Liste des catégories :
         @else
             Une seule catégorie :
         @endif
     </div>
     <div class='text-base px-2 mx-2 md:mx-10 self-center'>
-        @foreach($prix->categories as $categ)
+        @foreach($prix->award_categories as $categ)
             @if ($categorie->id != $categ->id)
                 <div class='hover:bg-yellow-100 border-b hover:border-purple-400'><a class='sm:p-0.5 md:px-0.5' href='/prix/categorie/{{ $categ->id }}'> {{ $categ->name }} </a></div>
             @else

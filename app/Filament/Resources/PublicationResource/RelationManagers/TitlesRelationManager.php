@@ -53,7 +53,7 @@ class TitlesRelationManager extends RelationManager
     {
         return $table
 //            ->recordTitleAttribute('name')
-            ->recordTitle(fn (Title $record): string => "{$record->name} - {$record->type->getLabel()}  ({$record->copyright} {$record->title_vo})")
+            ->recordTitle(fn (Title $record): string => "{$record->name} - {$record->type->getLabel()} ({$record->copyright} {$record->title_vo})")
             ->paginated(false)
             ->columns([
                 Tables\Columns\TextColumn::make('name')

@@ -4,6 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Enums\PublicationSupport;
+use App\Enums\PublicationFormat;
+use App\Enums\PublicationStatus;
+use App\Enums\AudienceTarget;
+use App\Enums\GenreStat;
+use App\Enums\PublicationStatus;
+use Filament\Notifications\Livewire\Notifications;
+use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\VerticalAlignment;
+
 return new class extends Migration
 {
     /**
@@ -16,8 +26,7 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
-            $table->string('status')->default('paru');
-                // Enum PublicationStatus PUBLIE ('paru'), ANNONCE ('annonce'), PROPOSE ('proposal'), ABANDONNE ('abandon')
+            $table->string('status')->default(PublicationStatus::PUBLIE->value); // PUBLIE, ANNONCE, PROPOSE, ABANDONNE
 
             $table->string('cycle', 128)->nullable();
             $table->string('cyclenum', 10)->nullable();
@@ -69,14 +78,14 @@ return new class extends Migration
             $table->string('approximate_parution', 10)->nullable();
             $table->string('approximate_price', 32)->nullable();
 
-            $table->string('support'); // Enum PublicationSupport ['papier', 'numerique', 'audio', 'autre']
-            $table->string('format')->nullable(); // Enum PublicationFormat ['poche', 'moyen format', 'grand format', 'autre', 'n/a', 'inconnu']
-            $table->string('type'); // Enum PublicationType // ['fiction', 'assemblage', 'omnibus', 'revue', 'non-fiction']
+            $table->string('support')->default(PublicationSupport::PAPIER->value); // papier, numerique, audio, autre
+            $table->string('format')->default(PublicationFormat::INCONNU->value); // Poche, GF, MF, autre, n-a, inconnu
+            $table->string('type'); // Enum PublicationContent : fiction, assemblage, omnibus, revue, non-fiction
 
             // Genre - thésaurus : à revoir
-            $table->string('is_genre'); // Enum GenreAppartenance ['yes', 'partial', 'no']
-            $table->string('genre_stat'); // Enum GenreStat ['sf', 'fantasy', 'fantastic', 'hybrid', 'other', 'mainstream']
-            $table->string('target_audience'); // Enum AudienceTarget
+            $table->string('is_genre'); // Enum GenreAppartenance : yes, partial, no
+            $table->string('genre_stat')->default(GenreStat::INCONNU->value); // sf, fantasy, fantastique, hybride, autre, mainstream
+            $table->string('target_audience')->default(AudienceTarget::INCONNU->value);;
             $table->string('target_age')->nullable();
 
 

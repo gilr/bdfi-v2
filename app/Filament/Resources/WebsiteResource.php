@@ -114,6 +114,7 @@ class WebsiteResource extends Resource
                     ->label('par')
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -130,8 +131,7 @@ class WebsiteResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ])
-            ->defaultSort('updated_at', 'desc');
+            ]);
     }
     
     public static function getRelations(): array

@@ -207,6 +207,7 @@ class EventResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

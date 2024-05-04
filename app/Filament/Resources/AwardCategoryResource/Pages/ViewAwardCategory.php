@@ -23,6 +23,7 @@ class ViewAwardCategory extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
     protected function mutateFormDataBeforeFill(array $data): array
     {
         $data['created_by'] = $data['created_by'] ? User::find($data['created_by'])->name : "--";
@@ -30,5 +31,10 @@ class ViewAwardCategory extends ViewRecord
         $data['deleted_by'] = $data['deleted_by'] ? User::find($data['deleted_by'])->name : "--";
 
         return $data;
+    }
+
+    public function hasCombinedRelationManagerTabsWithContent(): bool
+    {
+        return true;
     }
 }

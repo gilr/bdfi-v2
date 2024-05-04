@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AwardCategoryResource\Pages;
 use App\Filament\Resources\AwardCategoryResource\RelationManagers;
+use Filament\Resources\RelationManagers\RelationGroup;
 use App\Filament\Resources\AwardResource\RelationManagers\AwardCategoriesRelationManager;
 use App\Models\AwardCategory;
 use Filament\Forms;
@@ -125,7 +126,7 @@ class AwardCategoryResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nom')
+                    ->label('Nom de la catégorie')
                     ->limit(30)
                     ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
@@ -179,6 +180,7 @@ class AwardCategoryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -201,9 +203,12 @@ class AwardCategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationGroup::make('Gagnants', [
+                RelationManagers\AwardWinnersRelationManager::class,
+            ]),
         ];
     }
+
     
     public static function getPages(): array
     {

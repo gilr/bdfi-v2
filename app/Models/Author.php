@@ -48,15 +48,15 @@ class Author extends Model
         return $this->belongsTo('App\Models\Country', 'country2_id');
     }
 
-    public function award_winners()
+    public function winners()
     {
         return $this->hasMany('App\Models\AwardWinner', 'author_id');
     }
-    public function award_winners2()
+    public function winners2()
     {
         return $this->hasMany('App\Models\AwardWinner', 'author2_id');
     }
-    public function award_winners3()
+    public function winners3()
     {
         return $this->hasMany('App\Models\AwardWinner', 'author3_id');
     }

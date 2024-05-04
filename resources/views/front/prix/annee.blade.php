@@ -27,12 +27,12 @@
             @foreach($type as $laureat)
                 <div class='pl-2'>
                     {!! awardAuthors($laureat->name, $laureat->author_id, $laureat->author2_id, $laureat->author3_id) !!} - {{ $laureat->title }} {{ $laureat->title == "" ? $laureat->vo_title : ($laureat->vo_title == "" ? "" : "(" . $laureat->vo_title . ")") }} :
-                    <a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/{{ $laureat->award_category->award->name }}'>
-                        {{ $laureat->award_category->award->name }}
+                    <a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/{{ $laureat->category->award->name }}'>
+                        {{ $laureat->category->award->name }}
                     </a>,
                     catégorie
-                    <a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/categorie/{{ $laureat->award_category_id }}'>
-                        {{ $laureat->award_category->name }}
+                    <a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/categorie/{{ $laureat->category_id }}'>
+                        {{ $laureat->category->name }}
                     </a>
                 </div>
             @endforeach

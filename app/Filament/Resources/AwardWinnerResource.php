@@ -3,6 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AwardWinnerResource\Pages;
+use App\Filament\Resources\AwardWinnerResource\RelationManagers;
+use Filament\Resources\RelationManagers\RelationGroup;
+use App\Filament\Resources\AwardCategoryResource\RelationManagers\AwardWinnersRelationManager;
 use App\Models\AwardWinner;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -151,11 +154,13 @@ class AwardWinnerResource extends Resource
                     ->label('Prix')
                     ->limit(25, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
                     ->html()
+                    ->hiddenOn(AwardWinnersRelationManager::class)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('award_category.name')
                     ->label('Catégorie')
                     ->limit(15, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
                     ->html()
+                    ->hiddenOn(AwardWinnersRelationManager::class)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Attribué à')
@@ -188,6 +193,7 @@ class AwardWinnerResource extends Resource
                 Tables\Columns\TextColumn::make('editor.name')
                     ->label('par'),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

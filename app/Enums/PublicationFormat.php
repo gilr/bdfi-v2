@@ -9,7 +9,7 @@ enum PublicationFormat: string implements HasLabel {
     case GF      = 'gf';
     case AUTRE   = 'autre';
     case NA      = 'n-a';
-    case INCONNU = 'unknown';
+    case INCONNU = 'inconnu';
 
     public function getLabel(): ?string
     {

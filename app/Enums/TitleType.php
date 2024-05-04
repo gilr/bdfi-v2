@@ -32,7 +32,7 @@ enum TitleType: string implements HasLabel {
     case BD           = 'comics';
     case LIVREJEU     = 'gamebook';
     case JEU          = 'game';
-    case INCONNU      = 'unknown';
+    case INCONNU      = 'inconnu';
 // Autres ?
 // Omnibus, revue, magazine, journal ?
 // excerpt ? (ou plutôt short fiction et nom = "Titre (extrait)")

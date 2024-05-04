@@ -95,6 +95,7 @@ class SignatureResource extends Resource
                 Tables\Columns\TextColumn::make('editor.name')
                     ->label('par'),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

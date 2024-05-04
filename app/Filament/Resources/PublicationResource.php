@@ -99,7 +99,7 @@ class PublicationResource extends Resource
                         Forms\Components\TextInput::make('publisher_name')
                             ->label('Nom éditeur (surcharge)')
                             ->helperText('A n\'utiliser que si l\'éditeur à changé de nom, pour les ouvrages associés à l\ancien nom. Par exemple, pour les publications Pocket d\'avant 1993, l\'éditeur associé est bien Pocket, mais indiquer ici "Presses Pocket".')
-                            ->required()
+                            ->nullable()
                             ->maxLength(128),
                         Forms\Components\Select::make('support')
                             ->label('Type de support')

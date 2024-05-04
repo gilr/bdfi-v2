@@ -117,6 +117,7 @@ class DocumentResource extends Resource
                 Tables\Columns\TextColumn::make('item.fullName')
                     ->label('... concerne la fiche'),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

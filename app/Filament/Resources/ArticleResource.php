@@ -92,6 +92,7 @@ class ArticleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('item.fullName')
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

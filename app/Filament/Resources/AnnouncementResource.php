@@ -158,6 +158,7 @@ class AnnouncementResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -174,8 +175,7 @@ class AnnouncementResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ])
-            ->defaultSort('date', 'desc');
+            ]);
     }
     
     public static function getRelations(): array

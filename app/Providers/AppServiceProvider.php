@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use App\Enums\TitleType;
 use Illuminate\Support\Number;
+use Filament\Notifications\Livewire\Notifications;
+use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\VerticalAlignment;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,5 +58,9 @@ class AppServiceProvider extends ServiceProvider
             return $this->whereIn('type', [TitleType::LETTRE, TitleType::PREFACE, TitleType::POSTFACE, TitleType::BIBLIO, TitleType::BIO, TitleType::ESSAI, TitleType::GUIDE, TitleType::ARTICLE, TitleType::LIVREJEU, TitleType::JEU])
                         ->sortBy('copyright');
         });
+
+
+        Notifications::alignment(Alignment::Center);
+        Notifications::verticalAlignment(VerticalAlignment::Center);
     }
 }

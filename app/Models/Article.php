@@ -36,4 +36,14 @@ class Article extends Model
     {
         return $this->morphTo();
     }
+
+    /*
+     * Accesseurs supplémentaires
+    */
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->item->name . " (" . $this->item_type . ")",
+        );
+    }
 }

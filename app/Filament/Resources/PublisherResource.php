@@ -30,6 +30,9 @@ class PublisherResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup  = 'Publications';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

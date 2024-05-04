@@ -29,6 +29,9 @@ class IllustratorResource extends Resource
     protected static ?int $navigationSort = 6;
     protected static ?string $navigationGroup  = 'Auteurs';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

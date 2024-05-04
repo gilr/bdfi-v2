@@ -31,6 +31,7 @@ class AuthorResource extends Resource
     protected static ?int $navigationSort = 1;
     protected static ?string $navigationGroup  = 'Auteurs';
 
+    // table column or eloquent accessor
     protected static ?string $recordTitleAttribute = 'fullname';
 
     public static function getGloballySearchableAttributes(): array

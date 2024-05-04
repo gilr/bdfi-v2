@@ -36,6 +36,9 @@ class CollectionResource extends Resource
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup  = 'Publications';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'fullname';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

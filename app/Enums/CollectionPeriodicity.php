@@ -28,6 +28,6 @@ enum CollectionPeriodicity: string implements HasLabel {
             self::SEMESTRIEL     => 'Semestriel',
             self::ANNUEL         => 'Annuel',
             self::APERIODIQUE    => 'Apériodique',
-        }
+        };
     }
 }

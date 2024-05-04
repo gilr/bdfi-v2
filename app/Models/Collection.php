@@ -14,6 +14,7 @@ use App\Enums\CollectionFormat;
 use App\Enums\CollectionCible;
 use App\Enums\CollectionGenre;
 use App\Enums\CollectionType;
+use App\Enums\CollectionPeriodicity;
 use App\Enums\QualityStatus;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -30,6 +31,7 @@ class Collection extends Model
         'cible' => CollectionCible::class,
         'genre' => CollectionGenre::class,
         'type' => CollectionType::class,
+        'periodicity' => CollectionPeriodicity::class,
         'quality' => QualityStatus::class,
     ];
 
@@ -116,7 +118,6 @@ class Collection extends Model
             get: fn($value) => $this->name . " (" . $this->publisher->name . ")",
         );
     }
-
 
     public function recordName(): Attribute
     {

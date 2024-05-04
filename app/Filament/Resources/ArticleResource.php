@@ -30,6 +30,9 @@ class ArticleResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup  = 'Site';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'fullname';
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

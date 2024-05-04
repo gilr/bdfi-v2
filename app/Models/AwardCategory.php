@@ -47,16 +47,18 @@ class AwardCategory extends Model
     /*
      * Accesseurs supplémentaires
     */
+
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->award->name . ', ' . $this->name,
+        );
+    }
+
     public function recordName(): Attribute
     {
         return Attribute::make(
             get: fn($value) => 'catégorie prix "' . $this->name . '"',
-        );
-    }
-    public function fullCategoryName(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value) => $this->award->name . ', ' . $this->name,
         );
     }
 }

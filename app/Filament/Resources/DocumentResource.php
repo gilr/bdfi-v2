@@ -28,6 +28,9 @@ class DocumentResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup  = 'Site';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

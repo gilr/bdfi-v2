@@ -24,6 +24,9 @@ class SignatureResource extends Resource
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup  = 'Auteurs';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'fullname';
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

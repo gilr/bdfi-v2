@@ -29,6 +29,12 @@
         </div>
     @endif
 
+    @if ($results->periodicity != App\Enums\CollectionPeriodicity::NA)
+        <div class='text-base'>
+            Périodicité : <span class='font-semibold'>{{ $results->periodicity->getLabel() }}</span>
+        </div>
+    @endif
+
     <div class='text-base'>
         Nombre de publications : <span class='font-semibold'>{{ count($results->publications) }}</span>
     </div>

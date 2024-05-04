@@ -25,6 +25,9 @@ class RelationshipTypeResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup  = 'Tables internes';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

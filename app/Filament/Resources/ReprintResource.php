@@ -25,6 +25,9 @@ class ReprintResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup  = 'Publications';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'fullname';
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

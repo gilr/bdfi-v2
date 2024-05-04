@@ -45,6 +45,13 @@ class Signature extends Pivot
     /*
      * Accesseurs supplémentaires
     */
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->author->name . '-' . $this->signature->name,
+        );
+    }
+
     public function recordName(): Attribute
     {
         return Attribute::make(

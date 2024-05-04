@@ -30,6 +30,9 @@ class AwardWinnerResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup  = 'Prix';
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

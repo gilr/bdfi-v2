@@ -29,6 +29,9 @@ class UserResource extends Resource
 
 //    protected static ?string $maxContentWidth = '3xl'; Ne marche plus avec 3.x
 
+    // table column or eloquent accessor
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];

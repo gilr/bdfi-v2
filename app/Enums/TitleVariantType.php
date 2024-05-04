@@ -5,7 +5,7 @@ use Filament\Support\Contracts\HasLabel;
 
 enum TitleVariantType: string implements HasLabel {
     case PREMIER       = 'premier';
-    case VIRTUEL       = 'virtuel';
+    case VIRTUEL       = 'virtuel';     // Le Virtuel est un premier jamais paru (permet d'attribuer le véritable auteur d'un texte)
     case EPISODE       = 'feuilleton';
     case EXTRAIT       = 'extrait';
     case SIGN          = 'signature';

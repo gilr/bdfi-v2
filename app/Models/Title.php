@@ -47,10 +47,8 @@ class Title extends Model
         return $this->belongsToMany('App\Models\Publication', 'table_of_content')
                     ->withTimestamps()
                     ->withPivot(['level', 'order', 'start_page', 'end_page'])
-//  TODO voir comment trier par date de publication - De toutes façons pas ici, pas compatible de Filament
-// -> tri dans le controller
-//                    ->orderByPivot('start_page', 'asc');
-                    ->using('App\Models\TableOfContent');
+                    ->using('App\Models\TableOfContent')
+                    ->orderBy('approximate_parution', 'asc');
     }
 
     public function parent()

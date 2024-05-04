@@ -59,6 +59,10 @@ class PublicationsRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom'),
+                Tables\Columns\TextColumn::make('approximate_parution')
+                    ->label('Parution'),
+                Tables\Columns\TextColumn::make('publisher.name')
+                    ->label('Editeur'),
                 Tables\Columns\TextColumn::make('type')
                     ->label('Type de contenu'),
                 Tables\Columns\TextColumn::make('level')

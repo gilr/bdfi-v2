@@ -251,7 +251,7 @@
                 <div class='ml-2 md:ml-8'>
                     {{ $results->serial_info }} :
                         @foreach ($results->episodes as $variant)
-                            @foreach ($variant->publications as $publication)
+                            @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
                                 <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                                 <div class='ml-2 md:ml-8'>
@@ -293,7 +293,7 @@
             <!-- Sans parent -> toutes ces propres publis -->
             @if ((auth()->user() && auth()->user()->hasGuestRole()))
                 <div>
-                    <span class='bg-lime-400 font-normal text-xs italic'>Cas 1.2 - Les propres publis ce parent (forme fr première)</span>
+                    <span class='bg-lime-400 font-normal text-xs italic'>Cas 1.2 - Les propres publis de ce parent (forme fr première)</span>
                 </div>
             @endif
             @if ($results->publications->count() > 0)
@@ -301,7 +301,7 @@
                     Publication :
                 </div>
             @endif
-            @foreach ($results->publications as $publication)
+            @foreach ($results->publications->sortBy('approximate_parution') as $publication)
                 <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                 <div class='ml-2 md:ml-8'>
@@ -347,7 +347,7 @@
                     Publications des variantes :
                 </div>
                 @foreach ($results->variants as $variant)
-                    @foreach ($variant->publications as $publication)
+                    @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
                         <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                         <div class='ml-2 md:ml-8'>
@@ -403,7 +403,7 @@
                 <div class='ml-2 md:ml-8'>
                     {{ $results->serial_info }} :
                 @foreach ($results->episodes as $variant)
-                @foreach ($variant->publications as $publication)
+                @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
@@ -451,7 +451,7 @@
                 @if ((auth()->user() && auth()->user()->hasGuestRole()))
                     <span class='bg-lime-400 font-normal text-xs italic'>Cas 2.2 - Les propres publis de ce texte, variante ou épisode</span>
                 @endif
-                @foreach ($results->publications as $publication)
+                @foreach ($results->publications->sortBy('approximate_parution') as $publication)
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
@@ -496,7 +496,7 @@
                 @if ((auth()->user() && auth()->user()->hasGuestRole()))
                     <span class='bg-lime-400 font-normal text-xs italic'>Cas 2.3 - ... Plus les publis de son parent</span>
                 @endif
-                @foreach ($results->parent->publications as $publication)
+                @foreach ($results->parent->publications->sortBy('approximate_parution') as $publication)
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
@@ -538,7 +538,7 @@
                     </div>
                 @endif
                 @foreach ($results->parent->variants as $variant)
-                @foreach ($variant->publications as $publication)
+                @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
                     @if ($results->id != $variant->id)
                     <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 

@@ -19,13 +19,13 @@ Toute aide de personnes familières de l'éco-système Laravel et/ou passionnée
 
 ## Documentation projet (en cours)
 
-[Sommaire](docs/welcome.md)
-[Tables des la zone Auteurs](docs/auteurs.md)
-[Tables des la zone publications](docs/publications.md)
-[Tables des la zone prix](docs/prix.md)
-[Tables des la zone oeuvres](docs/oeuvres.md)
-[Tables des la zone site'](docs/site.md)
-[Tables communes](docs/communs.md)
+- [Sommaire](docs/welcome.md)
+- [Tables des la zone Auteurs](docs/auteurs.md)
+- [Tables des la zone publications](docs/publications.md)
+- [Tables des la zone prix](docs/prix.md)
+- [Tables des la zone oeuvres](docs/oeuvres.md)
+- [Tables des la zone site'](docs/site.md)
+- [Tables communes](docs/communs.md)
 
 ## Basé sur Laravel
 

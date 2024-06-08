@@ -80,13 +80,13 @@ Any help or advice from people familiar with Laravel ecosystem and/or people who
 
 ## Project documentation (in progress)
 
-[Sommaire](docs/welcome.md)
-[Tables des la zone Auteurs](docs/auteurs.md)
-[Tables des la zone publications](docs/publications.md)
-[Tables des la zone prix](docs/prix.md)
-[Tables des la zone oeuvres](docs/oeuvres.md)
-[Tables des la zone site'](docs/site.md)
-[Tables communes](docs/communs.md)
+- [Sommaire](docs/welcome.md)
+- [Tables des la zone Auteurs](docs/auteurs.md)
+- [Tables des la zone publications](docs/publications.md)
+- [Tables des la zone prix](docs/prix.md)
+- [Tables des la zone oeuvres](docs/oeuvres.md)
+- [Tables des la zone site'](docs/site.md)
+- [Tables communes](docs/communs.md)
 
 ## Based on Laravel
 

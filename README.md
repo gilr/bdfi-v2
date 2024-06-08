@@ -17,6 +17,16 @@ Etant donné sa cible très spécifique, il n'est pas d'un grand intérêt pour 
 ## Aide ?
 Toute aide de personnes familières de l'éco-système Laravel et/ou passionnées par les littératures de l'imaginaire est la bienvenue !
 
+## Documentation projet (en cours)
+
+[Sommaire](docs/welcome.md)
+[Tables des la zone Auteurs](docs/auteurs.md)
+[Tables des la zone publications](docs/publications.md)
+[Tables des la zone prix](docs/prix.md)
+[Tables des la zone oeuvres](docs/oeuvres.md)
+[Tables des la zone site'](docs/site.md)
+[Tables communes](docs/communs.md)
+
 ## Basé sur Laravel
 
 Laravel est un framework de développement web doté d'une syntaxe explicite et élégante. Laravel aide le développement en facilitant la plupart des tâches de base des projets web, tels que :
@@ -67,6 +77,16 @@ As it is developed for a specific scope, it should not be of great interests for
 
 ## Help?
 Any help or advice from people familiar with Laravel ecosystem and/or people who love the speculative fiction is welcome!
+
+## Project documentation (in progress)
+
+[Sommaire](docs/welcome.md)
+[Tables des la zone Auteurs](docs/auteurs.md)
+[Tables des la zone publications](docs/publications.md)
+[Tables des la zone prix](docs/prix.md)
+[Tables des la zone oeuvres](docs/oeuvres.md)
+[Tables des la zone site'](docs/site.md)
+[Tables communes](docs/communs.md)
 
 ## Based on Laravel
 

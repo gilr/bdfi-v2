@@ -8,7 +8,7 @@
 <a name="french"></a>
 ## A propos
 
-Dévelopemment d'une nouvelle version d'un site web dédié à l'imaginaire (science-fiction, fantastique, fantasy...) 
+Développement d'une nouvelle version d'un site web dédié à l'imaginaire (science-fiction, fantastique, fantasy...)
 Le projet est développé sans support réel du multi-langue, sa vocation première atant d'être un site web francophone.
 Le site web est un site associatif, non commercial, sans publicité.
 

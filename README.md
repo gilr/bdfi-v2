@@ -9,10 +9,10 @@
 ## A propos
 
 Développement d'une nouvelle version d'un site web dédié à l'imaginaire (science-fiction, fantastique, fantasy...)
-Le projet est développé sans support réel du multi-langue, sa vocation première atant d'être un site web francophone.
+Le projet est développé sans support réel du multi-langue, sa vocation première étant d'être un site web francophone.
 Le site web est un site associatif, non commercial, sans publicité.
 
-Etant donné sa cible très spécifique, il n'est pas d'un grand intérêt pour des personnes hors de notre équipe, sauf éventuellement comme exemple d'un projet Laravel.
+Etant donné sa cible très spécifique, il n'est pas d'un grand intérêt pour des personnes hors de notre équipe, sauf éventuellement comme exemple d'un projet Laravel intégrant toutes sortes de relations (1 to N, N to M, Morph) et de requêtes.
 
 ## Aide ?
 Toute aide de personnes familières de l'éco-système Laravel et/ou passionnées par les littératures de l'imaginaire est la bienvenue !
@@ -57,7 +57,7 @@ Le choix du stack sous-jacent a été [Livewire](https://jetstream.laravel.com/1
 - **[debugbar](https://github.com/barryvdh/laravel-debugbar)** (outils de débug orienté PHP + Laravel)
 - **[revisionable](https://packagist.org/packages/venturecraft/revisionable)** (extension permettant de stocker les modifications des tables)
 - **[Laravel-Userstamps](https://github.com/WildsideUK/Laravel-Userstamps)** (extension qui ajoute les informations "créé par" et "mis à jour par", en plus des informations de base "créé le" et "mis à jour le")
-- **[filament](https://filamentphp.com//)** (administration)
+- **[filament](https://filamentphp.com//)** (administration des tables)
 
 ## Failles de sécurité
 
@@ -74,7 +74,7 @@ Development of the new version of a website dedicated to speculative fiction.
 The project won't be developed as a multi-language project, as its primary aim is to be a french-speaking website.
 This website will be a non-commercial and non-profit project, without any advertising.
 
-As it is developed for a specific scope, it should not be of great interests for people outside our small team, except maybe as an example of a laravel project.
+As it is developed for a specific scope, it should not be of great interests for people outside our small team, except maybe as an example of a laravel project that includes many types of relation (1 to N, N to M, Morph) and complex requests.
 
 ## Help?
 Any help or advice from people familiar with Laravel ecosystem and/or people who love the speculative fiction is welcome!

@@ -1,7 +1,7 @@
 # Documentation
 
 ## Sommaire
-Informations techniques et installation, suivi de la description des tables de la base de données
+La documentation, encore incomplète, contient actuellement quelques informations techniques, suivies de la description des tables de la base de données.
 
 - [Informations techniques et installation](informations.md)
 - Les [tables de la zone 'auteurs'](auteurs.md)
@@ -17,24 +17,24 @@ Les informations communes à plusieurs tables sont décrites plus bas.
 
 (à venir)
 
-## Informations communes
+## Champs communs à de multiples tables
 
-Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs tables. Ces champs seront listés dans les pages par zone mais  non décrits; des exemples peuvent pas contre être donnés.
+Ci-dessous la liste des principaux champs communs à plusieurs tables. Ces champs seront listés dans les pages par zone mais sans decription additionnelle; des exemples peuvent pas contre être donnés.
 
 - id : évidemment commun à toutes les tables sans exception, c'est l'identifiant unique dans une table
 - country_id : l'identifiant du pays, lorsque nécessaire (auteur, prix, éditeur...)
 - name : le nom principal de l'élément dans une table
-- alt_names : la liste des possibles autre noms, ou noms alternatifs, lorsque nécessaire. Ceux-ci permettent entre-autres les recherches "élargies"
+- alt_names : la liste des possibles autre noms, ou noms alternatifs, lorsque nécessaire. Ceux-ci permettent par exemple les recherches "élargies"
 - url : lorsque utile, le lien sur un site web officiel ou informatif
-- information : le champ qui permet la description de l'élément, et qui sera affiché sur sa page
+- information : le champ qui permet la description de l'élément, description qui sera affichée sur sa page
 - private : le champ qui permet le stockage d'informations internes ou de travail, qui ne seront visibles que par les membres
-- quality : [A REVOIR] indicateur si reste du travail sur cette fiche série
-- created_at : date et heure de création
-- updated_at : date et heure de dernière mise à jour
+- quality : [A REVOIR] indique le niveau de qualité (i.e. s'il reste du travail sur cette fiche)
+- created_at : date et heure de création de l'élément
 - created_by : id de l'utilisateur qui a créé l'élément
+- updated_at : date et heure de dernière mise à jour
 - updated_by : id du dernier utilisateur a mettre à jour l'élément
-- deleted_by : id de l'utilisateur ayant supprimé l'élément
 - deleted_at : date et heure de suppression (soft-delete)
+- deleted_by : id de l'utilisateur ayant supprimé l'élément
 
 <code>
 +--------------+-------------------+------+-----+---------+----------------+
@@ -49,10 +49,10 @@ Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs table
 | private      | text              | YES  |     | NULL    |                |
 | quality      | varchar(255)      | NO   |     | NULL    |                |
 | created_at   | timestamp         | YES  |     | NULL    |                |
-| updated_at   | timestamp         | YES  |     | NULL    |                |
 | created_by   | smallint unsigned | YES  |     | NULL    |                |
+| updated_at   | timestamp         | YES  |     | NULL    |                |
 | updated_by   | smallint unsigned | YES  |     | NULL    |                |
-| deleted_by   | smallint unsigned | YES  |     | NULL    |                |
 | deleted_at   | timestamp         | YES  |     | NULL    |                |
+| deleted_by   | smallint unsigned | YES  |     | NULL    |                |
 +--------------+-------------------+------+-----+---------+----------------+
 </code>

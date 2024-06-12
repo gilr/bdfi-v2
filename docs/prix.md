@@ -2,7 +2,7 @@
 
 # Tables de la zone 'Prix'
 
-Les récompenses sont stockées en utilisant 3 tables. La table des "prix" (générique, le nom attribué par l'organisme qui décerne un ensemble de récompenses sous ce nom), la table des catégories (pour un prix encore actif, on va donc y trouver autant d'entrée que de récompenses décernées une année donnée) et enfin la table des récompenses/lauréats, qui indique l'année et les autres infos décrivant ce qui est récompensé (que ce soit un ouvrage ou un auteur).
+Les récompenses sont stockées en utilisant 3 tables. La table des "prix" (générique, le nom attribué par l'organisme qui décerne un ensemble de récompenses sous ce nom), la table des catégories (pour un prix encore actif, on va donc y trouver autant d'entrées que de récompenses distinctes décernées une même année) et enfin la table des récompenses (lauréats), qui indique l'année de la récompense ainsi que les autres informations décrivant l'ouvrage (ou l'auteur) qui a reçu la récompense.
 
 ## Table des prix
 
@@ -73,6 +73,8 @@ A noter qu'il n'y a pas de catégories génériques (par exemple "meilleur roman
 Le titre peut-être indiqué en double dans la table des récompenses ("awards"), via son nom en clair, et via un lien vers ce titre (title_award). Celà permettra de lister des œuvres qui ne sont pas en base soit parce qu'elle n'est pas traduite, soit parce qu'il s'agit d'une oeuvre hors-genres).
 
 Idem pour les auteurs, qui sont à la fois dans le champ name et possiblement stockés dans les liens auteurs (1, 2, et 3); Pour la même raison, un auteur jamais traduit n'est pas dans notre base. Trois liens, ce n'est pas top, il aurait mieux valu une table annexe (id, lien vers le lauréat, lien vers l'auteur) qui permet les relations N to M . C'est historique, et non bloquant pour l'instant. A voir plus tard si le besoin s'en fait sentir.
+
+Bien que non utilisé actuellement, la table est prévue pour pouvoir également stocker les nominations.
 
 - year : l'année de récompense
 - award_category_id : l'id de la catégorie de prix (table ci-dessus); donne donc indirectement le prix (première table)

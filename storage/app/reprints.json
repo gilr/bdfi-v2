@@ -1,0 +1,2081 @@
+[
+{
+"id_pub": "938",
+"approximate_parution": "2017-11-00",
+"ai": "16/10/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1433",
+"approximate_parution": "2006-04-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1434",
+"approximate_parution": "2005-05-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1436",
+"approximate_parution": "2006-04-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1437",
+"approximate_parution": "2006-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1438",
+"approximate_parution": "2006-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1810",
+"approximate_parution": "1993-03-00",
+"ai": "Mar-93",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1811",
+"approximate_parution": "1997-02-00",
+"ai": "Feb-97",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1813",
+"approximate_parution": "1990-07-00",
+"ai": "Jul-90",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1817",
+"approximate_parution": "2001-04-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "1822",
+"approximate_parution": "1991-04-00",
+"ai": "Apr-91",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1824",
+"approximate_parution": "1996-09-00",
+"ai": "Sep-96",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1827",
+"approximate_parution": "1995-05-00",
+"ai": "May-95",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1829",
+"approximate_parution": "1992-07-00",
+"ai": "Jul-92",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1833",
+"approximate_parution": "1989-08-00",
+"ai": "Aug-89",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1834",
+"approximate_parution": "1996-01-00",
+"ai": "Jan-96",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1837",
+"approximate_parution": "1996-06-00",
+"ai": "Jun-96",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1849",
+"approximate_parution": "2001-04-00",
+"ai": "Apr-01",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1852",
+"approximate_parution": "1996-12-00",
+"ai": "Dec-96",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1868",
+"approximate_parution": "1991-04-00",
+"ai": "Apr-91",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1871",
+"approximate_parution": "2000-03-00",
+"ai": "Mar-00",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1887",
+"approximate_parution": "1999-03-00",
+"ai": "Feb-99",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1892",
+"approximate_parution": "1990-07-00",
+"ai": "Jul-90",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1894",
+"approximate_parution": "1990-07-00",
+"ai": "Jul-90",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1927",
+"approximate_parution": "1995-03-00",
+"ai": "Mar-95",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1946",
+"approximate_parution": "1992-01-00",
+"ai": "Jan-92",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1958",
+"approximate_parution": "1996-02-00",
+"ai": "Feb-96",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1959",
+"approximate_parution": "1998-10-00",
+"ai": "Oct-98",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1959",
+"approximate_parution": "1999-05-00",
+"ai": "May-99",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1971",
+"approximate_parution": "1997-01-00",
+"ai": "Jan-97",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "1986",
+"approximate_parution": "1998-01-00",
+"ai": "Jan-98",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "2007",
+"approximate_parution": "1998-01-00",
+"ai": "Jan-98",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "2040",
+"approximate_parution": "1997-06-00",
+"ai": "Jun-97",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "2874",
+"approximate_parution": "1974-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2874",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2875",
+"approximate_parution": "1974-10-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2876",
+"approximate_parution": "1974-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2876",
+"approximate_parution": "1974-08-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2876",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2876",
+"approximate_parution": "1980-T1-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2878",
+"approximate_parution": "1974-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2878",
+"approximate_parution": "1974-08-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2878",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2878",
+"approximate_parution": "1975-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2879",
+"approximate_parution": "1974-08-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2879",
+"approximate_parution": "1974-10-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2880",
+"approximate_parution": "1974-08-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2880",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2881",
+"approximate_parution": "1974-10-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2882",
+"approximate_parution": "1974-10-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2883",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2884",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2884",
+"approximate_parution": "1980-T2-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2887",
+"approximate_parution": "1975-01-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2887",
+"approximate_parution": "1979-T1-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2888",
+"approximate_parution": "1975-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2889",
+"approximate_parution": "1975-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2889",
+"approximate_parution": "1979-T3-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2890",
+"approximate_parution": "1975-05-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2892",
+"approximate_parution": "1979-T3-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2899",
+"approximate_parution": "1979-T1-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2904",
+"approximate_parution": "1979-T3-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2912",
+"approximate_parution": "1980-T2-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2913",
+"approximate_parution": "1979-T3-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "2948",
+"approximate_parution": "1981-T2-00",
+"ai": "",
+"is_verified": "",
+"verified_by": ""
+},
+{
+"id_pub": "3007",
+"approximate_parution": "2010-00-00",
+"ai": "Jan-10",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3035",
+"approximate_parution": "2004-01-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3173",
+"approximate_parution": "1983-04-00",
+"ai": "April 1983",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3188",
+"approximate_parution": "1983-T2-00",
+"ai": "n.c.",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3226",
+"approximate_parution": "2002-05-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3226",
+"approximate_parution": "2003-01-00",
+"ai": "02/01/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3226",
+"approximate_parution": "2004-03-00",
+"ai": "01/03/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3226",
+"approximate_parution": "2005-01-00",
+"ai": "02/01/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3226",
+"approximate_parution": "2006-01-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3227",
+"approximate_parution": "2002-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3227",
+"approximate_parution": "2003-06-00",
+"ai": "02/06/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3227",
+"approximate_parution": "2006-04-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2001-05-00",
+"ai": "09/04/2001",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2001-10-00",
+"ai": "12/10/2001",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2002-01-00",
+"ai": "10/01/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2002-10-00",
+"ai": "07/10/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2005-01-00",
+"ai": "02/01/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2007-07-00",
+"ai": "02/07/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2011-01-00",
+"ai": "02/01/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2011-09-00",
+"ai": "04/08/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2014-01-00",
+"ai": "03/01/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3228",
+"approximate_parution": "2015-02-00",
+"ai": "28/01/2015",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3229",
+"approximate_parution": "2018-03-00",
+"ai": "08/03/2018",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3229",
+"approximate_parution": "2020-07-00",
+"ai": "13/07/2020",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3230",
+"approximate_parution": "2004-09-00",
+"ai": "02/09/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3230",
+"approximate_parution": "2006-06-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3230",
+"approximate_parution": "2014-09-00",
+"ai": "14/08/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3232",
+"approximate_parution": "2005-01-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3233",
+"approximate_parution": "2002-01-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3233",
+"approximate_parution": "2003-10-00",
+"ai": "06/10/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3233",
+"approximate_parution": "2005-01-00",
+"ai": "02/01/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3233",
+"approximate_parution": "2008-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3233",
+"approximate_parution": "2011-01-00",
+"ai": "02/01/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2001-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2002-09-00",
+"ai": "02/09/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2003-06-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2004-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2006-04-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2007-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2011-04-00",
+"ai": "02/04/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2012-03-00",
+"ai": "16/03/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3238",
+"approximate_parution": "2013-03-00",
+"ai": "01/03/2013",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3240",
+"approximate_parution": "2001-07-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3240",
+"approximate_parution": "2002-02-00",
+"ai": "04/02/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3240",
+"approximate_parution": "2003-06-00",
+"ai": "02/06/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3240",
+"approximate_parution": "2004-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3241",
+"approximate_parution": "2007-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3241",
+"approximate_parution": "2013-03-00",
+"ai": "01/03/2013",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3248",
+"approximate_parution": "2001-06-00",
+"ai": "22/06/2001",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3248",
+"approximate_parution": "2002-09-00",
+"ai": "05/08/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3249",
+"approximate_parution": "2001-10-00",
+"ai": "12/10/2001",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3249",
+"approximate_parution": "2002-09-00",
+"ai": "05/08/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3254",
+"approximate_parution": "2004-05-00",
+"ai": "02/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3255",
+"approximate_parution": "2010-04-00",
+"ai": "02/04/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3255",
+"approximate_parution": "2012-09-00",
+"ai": "20/08/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3257",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3257",
+"approximate_parution": "2004-05-00",
+"ai": "02/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3260",
+"approximate_parution": "2002-09-00",
+"ai": "05/08/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3261",
+"approximate_parution": "2003-04-00",
+"ai": "02/04/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3261",
+"approximate_parution": "2008-12-00",
+"ai": "01/12/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3265",
+"approximate_parution": "2002-05-00",
+"ai": "02/05/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3265",
+"approximate_parution": "2006-02-00",
+"ai": "02/02/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3273",
+"approximate_parution": "2001-06-00",
+"ai": "12/06/2001",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3273",
+"approximate_parution": "2002-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3273",
+"approximate_parution": "2003-03-00",
+"ai": "02/03/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3275",
+"approximate_parution": "2004-05-00",
+"ai": "03/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3276",
+"approximate_parution": "2007-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3278",
+"approximate_parution": "2005-09-00",
+"ai": "12/09/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3278",
+"approximate_parution": "2006-03-00",
+"ai": "02/02/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3282",
+"approximate_parution": "2004-06-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3284",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3284",
+"approximate_parution": "2004-05-00",
+"ai": "02/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3290",
+"approximate_parution": "2001-10-00",
+"ai": "13/09/2001",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3290",
+"approximate_parution": "2006-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3294",
+"approximate_parution": "2001-09-00",
+"ai": "18/09/2001",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3294",
+"approximate_parution": "2002-03-00",
+"ai": "04/03/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3294",
+"approximate_parution": "2005-01-00",
+"ai": "02/12/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3294",
+"approximate_parution": "2006-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3295",
+"approximate_parution": "2017-04-00",
+"ai": "28/03/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3295",
+"approximate_parution": "2018-04-00",
+"ai": "28/03/2018",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3296",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3296",
+"approximate_parution": "2004-05-00",
+"ai": "02/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3296",
+"approximate_parution": "2006-09-00",
+"ai": "02/08/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3298",
+"approximate_parution": "2005-12-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3304",
+"approximate_parution": "2002-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3304",
+"approximate_parution": "2004-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3309",
+"approximate_parution": "2003-11-00",
+"ai": "27/10/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3310",
+"approximate_parution": "2008-02-00",
+"ai": "10/01/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3310",
+"approximate_parution": "2009-06-00",
+"ai": "02/06/2009",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3315",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3315",
+"approximate_parution": "2004-06-00",
+"ai": "02/05/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3322",
+"approximate_parution": "2005-09-00",
+"ai": "02/09/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3322",
+"approximate_parution": "2006-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3325",
+"approximate_parution": "2002-09-00",
+"ai": "02/08/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3325",
+"approximate_parution": "2004-03-00",
+"ai": "02/03/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3332",
+"approximate_parution": "2003-01-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3332",
+"approximate_parution": "2008-03-00",
+"ai": "15/02/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3332",
+"approximate_parution": "2010-03-00",
+"ai": "15/02/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3333",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3334",
+"approximate_parution": "2012-00-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3336",
+"approximate_parution": "2005-10-00",
+"ai": "02/10/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3342",
+"approximate_parution": "2009-04-00",
+"ai": "02/04/2009",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3345",
+"approximate_parution": "2004-02-00",
+"ai": "02/01/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3345",
+"approximate_parution": "2005-05-00",
+"ai": "02/05/2005",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3345",
+"approximate_parution": "2009-02-00",
+"ai": "0",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3347",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3347",
+"approximate_parution": "2003-05-00",
+"ai": "02/05/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3347",
+"approximate_parution": "2004-07-00",
+"ai": "02/07/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3352",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3352",
+"approximate_parution": "2003-06-00",
+"ai": "02/05/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3356",
+"approximate_parution": "2008-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3358",
+"approximate_parution": "2002-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3358",
+"approximate_parution": "2003-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3360",
+"approximate_parution": "2002-09-00",
+"ai": "02/08/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3360",
+"approximate_parution": "2007-03-00",
+"ai": "02/02/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3361",
+"approximate_parution": "2002-12-00",
+"ai": "04/11/2002",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3361",
+"approximate_parution": "2003-05-00",
+"ai": "02/04/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3367",
+"approximate_parution": "2004-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3370",
+"approximate_parution": "2005-04-00",
+"ai": "01/04/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3371",
+"approximate_parution": "2008-03-00",
+"ai": "04/03/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3378",
+"approximate_parution": "2005-10-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3380",
+"approximate_parution": "2005-10-00",
+"ai": "05/10/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3380",
+"approximate_parution": "2007-02-00",
+"ai": "02/02/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3387",
+"approximate_parution": "2012-10-00",
+"ai": "18/10/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3392",
+"approximate_parution": "2004-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3392",
+"approximate_parution": "2008-02-00",
+"ai": "02/02/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3392",
+"approximate_parution": "2011-09-00",
+"ai": "02/09/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3396",
+"approximate_parution": "2008-02-00",
+"ai": "02/02/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3396",
+"approximate_parution": "2012-02-00",
+"ai": "16/02/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3398",
+"approximate_parution": "2007-06-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3405",
+"approximate_parution": "2006-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3408",
+"approximate_parution": "2006-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3411",
+"approximate_parution": "2003-11-00",
+"ai": "05/11/2003",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3411",
+"approximate_parution": "2005-07-00",
+"ai": "02/07/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3411",
+"approximate_parution": "2006-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3415",
+"approximate_parution": "2006-02-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3420",
+"approximate_parution": "2004-03-00",
+"ai": "02/03/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3420",
+"approximate_parution": "2007-06-00",
+"ai": "26/05/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3423",
+"approximate_parution": "2004-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3423",
+"approximate_parution": "2007-11-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3425",
+"approximate_parution": "2005-03-00",
+"ai": "03/03/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3425",
+"approximate_parution": "2007-10-00",
+"ai": "02/10/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3427",
+"approximate_parution": "2004-09-00",
+"ai": "02/09/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3427",
+"approximate_parution": "2010-11-00",
+"ai": "02/11/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3433",
+"approximate_parution": "2007-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3438",
+"approximate_parution": "2005-06-00",
+"ai": "02/06/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3438",
+"approximate_parution": "2010-07-00",
+"ai": "02/07/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3442",
+"approximate_parution": "2004-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3442",
+"approximate_parution": "2006-06-00",
+"ai": "02/06/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3443",
+"approximate_parution": "2006-03-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3444",
+"approximate_parution": "2013-09-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3445",
+"approximate_parution": "2006-02-00",
+"ai": "02/01/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3450",
+"approximate_parution": "2010-10-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3453",
+"approximate_parution": "2007-09-00",
+"ai": "02/09/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3458",
+"approximate_parution": "2004-04-00",
+"ai": "02/04/2004",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3458",
+"approximate_parution": "2008-10-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3458",
+"approximate_parution": "2011-02-00",
+"ai": "02/02/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3467",
+"approximate_parution": "2004-07-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3472",
+"approximate_parution": "2007-01-00",
+"ai": "02/01/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3473",
+"approximate_parution": "2005-07-00",
+"ai": "02/07/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3473",
+"approximate_parution": "2008-09-00",
+"ai": "02/09/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3476",
+"approximate_parution": "2005-01-00",
+"ai": "02/01/2005",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3478",
+"approximate_parution": "2006-03-00",
+"ai": "02/03/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3480",
+"approximate_parution": "2006-03-00",
+"ai": "03/03/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3481",
+"approximate_parution": "2006-03-00",
+"ai": "03/03/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3505",
+"approximate_parution": "2006-02-00",
+"ai": "02/02/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3505",
+"approximate_parution": "2008-03-00",
+"ai": "02/03/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3512",
+"approximate_parution": "2006-05-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3515",
+"approximate_parution": "2006-06-00",
+"ai": "02/06/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3517",
+"approximate_parution": "2006-09-00",
+"ai": "02/08/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3523",
+"approximate_parution": "2006-02-00",
+"ai": "02/02/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3530",
+"approximate_parution": "2007-01-00",
+"ai": "02/01/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3533",
+"approximate_parution": "2010-05-00",
+"ai": "02/05/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3540",
+"approximate_parution": "2017-02-00",
+"ai": "23/01/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3551",
+"approximate_parution": "2006-07-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3559",
+"approximate_parution": "2010-07-00",
+"ai": "02/07/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3560",
+"approximate_parution": "2006-07-00",
+"ai": "06/06/2006",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3564",
+"approximate_parution": "2014-09-00",
+"ai": "21/08/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3577",
+"approximate_parution": "2007-12-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3583",
+"approximate_parution": "2008-03-00",
+"ai": "03/03/2008",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3587",
+"approximate_parution": "2007-03-00",
+"ai": "11/03/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3589",
+"approximate_parution": "2011-03-00",
+"ai": "02/03/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3600",
+"approximate_parution": "2008-01-00",
+"ai": "22/12/2007",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3600",
+"approximate_parution": "2014-03-00",
+"ai": "10/02/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3601",
+"approximate_parution": "2016-11-00",
+"ai": "19/10/2016",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3601",
+"approximate_parution": "2018-01-00",
+"ai": "04/01/2018",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3602",
+"approximate_parution": "2022-12-00",
+"ai": "01/11/2022",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3626",
+"approximate_parution": "2009-07-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3644",
+"approximate_parution": "2008-10-00",
+"ai": "0",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3652",
+"approximate_parution": "2012-11-00",
+"ai": "20/10/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3667",
+"approximate_parution": "2011-09-00",
+"ai": "02/08/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3682",
+"approximate_parution": "2012-01-00",
+"ai": "09/01/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3693",
+"approximate_parution": "2010-09-00",
+"ai": "04/08/2010",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3693",
+"approximate_parution": "2012-06-00",
+"ai": "16/05/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3695",
+"approximate_parution": "2016-03-00",
+"ai": "02/03/2016",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3695",
+"approximate_parution": "2017-12-00",
+"ai": "16/11/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3695",
+"approximate_parution": "2019-09-00",
+"ai": "07/08/2019",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3706",
+"approximate_parution": "2017-01-00",
+"ai": "21/12/2016",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3706",
+"approximate_parution": "2020-09-00",
+"ai": "13/08/2020",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3710",
+"approximate_parution": "2012-06-00",
+"ai": "22/05/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3711",
+"approximate_parution": "2017-10-00",
+"ai": "12/09/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3732",
+"approximate_parution": "2012-02-00",
+"ai": "03/02/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3737",
+"approximate_parution": "2011-09-00",
+"ai": "04/09/2011",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3739",
+"approximate_parution": "2012-02-00",
+"ai": "16/01/2012",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3740",
+"approximate_parution": "2015-11-00",
+"ai": "21/10/2015",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3742",
+"approximate_parution": "2011-05-00",
+"ai": "11/04/2011",
+"is_verified": "1",
+"verified_by": "Christian"
+},
+{
+"id_pub": "3742",
+"approximate_parution": "2014-06-00",
+"ai": "23/05/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3743",
+"approximate_parution": "2017-05-00",
+"ai": "10/04/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3765",
+"approximate_parution": "2013-03-00",
+"ai": "19/02/2013",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3779",
+"approximate_parution": "2013-07-00",
+"ai": "18/06/2013",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3782",
+"approximate_parution": "2013-06-00",
+"ai": "27/05/2013",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3790",
+"approximate_parution": "2014-02-00",
+"ai": "02/02/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3811",
+"approximate_parution": "2014-11-00",
+"ai": "30/10/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3837",
+"approximate_parution": "2014-12-00",
+"ai": "18/11/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3842",
+"approximate_parution": "2014-04-00",
+"ai": "07/04/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3844",
+"approximate_parution": "2014-12-00",
+"ai": "18/11/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3850",
+"approximate_parution": "2014-10-00",
+"ai": "16/09/2014",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3892",
+"approximate_parution": "2015-06-00",
+"ai": "03/06/2015",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3894",
+"approximate_parution": "2021-09-00",
+"ai": "27/08/2021",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3895",
+"approximate_parution": "2016-04-00",
+"ai": "29/03/2016",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3895",
+"approximate_parution": "2020-12-00",
+"ai": "17/11/2020",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3897",
+"approximate_parution": "2016-07-00",
+"ai": "13/06/2016",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3936",
+"approximate_parution": "2019-09-00",
+"ai": "04/09/2019",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3944",
+"approximate_parution": "2020-11-00",
+"ai": "09/11/2020",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3970",
+"approximate_parution": "2018-08-00",
+"ai": "01/08/2018",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3977",
+"approximate_parution": "2018-01-00",
+"ai": "28/12/2017",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3978",
+"approximate_parution": "2018-07-00",
+"ai": "20/06/2018",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3987",
+"approximate_parution": "2021-07-00",
+"ai": "17/06/2021",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "3989",
+"approximate_parution": "2019-09-00",
+"ai": "28/08/2019",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "4003",
+"approximate_parution": "2019-02-00",
+"ai": "06/02/2019",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "4031",
+"approximate_parution": "2020-10-00",
+"ai": "29/09/2020",
+"is_verified": "0",
+"verified_by": ""
+},
+{
+"id_pub": "4043",
+"approximate_parution": "2020-07-00",
+"ai": "15/06/2020",
+"is_verified": "0",
+"verified_by": ""
+}
+]

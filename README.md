@@ -20,11 +20,12 @@ Toute aide de personnes familières de l'éco-système Laravel et/ou passionnée
 ## Documentation projet (en cours)
 
 [Sommaire](docs/welcome.md)
-[Tables des la zone Auteurs](docs/auteurs.md)
-[Tables des la zone publications](docs/publications.md)
-[Tables des la zone prix](docs/prix.md)
-[Tables des la zone oeuvres](docs/oeuvres.md)
-[Tables des la zone site'](docs/site.md)
+[Informations](docs/informations.md)
+[Tables de la zone 'Auteurs'](docs/auteurs.md)
+[Tables de la zone 'Publications'](docs/publications.md)
+[Tables de la zone 'Prix'](docs/prix.md)
+[Tables de la zone 'Oeuvres'](docs/oeuvres.md)
+[Tables de la zone 'Site'](docs/site.md)
 [Tables communes](docs/communs.md)
 
 ## Basé sur Laravel
@@ -78,15 +79,16 @@ As it is developed for a specific scope, it should not be of great interests for
 ## Help?
 Any help or advice from people familiar with Laravel ecosystem and/or people who love the speculative fiction is welcome!
 
-## Project documentation (in progress)
+## Project documentation (in progress - in French)
 
-[Sommaire](docs/welcome.md)
-[Tables des la zone Auteurs](docs/auteurs.md)
-[Tables des la zone publications](docs/publications.md)
-[Tables des la zone prix](docs/prix.md)
-[Tables des la zone oeuvres](docs/oeuvres.md)
-[Tables des la zone site'](docs/site.md)
-[Tables communes](docs/communs.md)
+[Content](docs/welcome.md)
+[Information](docs/informations.md)
+[Tables of the 'Authors' area](docs/auteurs.md)
+[Tables of the 'Publications' area](docs/publications.md)
+[Tables of the 'Awards' area](docs/prix.md)
+[Tables of the 'Texts' area](docs/oeuvres.md)
+[Tables of the 'Site' area](docs/site.md)
+[Common tables](docs/communs.md)
 
 ## Based on Laravel
 

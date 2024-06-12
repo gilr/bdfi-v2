@@ -1,21 +1,24 @@
+# Documentation
 
+## Sommaire
+Informations techniques et installation, suivi de la description des tables de la base de données
 
-# Description des tables de la base de données
-
-- Les tables des la zone ['Auteurs'](auteurs.md)
-- Les tables des la zone ['publications'](publications.md)
-- Les tables des la zone ['prix'](prix.md)
-- Les tables des la zone ['oeuvres'](oeuvres.md)
-- Les tables des la zone ['site'](site.md)
-- Les tables [communes](communs.md)
+- [Informations techniques et installation](informations.md)
+- Les [tables de la zone 'auteurs'](auteurs.md)
+- Les [tables de la zone 'publications'](publications.md)
+- Les [tables de la zone 'prix'](prix.md)
+- Les [tables de la zone 'oeuvres'](oeuvres.md)
+- Les [tables de la zone 'site'](site.md)
+- Les [tables communes](communs.md)
 
 Les informations communes à plusieurs tables sont décrites plus bas.
 
-# Les valeurs énumérées
+## Les valeurs énumérées
 
 (à venir)
 
-# Informations communes
+## Informations communes
+
 Ci-dessous la liste des principaux champs communs à beaucoup ou plusieurs tables. Ces champs seront listés dans les pages par zone mais  non décrits; des exemples peuvent pas contre être donnés.
 
 - id : évidemment commun à toutes les tables sans exception, c'est l'identifiant unique dans une table

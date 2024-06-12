@@ -2,6 +2,8 @@
 
 # Tables de la zone 'Prix'
 
+Les récompenses sont stockées en utilisant 3 tables. La table des "prix" (générique, le nom attribué par l'organisme qui décerne un ensemble de récompenses sous ce nom), la table des catégories (pour un prix encore actif, on va donc y trouver autant d'entrée que de récompenses décernées une année donnée) et enfin la table des récompenses/lauréats, qui indique l'année et les autres infos décrivant ce qui est récompensé (que ce soit un ouvrage ou un auteur).
+
 ## Table des prix
 
 - name : exemples : "Nebula", "Rosny-ainé"
@@ -33,6 +35,8 @@
 </code>
 
 ## Table des catégories
+
+A noter qu'il n'y a pas de catégories génériques (par exemple "meilleur roman" ou "meilleur roman d'horreur") : chaque catégorie d'un prix donné a une entrée catégorie distinctes dans la table catégories (on peut donc y trouver plusieurs "Meilleur roman de fantasy" par exemple, un par prix).
 
 - name : nom complet de la catégorie - exemples : "Nouvelle de science-fiction", "Anthologie de fantasy"
 - award_id = l'identifiant dans la table des prix ci-dessus (une catégorie n'appartient qu'à un seul prix)
@@ -66,10 +70,14 @@
 
 ** Note : ne contiendra dans un premier temps que les gagnants, mais prévu pour pouvoir évoluer pour stocker également tous les nominés **
 
+Le titre peut-être indiqué en double dans la table des récompenses ("awards"), via son nom en clair, et via un lien vers ce titre (title_award). Celà permettra de lister des œuvres qui ne sont pas en base soit parce qu'elle n'est pas traduite, soit parce qu'il s'agit d'une oeuvre hors-genres).
+
+Idem pour les auteurs, qui sont à la fois dans le champ name et possiblement stockés dans les liens auteurs (1, 2, et 3); Pour la même raison, un auteur jamais traduit n'est pas dans notre base. Trois liens, ce n'est pas top, il aurait mieux valu une table annexe (id, lien vers le lauréat, lien vers l'auteur) qui permet les relations N to M . C'est historique, et non bloquant pour l'instant. A voir plus tard si le besoin s'en fait sentir.
+
 - year : l'année de récompense
 - award_category_id : l'id de la catégorie de prix (table ci-dessus); donne donc indirectement le prix (première table)
 - position : la position =  1 si gagnant, 50 si mention spéciale; 99 si pas de récompense cette année-là; 2 à N si nominés
-- name : le nom du ou des auteurs récompensés
+- name : le nom du ou des auteurs récompensés (format "auteur1+auteur2")
 - author_id : l'identifiant de l'auteur dans la table des auteurs
 - author2_id : l'identifiant d'un second auteur dans la table des auteurs
 - author3_id : l'identifiant d'un troisième auteur dans la table des auteurs

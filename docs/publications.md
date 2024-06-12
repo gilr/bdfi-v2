@@ -2,6 +2,7 @@
 
 # Tables de la zone 'Publications'
 
+
 ## Table des éditeurs
 
 - sigle_bdfi : [TEMPORAIRE] (si pas de collection] - Sigle utilisé actuellement sur BDFI, pour permettre une éventuelle transition
@@ -38,6 +39,8 @@
 </code>
 
 ## Table des collections
+
+Cette table permet de stocker les "regroupements de publications" : les collections ou revues réelles, officielles, annoncées par l'éditeur et dont le libellé est visible sur ou dans l'ouvrage, les magazines et journaux, mais aussi - selon l'utilité - des regroupements d'ouvrages, par exemple des collections annoncées par l'éditeur mais sans indication imprimées dans les ouvrages, des sous-ensembles de collections que l'on souhaite voir également regroupés seul (typologie, période, format).
 
 - name : nom complet collection ou sous-collection ; exemple : "Vertige", "Vertige fantastique", "Super luxe lendemains retrouvés", "Terrific"
 - type: le type d'ensemble de publication = énuméré : 'collection', 'ensemble', 'revue', 'fanzine', 'magazine', 'journal', antho-periodique'... - 'collection' par défaut
@@ -89,6 +92,11 @@
 </code>
 
 ## Table des publications
+
+Une "publication" (ou ouvrage) n'est pas une "oeuvre". La publication est un objet physique (ou numérique) du commerce. Une oeuvre est un contenu, qui peut être fictionnel (roman, nouvelle) ou non (essai, article, paratexte). Le contenu complet d'un ouvrage (par exemple un recueil) est aussi stocké comme "oeuvre", car il peut être repris dans de multiples ouvrages.
+Cette table permet donc la description de l'objet, ses données physiques et ses données bibliographiques.
+
+(à compléter)
 
 <code>
 +----------------------+-------------------+------+-----+---------+----------------+
@@ -151,6 +159,13 @@
 </code>
 
 ## Table des retirages
+
+Un retirage est une réimpression à l'identique : même couverture et 4ième de couverture, même ISBN.
+Les seules modifications entre un ouvrage originel et un de ses retirages sont : la date de parution effective, son achevé d'imprimé (AI), et possible en fin d'ouvrage la liste des "ouvrages déjà parus".
+
+- publication_id : l'ouvrage "retiré" - lien sur l'ouvrage concerné dans la table des publications
+- ai : l'achevé d'imprimer
+- is_verified : booléen indiquant si l'ouvrage a déjà été possédé ou vu
 
 <code>
 +----------------------+-------------------+------+-----+---------+----------------+

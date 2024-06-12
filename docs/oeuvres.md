@@ -4,6 +4,8 @@
 
 ## Table des oeuvres
 
+Une "oeuvre" n'est pas un "ouvrage" (publication). L'ouvrage est l'objet physique (ou numérique) vendu. Une oeuvre est un contenu. Ce contenu peut être  fictionnel (roman, nouvelle), ou non (essai, article, paratexte). Le contenu complet d'un ouvrage (par exemple un recueil) est aussi stocké comme "oeuvre", car il peut être repris dans de multiples ouvrages.
+
 - name : Le titre indiqué en page de titre de l'ouvrage (pas en couverture)
 - TBD ajouter alt-names pour éventuel titre en couv ?
 - type : énuméré : roman, novella, nouvelle, preface, postface, poeme, chanson, biblio, bio, essai, article, partie/groupe de textes
@@ -17,8 +19,6 @@
 - translators : les traducteurs = une liste "nom prénom, nom prénom, etc..." [A REVOIR] (pour gérer en base)
 - synopsis : pitch de l'histoire
 - information : information sur le texte (pas le synopsis, mais relativement à son historique - écrit bien avant par exemple, ou anecdote)
-
-(à compléter)
 
 <code>
 +-----------------+-------------------+------+-----+---------+----------------+
@@ -57,11 +57,13 @@
 
 ## Table des cycles
 
+Le choix effectué est de n'utiliser qu'une seule table, en partant du principe qu'une série peut avoir plusieurs séries filles (sous-séries), mais ne pourra jamais avoir plusieurs séries "parentes". Donc un identifiant "parent" unique au sein de la table est suffisant. De la même façon, les titres alternatifs et VO ne sont stockés là que pour fournir de l'information complémentaire et permettre des recherches plus larges. Pas besoin donc de table annexe pour stocker ces "titres alternatifs".
+
 - name : nom le plus habituel - exemple : "La Guerre éternelle", "Luna"
 - nom_bdfi : [TEMPORAIRE] nom actuel site BDFI pour permettre la transition (exemple pour un "Luna" ci-dessus : "Luna (Ian McDonald)")
 - alt_names : autres noms usuels ou admis ; exemples pour "Doc Savage" : "Franck Sauvage; Franck Sauvage, l'homme miracle"
 - vo_names : le nom ou les noms en VO - au même format : "Titre VO 1; Titre VO 2; Titre VO 3")
-- type : [A RETRAVAILLER] le type de série; codé sous forme d'énuméré : 'serie', 'cycle', 'univers', 'feuilleton', 'autre' - Serie & cycle seront sans doute traités pareil, ou unifiés...
+- type : [A RETRAVAILLER/REDISCUTER] le type de série; codé sous forme d'énuméré : 'serie', 'cycle', 'univers', 'feuilleton', 'autre' - Serie & cycle seront sans doute traités pareil, ou unifiés...
 - parent_id : la série parente, si existe = identifiant dans la même table de la série/cycle parent - Une série ne peut avoir qu'une seule série parente (à noter : un ouvrage, lui, pourra appartenir à plusieurs séries)
 
 <code>

@@ -21,7 +21,7 @@ class ReprintSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('reprints')->insert([
                 'publication_id'   => $obj->id_pub,
-                'ai'               => $obj->ai,
+                'ai'               => $obj->ai ? StrDLAItoBDFI($obj->ai, $obj->approximate_parution) : "",
                 'approximate_parution'   => $obj->approximate_parution ?: "",
 
                 'is_verified'      => $obj->is_verified ?: "0",

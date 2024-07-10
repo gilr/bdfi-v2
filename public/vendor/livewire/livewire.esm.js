@@ -1594,7 +1594,7 @@ var require_module_cjs = __commonJS({
         const target = objects.find((obj) => Object.prototype.hasOwnProperty.call(obj, name)) || objects[objects.length - 1];
         const descriptor = Object.getOwnPropertyDescriptor(target, name);
         if ((descriptor == null ? void 0 : descriptor.set) && (descriptor == null ? void 0 : descriptor.get))
-          return Reflect.set(target, name, value, thisProxy);
+          return descriptor.set.call(thisProxy, value) || true;
         return Reflect.set(target, name, value);
       }
     };
@@ -2861,7 +2861,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       get raw() {
         return raw;
       },
-      version: "3.14.0",
+      version: "3.14.1",
       flushAndStopDeferringMutations,
       dontAutoEvaluateFunctions,
       disableEffectScheduling,
@@ -7539,7 +7539,9 @@ var UploadManager = class {
     unsetUploadLoading(this.component);
     let uploadItem = this.uploadBag.first(name);
     if (uploadItem) {
-      uploadItem.request.abort();
+      if (uploadItem.request) {
+        uploadItem.request.abort();
+      }
       this.uploadBag.shift(name).cancelledCallback();
       if (cancelledCallback)
         cancelledCallback();
@@ -8309,6 +8311,9 @@ var Component = class {
     if (this.originalEffects.url) {
       effects.url = this.originalEffects.url;
     }
+    if (this.originalEffects.scripts) {
+      effects.scripts = this.originalEffects.scripts;
+    }
     el.setAttribute("wire:effects", JSON.stringify(effects));
   }
   addCleanup(cleanup) {
@@ -8655,7 +8660,7 @@ function extractDestinationFromLink(linkEl) {
   return createUrlObjectFromString(linkEl.getAttribute("href"));
 }
 function createUrlObjectFromString(urlString) {
-  return new URL(urlString, document.baseURI);
+  return urlString !== null && new URL(urlString, document.baseURI);
 }
 function getUriStringFromUrlObject(urlObject) {
   return urlObject.pathname + urlObject.search + urlObject.hash;
@@ -9082,12 +9087,16 @@ function navigate_default(Alpine19) {
     let shouldPrefetchOnHover = modifiers.includes("hover");
     shouldPrefetchOnHover && whenThisLinkIsHoveredFor(el, 60, () => {
       let destination = extractDestinationFromLink(el);
+      if (!destination)
+        return;
       prefetchHtml(destination, (html, finalDestination) => {
         storeThePrefetchedHtmlForWhenALinkIsClicked(html, destination, finalDestination);
       });
     });
     whenThisLinkIsPressed(el, (whenItIsReleased) => {
       let destination = extractDestinationFromLink(el);
+      if (!destination)
+        return;
       prefetchHtml(destination, (html, finalDestination) => {
         storeThePrefetchedHtmlForWhenALinkIsClicked(html, destination, finalDestination);
       });
@@ -9271,13 +9280,15 @@ function history2(Alpine19) {
   });
   Alpine19.history = { track };
 }
-function track(name, initialSeedValue, alwaysShow = false) {
+function track(name, initialSeedValue, alwaysShow = false, except = null) {
   let { has, get, set, remove } = queryStringUtils();
   let url = new URL(window.location.href);
   let isInitiallyPresentInUrl = has(url, name);
   let initialValue = isInitiallyPresentInUrl ? get(url, name) : initialSeedValue;
   let initialValueMemo = JSON.stringify(initialValue);
+  let exceptValueMemo = [false, null, void 0].includes(except) ? initialSeedValue : JSON.stringify(except);
   let hasReturnedToInitialValue = (newValue) => JSON.stringify(newValue) === initialValueMemo;
+  let hasReturnedToExceptValue = (newValue) => JSON.stringify(newValue) === exceptValueMemo;
   if (alwaysShow)
     url = set(url, name, initialValue);
   replace(url, name, { value: initialValue });
@@ -9289,6 +9300,8 @@ function track(name, initialSeedValue, alwaysShow = false) {
     if (!alwaysShow && !isInitiallyPresentInUrl && hasReturnedToInitialValue(newValue)) {
       url2 = remove(url2, name);
     } else if (newValue === void 0) {
+      url2 = remove(url2, name);
+    } else if (!alwaysShow && hasReturnedToExceptValue(newValue)) {
       url2 = remove(url2, name);
     } else {
       url2 = set(url2, name, newValue);
@@ -9950,7 +9963,7 @@ on("effect", ({ component, effects, cleanup }) => {
     if (!as)
       as = name;
     let initialValue = [false, null, void 0].includes(except) ? dataGet(component.ephemeral, name) : except;
-    let { replace: replace2, push: push2, pop } = track(as, initialValue, alwaysShow);
+    let { replace: replace2, push: push2, pop } = track(as, initialValue, alwaysShow, except);
     if (use === "replace") {
       let effectReference = import_alpinejs10.default.effect(() => {
         replace2(dataGet(component.reactive, name));

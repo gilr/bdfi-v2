@@ -208,7 +208,7 @@ Les seules modifications entre un ouvrage originel et un de ses retirages sont :
 +----------------+-------------------+------+-----+---------+----------------+
 </code>
 
-## Table des rattachements des oeuvres aux auteurs
+## Table des rattachements des publications aux auteurs
 
 <code>
 +----------------+-------------------+------+-----+---------+----------------+

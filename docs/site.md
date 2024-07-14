@@ -4,7 +4,16 @@
 
 ## Table des évènements
 
-(à compléter)
+Stockage de tous les évènements liés à l'imaginaire, conventions, salons littéraires, festivals...
+
+- name :
+- type :
+- start_date :
+- end_date :
+- information :
+- url :
+- is_confirmed :
+- is_full_scope :
 
 <code>
 +------------------+-------------------+------+-----+---------+----------------+
@@ -32,7 +41,13 @@
 
 ## Table des annonces
 
-(à compléter)
+Stockage de toutes les annonces liées au site (remerciement, informations, travaux, version...)
+
+- name : titre ou sujet, dépend du type d'info. Si Type=[Remerciement] ou [Consécration] => prénom + nom ou pseudo - Si Type=[Point historique] ou [Autre] => Période (mois, trimestre, ex "Avril 2014") - Si Type=[Changement site] => Sujet
+- information : texte descriptif
+- date : date de l'info ou de la réception d'une aide
+- type : remerciement, référencement, évolution du site, point historique, point sur les aides, point statistique...
+- url : lien complémentaire si besoin (sur le forum par exemple)
 
 <code>
 +-------------+-------------------+------+-----+---------+----------------+
@@ -53,53 +68,9 @@
 +-------------+-------------------+------+-----+---------+----------------+
 </code>
 
-## Table des articles
-
-(à compléter)
-
-<code>
-+------------+-------------------+------+-----+---------+----------------+
-| Field      | Type              | Null | Key | Default | Extra          |
-+------------+-------------------+------+-----+---------+----------------+
-| id         | int unsigned      | NO   | PRI | NULL    | auto_increment |
-| item_type  | varchar(255)      | NO   |     | NULL    |                |
-| item_id    | int unsigned      | NO   |     | NULL    |                |
-| content    | text              | NO   |     | NULL    |                |
-| created_at | timestamp         | YES  |     | NULL    |                |
-| updated_at | timestamp         | YES  |     | NULL    |                |
-| created_by | smallint unsigned | YES  |     | NULL    |                |
-| updated_by | smallint unsigned | YES  |     | NULL    |                |
-| deleted_by | smallint unsigned | YES  |     | NULL    |                |
-| deleted_at | timestamp         | YES  |     | NULL    |                |
-+------------+-------------------+------+-----+---------+----------------+
-</code>
-
-## Table des documents
-
-(à compléter)
-
-<code>
-+------------+-------------------+------+-----+---------+----------------+
-| Field      | Type              | Null | Key | Default | Extra          |
-+------------+-------------------+------+-----+---------+----------------+
-| id         | int unsigned      | NO   | PRI | NULL    | auto_increment |
-| name       | text              | NO   |     | NULL    |                |
-| file       | text              | NO   |     | NULL    |                |
-| author_id  | int unsigned      | YES  | MUL | NULL    |                |
-| item_type  | varchar(255)      | NO   |     | NULL    |                |
-| item_id    | int unsigned      | NO   |     | NULL    |                |
-| created_at | timestamp         | YES  |     | NULL    |                |
-| updated_at | timestamp         | YES  |     | NULL    |                |
-| created_by | smallint unsigned | YES  |     | NULL    |                |
-| updated_by | smallint unsigned | YES  |     | NULL    |                |
-| deleted_by | smallint unsigned | YES  |     | NULL    |                |
-| deleted_at | timestamp         | YES  |     | NULL    |                |
-+------------+-------------------+------+-----+---------+----------------+
-</code>
-
 ## Table des statistiques
 
-(à compléter)
+Historique statistique du site (sera peut-être à revoir en V2)
 
 <code>
 +---------------+-------------------+------+-----+---------+----------------+
@@ -126,7 +97,7 @@
 
 ## Tables des usagers
 
-(à compléter)
+Table des users
 
 <code>
 +---------------------------+-------------------+------+-----+---------+----------------+

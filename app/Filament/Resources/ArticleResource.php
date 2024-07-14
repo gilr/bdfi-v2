@@ -93,6 +93,11 @@ class ArticleResource extends Resource
             ->description('Attention ! Un article créé sera visible en zone collection (uniquement pour l\'instant, même si on peut en créer aussi pour un éditeur). Cependant, l\'affichage actuel ("Voir") ne ressemble pas à ce qui sera affiché sur le site. Passer en "Modifier" pour voir un affichage plus proche de ce qui sera affiché.')
             ->columns([
                 Tables\Columns\TextColumn::make('item.fullName')
+                    ->label('Nom'),
+                Tables\Columns\TextColumn::make('item_type')
+                    ->label('Pour la zone ...'),
+                Tables\Columns\TextColumn::make('item.fullName')
+                    ->label('... concerne la fiche'),
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([

@@ -242,7 +242,7 @@
         </div>
 
         @if (isset($results->article))
-            <div class="article tab content3 text-base border border-yellow-500 bg-yellow-50 flex">
+            <div class="article tab content3 text-base">
                 {!! $results->article->content !!}
             </div>
         @endif

@@ -114,11 +114,9 @@ class DocumentResource extends Resource
                 Tables\Columns\TextColumn::make('file')
                     ->label('Fichier'),
                 Tables\Columns\TextColumn::make('author.fullName')
-                    ->label('Auteur du document'),
+                    ->label('... concerne la fiche'),
                 Tables\Columns\TextColumn::make('item_type')
                     ->label('Pour la zone ...'),
-                Tables\Columns\TextColumn::make('item.fullName')
-                    ->label('... concerne la fiche'),
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([

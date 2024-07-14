@@ -184,7 +184,7 @@
         padding: 12px;
     }
 
-    input#tab1, input#tab2 { display: none; }
+    input#tab1, input#tab2, input#tab3 { display: none; }
 
     #tab1:checked ~ .tab.content1,
     #tab2:checked ~ .tab.content2 { display: block; }
@@ -211,6 +211,14 @@
       display: table;
       clear: both;
     }
+
+    .article { padding: 0 20px; margin:0; }
+    .article p { display: block; margin:0 10px; padding:0 10px; }
+    .article img { display: inline; }
+    .article ul { margin:0 10px; padding:0 10px; list-style-position:outside; list-style-type: disc; }
+    .article ol { margin:0 10px; padding:0 10px; list-style-position:outside; list-style-type: Upper-greek ; }
+
+
     </style>
 
     <hr class="mx-24 my-2 border-dotted border-purple-800 pt-2 display:block"/>
@@ -221,7 +229,7 @@
         <input class='rad' type="radio" name="tabs" id="tab2" />
         <label for="tab2">Galerie</label>
         @if (isset($results->article))
-            <input type="radio" name="tabs" id="tab3" />
+            <input class="rad" type="radio" name="tabs" id="tab3" />
             <label for="tab3">Article</label>
         @endif
 
@@ -234,7 +242,7 @@
         </div>
 
         @if (isset($results->article))
-            <div class="tab content3 text-base">
+            <div class="article tab content3 text-base border border-yellow-500 bg-yellow-50 flex">
                 {!! $results->article->content !!}
             </div>
         @endif

@@ -17,8 +17,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\MorphToSelect;
 //use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\MarkdownEditor;
+//use Filament\Forms\Components\MarkdownEditor;
 //use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 
 class ArticleResource extends Resource
 {
@@ -55,11 +56,9 @@ class ArticleResource extends Resource
                                 ->label ('Editeur')
                                 ->titleAttribute('name'),
                         ])->searchable(),
-                    MarkdownEditor::make('content')
-                        ->disableToolbarButtons([
-                            'attachFiles',
-                            'codeBlock',
-                        ])
+                    TinyEditor::make('content')
+                        ->label('Contenu article')
+                        ->profile('default'),
                 ]),
                 Section::make('Historique de la fiche / donnée')
                     ->schema([
@@ -91,7 +90,7 @@ class ArticleResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->description('Attention ! Un article créé sera visible en zone collection (uniquement pour l\'instant, même si on peut en créer aussi pour un éditeur). Cependant, les différents formatages d\'article essayés (markdown, richeditor, ckeditor) n\'ont pas vraiment donné satisfaction. La solution de contournement actuelle est une utilisation de markdown mais avec des adaptations manuelle avec du HTML local pour les images. A discuter en forum.')
+            ->description('Attention ! Un article créé sera visible en zone collection (uniquement pour l\'instant, même si on peut en créer aussi pour un éditeur). Cependant, l\'affichage actuel ("Voir") ne ressemble pas à ce qui sera affiché sur le site. Passer en "Modifier" pour voir un affichage plus proche de ce qui sera affiché.')
             ->columns([
                 Tables\Columns\TextColumn::make('item.fullName')
             ])

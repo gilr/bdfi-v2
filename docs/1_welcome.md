@@ -7,13 +7,13 @@ La documentation reste encore incomplète, elle contient les éléments décrits
 - [Cette page](docs/1_welcome.md)
 - [Installation](docs/2_Installation.md)
 - [Sur l'oganisation du code](docs/3_Infos code.md)
-- [Sur l'oganisation de la base](docs/4_Infos BdD.md)
-- [Tables de la zone 'Auteurs'](docs/4.1 auteurs.md)
-- [Tables de la zone 'Publications'](docs/4_2_publications.md)
-- [tables de la zone 'Oeuvres'](docs/4_3_oeuvres.md)
-- [tables de la zone 'Prix'](docs/4_4_prix.md)
-- [Tables de la zone 'Site'](docs/4_5_site.md)
-- [Tables communes](docs/4_6_communs.md)
+- [Sur l'oganisation de la base](docs/4.0_Infos BdD.md)
+- [Tables de la zone 'Auteurs'](docs/4.1_auteurs.md)
+- [Tables de la zone 'Publications'](docs/4.2_publications.md)
+- [tables de la zone 'Oeuvres'](docs/4.3_oeuvres.md)
+- [tables de la zone 'Prix'](docs/4.4_prix.md)
+- [Tables de la zone 'Site'](docs/4.5_site.md)
+- [Tables communes](docs/4.6_communs.md)
 
 ## En bref
 

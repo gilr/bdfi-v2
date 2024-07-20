@@ -19,14 +19,16 @@ Toute aide de personnes familières de l'éco-système Laravel et/ou passionnée
 
 ## Documentation projet (en cours)
 
-- [Sommaire](docs/welcome.md)
-- [Informations](docs/informations.md)
-- [Tables de la zone 'Auteurs'](docs/auteurs.md)
-- [Tables de la zone 'Publications'](docs/publications.md)
-- [Tables de la zone 'Prix'](docs/prix.md)
-- [Tables de la zone 'Oeuvres'](docs/oeuvres.md)
-- [Tables de la zone 'Site'](docs/site.md)
-- [Tables communes](docs/communs.md)
+- [Sommaire](docs/1. welcome.md)
+- [Installation](docs/2. Installation.md)
+- [Infos code](docs/3. Infos code.md)
+- [Infos BD](docs/4. Infos BdD.md)
+- [Tables de la zone 'Auteurs'](docs/4.1 auteurs.md)
+- [Tables de la zone 'Publications'](docs/4.2 publications.md)
+- [Tables de la zone 'Oeuvres'](docs/4.3 oeuvres.md)
+- [Tables de la zone 'Prix'](docs/4.4 prix.md)
+- [Tables de la zone 'Site'](docs/4.5 site.md)
+- [Tables communes](docs/4.6 communs.md)
 
 ## Basé sur Laravel
 
@@ -81,14 +83,16 @@ Any help or advice from people familiar with Laravel ecosystem and/or people who
 
 ## Project documentation (in progress - in French)
 
- - [Content](docs/welcome.md)
- - [Information](docs/informations.md)
- - [Tables of the 'Authors' area](docs/auteurs.md)
- - [Tables of the 'Publications' area](docs/publications.md)
- - [Tables of the 'Awards' area](docs/prix.md)
- - [Tables of the 'Texts' area](docs/oeuvres.md)
- - [Tables of the 'Site' area](docs/site.md)
- - [Common tables](docs/communs.md)
+- [Content](docs/1. welcome.md)
+- [Installation](docs/2. Installation.md)
+- [Infos code](docs/3. Infos code.md)
+- [Infos Database](docs/4. Infos BdD.md)
+- [Tables of the 'Authors' area](docs/4.1 auteurs.md)
+- [Tables of the 'Publications' area](docs/4.2 publications.md)
+- [Tables of the 'Awards' area](docs/4.3 prix.md)
+- [Tables of the 'Texts' area](docs/4.4 oeuvres.md)
+- [Tables of the 'Site' area](docs/4.5 site.md)
+- [Common tables](docs/4.6 communs.md)
 
 ## Based on Laravel
 

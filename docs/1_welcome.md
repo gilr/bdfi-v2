@@ -6,8 +6,8 @@ La documentation reste encore incomplète, elle contient les éléments décrits
 
 - [Cette page](docs/1_welcome.md)
 - [Installation](docs/2_Installation.md)
-- [Sur l'oganisation du code](docs/3_Infos code.md)
-- [Sur l'oganisation de la base](docs/4.0_Infos BdD.md)
+- [Sur l'oganisation du code](docs/3_Infos_code.md)
+- [Sur l'oganisation de la base](docs/4.0_Infos_BdD.md)
 - [Tables de la zone 'Auteurs'](docs/4.1_auteurs.md)
 - [Tables de la zone 'Publications'](docs/4.2_publications.md)
 - [tables de la zone 'Oeuvres'](docs/4.3_oeuvres.md)
@@ -21,11 +21,11 @@ La documentation reste encore incomplète, elle contient les éléments décrits
 
 Une description sommaire et la procédure d'installation.
 
-- [Sur l'oganisation du code](docs/3_Infos code.md)
+- [Sur l'oganisation du code](docs/3_Infos_code.md)
 
 Les grandes lignes de la structure 'laravel' du code.
 
-- [Sur l'oganisation de la base](docs/4_Infos BD.md)
+- [Sur l'oganisation de la base](docs/4_Infos_BdD.md)
 
 Des informations sur le modèle relationnel, les valeurs énumérés utilisées, ainsi la description des champs communs à plusieurs tables.
 

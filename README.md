@@ -21,8 +21,8 @@ Toute aide de personnes familières de l'éco-système Laravel et/ou passionnée
 
 - [Sommaire](docs/1_welcome.md)
 - [Installation](docs/2_Installation.md)
-- [Infos code](docs/3_Infos code.md)
-- [Infos BD](docs/4.0_Infos BdD.md)
+- [Infos code](docs/3_Infos_code.md)
+- [Infos BD](docs/4.0_Infos_BdD.md)
 - [Tables de la zone 'Auteurs'](docs/4.1_auteurs.md)
 - [Tables de la zone 'Publications'](docs/4.2_publications.md)
 - [Tables de la zone 'Oeuvres'](docs/4.3_oeuvres.md)
@@ -85,8 +85,8 @@ Any help or advice from people familiar with Laravel ecosystem and/or people who
 
 - [Content](docs/1_welcome.md)
 - [Installation](docs/2_Installation.md)
-- [Infos code](docs/3_Infos code.md)
-- [Infos Database](docs/4.0_Infos BdD.md)
+- [Infos code](docs/3_Infos_code.md)
+- [Infos Database](docs/4.0_Infos_BdD.md)
 - [Tables of the 'Authors' area](docs/4.1_auteurs.md)
 - [Tables of the 'Publications' area](docs/4.2_publications.md)
 - [Tables of the 'Awards' area](docs/4.3_prix.md)

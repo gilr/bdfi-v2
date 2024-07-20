@@ -8712,6 +8712,24 @@
 "pays": "2"
 },
 {
+"name": "Fleuve Noir ++ Pocket",
+"type": "",
+"sigle": "XX_SW  ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Fleuve Noir",
+"type": "",
+"sigle": "FN_ALIA",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Florent Massot",
 "type": "",
 "sigle": "FM     ",
@@ -9891,6 +9909,24 @@
 "pays": "2"
 },
 {
+"name": "Hachette + Gallimard",
+"type": "",
+"sigle": "RF__   ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Hachette",
+"type": "",
+"sigle": "HACH_AC",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Hachette Cuisine",
 "type": "",
 "sigle": "HAC_CUI",
@@ -9939,15 +9975,6 @@
 "name": "Hachette-Progrès",
 "type": "",
 "sigle": "HACH_PG",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Hachette/Gallimard",
-"type": "",
-"sigle": "RF__   ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -17802,6 +17829,24 @@
 "pays": "2"
 },
 {
+"name": "Mnémos ++ Les Moutons Electriques ++ ActuSF",
+"type": "",
+"sigle": "XXX_HEL",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Mnémos",
+"type": "",
+"sigle": "MNEM_AM",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Moebius",
 "type": "",
 "sigle": "MOEB   ",
@@ -19449,7 +19494,7 @@
 "pays": "14"
 },
 {
-"name": "Panini",
+"name": "Panini Books",
 "type": "",
 "sigle": "PANINI ",
 "localisation": "",
@@ -23733,18 +23778,18 @@
 "pays": "2"
 },
 {
-"name": "Vaugirard",
+"name": "Vaugirard ++ Vauvenargues",
 "type": "",
-"sigle": "BLADEV ",
+"sigle": "ROHELF ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
 "pays": "2"
 },
 {
-"name": "Vauvenargue",
+"name": "Vaugirard",
 "type": "",
-"sigle": "ROHEL_V",
+"sigle": "BLADEV ",
 "localisation": "",
 "creation": "0",
 "fin": "0",

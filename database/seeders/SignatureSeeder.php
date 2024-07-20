@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,10 @@ class SignatureSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('pseudonymes')->get();
-        foreach ($backup as $record) {
-            DB::connection('mysql')->table('signatures')->insert([
+        $json = Storage::get('bdfiv1\bdfibase_table_pseudonymes.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
+            DB::table('signatures')->insert([
                 'id'           => $record->id,
 
                 'author_id'    => $record->auteur_id,
@@ -34,4 +36,5 @@ class SignatureSeeder extends Seeder
             ]);
         }
     }
+
 }

@@ -122,7 +122,7 @@
 
     @if ($results->parent_id != 0)
         <div class='text-base'>
-            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent_id }}'>{{ $results->parent->name }} </a></span>
+            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent_id }}'>{{ $results->parent->fullName }} </a></span>
         </div>
         <div class='text-base'>
             Sous-collections, sous-ensembles :
@@ -131,9 +131,9 @@
         <div class='text-base px-2 mx-2 md:mx-10 self-center'>
             @foreach($results->parent->subcollections as $subcollection)
                 @if ($subcollection->id != $results->id)
-                    <div class='hover:bg-yellow-100 border-b hover:border-purple-400'><a class='sm:p-0.5 md:px-0.5' href='/collections/{{ $subcollection->id }}'> {{ $subcollection->shortname }} </a></div>
+                    <div class='hover:bg-yellow-100 border-b hover:border-purple-400'><a class='sm:p-0.5 md:px-0.5' href='/collections/{{ $subcollection->id }}'> {{ $subcollection->fullShortName }} </a></div>
                 @else
-                    <div class='bg-purple-200 border-b border-purple-600 sm:p-0.5 md:px-0.5'> {{ $results->shortname }} </div>
+                    <div class='bg-purple-200 border-b border-purple-600 sm:p-0.5 md:px-0.5'> {{ $results->fullShortName }} </div>
                 @endif
             @endforeach
         </div>
@@ -145,7 +145,7 @@
             <span class='font-semibold'>Sous-collection, sous-ensembles :</span>
             @foreach ($results->subcollections as $subcollection)
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->id }}'>{{ $subcollection->name }} </a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->id }}'>{{ $subcollection->fullName }} </a>
                 </div>
             @endforeach
         </div>

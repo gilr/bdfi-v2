@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\QualityStatus;
@@ -16,9 +17,10 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('auteurs')->get();
-        foreach ($backup as $record) {
-            DB::connection('mysql')->table('authors')->insert([
+        $json = Storage::get('bdfiv1\bdfibase_table_auteurs.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
+            DB::table('authors')->insert([
                 'id'           => $record->id,
 
                 'name'         => $record->nom,
@@ -57,4 +59,5 @@ class AuthorSeeder extends Seeder
             ]);
         }
     }
+
 }

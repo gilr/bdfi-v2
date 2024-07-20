@@ -43,6 +43,14 @@ class Publisher extends Model
     {
         return $this->hasMany('App\Models\Collection');
     }
+    public function collections2()
+    {
+        return $this->hasMany('App\Models\Collection', 'publisher2_id');
+    }
+    public function collections3()
+    {
+        return $this->hasMany('App\Models\Collection', 'publisher3_id');
+    }
 
     public function publications()
     {

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,10 @@ class AnnouncementSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('annonces')->get();
-        foreach ($backup as $record) {
-            DB::connection('mysql')->table('announcements')->insert([
+        $json = Storage::get('bdfiv1\bdfibase_table_annonces.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
+            DB::table('announcements')->insert([
                 'id'          => $record->id,
 
                 'date'        => $record->date,
@@ -37,4 +39,5 @@ class AnnouncementSeeder extends Seeder
             ]);
         }
     }
+
 }

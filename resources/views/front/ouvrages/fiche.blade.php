@@ -65,6 +65,7 @@
                 @else
                     <span class='text-sm text-slate-400 border bg-slate-100 px-2 border-slate-300 rounded shadow-md'>&#10094;</span>
                 @endif
+                <span class='text-gray-400 text-xs italic'>{{ $collection->pivot->order }}</span>
                 @if ($next[$loop->index])
                       <a class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $next[$loop->index] }}'>&#10095;</a>
                 @else

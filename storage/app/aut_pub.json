@@ -1,38 +1,38 @@
 [
 {
-"id_aut": "1401",
+"id_aut": "1247",
 "id_pub": "1",
 "role": "author"
 },
 {
-"id_aut": "1403",
-"id_pub": "1",
-"role": "author"
-},
-{
-"id_aut": "4769",
-"id_pub": "1",
-"role": "author"
-},
-{
-"id_aut": "3374",
-"id_pub": "1",
-"role": "editor"
-},
-{
-"id_aut": "3976",
+"id_aut": "1247",
 "id_pub": "2",
 "role": "author"
 },
 {
-"id_aut": "3976",
+"id_aut": "1247",
 "id_pub": "3",
 "role": "author"
 },
 {
-"id_aut": "3976",
+"id_aut": "1401",
 "id_pub": "4",
 "role": "author"
+},
+{
+"id_aut": "1403",
+"id_pub": "4",
+"role": "author"
+},
+{
+"id_aut": "4769",
+"id_pub": "4",
+"role": "author"
+},
+{
+"id_aut": "3374",
+"id_pub": "4",
+"role": "editor"
 },
 {
 "id_aut": "3976",
@@ -40,17 +40,17 @@
 "role": "author"
 },
 {
-"id_aut": "396",
+"id_aut": "3976",
 "id_pub": "6",
 "role": "author"
 },
 {
-"id_aut": "396",
+"id_aut": "3976",
 "id_pub": "7",
 "role": "author"
 },
 {
-"id_aut": "396",
+"id_aut": "3976",
 "id_pub": "8",
 "role": "author"
 },
@@ -90,2768 +90,5428 @@
 "role": "author"
 },
 {
-"id_aut": "1872",
+"id_aut": "396",
 "id_pub": "16",
 "role": "author"
 },
 {
-"id_aut": "1872",
+"id_aut": "396",
 "id_pub": "17",
 "role": "author"
 },
 {
-"id_aut": "6494",
+"id_aut": "396",
 "id_pub": "18",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "5180",
+"id_aut": "1872",
 "id_pub": "19",
 "role": "author"
 },
 {
-"id_aut": "5180",
+"id_aut": "1872",
 "id_pub": "20",
 "role": "author"
 },
 {
-"id_aut": "14035",
+"id_aut": "6494",
 "id_pub": "21",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "16791",
+"id_aut": "5180",
 "id_pub": "22",
 "role": "author"
 },
 {
-"id_aut": "16791",
+"id_aut": "5180",
 "id_pub": "23",
 "role": "author"
 },
 {
-"id_aut": "4385",
+"id_aut": "14035",
 "id_pub": "24",
 "role": "author"
 },
 {
-"id_aut": "6621",
+"id_aut": "16791",
 "id_pub": "25",
 "role": "author"
 },
 {
-"id_aut": "5689",
+"id_aut": "16791",
 "id_pub": "26",
 "role": "author"
 },
 {
-"id_aut": "4385",
+"id_aut": "624",
 "id_pub": "27",
 "role": "author"
 },
 {
-"id_aut": "923",
+"id_aut": "624",
 "id_pub": "28",
 "role": "author"
 },
 {
-"id_aut": "5689",
+"id_aut": "4823",
 "id_pub": "29",
 "role": "author"
 },
 {
-"id_aut": "4385",
+"id_aut": "4823",
 "id_pub": "30",
 "role": "author"
 },
 {
-"id_aut": "11151",
+"id_aut": "4823",
 "id_pub": "31",
 "role": "author"
 },
 {
-"id_aut": "273",
+"id_aut": "4823",
 "id_pub": "32",
 "role": "author"
 },
 {
-"id_aut": "923",
+"id_aut": "10676",
 "id_pub": "33",
 "role": "author"
 },
 {
-"id_aut": "3497",
+"id_aut": "10676",
 "id_pub": "34",
 "role": "author"
 },
 {
-"id_aut": "4770",
+"id_aut": "7026",
 "id_pub": "35",
 "role": "author"
 },
 {
-"id_aut": "5152",
+"id_aut": "7026",
 "id_pub": "36",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "7026",
 "id_pub": "37",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "5779",
 "id_pub": "38",
 "role": "author"
 },
 {
-"id_aut": "1601",
+"id_aut": "5779",
 "id_pub": "39",
 "role": "author"
 },
 {
-"id_aut": "21",
+"id_aut": "3667",
 "id_pub": "40",
 "role": "author"
 },
 {
-"id_aut": "7422",
+"id_aut": "3667",
 "id_pub": "41",
 "role": "author"
 },
 {
-"id_aut": "3115",
+"id_aut": "10297",
 "id_pub": "42",
 "role": "author"
 },
 {
-"id_aut": "8587",
+"id_aut": "4956",
 "id_pub": "43",
 "role": "author"
 },
 {
-"id_aut": "9213",
+"id_aut": "4956",
 "id_pub": "44",
 "role": "author"
 },
 {
-"id_aut": "9703",
+"id_aut": "4956",
 "id_pub": "45",
 "role": "author"
 },
 {
-"id_aut": "2001",
+"id_aut": "1746",
 "id_pub": "46",
 "role": "author"
 },
 {
-"id_aut": "869",
+"id_aut": "1746",
 "id_pub": "47",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "1746",
 "id_pub": "48",
 "role": "author"
 },
 {
-"id_aut": "8819",
+"id_aut": "5779",
 "id_pub": "49",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "5779",
 "id_pub": "50",
 "role": "author"
 },
 {
-"id_aut": "2709",
+"id_aut": "5779",
 "id_pub": "51",
 "role": "author"
 },
 {
-"id_aut": "5125",
+"id_aut": "5779",
 "id_pub": "52",
 "role": "author"
 },
 {
-"id_aut": "9213",
+"id_aut": "5779",
 "id_pub": "53",
 "role": "author"
 },
 {
-"id_aut": "9703",
+"id_aut": "5779",
 "id_pub": "54",
 "role": "author"
 },
 {
-"id_aut": "9436",
+"id_aut": "5779",
 "id_pub": "55",
 "role": "author"
 },
 {
-"id_aut": "3115",
+"id_aut": "5779",
 "id_pub": "56",
 "role": "author"
 },
 {
-"id_aut": "1166",
+"id_aut": "5779",
 "id_pub": "57",
 "role": "author"
 },
 {
-"id_aut": "8587",
+"id_aut": "5779",
 "id_pub": "58",
 "role": "author"
 },
 {
-"id_aut": "4303",
+"id_aut": "584",
 "id_pub": "59",
 "role": "author"
 },
 {
-"id_aut": "1601",
+"id_aut": "10279",
 "id_pub": "60",
 "role": "author"
 },
 {
-"id_aut": "8819",
+"id_aut": "1140",
 "id_pub": "61",
 "role": "author"
 },
 {
-"id_aut": "8071",
+"id_aut": "1140",
 "id_pub": "62",
 "role": "author"
 },
 {
-"id_aut": "5243",
+"id_aut": "1140",
 "id_pub": "63",
 "role": "author"
 },
 {
-"id_aut": "9703",
+"id_aut": "5779",
 "id_pub": "64",
 "role": "author"
 },
 {
-"id_aut": "9213",
+"id_aut": "5779",
 "id_pub": "65",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "5779",
 "id_pub": "66",
 "role": "author"
 },
 {
-"id_aut": "21",
+"id_aut": "5692",
 "id_pub": "67",
 "role": "author"
 },
 {
-"id_aut": "10956",
+"id_aut": "5692",
 "id_pub": "68",
 "role": "author"
 },
 {
-"id_aut": "10395",
+"id_aut": "5692",
 "id_pub": "69",
 "role": "author"
 },
 {
-"id_aut": "3115",
+"id_aut": "5692",
 "id_pub": "70",
 "role": "author"
 },
 {
-"id_aut": "8819",
+"id_aut": "7026",
 "id_pub": "71",
 "role": "author"
 },
 {
-"id_aut": "8587",
+"id_aut": "7026",
 "id_pub": "72",
 "role": "author"
 },
 {
-"id_aut": "7703",
+"id_aut": "7026",
 "id_pub": "73",
 "role": "author"
 },
 {
-"id_aut": "5957",
+"id_aut": "7026",
 "id_pub": "74",
 "role": "author"
 },
 {
-"id_aut": "4584",
+"id_aut": "7026",
 "id_pub": "75",
 "role": "author"
 },
 {
-"id_aut": "6833",
+"id_aut": "7026",
 "id_pub": "76",
 "role": "author"
 },
 {
-"id_aut": "7976",
+"id_aut": "4144",
 "id_pub": "77",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "10095",
 "id_pub": "78",
 "role": "author"
 },
 {
-"id_aut": "1422",
-"id_pub": "78",
-"role": "author"
-},
-{
-"id_aut": "9703",
+"id_aut": "10095",
 "id_pub": "79",
 "role": "author"
 },
 {
-"id_aut": "6610",
+"id_aut": "10095",
 "id_pub": "80",
 "role": "author"
 },
 {
-"id_aut": "7437",
+"id_aut": "4956",
 "id_pub": "81",
 "role": "author"
 },
 {
-"id_aut": "7619",
+"id_aut": "4956",
 "id_pub": "82",
 "role": "author"
 },
 {
-"id_aut": "9659",
+"id_aut": "4956",
 "id_pub": "83",
 "role": "author"
 },
 {
-"id_aut": "5005",
+"id_aut": "4956",
 "id_pub": "84",
 "role": "author"
 },
 {
-"id_aut": "10606",
+"id_aut": "1746",
 "id_pub": "85",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "1746",
 "id_pub": "86",
 "role": "author"
 },
 {
-"id_aut": "11076",
+"id_aut": "8897",
 "id_pub": "87",
 "role": "author"
 },
 {
-"id_aut": "9005",
+"id_aut": "8897",
 "id_pub": "88",
 "role": "author"
 },
 {
-"id_aut": "11588",
+"id_aut": "8897",
 "id_pub": "89",
 "role": "author"
 },
 {
-"id_aut": "11587",
+"id_aut": "8897",
 "id_pub": "90",
 "role": "author"
 },
 {
-"id_aut": "11589",
+"id_aut": "8897",
 "id_pub": "91",
 "role": "author"
 },
 {
-"id_aut": "11747",
+"id_aut": "7646",
 "id_pub": "92",
 "role": "author"
 },
 {
-"id_aut": "11590",
+"id_aut": "6135",
 "id_pub": "93",
 "role": "author"
 },
 {
-"id_aut": "5676",
+"id_aut": "6135",
 "id_pub": "94",
 "role": "author"
 },
 {
-"id_aut": "6610",
+"id_aut": "4520",
 "id_pub": "95",
 "role": "author"
 },
 {
-"id_aut": "4386",
+"id_aut": "1140",
 "id_pub": "96",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "11591",
+"id_aut": "3667",
 "id_pub": "97",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "3667",
 "id_pub": "98",
 "role": "author"
 },
 {
-"id_aut": "11592",
+"id_aut": "11230",
 "id_pub": "99",
 "role": "author"
 },
 {
-"id_aut": "9619",
+"id_aut": "4198",
+"id_pub": "99",
+"role": "author"
+},
+{
+"id_aut": "7026",
 "id_pub": "100",
 "role": "author"
 },
 {
-"id_aut": "11593",
+"id_aut": "7026",
 "id_pub": "101",
 "role": "author"
 },
 {
-"id_aut": "11882",
+"id_aut": "7026",
 "id_pub": "102",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "7026",
 "id_pub": "103",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "8897",
 "id_pub": "104",
 "role": "author"
 },
 {
-"id_aut": "11594",
+"id_aut": "8897",
 "id_pub": "105",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "8897",
 "id_pub": "106",
 "role": "author"
 },
 {
-"id_aut": "6610",
+"id_aut": "8897",
 "id_pub": "107",
 "role": "author"
 },
 {
-"id_aut": "11592",
+"id_aut": "4956",
 "id_pub": "108",
 "role": "author"
 },
 {
-"id_aut": "11589",
+"id_aut": "4956",
 "id_pub": "109",
 "role": "author"
 },
 {
-"id_aut": "9619",
+"id_aut": "4956",
 "id_pub": "110",
 "role": "author"
 },
 {
-"id_aut": "12079",
+"id_aut": "10095",
 "id_pub": "111",
 "role": "author"
 },
 {
-"id_aut": "11595",
+"id_aut": "10095",
 "id_pub": "112",
 "role": "author"
 },
 {
-"id_aut": "11882",
+"id_aut": "5779",
 "id_pub": "113",
 "role": "author"
 },
 {
-"id_aut": "11594",
+"id_aut": "5779",
 "id_pub": "114",
 "role": "author"
 },
 {
-"id_aut": "11549",
+"id_aut": "4956",
 "id_pub": "115",
 "role": "author"
 },
 {
-"id_aut": "9619",
+"id_aut": "4956",
 "id_pub": "116",
 "role": "author"
 },
 {
-"id_aut": "11589",
+"id_aut": "4956",
 "id_pub": "117",
 "role": "author"
 },
 {
-"id_aut": "11882",
+"id_aut": "9818",
 "id_pub": "118",
 "role": "author"
 },
 {
-"id_aut": "12080",
+"id_aut": "7026",
 "id_pub": "119",
 "role": "author"
 },
 {
-"id_aut": "11549",
+"id_aut": "7026",
 "id_pub": "120",
 "role": "author"
 },
 {
-"id_aut": "12081",
+"id_aut": "7026",
 "id_pub": "121",
 "role": "author"
 },
 {
-"id_aut": "6610",
+"id_aut": "7646",
 "id_pub": "122",
 "role": "author"
 },
 {
-"id_aut": "12082",
+"id_aut": "5779",
 "id_pub": "123",
 "role": "author"
 },
 {
-"id_aut": "11595",
+"id_aut": "5779",
 "id_pub": "124",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "5779",
 "id_pub": "125",
 "role": "author"
 },
 {
-"id_aut": "7619",
+"id_aut": "11151",
+"id_pub": "126",
+"role": "author"
+},
+{
+"id_aut": "4144",
 "id_pub": "127",
 "role": "author"
 },
 {
-"id_aut": "13259",
+"id_aut": "1140",
 "id_pub": "128",
 "role": "author"
 },
 {
-"id_aut": "3115",
+"id_aut": "1140",
 "id_pub": "129",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "1140",
 "id_pub": "130",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "1140",
 "id_pub": "131",
 "role": "author"
 },
 {
-"id_aut": "3115",
+"id_aut": "1140",
 "id_pub": "132",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "5779",
 "id_pub": "133",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "5779",
 "id_pub": "134",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "5779",
 "id_pub": "135",
 "role": "author"
 },
 {
-"id_aut": "1348",
+"id_aut": "10095",
 "id_pub": "136",
 "role": "author"
 },
 {
-"id_aut": "8788",
+"id_aut": "10095",
 "id_pub": "137",
 "role": "author"
 },
 {
-"id_aut": "1422",
-"id_pub": "137",
-"role": "author"
-},
-{
-"id_aut": "3115",
+"id_aut": "10095",
 "id_pub": "138",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "7026",
 "id_pub": "139",
 "role": "author"
 },
 {
-"id_aut": "5295",
+"id_aut": "7026",
 "id_pub": "140",
 "role": "author"
 },
 {
-"id_aut": "3867",
+"id_aut": "7026",
 "id_pub": "141",
 "role": "author"
 },
 {
-"id_aut": "4628",
-"id_pub": "141",
-"role": "author"
-},
-{
-"id_aut": "5689",
+"id_aut": "7026",
 "id_pub": "142",
 "role": "author"
 },
 {
-"id_aut": "9849",
+"id_aut": "7026",
 "id_pub": "143",
 "role": "author"
 },
 {
-"id_aut": "9370",
+"id_aut": "7026",
 "id_pub": "144",
 "role": "author"
 },
 {
-"id_aut": "3867",
+"id_aut": "7026",
 "id_pub": "145",
 "role": "author"
 },
 {
-"id_aut": "4628",
-"id_pub": "145",
+"id_aut": "4956",
+"id_pub": "146",
 "role": "author"
 },
 {
-"id_aut": "5689",
-"id_pub": "145",
+"id_aut": "4956",
+"id_pub": "147",
 "role": "author"
 },
 {
-"id_aut": "9849",
-"id_pub": "145",
+"id_aut": "3704",
+"id_pub": "148",
 "role": "author"
 },
 {
-"id_aut": "3131",
+"id_aut": "7611",
 "id_pub": "149",
 "role": "author"
 },
 {
-"id_aut": "6530",
+"id_aut": "7611",
 "id_pub": "150",
 "role": "author"
 },
 {
-"id_aut": "4276",
+"id_aut": "1125",
 "id_pub": "151",
 "role": "author"
 },
 {
-"id_aut": "2345",
+"id_aut": "1125",
 "id_pub": "152",
 "role": "author"
 },
 {
-"id_aut": "6530",
+"id_aut": "7611",
 "id_pub": "153",
 "role": "author"
 },
 {
-"id_aut": "4276",
+"id_aut": "7611",
 "id_pub": "154",
 "role": "author"
 },
 {
-"id_aut": "2345",
+"id_aut": "5779",
 "id_pub": "155",
 "role": "author"
 },
 {
-"id_aut": "11734",
+"id_aut": "5779",
 "id_pub": "156",
 "role": "author"
 },
 {
-"id_aut": "4276",
+"id_aut": "4757",
 "id_pub": "157",
 "role": "author"
 },
 {
-"id_aut": "11596",
+"id_aut": "8897",
 "id_pub": "158",
 "role": "author"
 },
 {
-"id_aut": "11600",
+"id_aut": "8897",
 "id_pub": "159",
 "role": "author"
 },
 {
-"id_aut": "11597",
+"id_aut": "8897",
 "id_pub": "160",
 "role": "author"
 },
 {
-"id_aut": "11597",
+"id_aut": "8897",
 "id_pub": "161",
 "role": "author"
 },
 {
-"id_aut": "6530",
+"id_aut": "9410",
 "id_pub": "162",
 "role": "author"
 },
 {
-"id_aut": "7772",
+"id_aut": "11255",
 "id_pub": "163",
 "role": "author"
 },
 {
-"id_aut": "7772",
+"id_aut": "11255",
 "id_pub": "164",
 "role": "author"
 },
 {
-"id_aut": "7355",
+"id_aut": "5779",
 "id_pub": "165",
 "role": "author"
 },
 {
-"id_aut": "7532",
+"id_aut": "5779",
 "id_pub": "166",
 "role": "author"
 },
 {
-"id_aut": "774",
+"id_aut": "10536",
 "id_pub": "167",
 "role": "author"
 },
 {
-"id_aut": "774",
+"id_aut": "10095",
 "id_pub": "168",
 "role": "author"
 },
 {
-"id_aut": "225",
+"id_aut": "10095",
 "id_pub": "169",
 "role": "author"
 },
 {
-"id_aut": "9255",
+"id_aut": "4956",
 "id_pub": "170",
 "role": "author"
 },
 {
-"id_aut": "7772",
+"id_aut": "4956",
 "id_pub": "171",
 "role": "author"
 },
 {
-"id_aut": "3130",
+"id_aut": "10536",
 "id_pub": "172",
 "role": "author"
 },
 {
-"id_aut": "8227",
+"id_aut": "2405",
 "id_pub": "173",
 "role": "author"
 },
 {
-"id_aut": "8227",
+"id_aut": "10995",
 "id_pub": "174",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "7753",
 "id_pub": "175",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "7753",
 "id_pub": "176",
 "role": "author"
 },
 {
-"id_aut": "6049",
+"id_aut": "10201",
 "id_pub": "177",
 "role": "author"
 },
 {
-"id_aut": "9255",
+"id_aut": "5692",
 "id_pub": "178",
 "role": "author"
 },
 {
-"id_aut": "7772",
+"id_aut": "5692",
 "id_pub": "179",
 "role": "author"
 },
 {
-"id_aut": "3130",
+"id_aut": "4823",
 "id_pub": "180",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "4823",
 "id_pub": "181",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "4823",
 "id_pub": "182",
 "role": "author"
 },
 {
-"id_aut": "8450",
+"id_aut": "5692",
 "id_pub": "183",
 "role": "author"
 },
 {
-"id_aut": "8450",
+"id_aut": "5692",
 "id_pub": "184",
 "role": "author"
 },
 {
-"id_aut": "8227",
+"id_aut": "5692",
 "id_pub": "185",
 "role": "author"
 },
 {
-"id_aut": "2491",
+"id_aut": "9272",
 "id_pub": "186",
 "role": "author"
 },
 {
-"id_aut": "11297",
+"id_aut": "9272",
 "id_pub": "187",
 "role": "author"
 },
 {
-"id_aut": "11005",
+"id_aut": "1396",
 "id_pub": "188",
 "role": "author"
 },
 {
-"id_aut": "7532",
+"id_aut": "1396",
 "id_pub": "189",
 "role": "author"
 },
 {
-"id_aut": "4502",
+"id_aut": "11188",
 "id_pub": "190",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "2491",
+"id_aut": "11188",
 "id_pub": "191",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "5451",
+"id_aut": "11188",
 "id_pub": "192",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "5451",
+"id_aut": "8897",
 "id_pub": "193",
 "role": "author"
 },
 {
-"id_aut": "8187",
+"id_aut": "8897",
 "id_pub": "194",
 "role": "author"
 },
 {
-"id_aut": "2316",
+"id_aut": "8897",
 "id_pub": "195",
 "role": "author"
 },
 {
-"id_aut": "2316",
+"id_aut": "8897",
 "id_pub": "196",
 "role": "author"
 },
 {
-"id_aut": "2491",
+"id_aut": "7026",
 "id_pub": "197",
 "role": "author"
 },
 {
-"id_aut": "11005",
+"id_aut": "7026",
 "id_pub": "198",
 "role": "author"
 },
 {
-"id_aut": "4502",
+"id_aut": "7026",
 "id_pub": "199",
 "role": "author"
 },
 {
-"id_aut": "3130",
+"id_aut": "7026",
 "id_pub": "200",
 "role": "author"
 },
 {
-"id_aut": "2266",
+"id_aut": "7026",
 "id_pub": "201",
 "role": "author"
 },
 {
-"id_aut": "11297",
+"id_aut": "7026",
 "id_pub": "202",
 "role": "author"
 },
 {
-"id_aut": "11543",
+"id_aut": "7026",
 "id_pub": "203",
 "role": "author"
 },
 {
-"id_aut": "2316",
+"id_aut": "7026",
 "id_pub": "204",
 "role": "author"
 },
 {
-"id_aut": "8187",
+"id_aut": "4956",
 "id_pub": "205",
 "role": "author"
 },
 {
-"id_aut": "3130",
+"id_aut": "4956",
 "id_pub": "206",
 "role": "author"
 },
 {
-"id_aut": "4502",
+"id_aut": "2764",
 "id_pub": "207",
 "role": "author"
 },
 {
-"id_aut": "2266",
+"id_aut": "1396",
 "id_pub": "208",
 "role": "author"
 },
 {
-"id_aut": "11297",
+"id_aut": "1396",
 "id_pub": "209",
 "role": "author"
 },
 {
-"id_aut": "11005",
+"id_aut": "4956",
 "id_pub": "210",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "4956",
 "id_pub": "211",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "7611",
 "id_pub": "212",
 "role": "author"
 },
 {
-"id_aut": "8187",
+"id_aut": "7611",
 "id_pub": "213",
 "role": "author"
 },
 {
-"id_aut": "2316",
+"id_aut": "7611",
 "id_pub": "214",
 "role": "author"
 },
 {
-"id_aut": "2316",
+"id_aut": "11230",
 "id_pub": "215",
 "role": "author"
 },
 {
-"id_aut": "2266",
+"id_aut": "11230",
 "id_pub": "216",
 "role": "author"
 },
 {
-"id_aut": "3130",
+"id_aut": "1396",
 "id_pub": "217",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "9410",
 "id_pub": "218",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "9410",
 "id_pub": "219",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "10095",
 "id_pub": "220",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "10095",
 "id_pub": "221",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "10095",
 "id_pub": "222",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "624",
 "id_pub": "223",
 "role": "author"
 },
 {
-"id_aut": "4016",
+"id_aut": "624",
 "id_pub": "224",
 "role": "author"
 },
 {
-"id_aut": "13223",
+"id_aut": "11255",
 "id_pub": "225",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "7026",
 "id_pub": "226",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "7026",
 "id_pub": "227",
 "role": "author"
 },
 {
-"id_aut": "12894",
+"id_aut": "7026",
 "id_pub": "228",
 "role": "author"
 },
 {
-"id_aut": "10826",
+"id_aut": "5255",
 "id_pub": "229",
 "role": "author"
 },
 {
-"id_aut": "13223",
+"id_aut": "5255",
 "id_pub": "230",
 "role": "author"
 },
 {
-"id_aut": "4016",
+"id_aut": "5255",
 "id_pub": "231",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "7026",
 "id_pub": "232",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "7026",
 "id_pub": "233",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "7026",
 "id_pub": "234",
 "role": "author"
 },
 {
-"id_aut": "12894",
+"id_aut": "6852",
 "id_pub": "235",
 "role": "author"
 },
 {
-"id_aut": "1624",
+"id_aut": "9410",
 "id_pub": "236",
 "role": "author"
 },
 {
-"id_aut": "10826",
+"id_aut": "11165",
 "id_pub": "237",
 "role": "author"
 },
 {
-"id_aut": "11961",
+"id_aut": "11165",
 "id_pub": "238",
 "role": "author"
 },
 {
-"id_aut": "10826",
+"id_aut": "5717",
 "id_pub": "239",
 "role": "author"
 },
 {
-"id_aut": "15870",
+"id_aut": "4956",
 "id_pub": "240",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "8804",
 "id_pub": "241",
 "role": "author"
 },
 {
-"id_aut": "10243",
+"id_aut": "7026",
 "id_pub": "242",
 "role": "author"
 },
 {
-"id_aut": "15858",
+"id_aut": "7026",
 "id_pub": "243",
 "role": "author"
 },
 {
-"id_aut": "3655",
+"id_aut": "4764",
 "id_pub": "244",
 "role": "author"
 },
 {
-"id_aut": "12894",
+"id_aut": "1408",
 "id_pub": "245",
 "role": "author"
 },
 {
-"id_aut": "5849",
+"id_aut": "7270",
 "id_pub": "246",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "10243",
+"id_aut": "5601",
+"id_pub": "246",
+"role": "editor"
+},
+{
+"id_aut": "8567",
+"id_pub": "246",
+"role": "editor"
+},
+{
+"id_aut": "7270",
 "id_pub": "247",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "4016",
+"id_aut": "5601",
+"id_pub": "247",
+"role": "editor"
+},
+{
+"id_aut": "8567",
+"id_pub": "247",
+"role": "editor"
+},
+{
+"id_aut": "8975",
 "id_pub": "248",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "7684",
 "id_pub": "249",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "10095",
 "id_pub": "250",
 "role": "author"
 },
 {
-"id_aut": "14839",
+"id_aut": "8897",
 "id_pub": "251",
 "role": "author"
 },
 {
-"id_aut": "4414",
+"id_aut": "8897",
 "id_pub": "252",
 "role": "author"
 },
 {
-"id_aut": "11961",
+"id_aut": "8897",
 "id_pub": "253",
 "role": "author"
 },
 {
-"id_aut": "10243",
+"id_aut": "5255",
 "id_pub": "254",
 "role": "author"
 },
 {
-"id_aut": "11961",
+"id_aut": "5779",
+"id_pub": "255",
+"role": "author"
+},
+{
+"id_aut": "5779",
 "id_pub": "256",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "2764",
 "id_pub": "257",
 "role": "author"
 },
 {
-"id_aut": "2599",
+"id_aut": "2764",
 "id_pub": "258",
 "role": "author"
 },
 {
-"id_aut": "10243",
+"id_aut": "7611",
 "id_pub": "259",
 "role": "author"
 },
 {
-"id_aut": "14839",
+"id_aut": "9791",
 "id_pub": "260",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "11961",
+"id_aut": "9791",
 "id_pub": "261",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "11961",
+"id_aut": "5779",
 "id_pub": "262",
 "role": "author"
 },
 {
-"id_aut": "14839",
+"id_aut": "5779",
 "id_pub": "263",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "5779",
 "id_pub": "264",
 "role": "author"
 },
 {
-"id_aut": "14796",
+"id_aut": "5779",
 "id_pub": "265",
 "role": "author"
 },
 {
-"id_aut": "11961",
+"id_aut": "1746",
 "id_pub": "266",
 "role": "author"
 },
 {
-"id_aut": "4884",
+"id_aut": "7026",
 "id_pub": "267",
 "role": "author"
 },
 {
-"id_aut": "14187",
+"id_aut": "7026",
 "id_pub": "268",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "7026",
 "id_pub": "269",
 "role": "author"
 },
 {
-"id_aut": "1679",
+"id_aut": "624",
 "id_pub": "270",
 "role": "author"
 },
 {
-"id_aut": "3929",
+"id_aut": "3915",
 "id_pub": "271",
 "role": "author"
 },
 {
-"id_aut": "3300",
+"id_aut": "3125",
 "id_pub": "272",
 "role": "author"
 },
 {
-"id_aut": "5118",
+"id_aut": "1210",
 "id_pub": "273",
 "role": "author"
 },
 {
-"id_aut": "9708",
+"id_aut": "9272",
 "id_pub": "274",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "9272",
 "id_pub": "275",
 "role": "author"
 },
 {
-"id_aut": "8855",
+"id_aut": "3339",
 "id_pub": "276",
 "role": "author"
 },
 {
-"id_aut": "9645",
+"id_aut": "6277",
 "id_pub": "277",
 "role": "author"
 },
 {
-"id_aut": "11234",
+"id_aut": "7026",
 "id_pub": "278",
 "role": "author"
 },
 {
-"id_aut": "8851",
+"id_aut": "7026",
 "id_pub": "279",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "1140",
 "id_pub": "280",
 "role": "author"
 },
 {
-"id_aut": "9723",
+"id_aut": "3629",
 "id_pub": "281",
 "role": "author"
 },
 {
-"id_aut": "8855",
+"id_aut": "2405",
 "id_pub": "282",
 "role": "author"
 },
 {
-"id_aut": "7605",
+"id_aut": "8804",
 "id_pub": "283",
 "role": "author"
 },
 {
-"id_aut": "9286",
+"id_aut": "5485",
 "id_pub": "284",
 "role": "author"
 },
 {
-"id_aut": "2015",
+"id_aut": "4956",
 "id_pub": "285",
 "role": "author"
 },
 {
-"id_aut": "9708",
-"id_pub": "285",
-"role": "editor"
-},
-{
-"id_aut": "1854",
+"id_aut": "4956",
 "id_pub": "286",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "5779",
 "id_pub": "287",
 "role": "author"
 },
 {
-"id_aut": "8895",
+"id_aut": "5779",
 "id_pub": "288",
 "role": "author"
 },
 {
-"id_aut": "10558",
+"id_aut": "1210",
 "id_pub": "289",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "11165",
 "id_pub": "290",
 "role": "author"
 },
 {
-"id_aut": "5660",
+"id_aut": "8897",
 "id_pub": "291",
 "role": "author"
 },
 {
-"id_aut": "8855",
+"id_aut": "8897",
 "id_pub": "292",
 "role": "author"
 },
 {
-"id_aut": "3494",
+"id_aut": "8897",
 "id_pub": "293",
 "role": "author"
 },
 {
-"id_aut": "5809",
+"id_aut": "5717",
 "id_pub": "294",
 "role": "author"
 },
 {
-"id_aut": "3494",
+"id_aut": "11230",
 "id_pub": "295",
 "role": "author"
 },
 {
-"id_aut": "6302",
+"id_aut": "11230",
 "id_pub": "296",
 "role": "author"
 },
 {
-"id_aut": "9938",
+"id_aut": "7026",
 "id_pub": "297",
 "role": "author"
 },
 {
-"id_aut": "5660",
+"id_aut": "7026",
 "id_pub": "298",
 "role": "author"
 },
 {
-"id_aut": "11074",
+"id_aut": "11165",
 "id_pub": "299",
 "role": "author"
 },
 {
-"id_aut": "9708",
+"id_aut": "10239",
 "id_pub": "300",
 "role": "author"
 },
 {
-"id_aut": "7033",
+"id_aut": "6277",
 "id_pub": "301",
 "role": "author"
 },
 {
-"id_aut": "1854",
+"id_aut": "7026",
 "id_pub": "302",
 "role": "author"
 },
 {
-"id_aut": "601",
+"id_aut": "7026",
 "id_pub": "303",
 "role": "author"
 },
 {
-"id_aut": "9708",
+"id_aut": "2405",
 "id_pub": "304",
 "role": "author"
 },
 {
-"id_aut": "7033",
+"id_aut": "4956",
 "id_pub": "305",
 "role": "author"
 },
 {
-"id_aut": "1854",
+"id_aut": "7026",
 "id_pub": "306",
 "role": "author"
 },
 {
-"id_aut": "971",
+"id_aut": "7026",
 "id_pub": "307",
 "role": "author"
 },
 {
-"id_aut": "5660",
+"id_aut": "7026",
 "id_pub": "308",
 "role": "author"
 },
 {
-"id_aut": "9708",
+"id_aut": "7026",
 "id_pub": "309",
 "role": "author"
 },
 {
-"id_aut": "8113",
+"id_aut": "7026",
 "id_pub": "310",
 "role": "author"
 },
 {
-"id_aut": "7032",
+"id_aut": "9926",
 "id_pub": "311",
 "role": "author"
 },
 {
-"id_aut": "8855",
+"id_aut": "9926",
 "id_pub": "312",
 "role": "author"
 },
 {
-"id_aut": "2562",
+"id_aut": "4386",
 "id_pub": "313",
 "role": "author"
 },
 {
-"id_aut": "5660",
+"id_aut": "5255",
 "id_pub": "314",
 "role": "author"
 },
 {
-"id_aut": "5768",
+"id_aut": "6523",
 "id_pub": "315",
 "role": "author"
 },
 {
-"id_aut": "11150",
+"id_aut": "9272",
 "id_pub": "316",
 "role": "author"
 },
 {
-"id_aut": "1403",
+"id_aut": "9272",
 "id_pub": "317",
 "role": "author"
 },
 {
-"id_aut": "9399",
+"id_aut": "5485",
 "id_pub": "318",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "7868",
+"id_aut": "6640",
 "id_pub": "319",
 "role": "author"
 },
 {
-"id_aut": "9645",
+"id_aut": "8897",
 "id_pub": "320",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "8897",
 "id_pub": "321",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "8897",
 "id_pub": "322",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "8599",
 "id_pub": "323",
 "role": "author"
 },
 {
-"id_aut": "1566",
+"id_aut": "5779",
 "id_pub": "324",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "5779",
 "id_pub": "325",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "6135",
 "id_pub": "326",
 "role": "author"
 },
 {
-"id_aut": "6449",
+"id_aut": "6277",
 "id_pub": "327",
 "role": "author"
 },
 {
-"id_aut": "9979",
+"id_aut": "1408",
 "id_pub": "328",
 "role": "author"
 },
 {
-"id_aut": "5132",
+"id_aut": "4764",
 "id_pub": "329",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "5779",
 "id_pub": "330",
 "role": "author"
 },
 {
-"id_aut": "11162",
+"id_aut": "5779",
 "id_pub": "331",
 "role": "author"
 },
 {
-"id_aut": "1102",
+"id_aut": "5779",
 "id_pub": "332",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "7925",
+"id_aut": "5779",
 "id_pub": "333",
 "role": "author"
 },
 {
-"id_aut": "13110",
+"id_aut": "8897",
 "id_pub": "334",
 "role": "author"
 },
 {
-"id_aut": "13111",
-"id_pub": "334",
-"role": "author"
-},
-{
-"id_aut": "3857",
+"id_aut": "8897",
 "id_pub": "335",
 "role": "author"
 },
 {
-"id_aut": "5372",
+"id_aut": "8897",
 "id_pub": "336",
 "role": "author"
 },
 {
-"id_aut": "5719",
+"id_aut": "5485",
 "id_pub": "337",
 "role": "author"
 },
 {
-"id_aut": "5442",
+"id_aut": "8599",
 "id_pub": "338",
 "role": "author"
 },
 {
-"id_aut": "7553",
+"id_aut": "5692",
 "id_pub": "339",
 "role": "author"
 },
 {
-"id_aut": "10954",
+"id_aut": "5692",
 "id_pub": "340",
 "role": "author"
 },
 {
-"id_aut": "197",
+"id_aut": "5692",
 "id_pub": "341",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "8266",
 "id_pub": "342",
 "role": "author"
 },
 {
-"id_aut": "11155",
+"id_aut": "10536",
 "id_pub": "343",
 "role": "author"
 },
 {
-"id_aut": "3214",
+"id_aut": "9272",
 "id_pub": "344",
 "role": "author"
 },
 {
-"id_aut": "10123",
+"id_aut": "9272",
 "id_pub": "345",
 "role": "author"
 },
 {
-"id_aut": "1340",
-"id_pub": "345",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "7026",
 "id_pub": "346",
 "role": "author"
 },
 {
-"id_aut": "1577",
+"id_aut": "7026",
 "id_pub": "347",
 "role": "author"
 },
 {
-"id_aut": "10959",
+"id_aut": "7026",
 "id_pub": "348",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "5539",
 "id_pub": "349",
 "role": "author"
 },
 {
-"id_aut": "1566",
+"id_aut": "3834",
 "id_pub": "350",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "624",
 "id_pub": "351",
 "role": "author"
 },
 {
-"id_aut": "6449",
+"id_aut": "624",
 "id_pub": "352",
 "role": "author"
 },
 {
-"id_aut": "6449",
+"id_aut": "3915",
 "id_pub": "353",
 "role": "author"
 },
 {
-"id_aut": "9938",
+"id_aut": "7026",
 "id_pub": "354",
 "role": "author"
 },
 {
-"id_aut": "6164",
+"id_aut": "7026",
 "id_pub": "355",
 "role": "author"
 },
 {
-"id_aut": "3780",
-"id_pub": "355",
-"role": "editor"
-},
-{
-"id_aut": "1617",
+"id_aut": "7026",
 "id_pub": "356",
 "role": "author"
 },
 {
-"id_aut": "10954",
+"id_aut": "7026",
 "id_pub": "357",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "2126",
 "id_pub": "358",
 "role": "author"
 },
 {
-"id_aut": "9131",
+"id_aut": "8573",
+"id_pub": "358",
+"role": "author"
+},
+{
+"id_aut": "5779",
 "id_pub": "359",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "5779",
 "id_pub": "360",
 "role": "author"
 },
 {
-"id_aut": "3857",
+"id_aut": "3629",
 "id_pub": "361",
 "role": "author"
 },
 {
-"id_aut": "11298",
+"id_aut": "5779",
 "id_pub": "362",
 "role": "author"
 },
 {
-"id_aut": "3857",
-"id_pub": "362",
-"role": "editor"
-},
-{
-"id_aut": "9561",
+"id_aut": "5779",
 "id_pub": "363",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "7026",
 "id_pub": "364",
 "role": "author"
 },
 {
-"id_aut": "11162",
+"id_aut": "7026",
 "id_pub": "365",
 "role": "author"
 },
 {
-"id_aut": "9131",
+"id_aut": "7026",
 "id_pub": "366",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5539",
 "id_pub": "367",
 "role": "author"
 },
 {
-"id_aut": "1566",
+"id_aut": "624",
 "id_pub": "368",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "624",
 "id_pub": "369",
 "role": "author"
 },
 {
-"id_aut": "10072",
+"id_aut": "5779",
 "id_pub": "370",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "5779",
 "id_pub": "371",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "5779",
 "id_pub": "372",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5779",
 "id_pub": "373",
 "role": "author"
 },
 {
-"id_aut": "3214",
+"id_aut": "5779",
 "id_pub": "374",
 "role": "author"
 },
 {
-"id_aut": "10954",
+"id_aut": "5779",
 "id_pub": "375",
 "role": "author"
 },
 {
-"id_aut": "2360",
+"id_aut": "5779",
 "id_pub": "376",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "7753",
 "id_pub": "377",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5485",
 "id_pub": "378",
 "role": "author"
 },
 {
-"id_aut": "11155",
+"id_aut": "624",
 "id_pub": "379",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "267",
 "id_pub": "380",
 "role": "author"
 },
 {
-"id_aut": "9131",
+"id_aut": "9988",
 "id_pub": "381",
 "role": "author"
 },
 {
-"id_aut": "5301",
+"id_aut": "5779",
 "id_pub": "382",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "8599",
 "id_pub": "383",
 "role": "author"
 },
 {
-"id_aut": "649",
-"id_pub": "383",
-"role": "editor"
-},
-{
-"id_aut": "2750",
+"id_aut": "7026",
 "id_pub": "384",
 "role": "author"
 },
 {
-"id_aut": "7271",
-"id_pub": "384",
-"role": "author"
-},
-{
-"id_aut": "5299",
+"id_aut": "7026",
 "id_pub": "385",
 "role": "author"
 },
 {
-"id_aut": "3780",
-"id_pub": "385",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "3667",
 "id_pub": "386",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "8897",
 "id_pub": "387",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "8897",
 "id_pub": "388",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "8897",
 "id_pub": "389",
 "role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "7611",
 "id_pub": "390",
 "role": "author"
 },
 {
-"id_aut": "2750",
+"id_aut": "4209",
 "id_pub": "391",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "10959",
+"id_aut": "7026",
 "id_pub": "392",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "7026",
 "id_pub": "393",
 "role": "author"
 },
 {
-"id_aut": "3214",
+"id_aut": "9791",
 "id_pub": "394",
-"role": "author"
+"role": "editor"
 },
 {
-"id_aut": "1133",
+"id_aut": "1854",
 "id_pub": "395",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5779",
 "id_pub": "396",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5779",
 "id_pub": "397",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "6523",
 "id_pub": "398",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "3417",
 "id_pub": "399",
 "role": "author"
 },
 {
-"id_aut": "10957",
+"id_aut": "8897",
 "id_pub": "400",
 "role": "author"
 },
 {
-"id_aut": "56",
+"id_aut": "6662",
 "id_pub": "401",
 "role": "author"
 },
 {
-"id_aut": "11503",
+"id_aut": "5255",
 "id_pub": "402",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "6135",
 "id_pub": "403",
 "role": "author"
 },
 {
-"id_aut": "1566",
+"id_aut": "6662",
 "id_pub": "404",
 "role": "author"
 },
 {
-"id_aut": "10762",
+"id_aut": "7026",
 "id_pub": "405",
 "role": "author"
 },
 {
-"id_aut": "10762",
+"id_aut": "10095",
 "id_pub": "406",
 "role": "author"
 },
 {
-"id_aut": "6567",
+"id_aut": "1854",
 "id_pub": "407",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "1854",
 "id_pub": "408",
 "role": "author"
 },
 {
-"id_aut": "1577",
+"id_aut": "5717",
 "id_pub": "409",
 "role": "author"
 },
 {
-"id_aut": "5299",
+"id_aut": "4956",
 "id_pub": "410",
 "role": "author"
 },
 {
-"id_aut": "3780",
-"id_pub": "410",
-"role": "editor"
-},
-{
-"id_aut": "3214",
+"id_aut": "7026",
 "id_pub": "411",
 "role": "author"
 },
 {
-"id_aut": "5819",
+"id_aut": "7026",
 "id_pub": "412",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "7026",
 "id_pub": "413",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "1854",
 "id_pub": "414",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "1854",
 "id_pub": "415",
 "role": "author"
 },
 {
-"id_aut": "10197",
+"id_aut": "8897",
 "id_pub": "416",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "8897",
 "id_pub": "417",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "6969",
 "id_pub": "418",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "418",
-"role": "editor"
-},
-{
-"id_aut": "2774",
+"id_aut": "5485",
 "id_pub": "419",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "2126",
 "id_pub": "420",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "8573",
+"id_pub": "420",
+"role": "author"
+},
+{
+"id_aut": "7523",
 "id_pub": "421",
 "role": "author"
 },
 {
-"id_aut": "10647",
-"id_pub": "421",
-"role": "editor"
-},
-{
-"id_aut": "11083",
+"id_aut": "2085",
 "id_pub": "422",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "4956",
 "id_pub": "423",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "11165",
 "id_pub": "424",
 "role": "author"
 },
 {
-"id_aut": "10647",
+"id_aut": "2405",
 "id_pub": "424",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "9272",
 "id_pub": "425",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "10095",
 "id_pub": "426",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "426",
-"role": "editor"
-},
-{
-"id_aut": "8757",
+"id_aut": "7026",
 "id_pub": "427",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "7026",
 "id_pub": "428",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "5779",
 "id_pub": "429",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "5779",
 "id_pub": "430",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "430",
-"role": "editor"
-},
-{
-"id_aut": "10954",
+"id_aut": "5779",
 "id_pub": "431",
 "role": "author"
 },
 {
-"id_aut": "7169",
+"id_aut": "5779",
 "id_pub": "432",
 "role": "author"
 },
 {
-"id_aut": "238",
+"id_aut": "5779",
 "id_pub": "433",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "11165",
 "id_pub": "434",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "4780",
 "id_pub": "435",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "8897",
 "id_pub": "436",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "436",
-"role": "editor"
-},
-{
-"id_aut": "10197",
+"id_aut": "8897",
 "id_pub": "437",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "8897",
 "id_pub": "438",
 "role": "author"
 },
 {
-"id_aut": "7026",
+"id_aut": "4386",
 "id_pub": "439",
 "role": "author"
 },
 {
-"id_aut": "5132",
+"id_aut": "6383",
 "id_pub": "440",
 "role": "author"
 },
 {
-"id_aut": "11083",
+"id_aut": "10095",
 "id_pub": "441",
 "role": "author"
 },
 {
-"id_aut": "11083",
+"id_aut": "8897",
 "id_pub": "442",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "8897",
 "id_pub": "443",
 "role": "author"
 },
 {
-"id_aut": "10647",
-"id_pub": "443",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "11281",
 "id_pub": "444",
 "role": "author"
 },
 {
-"id_aut": "3214",
+"id_aut": "5070",
 "id_pub": "445",
 "role": "author"
 },
 {
-"id_aut": "7865",
-"id_pub": "445",
-"role": "editor"
-},
-{
-"id_aut": "10954",
+"id_aut": "7026",
 "id_pub": "446",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "5539",
 "id_pub": "447",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "10297",
 "id_pub": "448",
 "role": "author"
 },
 {
-"id_aut": "8046",
+"id_aut": "5485",
 "id_pub": "449",
 "role": "author"
 },
 {
-"id_aut": "7026",
+"id_aut": "1059",
 "id_pub": "450",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "7026",
 "id_pub": "451",
 "role": "author"
 },
 {
-"id_aut": "5719",
+"id_aut": "4386",
 "id_pub": "452",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "2085",
 "id_pub": "453",
 "role": "author"
 },
 {
-"id_aut": "3341",
+"id_aut": "9874",
 "id_pub": "454",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "1854",
 "id_pub": "455",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "5485",
 "id_pub": "456",
 "role": "author"
 },
 {
-"id_aut": "7026",
+"id_aut": "10161",
 "id_pub": "457",
 "role": "author"
 },
 {
-"id_aut": "2989",
+"id_aut": "10161",
 "id_pub": "458",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "10161",
 "id_pub": "459",
 "role": "author"
 },
 {
-"id_aut": "8830",
+"id_aut": "10161",
 "id_pub": "460",
 "role": "author"
 },
 {
-"id_aut": "1340",
-"id_pub": "460",
-"role": "editor"
-},
-{
-"id_aut": "11083",
+"id_aut": "4770",
 "id_pub": "461",
 "role": "author"
 },
 {
-"id_aut": "7026",
+"id_aut": "4770",
 "id_pub": "462",
 "role": "author"
 },
 {
-"id_aut": "11298",
+"id_aut": "4770",
 "id_pub": "463",
 "role": "author"
 },
 {
-"id_aut": "3857",
-"id_pub": "463",
-"role": "editor"
-},
-{
-"id_aut": "8757",
+"id_aut": "4770",
 "id_pub": "464",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7026",
 "id_pub": "465",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "8897",
 "id_pub": "466",
 "role": "author"
 },
 {
-"id_aut": "1140",
+"id_aut": "8897",
 "id_pub": "467",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "467",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "10297",
 "id_pub": "468",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "5784",
 "id_pub": "469",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "6523",
 "id_pub": "470",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "10161",
 "id_pub": "471",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "10161",
 "id_pub": "472",
 "role": "author"
 },
 {
-"id_aut": "7865",
-"id_pub": "472",
-"role": "editor"
-},
-{
-"id_aut": "7026",
+"id_aut": "4882",
 "id_pub": "473",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7201",
 "id_pub": "474",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "7201",
 "id_pub": "475",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "7201",
 "id_pub": "476",
 "role": "author"
 },
 {
-"id_aut": "3780",
+"id_aut": "7201",
 "id_pub": "477",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7201",
 "id_pub": "478",
 "role": "author"
 },
 {
-"id_aut": "8757",
+"id_aut": "7201",
 "id_pub": "479",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "7201",
 "id_pub": "480",
 "role": "author"
 },
 {
-"id_aut": "4730",
+"id_aut": "7201",
 "id_pub": "481",
 "role": "author"
 },
 {
-"id_aut": "6852",
+"id_aut": "7201",
 "id_pub": "482",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "9133",
 "id_pub": "483",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "9852",
 "id_pub": "484",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "484",
-"role": "editor"
-},
-{
-"id_aut": "7032",
-"id_pub": "485",
-"role": "author"
-},
-{
-"id_aut": "1340",
-"id_pub": "485",
-"role": "editor"
-},
-{
-"id_aut": "5049",
+"id_aut": "5588",
 "id_pub": "486",
 "role": "author"
 },
 {
-"id_aut": "10072",
+"id_aut": "4882",
 "id_pub": "487",
 "role": "author"
 },
 {
-"id_aut": "8046",
+"id_aut": "7201",
 "id_pub": "488",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7201",
 "id_pub": "489",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "5588",
 "id_pub": "490",
 "role": "author"
 },
 {
-"id_aut": "10647",
-"id_pub": "490",
-"role": "editor"
-},
-{
-"id_aut": "1577",
+"id_aut": "9133",
 "id_pub": "491",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "9816",
 "id_pub": "492",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "9816",
 "id_pub": "493",
 "role": "author"
 },
 {
-"id_aut": "4769",
+"id_aut": "7201",
 "id_pub": "494",
 "role": "author"
 },
 {
-"id_aut": "1340",
-"id_pub": "494",
-"role": "editor"
-},
-{
-"id_aut": "8046",
-"id_pub": "495",
-"role": "author"
-},
-{
-"id_aut": "6662",
+"id_aut": "3823",
 "id_pub": "496",
 "role": "author"
 },
 {
-"id_aut": "7865",
-"id_pub": "496",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "3823",
 "id_pub": "497",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7201",
 "id_pub": "498",
 "role": "author"
 },
 {
-"id_aut": "1640",
+"id_aut": "11349",
 "id_pub": "499",
 "role": "author"
 },
 {
-"id_aut": "3807",
+"id_aut": "7201",
 "id_pub": "500",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "9816",
 "id_pub": "501",
 "role": "author"
 },
 {
-"id_aut": "3780",
+"id_aut": "7201",
 "id_pub": "502",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "2989",
+"id_aut": "4099",
 "id_pub": "503",
 "role": "author"
 },
 {
-"id_aut": "1408",
+"id_aut": "10070",
+"id_pub": "503",
+"role": "author"
+},
+{
+"id_aut": "4099",
 "id_pub": "504",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "10070",
+"id_pub": "504",
+"role": "author"
+},
+{
+"id_aut": "9816",
 "id_pub": "505",
 "role": "author"
 },
 {
-"id_aut": "2489",
+"id_aut": "2030",
 "id_pub": "506",
 "role": "author"
 },
 {
-"id_aut": "649",
-"id_pub": "506",
-"role": "editor"
-},
-{
-"id_aut": "7026",
+"id_aut": "10054",
 "id_pub": "507",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "9816",
 "id_pub": "508",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "7201",
 "id_pub": "509",
 "role": "author"
 },
 {
-"id_aut": "5127",
-"id_pub": "510",
-"role": "author"
-},
-{
-"id_aut": "3807",
+"id_aut": "5304",
 "id_pub": "511",
 "role": "author"
 },
 {
-"id_aut": "1605",
+"id_aut": "11349",
 "id_pub": "512",
 "role": "author"
 },
 {
-"id_aut": "6662",
+"id_aut": "2030",
 "id_pub": "513",
 "role": "author"
 },
 {
-"id_aut": "7865",
-"id_pub": "513",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "9816",
 "id_pub": "514",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "514",
-"role": "editor"
-},
-{
-"id_aut": "1028",
+"id_aut": "2030",
 "id_pub": "515",
 "role": "author"
 },
 {
-"id_aut": "6164",
+"id_aut": "5537",
 "id_pub": "516",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "10054",
 "id_pub": "517",
 "role": "author"
 },
 {
-"id_aut": "10954",
+"id_aut": "1699",
 "id_pub": "518",
 "role": "author"
 },
 {
-"id_aut": "4500",
+"id_aut": "4099",
 "id_pub": "519",
 "role": "author"
 },
 {
-"id_aut": "1452",
+"id_aut": "10070",
 "id_pub": "519",
-"role": "editor"
+"role": "author"
 },
 {
-"id_aut": "5049",
+"id_aut": "9816",
 "id_pub": "520",
 "role": "author"
 },
 {
-"id_aut": "9802",
+"id_aut": "5279",
 "id_pub": "521",
 "role": "author"
 },
 {
-"id_aut": "1955",
+"id_aut": "10397",
 "id_pub": "522",
 "role": "author"
 },
 {
-"id_aut": "3780",
-"id_pub": "522",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "10397",
 "id_pub": "523",
 "role": "author"
 },
 {
-"id_aut": "6164",
+"id_aut": "1699",
 "id_pub": "524",
 "role": "author"
 },
 {
-"id_aut": "1859",
+"id_aut": "7985",
 "id_pub": "525",
 "role": "author"
 },
 {
-"id_aut": "1859",
+"id_aut": "7985",
 "id_pub": "526",
 "role": "author"
 },
 {
-"id_aut": "3780",
-"id_pub": "527",
-"role": "editor"
-},
-{
-"id_aut": "1537",
+"id_aut": "2030",
 "id_pub": "528",
 "role": "author"
 },
 {
-"id_aut": "2831",
+"id_aut": "7985",
 "id_pub": "529",
 "role": "author"
 },
 {
-"id_aut": "1859",
+"id_aut": "9816",
 "id_pub": "530",
 "role": "author"
 },
 {
-"id_aut": "5127",
+"id_aut": "7310",
 "id_pub": "531",
 "role": "author"
 },
 {
-"id_aut": "6662",
-"id_pub": "532",
-"role": "author"
-},
-{
-"id_aut": "7865",
-"id_pub": "532",
-"role": "editor"
-},
-{
-"id_aut": "5127",
+"id_aut": "2030",
 "id_pub": "533",
 "role": "author"
 },
 {
-"id_aut": "10529",
-"id_pub": "533",
-"role": "editor"
-},
-{
-"id_aut": "9802",
+"id_aut": "1675",
 "id_pub": "534",
+"role": "author"
+},
+{
+"id_aut": "9816",
+"id_pub": "535",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "536",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "537",
+"role": "author"
+},
+{
+"id_aut": "10054",
+"id_pub": "538",
+"role": "author"
+},
+{
+"id_aut": "11349",
+"id_pub": "540",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "541",
+"role": "author"
+},
+{
+"id_aut": "10938",
+"id_pub": "542",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "543",
+"role": "author"
+},
+{
+"id_aut": "10072",
+"id_pub": "545",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "546",
+"role": "author"
+},
+{
+"id_aut": "10070",
+"id_pub": "546",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "547",
+"role": "author"
+},
+{
+"id_aut": "2030",
+"id_pub": "548",
+"role": "author"
+},
+{
+"id_aut": "6856",
+"id_pub": "549",
+"role": "author"
+},
+{
+"id_aut": "1675",
+"id_pub": "550",
+"role": "author"
+},
+{
+"id_aut": "2030",
+"id_pub": "551",
+"role": "author"
+},
+{
+"id_aut": "9637",
+"id_pub": "552",
+"role": "author"
+},
+{
+"id_aut": "1675",
+"id_pub": "553",
+"role": "author"
+},
+{
+"id_aut": "6940",
+"id_pub": "555",
+"role": "author"
+},
+{
+"id_aut": "7985",
+"id_pub": "556",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "557",
+"role": "author"
+},
+{
+"id_aut": "11260",
+"id_pub": "558",
+"role": "author"
+},
+{
+"id_aut": "9133",
+"id_pub": "559",
+"role": "author"
+},
+{
+"id_aut": "6940",
+"id_pub": "561",
+"role": "author"
+},
+{
+"id_aut": "3718",
+"id_pub": "562",
+"role": "author"
+},
+{
+"id_aut": "10054",
+"id_pub": "563",
+"role": "author"
+},
+{
+"id_aut": "1097",
+"id_pub": "564",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "568",
+"role": "author"
+},
+{
+"id_aut": "1675",
+"id_pub": "569",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "570",
+"role": "author"
+},
+{
+"id_aut": "8206",
+"id_pub": "571",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "572",
+"role": "author"
+},
+{
+"id_aut": "10070",
+"id_pub": "572",
+"role": "author"
+},
+{
+"id_aut": "5279",
+"id_pub": "574",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "575",
+"role": "author"
+},
+{
+"id_aut": "2185",
+"id_pub": "576",
+"role": "author"
+},
+{
+"id_aut": "10054",
+"id_pub": "577",
+"role": "author"
+},
+{
+"id_aut": "7985",
+"id_pub": "579",
+"role": "author"
+},
+{
+"id_aut": "7985",
+"id_pub": "580",
+"role": "author"
+},
+{
+"id_aut": "6723",
+"id_pub": "581",
+"role": "author"
+},
+{
+"id_aut": "2030",
+"id_pub": "582",
+"role": "author"
+},
+{
+"id_aut": "2185",
+"id_pub": "583",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "584",
+"role": "author"
+},
+{
+"id_aut": "65",
+"id_pub": "585",
+"role": "author"
+},
+{
+"id_aut": "6940",
+"id_pub": "586",
+"role": "author"
+},
+{
+"id_aut": "2185",
+"id_pub": "588",
+"role": "author"
+},
+{
+"id_aut": "65",
+"id_pub": "589",
+"role": "author"
+},
+{
+"id_aut": "1081",
+"id_pub": "590",
+"role": "author"
+},
+{
+"id_aut": "10070",
+"id_pub": "591",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "592",
+"role": "author"
+},
+{
+"id_aut": "6856",
+"id_pub": "593",
+"role": "author"
+},
+{
+"id_aut": "10759",
+"id_pub": "594",
+"role": "author"
+},
+{
+"id_aut": "10054",
+"id_pub": "595",
+"role": "author"
+},
+{
+"id_aut": "1675",
+"id_pub": "596",
+"role": "author"
+},
+{
+"id_aut": "65",
+"id_pub": "597",
+"role": "author"
+},
+{
+"id_aut": "11536",
+"id_pub": "598",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "599",
+"role": "author"
+},
+{
+"id_aut": "10397",
+"id_pub": "600",
+"role": "author"
+},
+{
+"id_aut": "170",
+"id_pub": "602",
+"role": "author"
+},
+{
+"id_aut": "8251",
+"id_pub": "602",
+"role": "author"
+},
+{
+"id_aut": "11537",
+"id_pub": "603",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "604",
+"role": "author"
+},
+{
+"id_aut": "10070",
+"id_pub": "604",
+"role": "author"
+},
+{
+"id_aut": "7985",
+"id_pub": "606",
+"role": "author"
+},
+{
+"id_aut": "1699",
+"id_pub": "608",
+"role": "author"
+},
+{
+"id_aut": "170",
+"id_pub": "609",
+"role": "author"
+},
+{
+"id_aut": "8251",
+"id_pub": "609",
+"role": "author"
+},
+{
+"id_aut": "11536",
+"id_pub": "610",
+"role": "author"
+},
+{
+"id_aut": "11545",
+"id_pub": "611",
+"role": "author"
+},
+{
+"id_aut": "10054",
+"id_pub": "613",
+"role": "author"
+},
+{
+"id_aut": "11544",
+"id_pub": "614",
+"role": "author"
+},
+{
+"id_aut": "170",
+"id_pub": "615",
+"role": "author"
+},
+{
+"id_aut": "8251",
+"id_pub": "615",
+"role": "author"
+},
+{
+"id_aut": "11801",
+"id_pub": "616",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "617",
+"role": "author"
+},
+{
+"id_aut": "11885",
+"id_pub": "618",
+"role": "author"
+},
+{
+"id_aut": "5522",
+"id_pub": "619",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "620",
+"role": "author"
+},
+{
+"id_aut": "10070",
+"id_pub": "620",
+"role": "author"
+},
+{
+"id_aut": "5522",
+"id_pub": "621",
+"role": "author"
+},
+{
+"id_aut": "11801",
+"id_pub": "622",
+"role": "author"
+},
+{
+"id_aut": "11965",
+"id_pub": "623",
+"role": "author"
+},
+{
+"id_aut": "7201",
+"id_pub": "624",
+"role": "author"
+},
+{
+"id_aut": "11544",
+"id_pub": "625",
+"role": "author"
+},
+{
+"id_aut": "11801",
+"id_pub": "626",
+"role": "author"
+},
+{
+"id_aut": "4099",
+"id_pub": "632",
+"role": "author"
+},
+{
+"id_aut": "5689",
+"id_pub": "633",
+"role": "author"
+},
+{
+"id_aut": "10964",
+"id_pub": "634",
+"role": "author"
+},
+{
+"id_aut": "11195",
+"id_pub": "634",
+"role": "author"
+},
+{
+"id_aut": "4549",
+"id_pub": "635",
+"role": "author"
+},
+{
+"id_aut": "7421",
+"id_pub": "636",
+"role": "author"
+},
+{
+"id_aut": "4617",
+"id_pub": "637",
+"role": "author"
+},
+{
+"id_aut": "5689",
+"id_pub": "638",
+"role": "author"
+},
+{
+"id_aut": "2342",
+"id_pub": "639",
+"role": "author"
+},
+{
+"id_aut": "17266",
+"id_pub": "639",
+"role": "author"
+},
+{
+"id_aut": "545",
+"id_pub": "640",
+"role": "author"
+},
+{
+"id_aut": "4549",
+"id_pub": "641",
+"role": "author"
+},
+{
+"id_aut": "5689",
+"id_pub": "641",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "642",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "642",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "643",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "643",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "644",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "644",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "645",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "645",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "646",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "646",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "647",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "647",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "648",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "648",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "649",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "649",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "650",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "650",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "651",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "651",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "652",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "652",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "653",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "653",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "654",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "654",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "655",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "655",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "656",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "656",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "657",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "658",
+"role": "author"
+},
+{
+"id_aut": "10002",
+"id_pub": "659",
+"role": "author"
+},
+{
+"id_aut": "10002",
+"id_pub": "660",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "661",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "661",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "662",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "662",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "663",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "663",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "664",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "664",
+"role": "author"
+},
+{
+"id_aut": "10002",
+"id_pub": "665",
+"role": "author"
+},
+{
+"id_aut": "9691",
+"id_pub": "665",
+"role": "author"
+},
+{
+"id_aut": "9693",
+"id_pub": "665",
+"role": "author"
+},
+{
+"id_aut": "10002",
+"id_pub": "666",
+"role": "author"
+},
+{
+"id_aut": "9691",
+"id_pub": "666",
+"role": "author"
+},
+{
+"id_aut": "9693",
+"id_pub": "666",
+"role": "author"
+},
+{
+"id_aut": "273",
+"id_pub": "667",
+"role": "author"
+},
+{
+"id_aut": "8511",
+"id_pub": "667",
+"role": "author"
+},
+{
+"id_aut": "273",
+"id_pub": "668",
+"role": "author"
+},
+{
+"id_aut": "8511",
+"id_pub": "668",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "669",
+"role": "author"
+},
+{
+"id_aut": "11189",
+"id_pub": "669",
+"role": "author"
+},
+{
+"id_aut": "2643",
+"id_pub": "670",
+"role": "author"
+},
+{
+"id_aut": "11142",
+"id_pub": "671",
+"role": "author"
+},
+{
+"id_aut": "8511",
+"id_pub": "672",
+"role": "author"
+},
+{
+"id_aut": "2643",
+"id_pub": "673",
+"role": "author"
+},
+{
+"id_aut": "11142",
+"id_pub": "674",
+"role": "author"
+},
+{
+"id_aut": "11149",
+"id_pub": "674",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "675",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "676",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "677",
+"role": "editor"
+},
+{
+"id_aut": "5005",
+"id_pub": "677",
+"role": "editor"
+},
+{
+"id_aut": "11026",
+"id_pub": "678",
+"role": "editor"
+},
+{
+"id_aut": "9603",
+"id_pub": "679",
+"role": "author"
+},
+{
+"id_aut": "4628",
+"id_pub": "680",
+"role": "author"
+},
+{
+"id_aut": "11142",
+"id_pub": "681",
+"role": "author"
+},
+{
+"id_aut": "11149",
+"id_pub": "681",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "682",
+"role": "editor"
+},
+{
+"id_aut": "5005",
+"id_pub": "682",
+"role": "editor"
+},
+{
+"id_aut": "8671",
+"id_pub": "683",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "684",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "684",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "685",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "686",
+"role": "author"
+},
+{
+"id_aut": "1877",
+"id_pub": "686",
+"role": "author"
+},
+{
+"id_aut": "5740",
+"id_pub": "687",
+"role": "author"
+},
+{
+"id_aut": "5740",
+"id_pub": "688",
+"role": "author"
+},
+{
+"id_aut": "895",
+"id_pub": "689",
+"role": "author"
+},
+{
+"id_aut": "11142",
+"id_pub": "690",
+"role": "author"
+},
+{
+"id_aut": "5740",
+"id_pub": "691",
+"role": "author"
+},
+{
+"id_aut": "8139",
+"id_pub": "692",
+"role": "author"
+},
+{
+"id_aut": "5740",
+"id_pub": "693",
+"role": "author"
+},
+{
+"id_aut": "8139",
+"id_pub": "694",
+"role": "author"
+},
+{
+"id_aut": "8139",
+"id_pub": "695",
+"role": "author"
+},
+{
+"id_aut": "8139",
+"id_pub": "696",
+"role": "author"
+},
+{
+"id_aut": "9008",
+"id_pub": "697",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "698",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "698",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "699",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "699",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "700",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "701",
+"role": "author"
+},
+{
+"id_aut": "5701",
+"id_pub": "702",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "703",
+"role": "author"
+},
+{
+"id_aut": "542",
+"id_pub": "704",
+"role": "author"
+},
+{
+"id_aut": "895",
+"id_pub": "704",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "705",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "706",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "707",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "707",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "708",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "708",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "709",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "709",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "710",
+"role": "author"
+},
+{
+"id_aut": "8308",
+"id_pub": "710",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "711",
+"role": "author"
+},
+{
+"id_aut": "542",
+"id_pub": "712",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "713",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "713",
+"role": "author"
+},
+{
+"id_aut": "2511",
+"id_pub": "714",
+"role": "author"
+},
+{
+"id_aut": "895",
+"id_pub": "715",
+"role": "author"
+},
+{
+"id_aut": "2511",
+"id_pub": "716",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "717",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "718",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "719",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "720",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "720",
+"role": "author"
+},
+{
+"id_aut": "5740",
+"id_pub": "721",
+"role": "author"
+},
+{
+"id_aut": "8139",
+"id_pub": "722",
+"role": "author"
+},
+{
+"id_aut": "7831",
+"id_pub": "723",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "724",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "724",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "725",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "725",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "726",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "726",
+"role": "author"
+},
+{
+"id_aut": "2349",
+"id_pub": "727",
+"role": "author"
+},
+{
+"id_aut": "10378",
+"id_pub": "727",
+"role": "author"
+},
+{
+"id_aut": "8401",
+"id_pub": "728",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "729",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "729",
+"role": "author"
+},
+{
+"id_aut": "8401",
+"id_pub": "730",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "731",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "731",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "732",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "732",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "733",
+"role": "editor"
+},
+{
+"id_aut": "5005",
+"id_pub": "733",
+"role": "editor"
+},
+{
+"id_aut": "11026",
+"id_pub": "734",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "735",
+"role": "author"
+},
+{
+"id_aut": "8308",
+"id_pub": "735",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "736",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "736",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "737",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "737",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "738",
+"role": "author"
+},
+{
+"id_aut": "5005",
+"id_pub": "738",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "739",
+"role": "author"
+},
+{
+"id_aut": "8308",
+"id_pub": "739",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "740",
+"role": "author"
+},
+{
+"id_aut": "8308",
+"id_pub": "740",
+"role": "author"
+},
+{
+"id_aut": "11026",
+"id_pub": "741",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "742",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "743",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "744",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "745",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "746",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "747",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "748",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "749",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "750",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "751",
+"role": "author"
+},
+{
+"id_aut": "355",
+"id_pub": "752",
+"role": "author"
+},
+{
+"id_aut": "6639",
+"id_pub": "753",
+"role": "author"
+},
+{
+"id_aut": "6639",
+"id_pub": "754",
+"role": "author"
+},
+{
+"id_aut": "4351",
+"id_pub": "755",
+"role": "author"
+},
+{
+"id_aut": "4351",
+"id_pub": "756",
+"role": "author"
+},
+{
+"id_aut": "5534",
+"id_pub": "757",
+"role": "author"
+},
+{
+"id_aut": "5534",
+"id_pub": "758",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "759",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "760",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "761",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "762",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "763",
+"role": "author"
+},
+{
+"id_aut": "5817",
+"id_pub": "764",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "765",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "766",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "767",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "768",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "769",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "770",
+"role": "author"
+},
+{
+"id_aut": "8319",
+"id_pub": "771",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "772",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "773",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "774",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "775",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "776",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "777",
+"role": "author"
+},
+{
+"id_aut": "10562",
+"id_pub": "778",
+"role": "author"
+},
+{
+"id_aut": "10562",
+"id_pub": "779",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "780",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "781",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "782",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "783",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "784",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "785",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "786",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "787",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "788",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "789",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "790",
+"role": "author"
+},
+{
+"id_aut": "156",
+"id_pub": "791",
+"role": "author"
+},
+{
+"id_aut": "1517",
+"id_pub": "792",
+"role": "author"
+},
+{
+"id_aut": "1517",
+"id_pub": "793",
+"role": "author"
+},
+{
+"id_aut": "4764",
+"id_pub": "794",
+"role": "author"
+},
+{
+"id_aut": "4764",
+"id_pub": "795",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "796",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "797",
+"role": "author"
+},
+{
+"id_aut": "11228",
+"id_pub": "798",
+"role": "author"
+},
+{
+"id_aut": "11228",
+"id_pub": "799",
+"role": "author"
+},
+{
+"id_aut": "7663",
+"id_pub": "800",
+"role": "author"
+},
+{
+"id_aut": "9230",
+"id_pub": "801",
+"role": "author"
+},
+{
+"id_aut": "9230",
+"id_pub": "802",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "803",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "804",
+"role": "author"
+},
+{
+"id_aut": "4764",
+"id_pub": "805",
+"role": "author"
+},
+{
+"id_aut": "4764",
+"id_pub": "806",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "807",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "808",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "809",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "810",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "811",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "812",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "813",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "814",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "815",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "816",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "817",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "818",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "819",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "820",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "821",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "822",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "823",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "824",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "825",
+"role": "author"
+},
+{
+"id_aut": "5369",
+"id_pub": "826",
+"role": "author"
+},
+{
+"id_aut": "9347",
+"id_pub": "827",
+"role": "author"
+},
+{
+"id_aut": "9347",
+"id_pub": "828",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "829",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "830",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "831",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "832",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "833",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "834",
+"role": "author"
+},
+{
+"id_aut": "743",
+"id_pub": "835",
+"role": "author"
+},
+{
+"id_aut": "743",
+"id_pub": "836",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "837",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "838",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "839",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "840",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "841",
+"role": "author"
+},
+{
+"id_aut": "10562",
+"id_pub": "842",
+"role": "author"
+},
+{
+"id_aut": "5659",
+"id_pub": "843",
+"role": "author"
+},
+{
+"id_aut": "9347",
+"id_pub": "844",
+"role": "author"
+},
+{
+"id_aut": "9347",
+"id_pub": "845",
+"role": "author"
+},
+{
+"id_aut": "5659",
+"id_pub": "846",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "847",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "848",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "849",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "850",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "851",
+"role": "author"
+},
+{
+"id_aut": "9970",
+"id_pub": "852",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "853",
+"role": "author"
+},
+{
+"id_aut": "2547",
+"id_pub": "854",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "855",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "856",
+"role": "author"
+},
+{
+"id_aut": "10087",
+"id_pub": "857",
+"role": "author"
+},
+{
+"id_aut": "11150",
+"id_pub": "858",
+"role": "author"
+},
+{
+"id_aut": "3129",
+"id_pub": "859",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "859",
+"role": "author"
+},
+{
+"id_aut": "3129",
+"id_pub": "860",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "860",
+"role": "author"
+},
+{
+"id_aut": "3129",
+"id_pub": "861",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "861",
+"role": "author"
+},
+{
+"id_aut": "5659",
+"id_pub": "862",
+"role": "author"
+},
+{
+"id_aut": "2613",
+"id_pub": "863",
+"role": "author"
+},
+{
+"id_aut": "2613",
+"id_pub": "864",
+"role": "author"
+},
+{
+"id_aut": "10087",
+"id_pub": "865",
+"role": "author"
+},
+{
+"id_aut": "2613",
+"id_pub": "866",
+"role": "author"
+},
+{
+"id_aut": "10087",
+"id_pub": "867",
+"role": "author"
+},
+{
+"id_aut": "8319",
+"id_pub": "868",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "868",
+"role": "author"
+},
+{
+"id_aut": "8319",
+"id_pub": "869",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "869",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "870",
+"role": "author"
+},
+{
+"id_aut": "2477",
+"id_pub": "871",
+"role": "author"
+},
+{
+"id_aut": "9649",
+"id_pub": "871",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "872",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "873",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "874",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "875",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "876",
+"role": "author"
+},
+{
+"id_aut": "10050",
+"id_pub": "877",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "878",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "879",
+"role": "author"
+},
+{
+"id_aut": "3893",
+"id_pub": "880",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "881",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "882",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "883",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "884",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "885",
+"role": "author"
+},
+{
+"id_aut": "8319",
+"id_pub": "886",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "886",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "887",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "888",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "889",
+"role": "author"
+},
+{
+"id_aut": "7267",
+"id_pub": "890",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "891",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "892",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "893",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "894",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "895",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "896",
+"role": "author"
+},
+{
+"id_aut": "7267",
+"id_pub": "897",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "898",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "899",
+"role": "author"
+},
+{
+"id_aut": "7267",
+"id_pub": "900",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "901",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "902",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "903",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "904",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "905",
+"role": "author"
+},
+{
+"id_aut": "10492",
+"id_pub": "906",
+"role": "author"
+},
+{
+"id_aut": "5615",
+"id_pub": "907",
+"role": "author"
+},
+{
+"id_aut": "1517",
+"id_pub": "908",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "909",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "909",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "910",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "910",
+"role": "author"
+},
+{
+"id_aut": "11147",
+"id_pub": "911",
+"role": "author"
+},
+{
+"id_aut": "5615",
+"id_pub": "912",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "913",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "914",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "915",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "916",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "917",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "918",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "919",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "920",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "921",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "922",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "923",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "924",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "925",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "926",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "927",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "928",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "929",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "930",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "931",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "932",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "933",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "934",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "935",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "936",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "937",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "938",
+"role": "author"
+},
+{
+"id_aut": "162",
+"id_pub": "939",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "940",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "941",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "942",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "943",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "944",
+"role": "author"
+},
+{
+"id_aut": "8781",
+"id_pub": "945",
+"role": "author"
+},
+{
+"id_aut": "11613",
+"id_pub": "945",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "946",
+"role": "author"
+},
+{
+"id_aut": "6210",
+"id_pub": "947",
+"role": "author"
+},
+{
+"id_aut": "2963",
+"id_pub": "948",
+"role": "author"
+},
+{
+"id_aut": "12046",
+"id_pub": "949",
+"role": "author"
+},
+{
+"id_aut": "12319",
+"id_pub": "950",
+"role": "author"
+},
+{
+"id_aut": "11747",
+"id_pub": "951",
+"role": "author"
+},
+{
+"id_aut": "12319",
+"id_pub": "952",
+"role": "author"
+},
+{
+"id_aut": "12319",
+"id_pub": "953",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "954",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "955",
+"role": "author"
+},
+{
+"id_aut": "5615",
+"id_pub": "956",
+"role": "author"
+},
+{
+"id_aut": "5615",
+"id_pub": "957",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "958",
+"role": "author"
+},
+{
+"id_aut": "12046",
+"id_pub": "959",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "960",
+"role": "author"
+},
+{
+"id_aut": "3893",
+"id_pub": "961",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "962",
+"role": "author"
+},
+{
+"id_aut": "10087",
+"id_pub": "963",
+"role": "author"
+},
+{
+"id_aut": "6644",
+"id_pub": "964",
+"role": "author"
+},
+{
+"id_aut": "13284",
+"id_pub": "965",
+"role": "author"
+},
+{
+"id_aut": "1517",
+"id_pub": "966",
+"role": "author"
+},
+{
+"id_aut": "9347",
+"id_pub": "966",
+"role": "author"
+},
+{
+"id_aut": "10087",
+"id_pub": "966",
+"role": "author"
+},
+{
+"id_aut": "6639",
+"id_pub": "967",
+"role": "author"
+},
+{
+"id_aut": "4351",
+"id_pub": "967",
+"role": "author"
+},
+{
+"id_aut": "5534",
+"id_pub": "967",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "968",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "969",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "970",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "971",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "972",
+"role": "author"
+},
+{
+"id_aut": "2501",
+"id_pub": "973",
+"role": "author"
+},
+{
+"id_aut": "5556",
+"id_pub": "974",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "975",
+"role": "author"
+},
+{
+"id_aut": "224",
+"id_pub": "976",
+"role": "author"
+},
+{
+"id_aut": "11747",
+"id_pub": "977",
+"role": "author"
+},
+{
+"id_aut": "14387",
+"id_pub": "978",
+"role": "author"
+},
+{
+"id_aut": "13220",
+"id_pub": "979",
+"role": "author"
+},
+{
+"id_aut": "11747",
+"id_pub": "980",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "981",
+"role": "author"
+},
+{
+"id_aut": "6525",
+"id_pub": "982",
+"role": "author"
+},
+{
+"id_aut": "13220",
+"id_pub": "983",
+"role": "author"
+},
+{
+"id_aut": "14409",
+"id_pub": "984",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "985",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "986",
+"role": "author"
+},
+{
+"id_aut": "15226",
+"id_pub": "987",
+"role": "author"
+},
+{
+"id_aut": "4385",
+"id_pub": "988",
+"role": "author"
+},
+{
+"id_aut": "13220",
+"id_pub": "989",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "990",
+"role": "author"
+},
+{
+"id_aut": "12046",
+"id_pub": "991",
+"role": "author"
+},
+{
+"id_aut": "11890",
+"id_pub": "992",
+"role": "author"
+},
+{
+"id_aut": "1861",
+"id_pub": "994",
+"role": "author"
+},
+{
+"id_aut": "15020",
+"id_pub": "995",
+"role": "author"
+},
+{
+"id_aut": "14898",
+"id_pub": "996",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "997",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "999",
+"role": "author"
+},
+{
+"id_aut": "17181",
+"id_pub": "1000",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "1001",
+"role": "author"
+},
+{
+"id_aut": "16433",
+"id_pub": "1002",
+"role": "author"
+},
+{
+"id_aut": "1861",
+"id_pub": "1003",
+"role": "author"
+},
+{
+"id_aut": "13220",
+"id_pub": "1004",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "1005",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "1006",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "1007",
+"role": "author"
+},
+{
+"id_aut": "13334",
+"id_pub": "1008",
+"role": "author"
+},
+{
+"id_aut": "15164",
+"id_pub": "1009",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "1010",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "1011",
+"role": "author"
+},
+{
+"id_aut": "4517",
+"id_pub": "1012",
+"role": "author"
+},
+{
+"id_aut": "14409",
+"id_pub": "1013",
+"role": "author"
+},
+{
+"id_aut": "13220",
+"id_pub": "1015",
+"role": "author"
+},
+{
+"id_aut": "11317",
+"id_pub": "1017",
+"role": "author"
+},
+{
+"id_aut": "15164",
+"id_pub": "1018",
+"role": "author"
+},
+{
+"id_aut": "4511",
+"id_pub": "1018",
+"role": "author"
+},
+{
+"id_aut": "12419",
+"id_pub": "1021",
+"role": "author"
+},
+{
+"id_aut": "12141",
+"id_pub": "1024",
+"role": "author"
+},
+{
+"id_aut": "13334",
+"id_pub": "1025",
+"role": "author"
+},
+{
+"id_aut": "6833",
+"id_pub": "1027",
+"role": "author"
+},
+{
+"id_aut": "6833",
+"id_pub": "1028",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1029",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1030",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1031",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1032",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1033",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1034",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1035",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1036",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1037",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1038",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1039",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1040",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1041",
+"role": "author"
+},
+{
+"id_aut": "1247",
+"id_pub": "1042",
 "role": "author"
 }
 ]

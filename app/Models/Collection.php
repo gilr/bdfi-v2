@@ -113,9 +113,26 @@ class Collection extends Model
     */
     public function fullName(): Attribute
     {
+       //get: fn($value) => Str::limit($this->name . " (" . $this->publisher->name . ")", 50),
         return Attribute::make(
-            //get: fn($value) => Str::limit($this->name . " (" . $this->publisher->name . ")", 50),
-            get: fn($value) => $this->name . " (" . $this->publisher->name . ")",
+            get: fn($value) =>
+            $this->publisher3 !== NULL ?
+                $this->name . " (" . $this->publisher->name . ", " . $this->publisher2->name . " et " . $this->publisher3->name .")" :
+            ($this->publisher2 !== NULL ?
+                $this->name . " (" . $this->publisher->name . " et " . $this->publisher2->name .")" :
+                $this->name . " (" . $this->publisher->name . ")"),
+        );
+    }
+    public function fullShortName(): Attribute
+    {
+       //get: fn($value) => Str::limit($this->name . " (" . $this->publisher->name . ")", 50),
+        return Attribute::make(
+            get: fn($value) =>
+            $this->publisher3 !== NULL ?
+                $this->shortname . " (" . $this->publisher->name . ", " . $this->publisher2->name . " et " . $this->publisher3->name .")" :
+            ($this->publisher2 !== NULL ?
+                $this->shortname . " (" . $this->publisher->name . " et " . $this->publisher2->name .")" :
+                $this->shortname . " (" . $this->publisher->name . ")"),
         );
     }
 

@@ -28,8 +28,8 @@ class CollectionSeeder extends Seeder
                 'alt_names'        => $obj->alt_names ?: "",
 
                 'publisher_id'     => $obj->id_ed,
-                'publisher2_id'    => NULL,
-                'publisher3_id'    => NULL,
+                'publisher2_id'    => $obj->id_ed2 === "0" ? NULL : $obj->id_ed2,
+                'publisher3_id'    => $obj->id_ed3 === "0" ? NULL : $obj->id_ed3,
                 'parent_id'        => $obj->id_parent ?: NULL,
                 'year_start'       => $obj->creation ?: 0,
                 'year_end'         => $obj->fin ?: NULL,

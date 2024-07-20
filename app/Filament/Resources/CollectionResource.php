@@ -131,7 +131,7 @@ class CollectionResource extends Resource
                         ->label('Genre')
                         ->enum(CollectionGenre::class)
                         ->options(CollectionGenre::class),
-                    Forms\Components\TextInput::make('topic_forum_id')
+                    Forms\Components\TextInput::make('forum_topic_id')
                             ->helperText('Le numéro du topic de la collection sur le forum (par exemple, 3728 est exofiction). Cf. "Accès rapide à une collection". 0 si inexistant ou inconnu.')
                             ->numeric()
                             ->minValue(0)

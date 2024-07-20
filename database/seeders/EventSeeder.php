@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +16,9 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('evenements')->get();
-        foreach ($backup as $record) {
+        $json = Storage::get('bdfiv1\bdfibase_table_evenements.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
 
             $date_debut = $record->date_debut;
             if ($date_debut == "2016-06-99") { $date_debut = "2016-06-01"; }
@@ -29,7 +31,7 @@ class EventSeeder extends Seeder
             if ($date_fin == "2018-04-99") { $date_fin = "2018-04-01"; }
             if ($date_fin == "2019-06-00") { $date_fin = "2019-06-01"; }
 
-            DB::connection('mysql')->table('events')->insert([
+            DB::table('events')->insert([
                 'id'          => $record->id,
 
                 'name'        => $record->sujet,
@@ -55,4 +57,5 @@ class EventSeeder extends Seeder
             ]);
         }
     }
+
 }

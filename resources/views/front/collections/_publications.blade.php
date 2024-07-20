@@ -8,9 +8,9 @@
             @endif
         @endif
         @if($publication->pivot->number)
-            {{ $publication->pivot->number }} -
+            {{ $publication->pivot->number }}.
         @endif
-        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>,
+        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage> -
 
         <span class='hidden md:inline text-gray-800'>{{ $publication->type->getLabel() }}</span>
         @if(count($publication->authors) > 0)

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,10 @@ class RelationshipTypeSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('types_lien')->get();
-        foreach ($backup as $record) {
-            DB::connection('mysql')->table('relationship_types')->insert([
+        $json = Storage::get('bdfiv1\bdfibase_table_types_lien.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
+            DB::table('relationship_types')->insert([
                 'id'                   => $record->id,
 
                 'name'                 => $record->nom . "-" . $record->inverse,
@@ -35,4 +37,5 @@ class RelationshipTypeSeeder extends Seeder
             ]);
         }
     }
+
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,10 @@ class WebsiteSeeder extends Seeder
      */
     public function run()
     {
-        $backup = DB::connection('mysql2')->table('url_auteur')->get();
-        foreach ($backup as $record) {
-            DB::connection('mysql')->table('websites')->insert([
+        $json = Storage::get('bdfiv1\bdfibase_table_url_auteur.json');
+        $data = json_decode($json);
+        foreach ($data as $record) {
+            DB::table('websites')->insert([
                 'id'              => $record->id,
 
                 'url'             => $record->url,
@@ -36,4 +38,5 @@ class WebsiteSeeder extends Seeder
             ]);
         }
     }
+
 }

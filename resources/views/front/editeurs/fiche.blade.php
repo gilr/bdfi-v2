@@ -74,6 +74,24 @@
                 </div>
                 @endif
             @endforeach
+            @if(count($results->collections2))
+            @foreach ($results->collections2 as $collection)
+                @if (!$collection->parent_id)
+                    <div class='ml-2 md:ml-8'>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                </div>
+                @endif
+            @endforeach
+                @endif
+            @if(count($results->collections3))
+            @foreach ($results->collections3 as $collection)
+                @if (!$collection->parent_id)
+                    <div class='ml-2 md:ml-8'>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                </div>
+                @endif
+            @endforeach
+                @endif
             @if(count($results->publicationsWithoutCollection))
                 <div class='ml-2 md:ml-8'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->id }}/hc'><i> Ouvrages hors collections et groupes</i></a>
@@ -87,6 +105,24 @@
                     <div class='ml-2 md:ml-8'>
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
                     </div>
+                @endif
+            @endforeach
+        @endif
+        @if(count($results->collections2))
+            @foreach ($results->collections2 as $collection)
+                @if (!$collection->parent_id)
+                    <div class='ml-2 md:ml-8'>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                </div>
+                @endif
+            @endforeach
+        @endif
+        @if(count($results->collections3))
+            @foreach ($results->collections3 as $collection)
+                @if (!$collection->parent_id)
+                    <div class='ml-2 md:ml-8'>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                </div>
                 @endif
             @endforeach
         @endif

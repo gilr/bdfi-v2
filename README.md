@@ -19,16 +19,16 @@ Toute aide de personnes familières de l'éco-système Laravel et/ou passionnée
 
 ## Documentation projet (en cours)
 
-- [Sommaire](docs/1. welcome.md)
-- [Installation](docs/2. Installation.md)
-- [Infos code](docs/3. Infos code.md)
-- [Infos BD](docs/4. Infos BdD.md)
-- [Tables de la zone 'Auteurs'](docs/4.1 auteurs.md)
-- [Tables de la zone 'Publications'](docs/4.2 publications.md)
-- [Tables de la zone 'Oeuvres'](docs/4.3 oeuvres.md)
-- [Tables de la zone 'Prix'](docs/4.4 prix.md)
-- [Tables de la zone 'Site'](docs/4.5 site.md)
-- [Tables communes](docs/4.6 communs.md)
+- [Sommaire](docs/1_welcome.md)
+- [Installation](docs/2_Installation.md)
+- [Infos code](docs/3_Infos code.md)
+- [Infos BD](docs/4_Infos BdD.md)
+- [Tables de la zone 'Auteurs'](docs/4_1_auteurs.md)
+- [Tables de la zone 'Publications'](docs/4_2_publications.md)
+- [Tables de la zone 'Oeuvres'](docs/4_3_oeuvres.md)
+- [Tables de la zone 'Prix'](docs/4_4_prix.md)
+- [Tables de la zone 'Site'](docs/4_5_site.md)
+- [Tables communes](docs/4_6_communs.md)
 
 ## Basé sur Laravel
 
@@ -83,16 +83,16 @@ Any help or advice from people familiar with Laravel ecosystem and/or people who
 
 ## Project documentation (in progress - in French)
 
-- [Content](docs/1. welcome.md)
-- [Installation](docs/2. Installation.md)
-- [Infos code](docs/3. Infos code.md)
-- [Infos Database](docs/4. Infos BdD.md)
-- [Tables of the 'Authors' area](docs/4.1 auteurs.md)
-- [Tables of the 'Publications' area](docs/4.2 publications.md)
-- [Tables of the 'Awards' area](docs/4.3 prix.md)
-- [Tables of the 'Texts' area](docs/4.4 oeuvres.md)
-- [Tables of the 'Site' area](docs/4.5 site.md)
-- [Common tables](docs/4.6 communs.md)
+- [Content](docs/1_welcome.md)
+- [Installation](docs/2_Installation.md)
+- [Infos code](docs/3_Infos code.md)
+- [Infos Database](docs/4_Infos BdD.md)
+- [Tables of the 'Authors' area](docs/4_1_auteurs.md)
+- [Tables of the 'Publications' area](docs/4_2_publications.md)
+- [Tables of the 'Awards' area](docs/4_3_prix.md)
+- [Tables of the 'Texts' area](docs/4_4_oeuvres.md)
+- [Tables of the 'Site' area](docs/4_5_site.md)
+- [Common tables](docs/4_6_communs.md)
 
 ## Based on Laravel
 

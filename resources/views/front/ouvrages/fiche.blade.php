@@ -51,7 +51,7 @@
     @if (count($results->collections))
         @foreach ($results->collections as $collection)
             <div class='text-base'>Collection :
-                <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a></span>
+                <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' title='{{ $collection->fullName }}' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a></span>
                 @if ($collection->pivot->number)
                     n° {{ $collection->pivot->number }} &nbsp; &nbsp;
                 @endif

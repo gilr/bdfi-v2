@@ -434,7 +434,16 @@ function reverseName($info)
       $result = implode(' ', $mots);
    }
 
-   return $result;
+   // ... Et mettre en majuscule toute lettre qui suit un "-".
+   return capitalizeAfterDash($result);
+}
+
+function capitalizeAfterDash($string) {
+    // Utilisation de la fonction preg_replace_callback pour trouver les tirets et la lettre suivante
+    return preg_replace_callback('/-(.)/', function($matches) {
+        // strtoupper convertit la lettre en majuscule
+        return '-' . strtoupper($matches[1]);
+    }, $string);
 }
 
 function isName($info)

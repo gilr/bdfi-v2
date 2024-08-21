@@ -41,7 +41,12 @@
 
     @if ($results->publisher_id)
         <div class='text-base'>
-            Editeur  : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher->name }}</a></span>
+            @if ($results->publisher2_id)
+                Editeurs :
+            @else
+                Editeur :
+            @endif
+            <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher->name }}</a></span>
             @if ($results->publisher2_id)
                 , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher2_id }}'>{{ $results->publisher2->name }}</a></span>
             @endif

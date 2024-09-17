@@ -108,7 +108,7 @@ class TitleController extends Controller
     }
     public function page(Request $request, $text)
     {
-        if ($results=Title::find($text))
+        if ($results=Title::with(['publications.authors', 'publications.collections', 'publications.publisher'])->find($text))
         {
             // /textes/{id}
             // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page texte

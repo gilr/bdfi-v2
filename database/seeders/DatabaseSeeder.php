@@ -238,6 +238,10 @@ class DatabaseSeeder extends Seeder
 
             ArticleSeeder::class,
             DocumentSeeder::class,
+
+            IllustratorSeeder::class,
+            TranslatorSeeder::class,
+
         ]);
     }
 }

@@ -23,7 +23,7 @@ class ReprintController extends Controller
 
     public function welcome()
     {
-        $results = Reprint::orderBy('updated_at', 'desc')->limit(25)->get();
+        $results = Reprint::orderBy('updated_at', 'desc')->limit(25)->with('publication')->get();
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
@@ -45,6 +45,7 @@ class ReprintController extends Controller
                 ->where('reprints.ai', 'like', '%' . $text .'%')
                 ->orwhere('publications.name', 'like', '%' . $text .'%')
                 ->orderBy('publications.name', 'asc')
+                ->with('publication')
                 ->simplePaginate($pagin)
                 ->withQueryString();
         }
@@ -56,6 +57,7 @@ class ReprintController extends Controller
                 ->orwhere('publications.name', 'like', '%' . $text .'%')
                 ->orwhere('publications.cycle', 'like', '%' . $text .'%')
                 ->orderBy('publications.name', 'asc')
+                ->with('publication')
                 ->simplePaginate($pagin)
                 ->withQueryString();
         }

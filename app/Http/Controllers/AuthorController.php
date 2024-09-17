@@ -166,7 +166,7 @@ class AuthorController extends Controller
      */
     public function page(Request $request, $text)
     {
-        if (($results=Author::find($text)) && ($results->is_visible == 1))
+        if (($results=Author::with(['publications.publisher', 'websites.website_type'])->find($text)) && ($results->is_visible == 1))
         {
             // /auteurs/{id}
             // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page auteur
@@ -212,6 +212,7 @@ class AuthorController extends Controller
                             ->whereIn('authors.id', $plucked)
                             ->orderBy('copyright', 'asc')
                             ->select('titles.*')
+                            ->with(['authors', 'publications.collections', 'publications.publisher', 'parent', 'variants'])
                             ->get();
 
             if ($type !== 'normal')
@@ -231,7 +232,7 @@ class AuthorController extends Controller
                 $bibliofull = $full2;
             }
 
-            // Détermination des autres pseudonyme de la ou des auteurs "références"
+            // Détermination des autres pseudonymes de la ou des auteurs "références"
             $autres_pseudos = NULL;
             if ($results->ReferencesCount > 0)
             {
@@ -258,6 +259,7 @@ class AuthorController extends Controller
                 $autres_pseudos = Author::hydrate($rrr);
             }
             $award_years = AwardWinner::where('author_id', $id)->orWhere('author2_id', $id)->orWhere('author3_id', $id)->get('year')->sort()->unique('year')->toArray();
+
             return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos', 'bibliofull'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))

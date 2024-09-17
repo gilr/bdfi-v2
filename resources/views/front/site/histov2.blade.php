@@ -18,6 +18,9 @@
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
+            <li>Gestion des collections multi-éditeurs</li>
+            <li>Gestion et administration des articles (collections)</li>
+            <li>Amélioration des temps d'affichage (particulièrement bibliographies et collections de centaines d'ouvrages)</li>
             <li>Ajout de l'info "vérifié" aux retirages</li>
             <li>Ajout des annonces de salons en page d'accueil</li>
             <li>Corrections diverses</li>

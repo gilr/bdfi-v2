@@ -33,9 +33,9 @@ use App\Http\Controllers\StatController;
 Route::get('/', function () {
     $births= App\Models\Author::getBirthsOfDay();
     $deaths = App\Models\Author::getDeathsOfDay();
-    $updated = App\Models\Publication::where('status', '<>', 'annonce')->orderBy('updated_at', 'desc')->limit(15)->get();
-    $created = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('created_at', 'desc')->limit(15)->get();
-    $programme = App\Models\Publication::where('status', 'annonce')->orderBy('created_at', 'desc')->limit(15)->get();
+    $updated = App\Models\Publication::where('status', '<>', 'annonce')->orderBy('updated_at', 'desc')->limit(15)->with('publisher')->get();
+    $created = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
+    $programme = App\Models\Publication::where('status', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
     $events = App\Models\Event::where('is_full_scope', '1')->where('is_confirmed', '1')->where('end_date','>=', date("Y-m-d"))->orderBy('start_date', 'asc')->limit(15)->get();
     $area = '';
     $title = '';

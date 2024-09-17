@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('illustrators', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name', 32);
+            $table->string('name', 128);
             $table->string('first_name', 32)->nullable();
             $table->string('legal_name', 128)->nullable();
             $table->string('alt_names', 512)->nullable();
@@ -29,7 +29,6 @@ return new class extends Migration
 
             $table->text('information')->nullable(); // Biographie
             $table->text('private')->nullable();
-            $table->string('quality'); // Enum QualityStatus
 
             $table->timestamps();
             $table->unsignedSmallInteger('created_by')->nullable();

@@ -26,6 +26,7 @@ class AnnouncementController extends Controller
         $this->context['page'] = '';
         $results = Publication::orderBy('created_at', 'desc')
             ->limit(25)
+            ->with('publisher')
             ->get();
         $results2 = Revision::orderBy('updated_at', 'desc')
             ->limit(25)

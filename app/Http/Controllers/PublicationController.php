@@ -28,7 +28,7 @@ class PublicationController extends Controller
      */
     public function welcome()
     {
-        $results = Publication::orderBy('updated_at', 'desc')->limit(50)->get();
+        $results = Publication::orderBy('updated_at', 'desc')->limit(50)->with('publisher')->get();
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
@@ -64,6 +64,7 @@ class PublicationController extends Controller
                     $query->where('name', 'like', '%' . $text .'%');
                 })
                 ->orderBy('name', 'asc')
+                ->with('publisher')
                 ->simplePaginate($pagin)
                 ->withQueryString();
         }
@@ -74,6 +75,7 @@ class PublicationController extends Controller
                         ->orWhere('cycle', 'like', '%' . $text .'%');
                 })
                 ->orderBy('name', 'asc')
+                ->with('publisher')
                 ->simplePaginate($pagin)
                 ->withQueryString();
 
@@ -133,7 +135,7 @@ class PublicationController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Publication::find($text))
+        if ($results=Publication::with(['titles.authors', 'titles.cycles', 'publisher', 'authors', 'reprints', 'collections'])->find($text))
         {
             // /ouvrages/{id}
             // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page ouvrage

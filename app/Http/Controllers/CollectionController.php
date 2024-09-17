@@ -27,6 +27,7 @@ class CollectionController extends Controller
     {
         $results = Collection::orderBy('updated_at', 'desc')
             ->limit(25)
+            ->with('publisher')
             ->get();
 
         return view('front._generic.welcome', compact('results'), $this->context);
@@ -49,6 +50,7 @@ class CollectionController extends Controller
                     $query->where('name', 'like', '%' . $text .'%');
                 })
                 ->orderBy('name', 'asc')
+                ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate($pagin)
                 ->withQueryString();
         }
@@ -59,6 +61,7 @@ class CollectionController extends Controller
                         ->orWhere('alt_names', 'like', '%' . $text .'%');
                 })
                 ->orderBy('name', 'asc')
+                ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate($pagin)
                 ->withQueryString();
 
@@ -86,6 +89,7 @@ class CollectionController extends Controller
             $this->context['page'] = 'Index ' . strtoupper($initial);
             $results = Collection::where('name', 'like', $initial.'%')
                 ->orderBy('name', 'asc')
+                ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate($pagin)
                 ->withQueryString();
 
@@ -96,6 +100,7 @@ class CollectionController extends Controller
             $this->context['page'] = 'Index ' . strtoupper($initial);
             $results = Collection::whereBetween('name', ['0','9'])
                 ->orderBy('name', 'asc')
+                ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate($pagin)
                 ->withQueryString();
 
@@ -110,12 +115,13 @@ class CollectionController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Collection::find($text))
+        if ($results=Collection::with(['publications.authors', 'publisher', 'parent.publisher', 'subcollections.publisher'])->find($text))
         {
+            $this->context['page'] = $results->name;
+            //$results=Collection::find($text)->with('publications');
             // /collections/{id}
             // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page collection
             // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
-            $this->context['page'] = $results->name;
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))

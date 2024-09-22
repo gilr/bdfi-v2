@@ -100,7 +100,7 @@
             @endforeach
 
             <li class="pl-1 md:pl-2 border-r-4 border-red-800 {{ ($zone == 'forums' ? 'bg-purple-200 border-purple-600' : 'hover:bg-yellow-100 hover:border-yellow-500') }}">
-                <a href="/forums" class="h-16 flex items-center focus:text-yellow-600" title="Nos forums">
+                <a href="https://forums.bdfi.net" class="h-16 flex items-center focus:text-yellow-600" title="Nos forums">
                     @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
                         <img sb-icon src="/img/forum.png" class="w-7" />
                     @endif

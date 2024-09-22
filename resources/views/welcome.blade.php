@@ -19,7 +19,6 @@
         </ul>
 
         <span class="font-semibold text-red-800">Attention</span>, les ouvrages "programmés" sont des données fausse générées uniquement pour test.<br />
-        Est envisagé pour la prochaine version, la finalisation de  la gestion des pseudos partagés (Erin Hunter, Benoît Becker, Limite...) et des auteurs qui les utilisent, la gestion des traducteurs et des illustrateurs, et surtout des tests plus approfondis, des corrections et des compléments (pour administration par table).
     </div>
 
     <div class='text-base p-4 m-4 self-center border border-orange-400'>
@@ -94,7 +93,7 @@
             Un membre connecté avec assez de droits peut voir en supplément sur les pages/fiches du site quelques infos internes ainsi que des liens d'accès directs aux fiches.
             N'ont pas accès aux zones d'administration par défaut, les personnes non connectées, le compte <span class="font-bold text-blue-800">user@bdfi.net</span></li> ainsi que les comptes créés via le lien <span class="font-bold text-yellow-800">Inscription</span>. <br />
             Le compte <span class="font-bold text-blue-800">visitor@bdfi.net</span> permet de découvrir les pages d'admin sans autorisation de modification des tables, et <span class="font-bold text-blue-800">proposant@bdfi.net</span> est un compte permettant de demander l'ajout d'une publication.<br />
-            Le mot de passe de tous les comptes de test pré-créés est <span class="font-bold text-blue-800">password</span>.<br />
+            Le mot de passe des comptes de test est <span class="font-bold text-blue-800">password</span>.<br />
             <!--
             Les comptes utilisables avec accès administration sont :<br />
             <ul class="list-disc pl-12">

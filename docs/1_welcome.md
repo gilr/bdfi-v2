@@ -5,7 +5,7 @@ La documentation reste encore incomplète, elle contient les éléments décrits
 ## Sommaire
 
 - [Cette page](1_welcome.md)
-- [Installation](2_Installation.md)
+- [Installation](2_installation.md)
 - [Sur l'oganisation du code](3_Infos_code.md)
 - [Sur l'oganisation de la base](4.0_Infos_BdD.md)
 - [Tables de la zone 'Auteurs'](4.1_auteurs.md)
@@ -17,7 +17,7 @@ La documentation reste encore incomplète, elle contient les éléments décrits
 
 ## En bref
 
-- [Installation](2_Installation.md)
+- [Installation](2_installation.md)
 
 Une description sommaire et la procédure d'installation.
 

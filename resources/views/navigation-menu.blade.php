@@ -185,7 +185,7 @@
                 <x-responsive-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
                     {{ __('Outils') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ config('nova.path') }}" :active="request()->routeIs('nova.index')">
+                <x-responsive-nav-link href="{{ url('/filament') }}">
                     {{ __('Gestion tables') }}
                 </x-responsive-nav-link>
             @endif

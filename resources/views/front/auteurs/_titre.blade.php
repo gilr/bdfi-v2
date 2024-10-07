@@ -3,14 +3,14 @@
     {{-- Pour les noms "références" --}}
     @if ($title->parent_id == 0)
         <div class='ml-2 md:ml-8'>
-            <a class='text-green-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $title->id }}'>{{ $title->name }}</a>{{ $title->title_vo !== "" ? " ($title->copyright, $title->title_vo)" : "" }}, {{ StrDateformat($title->copyright_fr) }}, {{ $title->type->getLabel() }}
+            <a class='text-green-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $title->slug }}'>{{ $title->name }}</a>{{ $title->title_vo !== "" ? " ($title->copyright, $title->title_vo)" : "" }}, {{ StrDateformat($title->copyright_fr) }}, {{ $title->type->getLabel() }}
             @if ((auth()->user() && auth()->user()->hasGuestRole()))
                 {!! displayAuthorBiblio (0, $results, $title) !!}
             @endif
             {!! displayAuthorBiblio (1, $results, $title) !!}
 {{--
             @forelse($title->authors as $author)
-                <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</a>
+                <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
             @empty
                 <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
             @endforelse
@@ -24,7 +24,7 @@
             @endif
             @foreach ($title->publications as $publication)
                 <li class='ml-5 md:ml-24'>
-                    <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->id }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
+                    <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->slug }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
                 </li>
             @endforeach
         </ul>
@@ -37,27 +37,27 @@
                         @else
                             <i>Sous</i>
                         @endif
-                        <a class='text-green-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $variant->id }}'>{{ $variant->name }}</a>, {{ StrDateformat($variant->copyright_fr) }} -
+                        <a class='text-green-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}</a>, {{ StrDateformat($variant->copyright_fr) }} -
                         @if ((auth()->user() && auth()->user()->hasGuestRole()))
                             {!! displayAuthorBiblio (0, $results, $variant) !!}
                         @endif
                         {!! displayAuthorBiblio (1, $results, $variant) !!}
 {{--
                         @forelse($variant->authors as $author)
-                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</a>
+                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
 --}}
                     @else
-                        <a class='text-greeb-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $variant->id }}'>{{ $variant->name }}</a>, nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
+                        <a class='text-greeb-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}</a>, nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                         @if ((auth()->user() && auth()->user()->hasGuestRole()))
                             {!! displayAuthorBiblio (0, $results, $variant) !!}
                         @endif
                         {!! displayAuthorBiblio (1, $results, $variant) !!}
 {{--
                         @forelse($variant->authors as $author)
-                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</a>
+                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
@@ -67,7 +67,7 @@
                 <ul class='pub list-disc'>
                     @foreach ($variant->publications as $publication)
                         <li class='ml-8 md:ml-24'>
-                            <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->id }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
+                            <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->slug }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
                         </li>
                     @endforeach
                 </ul>
@@ -85,7 +85,7 @@
 @else
 
     <div class='ml-2 md:ml-8'>
-        <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $title->id }}'>{{ $title->name }}</a>
+        <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $title->slug }}'>{{ $title->name }}</a>
         ({{ $title->copyright }}{{ $title->title_vo !== "" ? ", $title->title_vo)" : ")" }}, {{ $title->type->getLabel() }}
     </div>
     <ul class="pub list-disc">
@@ -96,7 +96,7 @@
          @endif
          @foreach ($title->publications as $publication)
              <li class='ml-5 md:ml-16'>
-                 <i>in</i> <a class='text-black border-b border-dotted border-black hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $publication->id }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
+                 <i>in</i> <a class='text-black border-b border-dotted border-black hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $publication->slug }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
              </li>
          @endforeach
     </ul>

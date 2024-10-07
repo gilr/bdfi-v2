@@ -19,7 +19,7 @@
 
     <div class='text-base'>Auteur(s) :
         @forelse($results->authors as $author)
-            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
         @empty
             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
         @endforelse
@@ -74,14 +74,14 @@
             @else
                 Première publication française sous :
             @endif
-            <x-front.lien-texte link='/textes/{{ $results->parent_id }}'>{{ $results->parent->name }}</x-front.lien-texte>
+            <x-front.lien-texte link='/textes/{{ $results->parent->slug }}'>{{ $results->parent->name }}</x-front.lien-texte>
             {{-- on affiche l'auteur que si la variante courante est une variante incluant la  signature --}}
             @if (($results->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                 -
                 @forelse($results->parent->authors as $author)
-                    <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                 @empty
                     <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                 @endforelse
@@ -97,7 +97,7 @@
             @foreach ($results->parent->variants as $variant)
                 <div class='text-base ml-2 md:ml-8'>
                     @if ($results->id !== $variant->id)
-                        <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>
+                        <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>
 {{--
     case PREMIER       = 'premier';
     case VIRTUEL       = 'virtuel';
@@ -117,7 +117,7 @@
                              ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                             <span class='italic'> - signé</span>
                             @forelse($variant->authors as $author)
-                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @empty
                                 <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                             @endforelse
@@ -139,14 +139,14 @@
             <span class='font-semibold'>Variantes :</span>
             @foreach ($results->variants as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>
 
                     @if (($variant->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                         <span class='italic'>- signé</span>
                         @forelse($variant->authors as $author)
-                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
@@ -164,9 +164,9 @@
             <span class='font-semibold'>Episodes :</span>
             @foreach ($results->episodes as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte> -
+                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte> -
                     @forelse($variant->authors as $author)
-                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                     @empty
                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                     @endforelse
@@ -215,7 +215,7 @@
             @endif
             @foreach ($results->cycles as $cycle)
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-serie link='/series/{{ $cycle->id }}'>{{ $cycle->name }}</x-front.lien-serie>
+                    <x-front.lien-serie link='/series/{{ $cycle->slug }}'>{{ $cycle->name }}</x-front.lien-serie>
                     @if($cycle->pivot->number)
                     (n° {{ $cycle->pivot->number }})
                     @endif
@@ -252,28 +252,28 @@
                     {{ $results->serial_info }} :
                         @foreach ($results->episodes as $variant)
                             @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
-                                <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                                <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                                 <div class='ml-2 md:ml-8'>
 
-                                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                                       @if(count($publication->authors) > 0)
                                         -
                                         @foreach($publication->authors as $author)
                                             @if (!$loop->first)
                                                 ,
                                             @endif
-                                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                         @endforeach
                                     @endif
 
                                     @if($publication->publisher)
-                                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                                     @endif
 
                                     @if(count($publication->collections) !== 0)
                                         @if($publication->collections)
-                                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                             @if($publication->collections[0]->pivot->number)
                                                 n° {{ $publication->collections[0]->pivot->number }}
                                             @endif
@@ -302,27 +302,27 @@
                 </div>
             @endif
             @foreach ($results->publications->sortBy('approximate_parution') as $publication)
-                <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                     @if(count($publication->authors) > 0)
                         -
                         @foreach($publication->authors as $author)
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                     @endif
 
                     @if($publication->publisher)
-                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                        - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                     @endif
 
                     @if(count($publication->collections) !== 0)
                         @if($publication->collections)
-                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                            / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                             @if($publication->collections[0]->pivot->number)
                                 n° {{ $publication->collections[0]->pivot->number }}
                             @endif
@@ -348,27 +348,27 @@
                 </div>
                 @foreach ($results->variants as $variant)
                     @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
-                        <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                        <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                         <div class='ml-2 md:ml-8'>
-                            <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                            <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                             @if(count($publication->authors) > 0)
                             -
                                 @foreach($publication->authors as $author)
                                     @if (!$loop->first)
                                         ,
                                     @endif
-                                    <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                 @endforeach
                             @endif
 
                             @if($publication->publisher)
-                                - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                                - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                             @endif
 
                             @if(count($publication->collections) !== 0)
                                 @if($publication->collections)
-                                    / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                    / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                     @if($publication->collections[0]->pivot->number)
                                         n° {{ $publication->collections[0]->pivot->number }}
                                     @endif
@@ -404,27 +404,27 @@
                     {{ $results->serial_info }} :
                 @foreach ($results->episodes as $variant)
                 @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
-                    <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                    <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -452,27 +452,27 @@
                     <span class='bg-lime-400 font-normal text-xs italic'>Cas 2.2 - Les propres publis de ce texte, variante ou épisode</span>
                 @endif
                 @foreach ($results->publications->sortBy('approximate_parution') as $publication)
-                    <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                    <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -497,27 +497,27 @@
                     <span class='bg-lime-400 font-normal text-xs italic'>Cas 2.3 - ... Plus les publis de son parent</span>
                 @endif
                 @foreach ($results->parent->publications->sortBy('approximate_parution') as $publication)
-                    <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                    <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -540,27 +540,27 @@
                 @foreach ($results->parent->variants as $variant)
                 @foreach ($variant->publications->sortBy('approximate_parution') as $publication)
                     @if ($results->id != $variant->id)
-                    <?php $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
+                    <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->id }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
                         @if($publication->publisher)
-                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher_id }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
+                            - <x-front.lien-editeur link='/sediteurs/{{ $publication->publisher->slug }}'>{{ $publication->publisher_name != "" ? $publication->publisher_name : $publication->publisher->name }}</x-front.lien-editeur>
                         @endif
 
                         @if(count($publication->collections) !== 0)
                             @if($publication->collections)
-                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->id }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
+                                / <x-front.lien-collection link='/collections/{{ $publication->collections[0]->slug }}'>{{ $publication->collections[0]->name }}</x-front.lien-collection>
                                 @if($publication->collections[0]->pivot->number)
                                     n° {{ $publication->collections[0]->pivot->number }}
                                 @endif
@@ -588,7 +588,7 @@
             <div class="flex flex-wrap">
             @foreach ($pubs as $pub)
                 <!-- zone couverture -->
-                <a class='m-auto p-1 lg:p-2' href="/ouvrages/{{ $pub['id'] }}"><img class='m-auto p-1 lg:p-2 border border-purple-800 h-40' src="https://www.bdfi.info/medium/{{ InitialeCouv($pub['cover_front']) }}/m_{{ $pub['cover_front'] }}.jpg" alt="couv" title="Couverture {{ $pub['name'] }}"></a>
+                <a class='m-auto p-1 lg:p-2' href="/ouvrages/{{ $pub['slug'] }}"><img class='m-auto p-1 lg:p-2 border border-purple-800 h-40' src="https://www.bdfi.info/medium/{{ InitialeCouv($pub['cover_front']) }}/m_{{ $pub['cover_front'] }}.jpg" alt="couv" title="Couverture {{ $pub['name'] }}"></a>
             @endforeach
             </div>
         </div>

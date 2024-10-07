@@ -8,6 +8,7 @@ use Filament\Resources\RelationManagers\RelationGroup;
 use App\Models\Cycle;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -19,6 +20,7 @@ use App\Enums\CycleType;
 use App\Enums\QualityStatus;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CycleResource extends Resource
 {
@@ -57,8 +59,15 @@ class CycleResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label('Nom')
                             ->helperText('Le nom (ou un des noms) le plus usuel')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Cycle::class, 'slug', $state)))
                             ->required()
                             ->maxLength(128),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\TextInput::make('nom_bdfi')
                             ->helperText('Temporaire - Pour lien avec la page BDFI, si elle existe - Ne doit pas être modifié habituellement')
                             ->maxLength(128),

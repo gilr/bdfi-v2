@@ -108,11 +108,9 @@ class EventController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Event::find($text))
+        if ($results=Event::firstWhere('slug', $text))
         {
-            // /evenements/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page evenement
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /evenements/{slug}
             $this->context['page'] = $results->name;
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
@@ -125,6 +123,7 @@ class EventController extends Controller
         }
         else
         {
+            // recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)

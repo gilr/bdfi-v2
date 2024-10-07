@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Event;
 
 class EventSeeder extends Seeder
 {
@@ -33,6 +35,7 @@ class EventSeeder extends Seeder
 
             DB::table('events')->insert([
                 'id'          => $record->id,
+                'slug'             => SlugService::createSlug(Event::class, 'slug', $record->sujet),
 
                 'name'        => $record->sujet,
                 'start_date'  => $date_debut,

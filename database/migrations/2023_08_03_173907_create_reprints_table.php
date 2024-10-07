@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('reprints', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug', 256)->nullable();
 
             $table->unsignedInteger('publication_id')->nullable()->default(NULL);
             $table->foreign('publication_id')

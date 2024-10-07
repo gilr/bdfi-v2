@@ -110,11 +110,9 @@ class CycleController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Cycle::find($text))
+        if ($results=Cycle::firstWhere('slug', $text))
         {
-            // /series/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page serie
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /series/{slug}
             $this->context['page'] = $results->name;
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
@@ -127,6 +125,7 @@ class CycleController extends Controller
         }
         else
         {
+            // recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)

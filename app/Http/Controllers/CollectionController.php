@@ -115,24 +115,22 @@ class CollectionController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Collection::with(['publications.authors', 'publisher', 'parent.publisher', 'subcollections.publisher'])->find($text))
+        if ($results=Collection::with(['publications.authors', 'publisher', 'parent.publisher', 'subcollections.publisher'])->firstWhere('slug', $text))
         {
+            // /collections/{slug}
             $this->context['page'] = $results->name;
-            //$results=Collection::find($text)->with('publications');
-            // /collections/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page collection
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
             // /collections/{i}
-            // Une caractère seul est passé  => on renvoit sur l'initiale
+            // Slug non trouvé, et un caractère seul est passé  => on renvoit sur l'initiale
             $request->session()->flash('warning', 'L\'URL utilisée ("/collections/'.$text.'")ne correspond pas à l\'URL des index ("/collections/index/'.$text.'"), mais comme on est sympa, on a travaillé pour vous rediriger sur l\'index adéquat. Hop.');
             return redirect("collections/index/$text");
         }
         else
         {
+            // Sinon, on recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)

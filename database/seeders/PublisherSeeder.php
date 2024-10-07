@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\PublisherType;
 use App\Enums\QualityStatus;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Publisher;
 
 class PublisherSeeder extends Seeder
 {
@@ -23,6 +25,7 @@ class PublisherSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('publishers')->insert([
                 'name'         => $obj->name ?: "",
+                'slug'         => SlugService::createSlug(Publisher::class, 'slug', $obj->name),
                 'alt_names'    => "",
                 'country_id'   => $obj->pays,
                 'year_start'   => $obj->creation ?: 0,

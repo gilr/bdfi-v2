@@ -83,11 +83,14 @@
                 <!-- Logo Section -->
                 <a class="text-2xl mx-auto p-1 w-28 text-center bold bg-cyan-50 border border-2 border-cyan-400 rounded-full shadow" href="/">
                     <b>B</b><b class="text-cyan-800">DFI</b>
+                    @if (env('APP_TEST') == "true")
+                        <br /><div class="text-xs font-extrabold text-red-500 m-0 p-0">! Test !</div>
+                    @endif
                 </a>
             </li>
             <!-- Items Section -->
             @foreach($menulist as $item)
-                @if (($item['name'] != "Retirages") || ($item['name'] != "Statistiques") || (auth()->user() && auth()->user()->hasGuestRole()))
+                @if (($item['name'] != "Retirages") || (auth()->user() && auth()->user()->hasGuestRole()))
                     <li class="pl-1 md:pl-2 border-r-4 {{ ($zone == $item['zone'] ? 'bg-purple-200 border-purple-600' : 'border-gray-500 hover:bg-yellow-100 hover:border-yellow-500') }}">
                         <a href="/{{$item['zone']}}" class="h-12 flex items-center focus:text-yellow-600">
                             @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\AuthorGender;
 use App\Enums\QualityStatus;
 use App\Enums\TitleType;
@@ -21,6 +22,7 @@ class Author extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $casts = [
         'gender' => AuthorGender::class,
@@ -38,6 +40,20 @@ class Author extends Model
 	protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'fullname'
+            ]
+        ];
+    }
 
     public function country()
     {
@@ -253,7 +269,7 @@ class Author extends Model
     {
         $today = date("-m-d");
 
-        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+        $auteurs = DB::select ("SELECT id, slug, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
             SUBSTR(birth_date,5,6) = '$today'
             ORDER BY birth_date");
 
@@ -263,7 +279,7 @@ class Author extends Model
     {
         $today = date("-m-d");
 
-        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+        $auteurs = DB::select ("SELECT id, slug, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
             SUBSTR(date_death,5,6) = '$today'
             ORDER BY date_death");
 

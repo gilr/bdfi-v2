@@ -7,6 +7,7 @@ use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,6 +18,7 @@ use Filament\Forms\Components\Section;
 use App\Enums\EventType;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class EventResource extends Resource
 {
@@ -55,10 +57,21 @@ class EventResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label('Nom')
                             ->maxLength(128)
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Event::class, 'slug', $state)))
                             ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\Select::make('type')
                             ->enum(EventType::class)
                             ->options(EventType::class)
+                            ->required(),
+                        Forms\Components\TextInput::make('place')
+                            ->label('Lieu')
+                            ->maxLength(64)
                             ->required(),
                         Forms\Components\Toggle::make('is_confirmed')
                             ->label('Est confirmé ?')
@@ -78,14 +91,11 @@ class EventResource extends Resource
                         Forms\Components\DatePicker::make('end_date')
                             ->label('Se termine le')
                             ->required(),
-                        Forms\Components\TextInput::make('place')
-                            ->label('Lieu')
-                            ->maxLength(64)
-                            ->required(),
                         Forms\Components\TextInput::make('url')
                             ->maxLength(256),
                         Forms\Components\DateTimePicker::make('publication_date')
-                            ->label('Date de publication'),
+                            ->label('Date de publication')
+                            ->helperText('Permet de définir à quelle date cet évènement sera visible sur BDFI'),
                         Forms\Components\Textarea::make('information')
                             ->label('Description')
                             ->maxLength(65535)

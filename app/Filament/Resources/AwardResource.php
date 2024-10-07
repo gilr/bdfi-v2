@@ -8,6 +8,7 @@ use Filament\Resources\RelationManagers\RelationGroup;
 use App\Models\Award;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AwardResource extends Resource
 {
@@ -54,8 +56,15 @@ class AwardResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label('Nom')
                             ->helperText('Nom principal, le plus courant, francisé lorsqu\'il existe')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Award::class, 'slug', $state)))
                             ->maxLength(128)
                             ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\Select::make('country_id')
                             ->label('Pays')
                             ->relationship('country', 'name')

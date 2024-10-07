@@ -166,11 +166,9 @@ class AuthorController extends Controller
      */
     public function page(Request $request, $text)
     {
-        if (($results=Author::with(['publications.publisher', 'websites.website_type'])->find($text)) && ($results->is_visible == 1))
+        if (($results=Author::with(['publications.publisher', 'websites.website_type'])->firstWhere('slug', $text)) && ($results->is_visible == 1))
         {
-            // /auteurs/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page auteur
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /auteurs/{slug}
             $this->context['page'] = $results->fullName;
             $id = $results->id;
 

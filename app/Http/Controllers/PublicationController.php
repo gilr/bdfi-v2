@@ -135,11 +135,9 @@ class PublicationController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Publication::with(['titles.authors', 'titles.cycles', 'publisher', 'authors', 'reprints', 'collections'])->find($text))
+        if ($results=Publication::with(['titles.authors', 'titles.cycles', 'publisher', 'authors', 'reprints', 'collections'])->firstWhere('slug', $text))
         {
-            // /ouvrages/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page ouvrage
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /ouvrages/{slug}
             $this->context['page'] = $results->name;
 
             $first = array();

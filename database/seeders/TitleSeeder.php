@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\IsNovelization;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Title;
 
 class TitleSeeder extends Seeder
 {
@@ -22,6 +24,7 @@ class TitleSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('titles')->insert([
                 'name'             => $obj->name ?: "",
+                'slug'             => SlugService::createSlug(Title::class, 'slug', $obj->name),
 
                 'type'            => $obj->type,
                 'copyright_fr'    => $obj->copyright_fr,

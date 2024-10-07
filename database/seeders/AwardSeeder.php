@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Award;
 
 class AwardSeeder extends Seeder
 {
@@ -21,6 +23,8 @@ class AwardSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('awards')->insert([
                 'name'          => $obj->name ?: "",
+                'slug'          => SlugService::createSlug(Award::class, 'slug', $obj->name),
+
                 'alt_names'     => $obj->alt_names ?: "",
                 'year_start'    => $obj->year_start ?: "",
                 'year_end'      => $obj->year_end ?: "",

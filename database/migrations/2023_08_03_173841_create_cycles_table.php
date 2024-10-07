@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('cycles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
+
             $table->string('nom_bdfi', 128)->nullable();
             $table->string('alt_names', 512)->nullable();
             $table->string('vo_names', 256)->nullable();

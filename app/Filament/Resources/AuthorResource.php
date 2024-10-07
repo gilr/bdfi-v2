@@ -8,6 +8,8 @@ use Filament\Resources\RelationManagers\RelationGroup;
 use App\Models\Author;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -20,6 +22,7 @@ use App\Enums\AuthorGender;
 use App\Enums\QualityStatus;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AuthorResource extends Resource
 {
@@ -57,22 +60,25 @@ class AuthorResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->label('Nom')
-                            ->maxLength(32)
                             ->helperText('Forme classique "Nom", exemple "Poe", "Levilain-Clément", "La Motte-Fouqué", "Balzac" (sans le "de")...')
-                            ->required(),
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Get $get, Set $set, ?string $state) => $set('slug', SlugService::createSlug(Author::class, 'slug', ($get('first_name') == "" ? $state : sanitizeFirstName($get('first_name') . " " . $state)))))
+                            ->required()
+                            ->maxLength(32),
                         Forms\Components\TextInput::make('first_name')
                             ->label('Prénom')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Get $get, Set $set, ?string $state) => $set('slug', SlugService::createSlug(Author::class, 'slug', ($state == "" ? $get('name') : sanitizeFirstName($state) . " " . $get('name')))))
                             ->maxLength(32),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\TextInput::make('legal_name')
                             ->label('Nom légal')
-                            ->helperText('ATTENTION ! Inutile si constitué des seuls prénom et nom renseignés plus haut. Forme "Prénom(s) Nom" clasique. Sert à indiquer un nom légal plus complet, avec plus de prénoms par exemple.')
+                            ->helperText('ATTENTION ! Inutile si constitué des seuls prénom et nom renseignés plus haut. Forme "Prénom(s) Nom" classique. Sert à indiquer un nom légal plus complet, avec plus de prénoms par exemple.')
                             ->maxLength(128),
-                        Forms\Components\Select::make('gender')
-                            ->label('H/F & co')
-                            ->enum(AuthorGender::class)
-                            ->options(AuthorGender::class)
-                            ->default(AuthorGender::INCONNU)
-                            ->required(),
                         Forms\Components\Toggle::make('is_visible')
                             ->label('La fiche doit s\'afficher (si décoché, elle sera cachée)')
                             ->onColor('success')
@@ -80,6 +86,12 @@ class AuthorResource extends Resource
                         Forms\Components\Toggle::make('is_pseudonym')
                             ->label('Ce nom est un pseudonyme')
                             ->onColor('warning')
+                            ->required(),
+                        Forms\Components\Select::make('gender')
+                            ->label('H/F & co')
+                            ->enum(AuthorGender::class)
+                            ->options(AuthorGender::class)
+                            ->default(AuthorGender::INCONNU)
                             ->required(),
                         Forms\Components\TextInput::make('alt_names')
                             ->label('Autres formes de la signature')

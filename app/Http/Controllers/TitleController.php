@@ -108,11 +108,9 @@ class TitleController extends Controller
     }
     public function page(Request $request, $text)
     {
-        if ($results=Title::with(['publications.authors', 'publications.collections', 'publications.publisher'])->find($text))
+        if ($results=Title::with(['publications.authors', 'publications.collections', 'publications.publisher'])->firstWhere('slug', $text))
         {
-            // /textes/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page texte
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /textes/{slug}
             $this->context['page'] = $results->name;
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
@@ -125,6 +123,7 @@ class TitleController extends Controller
         }
         else
         {
+            // recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)

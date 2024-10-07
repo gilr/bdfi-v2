@@ -16,7 +16,7 @@
 
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
-         <a class='sm:p-0.5 md:px-0.5' href='/prix/{{ $prix->id }}'>{{ $prix->name }}</a>
+         <a class='sm:p-0.5 md:px-0.5' href='/prix/{{ $prix->slug }}'>{{ $prix->name }}</a>
         </div>
 
     <div class='text-base'>

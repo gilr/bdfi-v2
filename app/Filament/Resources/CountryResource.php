@@ -6,6 +6,7 @@ use App\Filament\Resources\CountryResource\Pages;
 use App\Models\Country;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CountryResource extends Resource
 {
@@ -52,8 +54,15 @@ class CountryResource extends Resource
                 Section::make()
                     ->schema([
                         Forms\Components\TextInput::make('name')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Country::class, 'slug', $state)))
                             ->required()
                             ->maxLength(32),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\TextInput::make('nationality')
                             ->required()
                             ->maxLength(32),

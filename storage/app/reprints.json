@@ -1,6 +1,7 @@
 [
 {
 "id_pub": "958",
+"name_pub": "Le Voyage de Simon Morley",
 "approximate_parution": "2017-11-00",
 "ai": "16/10/2017",
 "is_verified": "0",
@@ -8,6 +9,7 @@
 },
 {
 "id_pub": "1747",
+"name_pub": "Le Jour du dragon",
 "approximate_parution": "2006-04-00",
 "ai": "0",
 "is_verified": "0",
@@ -15,6 +17,7 @@
 },
 {
 "id_pub": "1748",
+"name_pub": "Le Chef de la rébellion",
 "approximate_parution": "2005-05-00",
 "ai": "0",
 "is_verified": "0",
@@ -22,6 +25,7 @@
 },
 {
 "id_pub": "1750",
+"name_pub": "Le Puits d'éternité",
 "approximate_parution": "2006-04-00",
 "ai": "0",
 "is_verified": "0",
@@ -29,6 +33,7 @@
 },
 {
 "id_pub": "1751",
+"name_pub": "L'âme du dragon",
 "approximate_parution": "2006-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -36,6 +41,7 @@
 },
 {
 "id_pub": "1752",
+"name_pub": "L'Apocalypse",
 "approximate_parution": "2006-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -43,6 +49,7 @@
 },
 {
 "id_pub": "1894",
+"name_pub": "Le Violon ensorcelé",
 "approximate_parution": "2003-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -50,6 +57,7 @@
 },
 {
 "id_pub": "1895",
+"name_pub": "Le Secret des druides",
 "approximate_parution": "2004-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -57,6 +65,7 @@
 },
 {
 "id_pub": "2114",
+"name_pub": "Tentation",
 "approximate_parution": "2009-01-00",
 "ai": "January 2009",
 "is_verified": "0",
@@ -64,6 +73,7 @@
 },
 {
 "id_pub": "2124",
+"name_pub": "Révélation",
 "approximate_parution": "2011-00-00",
 "ai": "0",
 "is_verified": "0",
@@ -71,6 +81,7 @@
 },
 {
 "id_pub": "2624",
+"name_pub": "Conan",
 "approximate_parution": "1983-04-00",
 "ai": "April 1983",
 "is_verified": "0",
@@ -78,6 +89,7 @@
 },
 {
 "id_pub": "2639",
+"name_pub": "Conan le conquérant",
 "approximate_parution": "1983-T2-00",
 "ai": "n.c.",
 "is_verified": "1",
@@ -85,6 +97,7 @@
 },
 {
 "id_pub": "2763",
+"name_pub": "Le Calice du vent",
 "approximate_parution": "2013-04-00",
 "ai": "April 2013",
 "is_verified": "0",
@@ -92,6 +105,7 @@
 },
 {
 "id_pub": "3302",
+"name_pub": "Le Cerveau solitaire",
 "approximate_parution": "1974-05-00",
 "ai": "",
 "is_verified": "",
@@ -99,6 +113,7 @@
 },
 {
 "id_pub": "3302",
+"name_pub": "Le Cerveau solitaire",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -106,6 +121,7 @@
 },
 {
 "id_pub": "3303",
+"name_pub": "Le Voyageur de l'inconnu",
 "approximate_parution": "1974-10-00",
 "ai": "",
 "is_verified": "",
@@ -113,6 +129,7 @@
 },
 {
 "id_pub": "3304",
+"name_pub": "Les Mutants",
 "approximate_parution": "1974-05-00",
 "ai": "",
 "is_verified": "",
@@ -120,6 +137,7 @@
 },
 {
 "id_pub": "3304",
+"name_pub": "Les Mutants",
 "approximate_parution": "1974-08-00",
 "ai": "",
 "is_verified": "",
@@ -127,6 +145,7 @@
 },
 {
 "id_pub": "3304",
+"name_pub": "Les Mutants",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -134,6 +153,7 @@
 },
 {
 "id_pub": "3304",
+"name_pub": "Les Mutants",
 "approximate_parution": "1980-T1-00",
 "ai": "",
 "is_verified": "",
@@ -141,6 +161,7 @@
 },
 {
 "id_pub": "3306",
+"name_pub": "La Route étoilée",
 "approximate_parution": "1974-05-00",
 "ai": "",
 "is_verified": "",
@@ -148,6 +169,7 @@
 },
 {
 "id_pub": "3306",
+"name_pub": "La Route étoilée",
 "approximate_parution": "1974-08-00",
 "ai": "",
 "is_verified": "",
@@ -155,6 +177,7 @@
 },
 {
 "id_pub": "3306",
+"name_pub": "La Route étoilée",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -162,6 +185,7 @@
 },
 {
 "id_pub": "3306",
+"name_pub": "La Route étoilée",
 "approximate_parution": "1975-05-00",
 "ai": "",
 "is_verified": "",
@@ -169,6 +193,7 @@
 },
 {
 "id_pub": "3307",
+"name_pub": "Les Courants de l'espace",
 "approximate_parution": "1974-08-00",
 "ai": "",
 "is_verified": "",
@@ -176,6 +201,7 @@
 },
 {
 "id_pub": "3307",
+"name_pub": "Les Courants de l'espace",
 "approximate_parution": "1974-10-00",
 "ai": "",
 "is_verified": "",
@@ -183,6 +209,7 @@
 },
 {
 "id_pub": "3309",
+"name_pub": "L'Image de l'autre",
 "approximate_parution": "1974-08-00",
 "ai": "",
 "is_verified": "",
@@ -190,6 +217,7 @@
 },
 {
 "id_pub": "3309",
+"name_pub": "L'Image de l'autre",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -197,6 +225,7 @@
 },
 {
 "id_pub": "3310",
+"name_pub": "Les Hommes stellaires",
 "approximate_parution": "1974-10-00",
 "ai": "",
 "is_verified": "",
@@ -204,6 +233,7 @@
 },
 {
 "id_pub": "3311",
+"name_pub": "Les planètes meurent aussi",
 "approximate_parution": "1974-10-00",
 "ai": "",
 "is_verified": "",
@@ -211,6 +241,7 @@
 },
 {
 "id_pub": "3312",
+"name_pub": "La Vallée magique",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -218,6 +249,7 @@
 },
 {
 "id_pub": "3313",
+"name_pub": "Sentinelle de l'espace",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -225,6 +257,7 @@
 },
 {
 "id_pub": "3313",
+"name_pub": "Sentinelle de l'espace",
 "approximate_parution": "1980-T2-00",
 "ai": "",
 "is_verified": "",
@@ -232,6 +265,7 @@
 },
 {
 "id_pub": "3316",
+"name_pub": "Barrière mentale",
 "approximate_parution": "1975-01-00",
 "ai": "",
 "is_verified": "",
@@ -239,6 +273,7 @@
 },
 {
 "id_pub": "3316",
+"name_pub": "Barrière mentale",
 "approximate_parution": "1979-T1-00",
 "ai": "",
 "is_verified": "",
@@ -246,6 +281,7 @@
 },
 {
 "id_pub": "3317",
+"name_pub": "Le Point Omega",
 "approximate_parution": "1975-05-00",
 "ai": "",
 "is_verified": "",
@@ -253,6 +289,7 @@
 },
 {
 "id_pub": "3318",
+"name_pub": "Dedalusman",
 "approximate_parution": "1975-05-00",
 "ai": "",
 "is_verified": "",
@@ -260,6 +297,7 @@
 },
 {
 "id_pub": "3318",
+"name_pub": "Dedalusman",
 "approximate_parution": "1979-T3-00",
 "ai": "",
 "is_verified": "",
@@ -267,6 +305,7 @@
 },
 {
 "id_pub": "3319",
+"name_pub": "Les Maîtres du hasard",
 "approximate_parution": "1975-05-00",
 "ai": "",
 "is_verified": "",
@@ -274,6 +313,7 @@
 },
 {
 "id_pub": "3321",
+"name_pub": "Le Pont sur les étoiles",
 "approximate_parution": "1979-T3-00",
 "ai": "",
 "is_verified": "",
@@ -281,6 +321,7 @@
 },
 {
 "id_pub": "3328",
+"name_pub": "Le Chant des astronautes",
 "approximate_parution": "1979-T1-00",
 "ai": "",
 "is_verified": "",
@@ -288,6 +329,7 @@
 },
 {
 "id_pub": "3333",
+"name_pub": "L'Homme variable",
 "approximate_parution": "1979-T3-00",
 "ai": "",
 "is_verified": "",
@@ -295,6 +337,7 @@
 },
 {
 "id_pub": "3341",
+"name_pub": "L'ère du satisfacteur",
 "approximate_parution": "1980-T2-00",
 "ai": "",
 "is_verified": "",
@@ -302,6 +345,7 @@
 },
 {
 "id_pub": "3342",
+"name_pub": "Espace vital",
 "approximate_parution": "1979-T3-00",
 "ai": "",
 "is_verified": "",
@@ -309,6 +353,7 @@
 },
 {
 "id_pub": "3378",
+"name_pub": "Méduse",
 "approximate_parution": "1981-T2-00",
 "ai": "",
 "is_verified": "",
@@ -316,6 +361,7 @@
 },
 {
 "id_pub": "3437",
+"name_pub": "SS-GB",
 "approximate_parution": "2010-00-00",
 "ai": "Jan-10",
 "is_verified": "0",
@@ -323,6 +369,7 @@
 },
 {
 "id_pub": "3465",
+"name_pub": "La Maison au bord de la mer",
 "approximate_parution": "2004-01-00",
 "ai": "0",
 "is_verified": "0",
@@ -330,6 +377,7 @@
 },
 {
 "id_pub": "3586",
+"name_pub": "Fondation",
 "approximate_parution": "2002-05-00",
 "ai": "0",
 "is_verified": "0",
@@ -337,6 +385,7 @@
 },
 {
 "id_pub": "3586",
+"name_pub": "Fondation",
 "approximate_parution": "2003-01-00",
 "ai": "02/01/2003",
 "is_verified": "0",
@@ -344,6 +393,7 @@
 },
 {
 "id_pub": "3586",
+"name_pub": "Fondation",
 "approximate_parution": "2004-03-00",
 "ai": "01/03/2004",
 "is_verified": "0",
@@ -351,6 +401,7 @@
 },
 {
 "id_pub": "3586",
+"name_pub": "Fondation",
 "approximate_parution": "2005-01-00",
 "ai": "02/01/2005",
 "is_verified": "0",
@@ -358,6 +409,7 @@
 },
 {
 "id_pub": "3586",
+"name_pub": "Fondation",
 "approximate_parution": "2006-01-00",
 "ai": "0",
 "is_verified": "0",
@@ -365,6 +417,7 @@
 },
 {
 "id_pub": "3587",
+"name_pub": "Fondation et empire",
 "approximate_parution": "2002-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -372,6 +425,7 @@
 },
 {
 "id_pub": "3587",
+"name_pub": "Fondation et empire",
 "approximate_parution": "2003-06-00",
 "ai": "02/06/2003",
 "is_verified": "0",
@@ -379,6 +433,7 @@
 },
 {
 "id_pub": "3587",
+"name_pub": "Fondation et empire",
 "approximate_parution": "2006-04-00",
 "ai": "0",
 "is_verified": "0",
@@ -386,6 +441,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2001-05-00",
 "ai": "09/04/2001",
 "is_verified": "0",
@@ -393,6 +449,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2001-10-00",
 "ai": "12/10/2001",
 "is_verified": "0",
@@ -400,6 +457,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2002-01-00",
 "ai": "10/01/2002",
 "is_verified": "0",
@@ -407,6 +465,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2002-10-00",
 "ai": "07/10/2002",
 "is_verified": "0",
@@ -414,6 +473,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2005-01-00",
 "ai": "02/01/2005",
 "is_verified": "0",
@@ -421,6 +481,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2007-07-00",
 "ai": "02/07/2007",
 "is_verified": "0",
@@ -428,6 +489,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2011-01-00",
 "ai": "02/01/2011",
 "is_verified": "0",
@@ -435,6 +497,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2011-09-00",
 "ai": "04/08/2011",
 "is_verified": "0",
@@ -442,6 +505,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2014-01-00",
 "ai": "03/01/2014",
 "is_verified": "0",
@@ -449,6 +513,7 @@
 },
 {
 "id_pub": "3588",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2015-02-00",
 "ai": "28/01/2015",
 "is_verified": "0",
@@ -456,6 +521,7 @@
 },
 {
 "id_pub": "3589",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2018-03-00",
 "ai": "08/03/2018",
 "is_verified": "0",
@@ -463,6 +529,7 @@
 },
 {
 "id_pub": "3589",
+"name_pub": "Fahrenheit 451",
 "approximate_parution": "2020-07-00",
 "ai": "13/07/2020",
 "is_verified": "0",
@@ -470,6 +537,7 @@
 },
 {
 "id_pub": "3590",
+"name_pub": "La Couleur tombée du ciel",
 "approximate_parution": "2004-09-00",
 "ai": "02/09/2004",
 "is_verified": "0",
@@ -477,6 +545,7 @@
 },
 {
 "id_pub": "3590",
+"name_pub": "La Couleur tombée du ciel",
 "approximate_parution": "2006-06-00",
 "ai": "0",
 "is_verified": "0",
@@ -484,6 +553,7 @@
 },
 {
 "id_pub": "3590",
+"name_pub": "La Couleur tombée du ciel",
 "approximate_parution": "2014-09-00",
 "ai": "14/08/2014",
 "is_verified": "0",
@@ -491,6 +561,7 @@
 },
 {
 "id_pub": "3592",
+"name_pub": "Frankenstein ou le Prométhée moderne",
 "approximate_parution": "2005-01-00",
 "ai": "0",
 "is_verified": "0",
@@ -498,6 +569,7 @@
 },
 {
 "id_pub": "3593",
+"name_pub": "Martiens, go home !",
 "approximate_parution": "2002-01-00",
 "ai": "0",
 "is_verified": "0",
@@ -505,6 +577,7 @@
 },
 {
 "id_pub": "3593",
+"name_pub": "Martiens, go home !",
 "approximate_parution": "2003-10-00",
 "ai": "06/10/2003",
 "is_verified": "0",
@@ -512,6 +585,7 @@
 },
 {
 "id_pub": "3593",
+"name_pub": "Martiens, go home !",
 "approximate_parution": "2005-01-00",
 "ai": "02/01/2005",
 "is_verified": "0",
@@ -519,6 +593,7 @@
 },
 {
 "id_pub": "3593",
+"name_pub": "Martiens, go home !",
 "approximate_parution": "2008-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -526,6 +601,7 @@
 },
 {
 "id_pub": "3593",
+"name_pub": "Martiens, go home !",
 "approximate_parution": "2011-01-00",
 "ai": "02/01/2011",
 "is_verified": "0",
@@ -533,6 +609,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2001-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -540,6 +617,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2002-09-00",
 "ai": "02/09/2002",
 "is_verified": "0",
@@ -547,6 +625,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2003-06-00",
 "ai": "0",
 "is_verified": "0",
@@ -554,6 +633,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2004-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -561,6 +641,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2006-04-00",
 "ai": "0",
 "is_verified": "0",
@@ -568,6 +649,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2007-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -575,6 +657,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2011-04-00",
 "ai": "02/04/2011",
 "is_verified": "0",
@@ -582,6 +665,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2012-03-00",
 "ai": "16/03/2012",
 "is_verified": "0",
@@ -589,6 +673,7 @@
 },
 {
 "id_pub": "3598",
+"name_pub": "L'Échiquier du mal - Tome 1",
 "approximate_parution": "2013-03-00",
 "ai": "01/03/2013",
 "is_verified": "0",
@@ -596,6 +681,7 @@
 },
 {
 "id_pub": "3600",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2001-07-00",
 "ai": "0",
 "is_verified": "0",
@@ -603,6 +689,7 @@
 },
 {
 "id_pub": "3600",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2002-02-00",
 "ai": "04/02/2002",
 "is_verified": "0",
@@ -610,6 +697,7 @@
 },
 {
 "id_pub": "3600",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2003-06-00",
 "ai": "02/06/2003",
 "is_verified": "0",
@@ -617,6 +705,7 @@
 },
 {
 "id_pub": "3600",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2004-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -624,6 +713,7 @@
 },
 {
 "id_pub": "3601",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2007-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -631,6 +721,7 @@
 },
 {
 "id_pub": "3601",
+"name_pub": "L'Échiquier du mal - Tome 2",
 "approximate_parution": "2013-03-00",
 "ai": "01/03/2013",
 "is_verified": "0",
@@ -638,6 +729,7 @@
 },
 {
 "id_pub": "3608",
+"name_pub": "Le Septième Fils",
 "approximate_parution": "2001-06-00",
 "ai": "22/06/2001",
 "is_verified": "1",
@@ -645,6 +737,7 @@
 },
 {
 "id_pub": "3608",
+"name_pub": "Le Septième Fils",
 "approximate_parution": "2002-09-00",
 "ai": "05/08/2002",
 "is_verified": "0",
@@ -652,6 +745,7 @@
 },
 {
 "id_pub": "3609",
+"name_pub": "Le Prophète rouge",
 "approximate_parution": "2001-10-00",
 "ai": "12/10/2001",
 "is_verified": "1",
@@ -659,6 +753,7 @@
 },
 {
 "id_pub": "3609",
+"name_pub": "Le Prophète rouge",
 "approximate_parution": "2002-09-00",
 "ai": "05/08/2002",
 "is_verified": "0",
@@ -666,6 +761,7 @@
 },
 {
 "id_pub": "3614",
+"name_pub": "Les Neuf Princes d'Ambre",
 "approximate_parution": "2004-05-00",
 "ai": "02/05/2004",
 "is_verified": "0",
@@ -673,6 +769,7 @@
 },
 {
 "id_pub": "3615",
+"name_pub": "Les Neuf Princes d'Ambre",
 "approximate_parution": "2010-04-00",
 "ai": "02/04/2010",
 "is_verified": "0",
@@ -680,6 +777,7 @@
 },
 {
 "id_pub": "3615",
+"name_pub": "Les Neuf Princes d'Ambre",
 "approximate_parution": "2012-09-00",
 "ai": "20/08/2012",
 "is_verified": "0",
@@ -687,6 +785,7 @@
 },
 {
 "id_pub": "3617",
+"name_pub": "Les Fusils d'Avalon",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -694,6 +793,7 @@
 },
 {
 "id_pub": "3617",
+"name_pub": "Les Fusils d'Avalon",
 "approximate_parution": "2004-05-00",
 "ai": "02/05/2004",
 "is_verified": "0",
@@ -701,6 +801,7 @@
 },
 {
 "id_pub": "3620",
+"name_pub": "Le Guide galactique",
 "approximate_parution": "2002-09-00",
 "ai": "05/08/2002",
 "is_verified": "0",
@@ -708,6 +809,7 @@
 },
 {
 "id_pub": "3621",
+"name_pub": "L'Homme qui rétrécit",
 "approximate_parution": "2003-04-00",
 "ai": "02/04/2003",
 "is_verified": "0",
@@ -715,6 +817,7 @@
 },
 {
 "id_pub": "3621",
+"name_pub": "L'Homme qui rétrécit",
 "approximate_parution": "2008-12-00",
 "ai": "01/12/2008",
 "is_verified": "0",
@@ -722,6 +825,7 @@
 },
 {
 "id_pub": "3625",
+"name_pub": "Substance mort",
 "approximate_parution": "2002-05-00",
 "ai": "02/05/2002",
 "is_verified": "0",
@@ -729,6 +833,7 @@
 },
 {
 "id_pub": "3625",
+"name_pub": "Substance mort",
 "approximate_parution": "2006-02-00",
 "ai": "02/02/2006",
 "is_verified": "0",
@@ -736,6 +841,7 @@
 },
 {
 "id_pub": "3633",
+"name_pub": "Seconde Fondation",
 "approximate_parution": "2001-06-00",
 "ai": "12/06/2001",
 "is_verified": "0",
@@ -743,6 +849,7 @@
 },
 {
 "id_pub": "3633",
+"name_pub": "Seconde Fondation",
 "approximate_parution": "2002-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -750,6 +857,7 @@
 },
 {
 "id_pub": "3633",
+"name_pub": "Seconde Fondation",
 "approximate_parution": "2003-03-00",
 "ai": "02/03/2003",
 "is_verified": "0",
@@ -757,6 +865,7 @@
 },
 {
 "id_pub": "3635",
+"name_pub": "Les Fils de la sorcière",
 "approximate_parution": "2004-05-00",
 "ai": "03/05/2004",
 "is_verified": "0",
@@ -764,6 +873,7 @@
 },
 {
 "id_pub": "3636",
+"name_pub": "Le Jeune Homme, la mort et le temps",
 "approximate_parution": "2007-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -771,6 +881,7 @@
 },
 {
 "id_pub": "3638",
+"name_pub": "Le Dernier Restaurant avant la fin du monde",
 "approximate_parution": "2005-09-00",
 "ai": "12/09/2005",
 "is_verified": "0",
@@ -778,6 +889,7 @@
 },
 {
 "id_pub": "3638",
+"name_pub": "Le Dernier Restaurant avant la fin du monde",
 "approximate_parution": "2006-03-00",
 "ai": "02/02/2006",
 "is_verified": "0",
@@ -785,6 +897,7 @@
 },
 {
 "id_pub": "3642",
+"name_pub": "Dans l'abîme du temps",
 "approximate_parution": "2004-06-00",
 "ai": "0",
 "is_verified": "0",
@@ -792,6 +905,7 @@
 },
 {
 "id_pub": "3644",
+"name_pub": "Le Signe de la licorne",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -799,6 +913,7 @@
 },
 {
 "id_pub": "3644",
+"name_pub": "Le Signe de la licorne",
 "approximate_parution": "2004-05-00",
 "ai": "02/05/2004",
 "is_verified": "0",
@@ -806,6 +921,7 @@
 },
 {
 "id_pub": "3650",
+"name_pub": "Fondation foudroyée",
 "approximate_parution": "2001-10-00",
 "ai": "13/09/2001",
 "is_verified": "0",
@@ -813,6 +929,7 @@
 },
 {
 "id_pub": "3650",
+"name_pub": "Fondation foudroyée",
 "approximate_parution": "2006-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -820,6 +937,7 @@
 },
 {
 "id_pub": "3654",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2001-09-00",
 "ai": "18/09/2001",
 "is_verified": "0",
@@ -827,6 +945,7 @@
 },
 {
 "id_pub": "3654",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2002-03-00",
 "ai": "04/03/2002",
 "is_verified": "0",
@@ -834,6 +953,7 @@
 },
 {
 "id_pub": "3654",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2005-01-00",
 "ai": "02/12/2004",
 "is_verified": "0",
@@ -841,6 +961,7 @@
 },
 {
 "id_pub": "3654",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2006-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -848,6 +969,7 @@
 },
 {
 "id_pub": "3655",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2017-04-00",
 "ai": "28/03/2017",
 "is_verified": "0",
@@ -855,6 +977,7 @@
 },
 {
 "id_pub": "3655",
+"name_pub": "Chroniques martiennes",
 "approximate_parution": "2018-04-00",
 "ai": "28/03/2018",
 "is_verified": "0",
@@ -862,6 +985,7 @@
 },
 {
 "id_pub": "3656",
+"name_pub": "La Main d'Obéron",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -869,6 +993,7 @@
 },
 {
 "id_pub": "3656",
+"name_pub": "La Main d'Obéron",
 "approximate_parution": "2004-05-00",
 "ai": "02/05/2004",
 "is_verified": "0",
@@ -876,6 +1001,7 @@
 },
 {
 "id_pub": "3656",
+"name_pub": "La Main d'Obéron",
 "approximate_parution": "2006-09-00",
 "ai": "02/08/2006",
 "is_verified": "0",
@@ -883,6 +1009,7 @@
 },
 {
 "id_pub": "3658",
+"name_pub": "Babylon Babies",
 "approximate_parution": "2005-12-00",
 "ai": "0",
 "is_verified": "0",
@@ -890,6 +1017,7 @@
 },
 {
 "id_pub": "3664",
+"name_pub": "Terre et Fondation",
 "approximate_parution": "2002-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -897,6 +1025,7 @@
 },
 {
 "id_pub": "3664",
+"name_pub": "Terre et Fondation",
 "approximate_parution": "2004-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -904,6 +1033,7 @@
 },
 {
 "id_pub": "3669",
+"name_pub": "Je suis une légende",
 "approximate_parution": "2003-11-00",
 "ai": "27/10/2003",
 "is_verified": "0",
@@ -911,6 +1041,7 @@
 },
 {
 "id_pub": "3670",
+"name_pub": "Je suis une légende",
 "approximate_parution": "2008-02-00",
 "ai": "10/01/2008",
 "is_verified": "0",
@@ -918,6 +1049,7 @@
 },
 {
 "id_pub": "3670",
+"name_pub": "Je suis une légende",
 "approximate_parution": "2009-06-00",
 "ai": "02/06/2009",
 "is_verified": "0",
@@ -925,6 +1057,7 @@
 },
 {
 "id_pub": "3675",
+"name_pub": "Les Cours du chaos",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -932,6 +1065,7 @@
 },
 {
 "id_pub": "3675",
+"name_pub": "Les Cours du chaos",
 "approximate_parution": "2004-06-00",
 "ai": "02/05/2004",
 "is_verified": "0",
@@ -939,6 +1073,7 @@
 },
 {
 "id_pub": "3682",
+"name_pub": "Salut, et encore merci pour le poisson",
 "approximate_parution": "2005-09-00",
 "ai": "02/09/2005",
 "is_verified": "0",
@@ -946,6 +1081,7 @@
 },
 {
 "id_pub": "3682",
+"name_pub": "Salut, et encore merci pour le poisson",
 "approximate_parution": "2006-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -953,6 +1089,7 @@
 },
 {
 "id_pub": "3685",
+"name_pub": "Les Atouts de la vengeance",
 "approximate_parution": "2002-09-00",
 "ai": "02/08/2002",
 "is_verified": "0",
@@ -960,6 +1097,7 @@
 },
 {
 "id_pub": "3685",
+"name_pub": "Les Atouts de la vengeance",
 "approximate_parution": "2004-03-00",
 "ai": "02/03/2004",
 "is_verified": "0",
@@ -967,6 +1105,7 @@
 },
 {
 "id_pub": "3692",
+"name_pub": "Niourk",
 "approximate_parution": "2003-01-00",
 "ai": "0",
 "is_verified": "0",
@@ -974,6 +1113,7 @@
 },
 {
 "id_pub": "3692",
+"name_pub": "Niourk",
 "approximate_parution": "2008-03-00",
 "ai": "15/02/2008",
 "is_verified": "0",
@@ -981,6 +1121,7 @@
 },
 {
 "id_pub": "3692",
+"name_pub": "Niourk",
 "approximate_parution": "2010-03-00",
 "ai": "15/02/2010",
 "is_verified": "0",
@@ -988,6 +1129,7 @@
 },
 {
 "id_pub": "3693",
+"name_pub": "Le Sang d'Ambre",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -995,6 +1137,7 @@
 },
 {
 "id_pub": "3694",
+"name_pub": "Le Sang d'Ambre",
 "approximate_parution": "2012-00-00",
 "ai": "0",
 "is_verified": "0",
@@ -1002,6 +1145,7 @@
 },
 {
 "id_pub": "3696",
+"name_pub": "Les Maîtres chanteurs",
 "approximate_parution": "2005-10-00",
 "ai": "02/10/2005",
 "is_verified": "0",
@@ -1009,6 +1153,7 @@
 },
 {
 "id_pub": "3702",
+"name_pub": "Le Nez de Cléopâtre",
 "approximate_parution": "2009-04-00",
 "ai": "02/04/2009",
 "is_verified": "0",
@@ -1016,6 +1161,7 @@
 },
 {
 "id_pub": "3705",
+"name_pub": "La Machine à explorer le temps",
 "approximate_parution": "2004-02-00",
 "ai": "02/01/2004",
 "is_verified": "0",
@@ -1023,6 +1169,7 @@
 },
 {
 "id_pub": "3705",
+"name_pub": "La Machine à explorer le temps",
 "approximate_parution": "2005-05-00",
 "ai": "02/05/2005",
 "is_verified": "1",
@@ -1030,6 +1177,7 @@
 },
 {
 "id_pub": "3705",
+"name_pub": "La Machine à explorer le temps",
 "approximate_parution": "2009-02-00",
 "ai": "0",
 "is_verified": "1",
@@ -1037,6 +1185,7 @@
 },
 {
 "id_pub": "3707",
+"name_pub": "Le Signe du chaos",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -1044,6 +1193,7 @@
 },
 {
 "id_pub": "3707",
+"name_pub": "Le Signe du chaos",
 "approximate_parution": "2003-05-00",
 "ai": "02/05/2003",
 "is_verified": "0",
@@ -1051,6 +1201,7 @@
 },
 {
 "id_pub": "3707",
+"name_pub": "Le Signe du chaos",
 "approximate_parution": "2004-07-00",
 "ai": "02/07/2004",
 "is_verified": "0",
@@ -1058,6 +1209,7 @@
 },
 {
 "id_pub": "3712",
+"name_pub": "Chevalier des ombres",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -1065,6 +1217,7 @@
 },
 {
 "id_pub": "3712",
+"name_pub": "Chevalier des ombres",
 "approximate_parution": "2003-06-00",
 "ai": "02/05/2003",
 "is_verified": "0",
@@ -1072,6 +1225,7 @@
 },
 {
 "id_pub": "3716",
+"name_pub": "Bios",
 "approximate_parution": "2008-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -1079,6 +1233,7 @@
 },
 {
 "id_pub": "3718",
+"name_pub": "Prince du chaos",
 "approximate_parution": "2002-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -1086,6 +1241,7 @@
 },
 {
 "id_pub": "3718",
+"name_pub": "Prince du chaos",
 "approximate_parution": "2003-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1093,6 +1249,7 @@
 },
 {
 "id_pub": "3720",
+"name_pub": "Chrono-minets",
 "approximate_parution": "2002-09-00",
 "ai": "02/08/2002",
 "is_verified": "0",
@@ -1100,6 +1257,7 @@
 },
 {
 "id_pub": "3720",
+"name_pub": "Chrono-minets",
 "approximate_parution": "2007-03-00",
 "ai": "02/02/2007",
 "is_verified": "0",
@@ -1107,6 +1265,7 @@
 },
 {
 "id_pub": "3721",
+"name_pub": "Je suis d'ailleurs",
 "approximate_parution": "2002-12-00",
 "ai": "04/11/2002",
 "is_verified": "0",
@@ -1114,6 +1273,7 @@
 },
 {
 "id_pub": "3721",
+"name_pub": "Je suis d'ailleurs",
 "approximate_parution": "2003-05-00",
 "ai": "02/04/2003",
 "is_verified": "0",
@@ -1121,6 +1281,7 @@
 },
 {
 "id_pub": "3727",
+"name_pub": "La Fille aux cheveux noirs",
 "approximate_parution": "2004-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1128,6 +1289,7 @@
 },
 {
 "id_pub": "3730",
+"name_pub": "La Fin de l'éternité",
 "approximate_parution": "2005-04-00",
 "ai": "01/04/2005",
 "is_verified": "0",
@@ -1135,6 +1297,7 @@
 },
 {
 "id_pub": "3731",
+"name_pub": "La Fin de l'éternité",
 "approximate_parution": "2008-03-00",
 "ai": "04/03/2008",
 "is_verified": "0",
@@ -1142,6 +1305,7 @@
 },
 {
 "id_pub": "3739",
+"name_pub": "Le Festin nu",
 "approximate_parution": "2005-10-00",
 "ai": "0",
 "is_verified": "0",
@@ -1149,6 +1313,7 @@
 },
 {
 "id_pub": "3741",
+"name_pub": "Fight Club",
 "approximate_parution": "2005-10-00",
 "ai": "05/10/2005",
 "is_verified": "0",
@@ -1156,6 +1321,7 @@
 },
 {
 "id_pub": "3741",
+"name_pub": "Fight Club",
 "approximate_parution": "2007-02-00",
 "ai": "02/02/2007",
 "is_verified": "0",
@@ -1163,6 +1329,7 @@
 },
 {
 "id_pub": "3748",
+"name_pub": "Le Styx coule à l'envers",
 "approximate_parution": "2012-10-00",
 "ai": "18/10/2012",
 "is_verified": "0",
@@ -1170,6 +1337,7 @@
 },
 {
 "id_pub": "3753",
+"name_pub": "La Cité et les astres",
 "approximate_parution": "2004-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -1177,6 +1345,7 @@
 },
 {
 "id_pub": "3753",
+"name_pub": "La Cité et les astres",
 "approximate_parution": "2008-02-00",
 "ai": "02/02/2008",
 "is_verified": "0",
@@ -1184,6 +1353,7 @@
 },
 {
 "id_pub": "3753",
+"name_pub": "La Cité et les astres",
 "approximate_parution": "2011-09-00",
 "ai": "02/09/2011",
 "is_verified": "0",
@@ -1191,6 +1361,7 @@
 },
 {
 "id_pub": "3757",
+"name_pub": "Par-delà le mur du sommeil",
 "approximate_parution": "2008-02-00",
 "ai": "02/02/2008",
 "is_verified": "0",
@@ -1198,6 +1369,7 @@
 },
 {
 "id_pub": "3757",
+"name_pub": "Par-delà le mur du sommeil",
 "approximate_parution": "2012-02-00",
 "ai": "16/02/2012",
 "is_verified": "0",
@@ -1205,6 +1377,7 @@
 },
 {
 "id_pub": "3759",
+"name_pub": "L'Univers en folie",
 "approximate_parution": "2007-06-00",
 "ai": "0",
 "is_verified": "0",
@@ -1212,6 +1385,7 @@
 },
 {
 "id_pub": "3766",
+"name_pub": "L'Enfant maudit",
 "approximate_parution": "2006-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -1219,6 +1393,7 @@
 },
 {
 "id_pub": "3769",
+"name_pub": "La Mort des nations",
 "approximate_parution": "2006-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -1226,6 +1401,7 @@
 },
 {
 "id_pub": "3772",
+"name_pub": "La Voie du sabre",
 "approximate_parution": "2003-11-00",
 "ai": "05/11/2003",
 "is_verified": "0",
@@ -1233,6 +1409,7 @@
 },
 {
 "id_pub": "3772",
+"name_pub": "La Voie du sabre",
 "approximate_parution": "2005-07-00",
 "ai": "02/07/2005",
 "is_verified": "0",
@@ -1240,6 +1417,7 @@
 },
 {
 "id_pub": "3772",
+"name_pub": "La Voie du sabre",
 "approximate_parution": "2006-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1247,6 +1425,7 @@
 },
 {
 "id_pub": "3776",
+"name_pub": "Le Prince noir",
 "approximate_parution": "2006-02-00",
 "ai": "0",
 "is_verified": "0",
@@ -1254,6 +1433,7 @@
 },
 {
 "id_pub": "3781",
+"name_pub": "Les Dieux eux-mêmes",
 "approximate_parution": "2004-03-00",
 "ai": "02/03/2004",
 "is_verified": "0",
@@ -1261,6 +1441,7 @@
 },
 {
 "id_pub": "3781",
+"name_pub": "Les Dieux eux-mêmes",
 "approximate_parution": "2007-06-00",
 "ai": "26/05/2007",
 "is_verified": "0",
@@ -1268,6 +1449,7 @@
 },
 {
 "id_pub": "3784",
+"name_pub": "Histoires mystérieuses",
 "approximate_parution": "2004-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1275,6 +1457,7 @@
 },
 {
 "id_pub": "3784",
+"name_pub": "Histoires mystérieuses",
 "approximate_parution": "2007-11-00",
 "ai": "0",
 "is_verified": "0",
@@ -1282,6 +1465,7 @@
 },
 {
 "id_pub": "3786",
+"name_pub": "Un cheval dans la salle de bain",
 "approximate_parution": "2005-03-00",
 "ai": "03/03/2005",
 "is_verified": "0",
@@ -1289,6 +1473,7 @@
 },
 {
 "id_pub": "3786",
+"name_pub": "Un cheval dans la salle de bain",
 "approximate_parution": "2007-10-00",
 "ai": "02/10/2007",
 "is_verified": "0",
@@ -1296,6 +1481,7 @@
 },
 {
 "id_pub": "3788",
+"name_pub": "Beau comme un aéroport",
 "approximate_parution": "2004-09-00",
 "ai": "02/09/2004",
 "is_verified": "0",
@@ -1303,6 +1489,7 @@
 },
 {
 "id_pub": "3788",
+"name_pub": "Beau comme un aéroport",
 "approximate_parution": "2010-11-00",
 "ai": "02/11/2010",
 "is_verified": "0",
@@ -1310,6 +1497,7 @@
 },
 {
 "id_pub": "3794",
+"name_pub": "Les Royaumes du Nord",
 "approximate_parution": "2007-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1317,6 +1505,7 @@
 },
 {
 "id_pub": "3799",
+"name_pub": "Les Loups des étoiles",
 "approximate_parution": "2005-06-00",
 "ai": "02/06/2005",
 "is_verified": "0",
@@ -1324,6 +1513,7 @@
 },
 {
 "id_pub": "3799",
+"name_pub": "Les Loups des étoiles",
 "approximate_parution": "2010-07-00",
 "ai": "02/07/2010",
 "is_verified": "0",
@@ -1331,6 +1521,7 @@
 },
 {
 "id_pub": "3803",
+"name_pub": "La Planète des ouragans",
 "approximate_parution": "2004-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1338,6 +1529,7 @@
 },
 {
 "id_pub": "3803",
+"name_pub": "La Planète des ouragans",
 "approximate_parution": "2006-06-00",
 "ai": "02/06/2006",
 "is_verified": "0",
@@ -1345,6 +1537,7 @@
 },
 {
 "id_pub": "3804",
+"name_pub": "La Tour des anges",
 "approximate_parution": "2006-03-00",
 "ai": "0",
 "is_verified": "0",
@@ -1352,6 +1545,7 @@
 },
 {
 "id_pub": "3805",
+"name_pub": "Le Jardin de Suldrun",
 "approximate_parution": "2013-09-00",
 "ai": "0",
 "is_verified": "0",
@@ -1359,6 +1553,7 @@
 },
 {
 "id_pub": "3806",
+"name_pub": "Le Compagnon",
 "approximate_parution": "2006-02-00",
 "ai": "02/01/2006",
 "is_verified": "0",
@@ -1366,6 +1561,7 @@
 },
 {
 "id_pub": "3811",
+"name_pub": "La Perle verte",
 "approximate_parution": "2010-10-00",
 "ai": "0",
 "is_verified": "0",
@@ -1373,6 +1569,7 @@
 },
 {
 "id_pub": "3814",
+"name_pub": "Madouc",
 "approximate_parution": "2007-09-00",
 "ai": "02/09/2007",
 "is_verified": "0",
@@ -1380,6 +1577,7 @@
 },
 {
 "id_pub": "3819",
+"name_pub": "Darwinia",
 "approximate_parution": "2004-04-00",
 "ai": "02/04/2004",
 "is_verified": "0",
@@ -1387,6 +1585,7 @@
 },
 {
 "id_pub": "3819",
+"name_pub": "Darwinia",
 "approximate_parution": "2008-10-00",
 "ai": "0",
 "is_verified": "0",
@@ -1394,6 +1593,7 @@
 },
 {
 "id_pub": "3819",
+"name_pub": "Darwinia",
 "approximate_parution": "2011-02-00",
 "ai": "02/02/2011",
 "is_verified": "0",
@@ -1401,6 +1601,7 @@
 },
 {
 "id_pub": "3828",
+"name_pub": "Moi, Asimov",
 "approximate_parution": "2004-07-00",
 "ai": "0",
 "is_verified": "0",
@@ -1408,6 +1609,7 @@
 },
 {
 "id_pub": "3833",
+"name_pub": "Le Travail du furet",
 "approximate_parution": "2007-01-00",
 "ai": "02/01/2007",
 "is_verified": "0",
@@ -1415,6 +1617,7 @@
 },
 {
 "id_pub": "3834",
+"name_pub": "Flûte, flûte et flûtes !",
 "approximate_parution": "2005-07-00",
 "ai": "02/07/2005",
 "is_verified": "0",
@@ -1422,6 +1625,7 @@
 },
 {
 "id_pub": "3834",
+"name_pub": "Flûte, flûte et flûtes !",
 "approximate_parution": "2008-09-00",
 "ai": "02/09/2008",
 "is_verified": "0",
@@ -1429,6 +1633,7 @@
 },
 {
 "id_pub": "3837",
+"name_pub": "Les sondeurs vivent en vain",
 "approximate_parution": "2005-01-00",
 "ai": "02/01/2005",
 "is_verified": "0",
@@ -1436,6 +1641,7 @@
 },
 {
 "id_pub": "3839",
+"name_pub": "La Planète Shayol",
 "approximate_parution": "2006-03-00",
 "ai": "02/03/2006",
 "is_verified": "0",
@@ -1443,6 +1649,7 @@
 },
 {
 "id_pub": "3841",
+"name_pub": "Norstralie",
 "approximate_parution": "2006-03-00",
 "ai": "03/03/2006",
 "is_verified": "0",
@@ -1450,6 +1657,7 @@
 },
 {
 "id_pub": "3842",
+"name_pub": "Légendes et glossaire du futur",
 "approximate_parution": "2006-03-00",
 "ai": "03/03/2006",
 "is_verified": "0",
@@ -1457,6 +1665,7 @@
 },
 {
 "id_pub": "3866",
+"name_pub": "Villa Vortex",
 "approximate_parution": "2006-02-00",
 "ai": "02/02/2006",
 "is_verified": "0",
@@ -1464,6 +1673,7 @@
 },
 {
 "id_pub": "3866",
+"name_pub": "Villa Vortex",
 "approximate_parution": "2008-03-00",
 "ai": "02/03/2008",
 "is_verified": "0",
@@ -1471,6 +1681,7 @@
 },
 {
 "id_pub": "3873",
+"name_pub": "Au prix du papyrus",
 "approximate_parution": "2006-05-00",
 "ai": "0",
 "is_verified": "0",
@@ -1478,6 +1689,7 @@
 },
 {
 "id_pub": "3876",
+"name_pub": "Le Miroir de ses rêves",
 "approximate_parution": "2006-06-00",
 "ai": "02/06/2006",
 "is_verified": "0",
@@ -1485,6 +1697,7 @@
 },
 {
 "id_pub": "3878",
+"name_pub": "La Musique du sang",
 "approximate_parution": "2006-09-00",
 "ai": "02/08/2006",
 "is_verified": "0",
@@ -1492,6 +1705,7 @@
 },
 {
 "id_pub": "3884",
+"name_pub": "L'Homme qui voulait tuer l'empereur",
 "approximate_parution": "2006-02-00",
 "ai": "02/02/2006",
 "is_verified": "0",
@@ -1499,6 +1713,7 @@
 },
 {
 "id_pub": "3891",
+"name_pub": "Un vaisseau fabuleux et autres voyages galactiques",
 "approximate_parution": "2007-01-00",
 "ai": "02/01/2007",
 "is_verified": "0",
@@ -1506,6 +1721,7 @@
 },
 {
 "id_pub": "3894",
+"name_pub": "L'Oiseau d'Amérique",
 "approximate_parution": "2010-05-00",
 "ai": "02/05/2010",
 "is_verified": "0",
@@ -1513,6 +1729,7 @@
 },
 {
 "id_pub": "3901",
+"name_pub": "Le Guide du voyageur galactique",
 "approximate_parution": "2017-02-00",
 "ai": "23/01/2017",
 "is_verified": "0",
@@ -1520,6 +1737,7 @@
 },
 {
 "id_pub": "3912",
+"name_pub": "La Planète géante",
 "approximate_parution": "2006-07-00",
 "ai": "0",
 "is_verified": "0",
@@ -1527,6 +1745,7 @@
 },
 {
 "id_pub": "3920",
+"name_pub": "Graal",
 "approximate_parution": "2010-07-00",
 "ai": "02/07/2010",
 "is_verified": "0",
@@ -1534,6 +1753,7 @@
 },
 {
 "id_pub": "3921",
+"name_pub": "Radio libre Albemuth",
 "approximate_parution": "2006-07-00",
 "ai": "06/06/2006",
 "is_verified": "0",
@@ -1541,6 +1761,7 @@
 },
 {
 "id_pub": "3925",
+"name_pub": "Rêve de fer",
 "approximate_parution": "2014-09-00",
 "ai": "21/08/2014",
 "is_verified": "0",
@@ -1548,6 +1769,7 @@
 },
 {
 "id_pub": "3938",
+"name_pub": "De la poussière à la chair",
 "approximate_parution": "2007-12-00",
 "ai": "0",
 "is_verified": "0",
@@ -1555,6 +1777,7 @@
 },
 {
 "id_pub": "3944",
+"name_pub": "La Marche du Nord - Un port au sud",
 "approximate_parution": "2008-03-00",
 "ai": "03/03/2008",
 "is_verified": "0",
@@ -1562,6 +1785,7 @@
 },
 {
 "id_pub": "3948",
+"name_pub": "Le Prestige",
 "approximate_parution": "2007-03-00",
 "ai": "11/03/2007",
 "is_verified": "0",
@@ -1569,6 +1793,7 @@
 },
 {
 "id_pub": "3950",
+"name_pub": "Ames perdues",
 "approximate_parution": "2011-03-00",
 "ai": "02/03/2011",
 "is_verified": "0",
@@ -1576,6 +1801,7 @@
 },
 {
 "id_pub": "3961",
+"name_pub": "La Horde du contrevent",
 "approximate_parution": "2008-01-00",
 "ai": "22/12/2007",
 "is_verified": "0",
@@ -1583,6 +1809,7 @@
 },
 {
 "id_pub": "3961",
+"name_pub": "La Horde du contrevent",
 "approximate_parution": "2014-03-00",
 "ai": "10/02/2014",
 "is_verified": "0",
@@ -1590,6 +1817,7 @@
 },
 {
 "id_pub": "3962",
+"name_pub": "La Horde du contrevent",
 "approximate_parution": "2016-11-00",
 "ai": "19/10/2016",
 "is_verified": "0",
@@ -1597,6 +1825,7 @@
 },
 {
 "id_pub": "3962",
+"name_pub": "La Horde du contrevent",
 "approximate_parution": "2018-01-00",
 "ai": "04/01/2018",
 "is_verified": "0",
@@ -1604,6 +1833,7 @@
 },
 {
 "id_pub": "3963",
+"name_pub": "La Horde du contrevent",
 "approximate_parution": "2022-12-00",
 "ai": "01/11/2022",
 "is_verified": "0",
@@ -1611,6 +1841,7 @@
 },
 {
 "id_pub": "3987",
+"name_pub": "Les Chronolithes",
 "approximate_parution": "2009-07-00",
 "ai": "0",
 "is_verified": "0",
@@ -1618,6 +1849,7 @@
 },
 {
 "id_pub": "4005",
+"name_pub": "La Séparation",
 "approximate_parution": "2008-10-00",
 "ai": "0",
 "is_verified": "0",
@@ -1625,6 +1857,7 @@
 },
 {
 "id_pub": "4013",
+"name_pub": "Chromozone",
 "approximate_parution": "2012-11-00",
 "ai": "20/10/2012",
 "is_verified": "0",
@@ -1632,6 +1865,7 @@
 },
 {
 "id_pub": "4028",
+"name_pub": "Janua Vera",
 "approximate_parution": "2011-09-00",
 "ai": "02/08/2011",
 "is_verified": "0",
@@ -1639,6 +1873,7 @@
 },
 {
 "id_pub": "4043",
+"name_pub": "La Brigade de l'oeil",
 "approximate_parution": "2012-01-00",
 "ai": "09/01/2012",
 "is_verified": "0",
@@ -1646,6 +1881,7 @@
 },
 {
 "id_pub": "4054",
+"name_pub": "La Zone du dehors",
 "approximate_parution": "2010-09-00",
 "ai": "04/08/2010",
 "is_verified": "0",
@@ -1653,6 +1889,7 @@
 },
 {
 "id_pub": "4054",
+"name_pub": "La Zone du dehors",
 "approximate_parution": "2012-06-00",
 "ai": "16/05/2012",
 "is_verified": "0",
@@ -1660,6 +1897,7 @@
 },
 {
 "id_pub": "4056",
+"name_pub": "La Zone du dehors",
 "approximate_parution": "2016-03-00",
 "ai": "02/03/2016",
 "is_verified": "0",
@@ -1667,6 +1905,7 @@
 },
 {
 "id_pub": "4056",
+"name_pub": "La Zone du dehors",
 "approximate_parution": "2017-12-00",
 "ai": "16/11/2017",
 "is_verified": "0",
@@ -1674,6 +1913,7 @@
 },
 {
 "id_pub": "4056",
+"name_pub": "La Zone du dehors",
 "approximate_parution": "2019-09-00",
 "ai": "07/08/2019",
 "is_verified": "0",
@@ -1681,6 +1921,7 @@
 },
 {
 "id_pub": "4067",
+"name_pub": "La Tour de Babylone",
 "approximate_parution": "2017-01-00",
 "ai": "21/12/2016",
 "is_verified": "0",
@@ -1688,6 +1929,7 @@
 },
 {
 "id_pub": "4067",
+"name_pub": "La Tour de Babylone",
 "approximate_parution": "2020-09-00",
 "ai": "13/08/2020",
 "is_verified": "0",
@@ -1695,6 +1937,7 @@
 },
 {
 "id_pub": "4071",
+"name_pub": "Spin",
 "approximate_parution": "2012-06-00",
 "ai": "22/05/2012",
 "is_verified": "0",
@@ -1702,6 +1945,7 @@
 },
 {
 "id_pub": "4072",
+"name_pub": "Spin",
 "approximate_parution": "2017-10-00",
 "ai": "12/09/2017",
 "is_verified": "0",
@@ -1709,6 +1953,7 @@
 },
 {
 "id_pub": "4093",
+"name_pub": "Evadés de l'enfer !",
 "approximate_parution": "2012-02-00",
 "ai": "03/02/2012",
 "is_verified": "0",
@@ -1716,6 +1961,7 @@
 },
 {
 "id_pub": "4098",
+"name_pub": "Le Monde englouti",
 "approximate_parution": "2011-09-00",
 "ai": "04/09/2011",
 "is_verified": "0",
@@ -1723,6 +1969,7 @@
 },
 {
 "id_pub": "4100",
+"name_pub": "Gagner la guerre",
 "approximate_parution": "2012-02-00",
 "ai": "16/01/2012",
 "is_verified": "0",
@@ -1730,6 +1977,7 @@
 },
 {
 "id_pub": "4101",
+"name_pub": "Gagner la guerre",
 "approximate_parution": "2015-11-00",
 "ai": "21/10/2015",
 "is_verified": "0",
@@ -1737,6 +1985,7 @@
 },
 {
 "id_pub": "4103",
+"name_pub": "Le Déchronologue",
 "approximate_parution": "2011-05-00",
 "ai": "11/04/2011",
 "is_verified": "1",
@@ -1744,6 +1993,7 @@
 },
 {
 "id_pub": "4103",
+"name_pub": "Le Déchronologue",
 "approximate_parution": "2014-06-00",
 "ai": "23/05/2014",
 "is_verified": "0",
@@ -1751,6 +2001,7 @@
 },
 {
 "id_pub": "4104",
+"name_pub": "Le Déchronologue",
 "approximate_parution": "2017-05-00",
 "ai": "10/04/2017",
 "is_verified": "0",
@@ -1758,6 +2009,7 @@
 },
 {
 "id_pub": "4126",
+"name_pub": "L'Homme bicentenaire",
 "approximate_parution": "2013-03-00",
 "ai": "19/02/2013",
 "is_verified": "0",
@@ -1765,6 +2017,7 @@
 },
 {
 "id_pub": "4140",
+"name_pub": "Axis",
 "approximate_parution": "2013-07-00",
 "ai": "18/06/2013",
 "is_verified": "0",
@@ -1772,6 +2025,7 @@
 },
 {
 "id_pub": "4143",
+"name_pub": "Du sel sous les paupières",
 "approximate_parution": "2013-06-00",
 "ai": "27/05/2013",
 "is_verified": "0",
@@ -1779,6 +2033,7 @@
 },
 {
 "id_pub": "4151",
+"name_pub": "Le Successeur de Pierre",
 "approximate_parution": "2014-02-00",
 "ai": "02/02/2014",
 "is_verified": "0",
@@ -1786,6 +2041,7 @@
 },
 {
 "id_pub": "4172",
+"name_pub": "Les Lames du cardinal",
 "approximate_parution": "2014-11-00",
 "ai": "30/10/2014",
 "is_verified": "0",
@@ -1793,6 +2049,7 @@
 },
 {
 "id_pub": "4198",
+"name_pub": "Le Fleuve des dieux",
 "approximate_parution": "2014-12-00",
 "ai": "18/11/2014",
 "is_verified": "0",
@@ -1800,6 +2057,7 @@
 },
 {
 "id_pub": "4203",
+"name_pub": "Seeker",
 "approximate_parution": "2014-04-00",
 "ai": "07/04/2014",
 "is_verified": "0",
@@ -1807,6 +2065,7 @@
 },
 {
 "id_pub": "4205",
+"name_pub": "Moi, Lucifer",
 "approximate_parution": "2014-12-00",
 "ai": "18/11/2014",
 "is_verified": "0",
@@ -1814,6 +2073,7 @@
 },
 {
 "id_pub": "4211",
+"name_pub": "Le Dragon des arcanes",
 "approximate_parution": "2014-10-00",
 "ai": "16/09/2014",
 "is_verified": "0",
@@ -1821,6 +2081,7 @@
 },
 {
 "id_pub": "4253",
+"name_pub": "Même pas mort",
 "approximate_parution": "2015-06-00",
 "ai": "03/06/2015",
 "is_verified": "0",
@@ -1828,6 +2089,7 @@
 },
 {
 "id_pub": "4255",
+"name_pub": "Omale - Tome 1",
 "approximate_parution": "2021-09-00",
 "ai": "27/08/2021",
 "is_verified": "0",
@@ -1835,6 +2097,7 @@
 },
 {
 "id_pub": "4256",
+"name_pub": "Omale - Tome 2",
 "approximate_parution": "2016-04-00",
 "ai": "29/03/2016",
 "is_verified": "0",
@@ -1842,6 +2105,7 @@
 },
 {
 "id_pub": "4256",
+"name_pub": "Omale - Tome 2",
 "approximate_parution": "2020-12-00",
 "ai": "17/11/2020",
 "is_verified": "0",
@@ -1849,6 +2113,7 @@
 },
 {
 "id_pub": "4258",
+"name_pub": "Vortex",
 "approximate_parution": "2016-07-00",
 "ai": "13/06/2016",
 "is_verified": "0",
@@ -1856,6 +2121,7 @@
 },
 {
 "id_pub": "4297",
+"name_pub": "Morwenna",
 "approximate_parution": "2019-09-00",
 "ai": "04/09/2019",
 "is_verified": "0",
@@ -1863,6 +2129,7 @@
 },
 {
 "id_pub": "4305",
+"name_pub": "Les Vaisseaux d'Omale",
 "approximate_parution": "2020-11-00",
 "ai": "09/11/2020",
 "is_verified": "0",
@@ -1870,6 +2137,7 @@
 },
 {
 "id_pub": "4331",
+"name_pub": "Le Paradoxe de Fermi",
 "approximate_parution": "2018-08-00",
 "ai": "01/08/2018",
 "is_verified": "0",
@@ -1877,6 +2145,7 @@
 },
 {
 "id_pub": "4338",
+"name_pub": "La Ménagerie de papier",
 "approximate_parution": "2018-01-00",
 "ai": "28/12/2017",
 "is_verified": "0",
@@ -1884,6 +2153,7 @@
 },
 {
 "id_pub": "4339",
+"name_pub": "Vestiges",
 "approximate_parution": "2018-07-00",
 "ai": "20/06/2018",
 "is_verified": "0",
@@ -1891,6 +2161,7 @@
 },
 {
 "id_pub": "4348",
+"name_pub": "Les Affinités",
 "approximate_parution": "2021-07-00",
 "ai": "17/06/2021",
 "is_verified": "0",
@@ -1898,6 +2169,7 @@
 },
 {
 "id_pub": "4350",
+"name_pub": "Phaenomen - L'intégrale",
 "approximate_parution": "2019-09-00",
 "ai": "28/08/2019",
 "is_verified": "0",
@@ -1905,6 +2177,7 @@
 },
 {
 "id_pub": "4364",
+"name_pub": "Latium - Tome 1",
 "approximate_parution": "2019-02-00",
 "ai": "06/02/2019",
 "is_verified": "0",
@@ -1912,6 +2185,7 @@
 },
 {
 "id_pub": "4392",
+"name_pub": "Dans la toile du temps",
 "approximate_parution": "2020-10-00",
 "ai": "29/09/2020",
 "is_verified": "0",
@@ -1919,6 +2193,7 @@
 },
 {
 "id_pub": "4404",
+"name_pub": "L'Ours et le Rossignol",
 "approximate_parution": "2020-07-00",
 "ai": "15/06/2020",
 "is_verified": "0",
@@ -1926,6 +2201,7 @@
 },
 {
 "id_pub": "4505",
+"name_pub": "La Tombe sauvage",
 "approximate_parution": "1998-03-00",
 "ai": "March 1998",
 "is_verified": "0",
@@ -1933,6 +2209,7 @@
 },
 {
 "id_pub": "4514",
+"name_pub": "La Chaîne de la mort - 1",
 "approximate_parution": "1998-09-00",
 "ai": "August 1998",
 "is_verified": "0",
@@ -1940,6 +2217,7 @@
 },
 {
 "id_pub": "4517",
+"name_pub": "La Chaîne de la mort - 2",
 "approximate_parution": "1998-09-00",
 "ai": "August 1998",
 "is_verified": "0",
@@ -1947,6 +2225,7 @@
 },
 {
 "id_pub": "4837",
+"name_pub": "La Chose dans les algues suivi de deux aventures inédites de Carnacki",
 "approximate_parution": "1986-06-00",
 "ai": "June 1986",
 "is_verified": "1",
@@ -1954,6 +2233,7 @@
 },
 {
 "id_pub": "4840",
+"name_pub": "La Femme-Renard",
 "approximate_parution": "1983-06-00",
 "ai": "June 1983",
 "is_verified": "1",
@@ -1961,6 +2241,7 @@
 },
 {
 "id_pub": "4858",
+"name_pub": "La Ville du gouffre",
 "approximate_parution": "1984-01-00",
 "ai": "January 1984",
 "is_verified": "0",
@@ -1968,6 +2249,7 @@
 },
 {
 "id_pub": "5052",
+"name_pub": "Dragon rouge",
 "approximate_parution": "1993-03-00",
 "ai": "Mar-93",
 "is_verified": "0",
@@ -1975,6 +2257,7 @@
 },
 {
 "id_pub": "5053",
+"name_pub": "Dragon rouge",
 "approximate_parution": "1997-02-00",
 "ai": "Feb-97",
 "is_verified": "0",
@@ -1982,6 +2265,7 @@
 },
 {
 "id_pub": "5055",
+"name_pub": "Méchant garçon",
 "approximate_parution": "1990-07-00",
 "ai": "Jul-90",
 "is_verified": "0",
@@ -1989,6 +2273,7 @@
 },
 {
 "id_pub": "5059",
+"name_pub": "Le Démon des morts",
 "approximate_parution": "2001-04-00",
 "ai": "",
 "is_verified": "",
@@ -1996,6 +2281,7 @@
 },
 {
 "id_pub": "5064",
+"name_pub": "L'Antre du cauchemar",
 "approximate_parution": "1991-04-00",
 "ai": "Apr-91",
 "is_verified": "0",
@@ -2003,6 +2289,7 @@
 },
 {
 "id_pub": "5066",
+"name_pub": "Les Rats",
 "approximate_parution": "1996-09-00",
 "ai": "Sep-96",
 "is_verified": "0",
@@ -2010,6 +2297,7 @@
 },
 {
 "id_pub": "5069",
+"name_pub": "Envoûtement",
 "approximate_parution": "1995-05-00",
 "ai": "May-95",
 "is_verified": "0",
@@ -2017,6 +2305,7 @@
 },
 {
 "id_pub": "5071",
+"name_pub": "Une porte sur l'hiver",
 "approximate_parution": "1992-07-00",
 "ai": "Jul-92",
 "is_verified": "0",
@@ -2024,6 +2313,7 @@
 },
 {
 "id_pub": "5075",
+"name_pub": "La Voix des ténèbres",
 "approximate_parution": "1989-08-00",
 "ai": "Aug-89",
 "is_verified": "0",
@@ -2031,6 +2321,7 @@
 },
 {
 "id_pub": "5076",
+"name_pub": "La Voix des ténèbres",
 "approximate_parution": "1996-01-00",
 "ai": "Jan-96",
 "is_verified": "0",
@@ -2038,6 +2329,7 @@
 },
 {
 "id_pub": "5079",
+"name_pub": "Les Yeux des ténèbres",
 "approximate_parution": "1996-06-00",
 "ai": "Jun-96",
 "is_verified": "0",
@@ -2045,6 +2337,7 @@
 },
 {
 "id_pub": "5091",
+"name_pub": "Salem",
 "approximate_parution": "2001-04-00",
 "ai": "Apr-01",
 "is_verified": "0",
@@ -2052,6 +2345,7 @@
 },
 {
 "id_pub": "5094",
+"name_pub": "Le Portrait du mal",
 "approximate_parution": "1996-12-00",
 "ai": "Dec-96",
 "is_verified": "0",
@@ -2059,6 +2353,7 @@
 },
 {
 "id_pub": "5104",
+"name_pub": "Le Repaire des rats",
 "approximate_parution": "1996-10-00",
 "ai": "Oct-96",
 "is_verified": "0",
@@ -2066,6 +2361,7 @@
 },
 {
 "id_pub": "5109",
+"name_pub": "Lestat le vampire",
 "approximate_parution": "1991-04-00",
 "ai": "Apr-91",
 "is_verified": "0",
@@ -2073,6 +2369,7 @@
 },
 {
 "id_pub": "5112",
+"name_pub": "Lestat le vampire",
 "approximate_parution": "2000-03-00",
 "ai": "Mar-00",
 "is_verified": "0",
@@ -2080,6 +2377,7 @@
 },
 {
 "id_pub": "5128",
+"name_pub": "Entretien avec un vampire",
 "approximate_parution": "1999-03-00",
 "ai": "Feb-99",
 "is_verified": "0",
@@ -2087,6 +2385,7 @@
 },
 {
 "id_pub": "5133",
+"name_pub": "Ghost Story",
 "approximate_parution": "1990-07-00",
 "ai": "Jul-90",
 "is_verified": "0",
@@ -2094,6 +2393,7 @@
 },
 {
 "id_pub": "5135",
+"name_pub": "La Peste grise",
 "approximate_parution": "1990-07-00",
 "ai": "Jul-90",
 "is_verified": "0",
@@ -2101,6 +2401,7 @@
 },
 {
 "id_pub": "5168",
+"name_pub": "L'Empire des rats",
 "approximate_parution": "1995-03-00",
 "ai": "Mar-95",
 "is_verified": "0",
@@ -2108,6 +2409,7 @@
 },
 {
 "id_pub": "5187",
+"name_pub": "La Nuit du forain",
 "approximate_parution": "1992-01-00",
 "ai": "Jan-92",
 "is_verified": "0",
@@ -2115,6 +2417,7 @@
 },
 {
 "id_pub": "5200",
+"name_pub": "Dolores Claiborne",
 "approximate_parution": "1996-02-00",
 "ai": "Feb-96",
 "is_verified": "0",
@@ -2122,6 +2425,7 @@
 },
 {
 "id_pub": "5201",
+"name_pub": "Dolores Claiborne",
 "approximate_parution": "1998-10-00",
 "ai": "Oct-98",
 "is_verified": "0",
@@ -2129,6 +2433,7 @@
 },
 {
 "id_pub": "5201",
+"name_pub": "Dolores Claiborne",
 "approximate_parution": "1999-05-00",
 "ai": "May-99",
 "is_verified": "0",
@@ -2136,6 +2441,7 @@
 },
 {
 "id_pub": "5213",
+"name_pub": "13 histoires diaboliques",
 "approximate_parution": "1997-01-00",
 "ai": "Jan-97",
 "is_verified": "0",
@@ -2143,6 +2449,7 @@
 },
 {
 "id_pub": "5228",
+"name_pub": "Fluke",
 "approximate_parution": "1998-01-00",
 "ai": "Jan-98",
 "is_verified": "0",
@@ -2150,6 +2457,7 @@
 },
 {
 "id_pub": "5249",
+"name_pub": "Transe de mort",
 "approximate_parution": "1998-01-00",
 "ai": "Jan-98",
 "is_verified": "0",
@@ -2157,6 +2465,7 @@
 },
 {
 "id_pub": "5282",
+"name_pub": "22 histoires de sexe et d'horreur",
 "approximate_parution": "1997-06-00",
 "ai": "Jun-97",
 "is_verified": "1",

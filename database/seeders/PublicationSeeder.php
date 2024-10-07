@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use App\Enums\PublicationSupport;
 use App\Enums\PublicationFormat;
 use App\Models\Publication;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PublicationSeeder extends Seeder
 {
@@ -25,6 +26,7 @@ class PublicationSeeder extends Seeder
             DB::table('publications')->insert([
                 'status'           => $obj->status ?: "",
                 'name'             => $obj->name ?: "",
+                'slug'             => SlugService::createSlug(Publication::class, 'slug', $obj->name),
                 'cycle'            => $obj->cycle ?: "",
                 'cyclenum'         => $obj->indice ?: "",
                 'isbn'             => $obj->isbn ?: "",

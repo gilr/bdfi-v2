@@ -105,11 +105,9 @@ class ReprintController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Reprint::find($text))
+        if ($results=Reprint::firstWhere('slug', $text))
         {
-            // /ouvrages/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page ouvrage
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /ouvrages/{slug}
             $this->context['page'] = $results->name;
             return view ('front._generic.fiche', compact('results'), $this->context);
         }
@@ -122,6 +120,7 @@ class ReprintController extends Controller
         }
         else
         {
+            // recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)

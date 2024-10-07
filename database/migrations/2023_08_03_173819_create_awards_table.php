@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('awards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
 
             $table->unsignedSmallInteger('country_id')->nullable();
             $table->foreign('country_id')

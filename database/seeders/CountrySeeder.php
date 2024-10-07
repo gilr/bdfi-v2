@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Country;
 
 class CountrySeeder extends Seeder
 {
@@ -23,6 +25,8 @@ class CountrySeeder extends Seeder
                 'id'             => $obj->id,
 
                 'name'           => $obj->nom,
+                'slug'             => SlugService::createSlug(Country::class, 'slug', $obj->nom),
+
                 'nationality'    => $obj->nationalite,
                 'code'           => $obj->code,
                 'internal_order' => $obj->ordre_interne,

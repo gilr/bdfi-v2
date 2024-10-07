@@ -25,6 +25,8 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
+
             $table->string('status')->default(PublicationStatus::PUBLIE->value); // PUBLIE, ANNONCE, PROPOSE, ABANDONNE
 
             $table->string('cycle', 128)->nullable();

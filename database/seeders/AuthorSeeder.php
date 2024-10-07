@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\QualityStatus;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Author;
 
 class AuthorSeeder extends Seeder
 {
@@ -26,6 +28,8 @@ class AuthorSeeder extends Seeder
                 'name'         => $record->nom,
                 'nom_bdfi'     => $record->nom_bdfi,
                 'first_name'   => $record->prenom,
+                'slug'         => SlugService::createSlug(Author::class, 'slug', ($record->prenom == "" ? $record->nom : sanitizeFirstName($record->prenom) . " " . $record->nom)),
+
                 'is_pseudonym' => $record->pseudo,
                 'legal_name'   => $record->nom_legal,
                 'alt_names'    => $record->formes_nom,

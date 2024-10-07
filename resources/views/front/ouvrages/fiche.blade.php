@@ -8,7 +8,7 @@
                     @else
                         <x-front.publication-nok /> Ouvrage non possédé -
                     @endif
-                    Collection suivie, {{ auth()->user()->statusCollection($collection->id) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
+                    Collection suivie, {{ auth()->user()->statusCollection($collection->slug) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
                 </div>
             @endif
         @endforeach
@@ -36,7 +36,7 @@
             @if (!$loop->first)
                 ,
             @endif
-            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
             @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                 <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
             @endif
@@ -45,13 +45,13 @@
     @endif
     @if ($results->publisher_id)
         <div class='text-base'>
-            Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher_name != "" ? $results->publisher_name : $results->publisher->name }}</a></span>
+            Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher->slug }}'>{{ $results->publisher_name != "" ? $results->publisher_name : $results->publisher->name }}</a></span>
         </div>
     @endif
     @if (count($results->collections))
         @foreach ($results->collections as $collection)
             <div class='text-base'>Collection :
-                <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' title='{{ $collection->fullName }}' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a></span>
+                <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' title='{{ $collection->fullName }}' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a></span>
                 @if ($collection->pivot->number)
                     n° {{ $collection->pivot->number }} &nbsp; &nbsp;
                 @endif
@@ -92,9 +92,9 @@
             @if (isset($results->titles[0]))
             @if (count ($results->titles[0]->cycles) > 0)
                 @if ($results->cycle == $results->titles[0]->cycles[0]->name)
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->cycle }}</a> - {{ StrConvCycleNum($results->cyclenum) }}
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->slug }}'>{{ $results->cycle }}</a> - {{ StrConvCycleNum($results->cyclenum) }}
                 @else
-                     {{ $results->cycle }}  {{ $results->cyclenum }} (<a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->id }}'>{{ $results->titles[0]->cycles[0]->name }} </a>)
+                     {{ $results->cycle }}  {{ $results->cyclenum }} (<a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->titles[0]->cycles[0]->slug }}'>{{ $results->titles[0]->cycles[0]->name }} </a>)
                 @endif
             @endif
             @endif
@@ -356,9 +356,9 @@
                     ,
                 @endif
                 @if (auth()->user() && auth()->user()->hasGuestRole())
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat($reprint->approximate_parution) }} </a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->slug }}'>{{ StrDateformat($reprint->approximate_parution) }} </a>
                 @else
-                    {{ StrDateformat($reprint->ai) }}
+                    {{ StrDateformat($reprint->approximate_parution) }}
                 @endif
                 @if ($reprint->is_verified)
                     <img src='/img/ok.png' class="inline w-5 mb-1" />
@@ -392,7 +392,7 @@
                         @endif
                     </span>
 
-                    <x-front.lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-front.lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $title->slug }}'>{{ $title->name }}</x-front.lien-texte>
 
                     <span class='hidden lg:inline'>
                         @if ($title->type != App\Enums\TitleType::SECTION)
@@ -408,7 +408,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                     @endif
                     <span class='hidden lg:inline'>
@@ -431,7 +431,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/series/{{ $cycle->id }}'>{{ $cycle->name }}</a>
+                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/series/{{ $cycle->slug }}'>{{ $cycle->name }}</a>
                         @endforeach
                     @endif
                     </span>

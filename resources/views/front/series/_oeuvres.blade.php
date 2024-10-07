@@ -11,7 +11,7 @@
                         @if ($title->pivot->number)
                             {{ StrConvCycleNum($title->pivot->number) }} -
                         @endif
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $title->id }}'>{{ $title->name }}</a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $title->slug }}'>{{ $title->name }}</a>
                         ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo), " . StrDateformat($title->copyright_fr) : ")"}}
 
                         @if(count($title->authors) != 0)
@@ -20,7 +20,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }} </a>
+                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
                         @endforeach
                         @endif
                     </div>
@@ -38,16 +38,16 @@
                                     @else
                                         <i>Sous</i>
                                     @endif
-                                    <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->id }}'>{{ $variant->name }}, {{ StrDateformat($variant->copyright_fr) }}</a> -
+                                    <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}, {{ StrDateformat($variant->copyright_fr) }}</a> -
                                     @forelse($variant->authors as $author)
-                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }} </a>
+                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse
                                 @else
-                                    <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->id }}'>{{ $variant->name }}</a>, nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
+                                    <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}</a>, nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->id }}'>{{ $author->fullname }} </a>
+                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse

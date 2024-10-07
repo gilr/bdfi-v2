@@ -14,17 +14,19 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 7 - 26/09/2024
+        Version V2 bêta 7 - 02/10/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
             <li>Gestion des collections multi-éditeurs</li>
             <li>Gestion et administration des articles (collections)</li>
-            <li>Amélioration des temps d'affichage (particulièrement bibliographies et collections de centaines d'ouvrages)</li>
+            <li>"Slugification" des pages (url compréhensibles à la place des n°s en base)</li>
+            <li>Importante amélioration des temps d'affichage (particulièrement bibliographies et collections de centaines d'ouvrages)</li>
             <li>Ajout de l'info "vérifié" aux retirages</li>
-            <li>Ajout des annonces de salons en page d'accueil</li>
+            <li>Ajout des annonces de conventions et salons en page d'accueil</li>
+            <li>Initialisation d'une zone 'chiffres et statistiques'</li>
+            <li>Passage de la version bêta sous test.bdfi.net (ne remplace pas le site de test existant !)</li>
             <li>Corrections diverses</li>
-            <li>Passage sous test.bdfi.net</li>
         </ul>
     </div>
     <div class='text-lg font-bold text-purple-900'>

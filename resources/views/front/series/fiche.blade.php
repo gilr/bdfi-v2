@@ -40,9 +40,9 @@
 
     @if ($results->parent_id != 0)
         <div class='text-base'>
-            Sous-cycle/série de : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->parent_id }}'>{{ $results->parent->name }}</a></span>
+            Sous-cycle/série de : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->parent->slug }}'>{{ $results->parent->name }}</a></span>
             @if ($results->parent->parent_id != 0)
-                (lui-même sous <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->parent->parent_id }}'>{{ $results->parent->parent->name }}</a>)</span>
+                (lui-même sous <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $results->parent->parent->slug }}'>{{ $results->parent->parent->name }}</a>)</span>
             @endif
         </div>
     @endif
@@ -54,13 +54,13 @@
             <span class='font-semibold'>Séries filles :</span>
             @foreach ($results->subseries as $subserie)
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $subserie->id }}'>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $subserie->slug }}'>
                         {{ $subserie->name }}
                     </a>
                     @if(count($subserie->subseries) != 0)
                         @foreach ($subserie->subseries as $subsub)
                             <div class='ml-2 md:ml-8'>
-                                <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $subsub->id }}'>
+                                <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $subsub->slug }}'>
                                 {{ $subsub->name }}
                                 </a>
                             </div>
@@ -89,14 +89,14 @@
                     {{-- et on exclue les épisodes --}}
                     @foreach ($title->publications as $publication)
                         @php
-                            $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name);
+                            $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name);
                         @endphp
                     @endforeach
                     <div class='ml-2 md:ml-8'>
                         @if ($title->pivot->number)
                             {{ StrConvCycleNum($title->pivot->number) }} -
                         @endif
-                        <x-front.lien-texte link='/textes/{{ $title->id }}'>{{ $title->name }}</x-front.lien-texte>
+                        <x-front.lien-texte link='/textes/{{ $title->slug }}'>{{ $title->name }}</x-front.lien-texte>
                         ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo), " . StrDateformat($title->copyright_fr) : ")"}}
 
                         @if(count($title->authors) != 0)
@@ -105,7 +105,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @endforeach
                         @endif
                     </div>
@@ -113,7 +113,7 @@
                         @foreach ($title->variants as $variant)
                             @foreach ($variant->publications as $publication)
                                 @php
-                                    $pubs[] = array("id" => $publication->id, "cover_front" => $publication->cover_front, "name" => $publication->name);
+                                    $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name);
                                 @endphp
                             @endforeach
                             <div class='ml-5 md:ml-16'>
@@ -139,18 +139,18 @@
                                     @else
                                         <i>Sous</i>
                                     @endif
-                                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>,
+                                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>,
                                     {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse
                                 @else
-                                    <x-front.lien-texte link='/textes/{{ $variant->id }}'>{{ $variant->name }}</x-front.lien-texte>,
+                                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>,
                                     nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse

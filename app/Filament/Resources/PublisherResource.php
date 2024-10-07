@@ -7,6 +7,7 @@ use App\Filament\Resources\PublisherResource\RelationManagers;
 use App\Models\Publisher;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
@@ -19,6 +20,7 @@ use App\Enums\PublisherType;
 use App\Enums\QualityStatus;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PublisherResource extends Resource
 {
@@ -58,7 +60,14 @@ class PublisherResource extends Resource
                             ->label('Nom')
                             ->helperText('Nom principal, le plus usité ou actuel')
                             ->maxLength(128)
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Publisher::class, 'slug', $state)))
                             ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\TextInput::make('alt_names')
                             ->label('Autre dénominations')
                             ->helperText('Autres formes du nom, séparé par des virgules')

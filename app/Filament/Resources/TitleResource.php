@@ -8,6 +8,7 @@ use Filament\Resources\RelationManagers\RelationGroup;
 use App\Models\Title;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,6 +25,7 @@ use App\Enums\AudienceTarget;
 use App\Enums\TitleVariantType;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class TitleResource extends Resource
 {
@@ -62,8 +64,15 @@ class TitleResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label('Titre du texte')
                             ->helperText('Titre tel qu\'il apparait en page de titre intérieure (et non sommaire. Si différent, l\'indiquer dans la zone information.')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Title::class, 'slug', $state)))
                             ->required()
                             ->maxLength(256),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\Select::make('type')
                             ->enum(TitleType::class)
                             ->options(TitleType::class)

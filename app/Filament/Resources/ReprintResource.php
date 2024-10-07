@@ -7,6 +7,8 @@ use App\Models\Reprint;
 use App\Filament\Resources\PublicationResource\RelationManagers\ReprintsRelationManager;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -14,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use App\Models\Publication;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ReprintResource extends Resource
 {
@@ -44,15 +47,45 @@ class ReprintResource extends Resource
                             ->relationship('publication', 'name')
                             ->getOptionLabelFromRecordUsing(fn (Publication $record) => "{$record->fullName}")
                             ->hiddenOn(ReprintsRelationManager::class)
+                            ->disabledOn('edit')
                             ->searchable(['name'])
+                            ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
+                        Forms\Components\TextInput::make('approximate_parution')
+                            ->label('Publication approximative')
+                            ->maxLength(10)
+                            ->helperText('Format "AAAA-MM-JJ" (exemple : 1983-05-19). "AAAA-00-00" si l\'année seule est connue, et vide ou "0000-00-00" si l\'AI n\'est pas indiqué. Si le trimestre seul est indiqué, utilisez par exemple "1923-T3-00". Si une seule date est imprimée (par exemple "Publié le"), utilisez ce champ et précisez le dans le champ des autres infos imprimées.')
+                            ->regex('/[\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2})/')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (Get $get, Set $set, $record, ?string $state) {
+                                // Récupération du nom associé au choix / à la sélection de la publication
+                                $idpub = $get('publication_id');
+                                if (isset($idpub) && (!is_null($idpub))) {
+                                    $name = Publication::find($idpub)->name;
+                                    // Note: le code suivant ne fonctionne qu'en édition, pas en création (relation publi non pré-existante))
+                                    // $name = $record->publication->name;
+                                    $set('slug', SlugService::createSlug(Reprint::class, 'slug', $name . " - retirage " . StrDateformat($state, 'abr')));
+                                }
+                            })
                             ->required(),
                         Forms\Components\TextInput::make('ai')
                             ->label('Achevé d\'imprimé du retirage')
                             ->maxLength(10)
                             ->helperText('Format "AAAA-MM-JJ" (exemple : 1983-05-19). "AAAA-00-00" si l\'année seule est connue, et vide ou "0000-00-00" si l\'AI n\'est pas indiqué. Si le trimestre seul est indiqué, utilisez par exemple "1923-T3-00". Si une seule date est imprimée (par exemple "Publié le"), utilisez ce champ et précisez le dans le champ des autres infos imprimées.')
+                            ->regex('/[\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2})/')
                             ->required(),
                         ])
                     ->columns(2),
+                    Forms\Components\Toggle::make('is_verified')
+                        ->label('Est vérifié ?')
+                        ->helperText("Si vérifié livre entre les mains. Indique que les informations DL, AI, imprimeur... sont validées, mais aussi le sommaire réel (titres de début de page, et non sommaire).")
+                        ->onColor('success')
+                        ->offColor('danger')
+                        ->required(),
 
                 Section::make('Informations')
                     ->schema([
@@ -103,6 +136,9 @@ class ReprintResource extends Resource
                     ->label('Publication')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('approximate_parution')
+                    ->label('Publication approx')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('ai')
                     ->label('AI')
                     ->searchable(),

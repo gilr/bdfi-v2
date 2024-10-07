@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\PublisherType;
 use App\Enums\QualityStatus;
 
@@ -17,6 +18,7 @@ class Publisher extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $casts = [
         'type' => PublisherType::class,
@@ -34,7 +36,21 @@ class Publisher extends Model
 
     protected $dontKeepRevisionOf = ['deleted_by'];
 
-     public function country()
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    public function country()
     {
         return $this->belongsTo('App\Models\Country');
     }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\CycleType;
 use App\Enums\QualityStatus;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Cycle;
 
 class CycleSeeder extends Seeder
 {
@@ -23,6 +25,8 @@ class CycleSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('cycles')->insert([
                 'name'         => $obj->name ?: "",
+                'slug'             => SlugService::createSlug(Cycle::class, 'slug', $obj->name),
+
                 'nom_bdfi'     => $obj->nom_bdfi ?: "",
                 'alt_names'    => $obj->alt_names ?: "",
                 'vo_names'     => $obj->vo_names ?: "",

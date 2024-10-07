@@ -17,7 +17,8 @@ return new class extends Migration
         Schema::create('titles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 256);
-            // subtitle ? Je dirai non, mais "Titre - sous-titre" comme quasi normalisé
+            $table->string('slug', 256)->nullable();  // TBD limiter longueur avec sluggable à 128
+            // subtitle ? => plutôt format "Titre - sous-titre" comme quasi normalisé
 
             $table->string('type'); // Enum TitleType
 

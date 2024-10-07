@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\AwardCategory;
 
 class AwardCategorySeeder extends Seeder
 {
@@ -21,6 +23,10 @@ class AwardCategorySeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('award_categories')->insert([
                 'name'           => $obj->name ?: "",
+                // TBD ---  lire directement en table le nom du prix (car déjà stocké)
+                // --- 'slug'           => SlugService::createSlug(AwardCategory::class, 'slug', $obj->award_name . ", " . $obj->name),
+                'slug'           => SlugService::createSlug(AwardCategory::class, 'slug', $obj->name),
+
                 'award_id'       => $obj->award_id ?: "",
                 'internal_order' => $obj->internal_order ?: "",
                 'type'           => $obj->type ?: "",

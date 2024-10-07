@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Enums\CollectionSupport;
 use App\Enums\QualityStatus;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Collection;
 
 class CollectionSeeder extends Seeder
 {
@@ -23,6 +25,8 @@ class CollectionSeeder extends Seeder
         foreach ($data as $obj) {
             DB::table('collections')->insert([
                 'name'             => $obj->name ?: "",
+                'slug'             => SlugService::createSlug(Collection::class, 'slug', $obj->name),
+
                 'shortname'        => $obj->subcoll == "" ? $obj->name : $obj->subcoll,
                 'sigle_bdfi'       => $obj->sigle ?: "",
                 'alt_names'        => $obj->alt_names ?: "",

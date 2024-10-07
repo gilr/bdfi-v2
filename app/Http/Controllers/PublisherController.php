@@ -93,11 +93,9 @@ class PublisherController extends Controller
     }
     public function page(Request $request, $text)
     {
-        if ($results=Publisher::find($text))
+        if ($results=Publisher::firstWhere('slug', $text))
         {
-            // /editeurs/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page éditeur
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /editeurs/{slug}
             $this->context['page'] = $results->name;
             $publications = Publication::where('publisher_id', $results->id)->get()->random(fn ($items) => min(10, count($items)))->shuffle();
             return view ('front._generic.fiche', compact('results', 'publications'), $this->context);
@@ -105,12 +103,13 @@ class PublisherController extends Controller
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
             // /éditeurs/{i}
-            // Une caractère seul est passé  => on renvoit sur l'initiale
+            // Slug non trouvé, et un caractère seul est passé  => on renvoit sur l'initiale
             $request->session()->flash('warning', 'L\'URL utilisée ("/editeurs/'.$text.'")ne correspond pas à l\'URL des index ("/editeurs/index/'.$text.'"), mais comme on est sympa, on a travaillé pour vous rediriger sur l\'index adéquat. Hop.');
             return redirect("editeurs/index/$text");
         }
         else
         {
+            // Sinon, on recherche
             $pagin = 1000;
             $user = Auth::user();
             if ($user)
@@ -155,8 +154,9 @@ class PublisherController extends Controller
     }
     public function hc(Request $request, $text)
     {
-        $publisher = Publisher::find($text);
-        $results = Publisher::find($text)->publicationsWithoutCollection()->get();
+        // /editeurs/{slug}/hc
+        $publisher = Publisher::firstWhere('slug', $text);
+        $results = Publisher::firstWhere('slug', $text)->publicationsWithoutCollection()->get();
         return view ('front.editeurs.hc', compact('publisher', 'results'), $this->context);
     }
 

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\CollectionSupport;
 use App\Enums\CollectionFormat;
 use App\Enums\CollectionCible;
@@ -24,6 +25,7 @@ class Collection extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $casts = [
         'support' => CollectionSupport::class,
@@ -46,6 +48,20 @@ class Collection extends Model
     protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function publisher()
     {

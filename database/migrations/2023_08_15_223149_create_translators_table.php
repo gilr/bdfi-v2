@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->string('name', 128);
             $table->string('first_name', 32)->nullable();
+            $table->string('slug', 128)->nullable();
+
             $table->string('legal_name', 128)->nullable();
             $table->string('alt_names', 512)->nullable();
             $table->string('gender')->default(AuthorGender::INCONNU->value); // Enum AuthorGender['F', 'H', 'IEL', '?'])

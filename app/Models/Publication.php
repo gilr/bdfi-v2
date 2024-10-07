@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\PublicationSupport;
 use App\Enums\PublicationContent;
 use App\Enums\PublicationFormat;
@@ -22,6 +23,7 @@ class Publication extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $casts = [
         'support' => PublicationSupport::class,
@@ -44,6 +46,20 @@ class Publication extends Model
     protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function publisher()
     {

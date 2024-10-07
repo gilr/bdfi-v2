@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
+
             $table->string('shortname', 128);
             $table->string('type'); // collection, ensemble, revue, fanzine, magazine, journal, antho-p
             $table->string('periodicity'); // na, quotidien, hebdo, bimensuel, mensuel, ...

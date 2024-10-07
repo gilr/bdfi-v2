@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Site de test</title>
+    <title>
+        Site
+        @if (env('APP_TEST') == "true")
+            de test
+        @endif
+        BDFI - {{ env('VERSION') }}
+    </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
@@ -26,7 +32,15 @@
                 <div class="hidden md:inline ">
                   <!-- breadcrumb -->
                     Vous êtes ici :
-                    <span class="text-xs border-b-2 border-yellow-300">{{ env('VERSION') }}</span>
+                    @if (env('APP_TEST') == "true")
+                        <span class="text-xs border-b-2 text-red-500 border-yellow-300">
+                            Test {{ env('VERSION') }}
+                        </span>
+                    @else
+                        <span class="text-xs border-b-2 border-yellow-300">
+                            {{ env('VERSION') }}
+                        </span>
+                    @endif
                     {{ ($title == "" ? "" : "→") }}
                     <a class='border-b-2 border-yellow-300 hover:border-purple-400' href="/{{ $area }}">{{ $title }}</a>
                     @if ((isset($subarea)) && ($subarea != ""))

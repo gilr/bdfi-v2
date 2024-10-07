@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Award extends Model
 {
@@ -15,6 +16,7 @@ class Award extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $revisionEnabled = true;
      
@@ -27,6 +29,20 @@ class Award extends Model
     protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function country()
     {

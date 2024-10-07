@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Reprint extends Model
 {
@@ -15,6 +16,7 @@ class Reprint extends Model
     use Userstamps;
     use SoftDeletes;
     use RevisionableTrait;
+    use Sluggable;
 
     protected $revisionEnabled = true;
 
@@ -27,6 +29,20 @@ class Reprint extends Model
     protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'fullname'
+            ]
+        ];
+    }
 
     public function publication()
     {
@@ -52,6 +68,12 @@ class Reprint extends Model
     {
         return Attribute::make(
             get: fn($value) => 'retirage "' . $this->name . '"',
+        );
+    }
+    public function pubName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->publication->name,
         );
     }
 

@@ -59,7 +59,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $reference->id }}'>{{ $reference->fullname }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $reference->slug }}'>{{ $reference->fullname }}</a>
                 @endforeach
             @endif
 
@@ -68,7 +68,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature_id }}'>{{ $autre->fullName }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature->slug }}'>{{ $autre->fullName }}</a>
                 @endforeach
             @endif
 
@@ -77,7 +77,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $signature->id }}'>{{ $signature->fullname }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $signature->slug }}'>{{ $signature->fullname }}</a>
                 @endforeach
             @endif
             </div>
@@ -88,13 +88,13 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->id }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->reverse_relationship }})
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->reverse_relationship }})
                 @endforeach
                 @foreach ($results->inverserelations as $relation)
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->id }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->relationship }})
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->relationship }})
                 @endforeach
             </div>
         @endif
@@ -193,7 +193,7 @@
         <div class='text-base ml-2 my-2'>
             @foreach ($results->references as $auteur)
             <div>
-                &rarr; <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $auteur->id }}'>{{ $auteur->fullName }}</a> -
+                &rarr; <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $auteur->slug }}'>{{ $auteur->fullName }}</a> -
                 <span class='font-semibold'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/pays/{{ $auteur->country->name }}'>{{ $auteur->country->name }}</a>
                 </span>
@@ -208,7 +208,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature_id }}'>{{ $autre->fullName }}</a></span>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature->slug }}'>{{ $autre->fullName }}</a></span>
                 @endforeach
             </div>
         @endif

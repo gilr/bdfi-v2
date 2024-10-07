@@ -9,6 +9,8 @@ use App\Filament\Resources\AwardResource\RelationManagers\AwardCategoriesRelatio
 use App\Models\AwardCategory;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -20,6 +22,7 @@ use App\Enums\AwardCategoryType;
 use App\Enums\AwardCategoryGenre;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AwardCategoryResource extends Resource
 {
@@ -67,11 +70,17 @@ class AwardCategoryResource extends Resource
                             ->label('Ordre d\'affichage dans le prix')
                             ->helperText('Optionnel - Pour surcharger l\'ordre d\'affichage normal (par type : auteur, roman, etc...)')
                             ->numeric(),
-
                         Forms\Components\TextInput::make('name')
                             ->label('Nom')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Get $get, Set $set, ?string $state) => $set('slug', SlugService::createSlug(AwardCategory::class, 'slug', $state)))
                             ->maxLength(128)
                             ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\Select::make('type')
                             ->label('Type')
                             ->enum(AwardCategoryType::class)

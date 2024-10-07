@@ -28,7 +28,7 @@
                 </div>
             @endif
             <div class='pl-1 lg:pl-4'>
-                <x-front.lien-ouvrage link='/ouvrages/{{ $result->id }}'>{{ $result->name }}</x-front.lien-ouvrage>,
+                <x-front.lien-ouvrage link='/ouvrages/{{ $result->slug }}'>{{ $result->name }}</x-front.lien-ouvrage>,
 
                 {{ $result->type->getLabel() }}
 
@@ -38,7 +38,7 @@
                         @if (!$loop->first)
                             ,
                         @endif
-                        <x-front.lien-auteur link='/auteurs/{{ $author->id }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                         @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                             <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
                         @endif

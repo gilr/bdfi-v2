@@ -17,6 +17,8 @@ return new class extends Migration
             $table->smallIncrements('id');
 
             $table->string('name', 32)->unique();
+            $table->string('slug', 32)->nullable();
+
             $table->string('nationality', 32)->unique();
             $table->char('code', 2)->unique();
             $table->unsignedInteger('internal_order');

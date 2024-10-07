@@ -70,7 +70,7 @@
             @foreach ($results->collections as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                 </div>
                 @endif
             @endforeach
@@ -78,7 +78,7 @@
             @foreach ($results->collections2 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                 </div>
                 @endif
             @endforeach
@@ -87,14 +87,14 @@
             @foreach ($results->collections3 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                 </div>
                 @endif
             @endforeach
                 @endif
             @if(count($results->publicationsWithoutCollection))
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->id }}/hc'><i> Ouvrages hors collections et groupes</i></a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->slug }}/hc'><i> Ouvrages hors collections et groupes</i></a>
                 </div>
             @endif
         </div>
@@ -103,7 +103,7 @@
             @foreach ($results->collections as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                     </div>
                 @endif
             @endforeach
@@ -112,7 +112,7 @@
             @foreach ($results->collections2 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                 </div>
                 @endif
             @endforeach
@@ -121,7 +121,7 @@
             @foreach ($results->collections3 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                 </div>
                 @endif
             @endforeach
@@ -129,7 +129,7 @@
 
         @if(count($results->publicationsWithoutCollection))
             <div class='ml-2 md:ml-8'>
-                <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->id }}/hc'><i> Ouvrages hors collections et groupes</i></a>
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->slug }}/hc'><i> Ouvrages hors collections et groupes</i></a>
             </div>
         @endif
     @endif
@@ -141,7 +141,7 @@
                 <div class="flex flex-wrap">
                     @foreach ($results->publications as $publication)
                         <!-- zone couverture -->
-                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->id }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}"></a>
+                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}"></a>
                     @endforeach
                 </div>
             @else
@@ -149,7 +149,7 @@
                 <div class="flex flex-wrap">
                     @foreach ($publications as $publication)
                         <!-- zone couverture -->
-                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->id }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}"></a>
+                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}"></a>
                     @endforeach
                 </div>
             @endif

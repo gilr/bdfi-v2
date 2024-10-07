@@ -1,14 +1,14 @@
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     <div class='text-base'>
         Publication d'origne : <span class='font-semibold'>
-            <x-front.lien-ouvrage link='/ouvrages/{{ $results->publication->id }}'>{{ $results->publication->name }}</x-front.lien-ouvrage>
+            <x-front.lien-ouvrage link='/ouvrages/{{ $results->publication->slug }}'>{{ $results->publication->name }}</x-front.lien-ouvrage>
         </span>
     </div>
     <div class='text-base'>
-        Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publication->publisher_id }}'>{{ $results->publication->publisher->name }}</a></span>
+        Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publication->publisher->slug }}'>{{ $results->publication->publisher->name }}</a></span>
     </div>
     <div class='text-base'>
-        Collection : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->publication->collections[0]->id }}'>{{ $results->publication->collections[0]->name }}</a></span>
+        Collection : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->publication->collections[0]->slug }}'>{{ $results->publication->collections[0]->name }}</a></span>
     </div>
 
     <div class='text-base'>
@@ -61,10 +61,11 @@
             <span class='font-semibold'>Liste des retirages connus de la publication :</span>
             @foreach ($results->publication->reprints as $reprint)
                 <div class='ml-2 md:ml-8'>
-                    @if ($results->id == $reprint->id)
-                        <i>{{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }}</i>
+                    @if ($results->id === $reprint->id)
+                        <i>Publication {{ StrDateformat($reprint->approximate_parution) }} AI {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </i>
                     @else
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->id }}'>{{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->slug }}'>Publication {{ StrDateformat($reprint->approximate_parution) }}
+                            AI {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </a>
                     @endif
                 </div>
             @endforeach
@@ -74,7 +75,7 @@
     <div class='text-base pt-4'>
         <div class="flex flex-wrap">
             <!-- zone couverture -->
-            <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $results->publication->id }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($results->publication->cover_front) }}/v_{{ $results->publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $results->publication->name }}"></a>
+            <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $results->publication->slug }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($results->publication->cover_front) }}/v_{{ $results->publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $results->publication->name }}"></a>
         </div>
     </div>
 

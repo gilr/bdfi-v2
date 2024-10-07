@@ -17,6 +17,8 @@ return new class extends Migration
         Schema::create('publishers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
+
             $table->string('sigle_bdfi', 8)->nullable();
             $table->string('alt_names', 512)->nullable();
 

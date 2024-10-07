@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('id');
 
             $table->string('name', 128);
+            $table->string('slug', 128)->nullable();
+
             $table->string('type'); // Enum EventType ['convention','festival','exposition','salon','film-festival','autre']
             $table->date('start_date');
             $table->date('end_date');

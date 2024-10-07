@@ -29,7 +29,6 @@ use App\Http\Controllers\StatController;
 |
 */
 
-
 Route::get('/', function () {
     $births= App\Models\Author::getBirthsOfDay();
     $deaths = App\Models\Author::getDeathsOfDay();
@@ -52,23 +51,23 @@ Route::get('/auteurs', [AuthorController::class, 'welcome'])->name('auteurs');
 Route::get('/auteurs/search/', [AuthorController::class, 'search'])->name('auteurs.search');
 Route::get('/auteurs/index/{i}', [AuthorController::class, 'index']);
 Route::get('/auteurs/pays/', [AuthorController::class, 'index_pays']);
-Route::get('/auteurs/pays/{name}', [AuthorController::class, 'pays']);
-Route::get('/auteurs/{name}', [AuthorController::class, 'page']);
+Route::get('/auteurs/pays/{name}', [AuthorController::class, 'pays']);          // TBD --> SLUG pays
+Route::get('/auteurs/{slug}', [AuthorController::class, 'page']);
 
-// Zone salons et autres évènements
-// A revoir pour évènement générique, et édition particulière année X
+// Zone convenstions, salons et autres évènements...
+// A revoir pour évènement générique, et édition particulière année X --> split table
 Route::get('/evenements', [EventController::class, 'welcome'])->name('evenements');
 Route::get('/evenements/search/', [EventController::class, 'search'])->name('evenements.search');
 Route::get('/evenements/index/{i}', [EventController::class, 'index']);       // --> Index évènement {initiale} (y compris 0 ou 9)
-Route::get('/evenements/{name}', [EventController::class, 'page']);      // --> Une page évènement avec ID (futur => => slug !)
-// Route::get('/evenements/historique', ...);   --> Liste des évènements y compris passés
+Route::get('/evenements/{slug}', [EventController::class, 'page']);           // --> Page évènement avec slug
+// Route::get('/evenements/historique', ...);   --> Liste des évènements y compris passés --> après split table
 
 // Zone ouvrages
 // Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/ouvrages', [PublicationController::class, 'welcome'])->name('ouvrages');
 Route::get('/ouvrages/search/', [PublicationController::class, 'search'])->name('ouvrages.search');
 Route::get('/ouvrages/index/{i}', [PublicationController::class, 'index']);   // --> Index ouvrages {initiale} (y compris 0 ou 9)
-Route::get('/ouvrages/{name}', [PublicationController::class, 'page']);     // --> Une page publi avec ID (futur => => slug !)
+Route::get('/ouvrages/{slug}', [PublicationController::class, 'page']);       // --> Page publi avec slug
 // Zone programmes
 Route::get('/programme', [PublicationController::class, 'programme'])->name('programme');
 
@@ -79,28 +78,28 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/retirages', [ReprintController::class, 'welcome'])->name('retirages');
         Route::get('/retirages/search/', [ReprintController::class, 'search'])->name('retirages.search');
         Route::get('/retirages/index/{i}', [ReprintController::class, 'index']);   // --> Index retirages {initiale} (y compris 0 ou 9)
-        Route::get('/retirages/{name}', [ReprintController::class, 'page']);     // --> Une page publi avec ID (futur => => slug !)
+        Route::get('/retirages/{slug}', [ReprintController::class, 'page']);       // --> Page retirage avec slug
     });
 });
 
 // Zone textes/titres
 Route::get('/textes', [TitleController::class, 'welcome'])->name('textes');
 Route::get('/textes/search/', [TitleController::class, 'search'])->name('textes.search');
-Route::get('/textes/index/{i}', [TitleController::class, 'index']);   // --> Index titles {initiale} (y compris 0 ou 9)
-Route::get('/textes/{name}', [TitleController::class, 'page']);     // --> Une page title avec ID (futur => => slug !)
+Route::get('/textes/index/{i}', [TitleController::class, 'index']);   // --> Index titres {initiale} (y compris 0 ou 9)
+Route::get('/textes/{slug}', [TitleController::class, 'page']);       // --> Une page titre avec slug
 
 // Zone cycles et séries
 Route::get('/series', [CycleController::class, 'welcome'])->name('series');
 Route::get('/series/search/', [CycleController::class, 'search'])->name('series.search');
 Route::get('/series/index/{i}', [CycleController::class, 'index']); // --> Index série {initiale} (y compris 0 ou 9)
-Route::get('/series/{name}', [CycleController::class, 'page']);    // --> Une page série avec ID (futur => => slug !)
+Route::get('/series/{slug}', [CycleController::class, 'page']);     // --> Page série avec slug
 
 // Zone collections
 // Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/collections', [CollectionController::class, 'welcome'])->name('collections');
 Route::get('/collections/search/', [CollectionController::class, 'search'])->name('collections.search');
 Route::get('/collections/index/{i}', [CollectionController::class, 'index']);       // --> Index collections {initiale} (y compris 0 ou 9)
-Route::get('/collections/{name}', [CollectionController::class, 'page']);      // --> Une page collection avec ID (futur => => slug !)
+Route::get('/collections/{slug}', [CollectionController::class, 'page']);           // --> Page collection avec slug
 // TBD route par défaut pour n'importe quoi d'autre sous "/collection" ?
 // Route::get('/collections/{*}', [CollectionController::class, 'welcome'])->name('collections');
 
@@ -109,24 +108,23 @@ Route::get('/collections/{name}', [CollectionController::class, 'page']);      /
 Route::get('/editeurs', [PublisherController::class, 'welcome'])->name('editeurs');
 Route::get('/editeurs/search/', [PublisherController::class, 'search'])->name('editeurs.search');
 Route::get('/editeurs/index/{i}', [PublisherController::class, 'index']);   // --> Index éditeurs {initiale} (y compris 0 ou 9)
-Route::get('/editeurs/{name}', [PublisherController::class, 'page']);      // --> Une page éditeur avec ID (futur => => slug !)
-Route::get('/editeurs/{name}/hc', [PublisherController::class, 'hc']);     // --> Page des ouvrages sans collection
+Route::get('/editeurs/{slug}', [PublisherController::class, 'page']);       // --> Page éditeur avec slug
+Route::get('/editeurs/{name}/hc', [PublisherController::class, 'hc']);      // --> Page des ouvrages sans collection
 
 // Zone des récompenses
 Route::get('/prix', [AwardController::class, 'welcome'])->name('prix');
 Route::get('/prix/search/', [AwardController::class, 'search'])->name('prix.search');
-Route::get('/prix/{name}', [AwardController::class, 'prix']);
-Route::get('/prix/categorie/{name}', [AwardController::class, 'categorie']);
-Route::get('/prix/annee/{an}', [AwardController::class, 'annee']);
-Route::get('/prix/genre/{name}', [AwardController::class, 'genre']);
-Route::get('/prix/type/{name}', [AwardController::class, 'type']);
-Route::get('/prix/pays/{name}', [AwardController::class, 'pays']);
+Route::get('/prix/{slug}', [AwardController::class, 'prix']);                   // Page prix avec slug
+Route::get('/prix/categorie/{id}', [AwardController::class, 'categorie']);      // TBD Page catégorie de prix avec slug
+Route::get('/prix/annee/{an}', [AwardController::class, 'annee']);              // Page des prix d'une année
+Route::get('/prix/genre/{name}', [AwardController::class, 'genre']);            // Page des prix d'un genre
+Route::get('/prix/type/{name}', [AwardController::class, 'type']);              // Page des prix d'un type (roman, nouvelle...)
+Route::get('/prix/pays/{name}', [AwardController::class, 'pays']);              // Page des prix d'un pays --> SLUG
 
 // Zone statistiques
 Route::get('/stats', [StatController::class, 'welcome'])->name('stats');
 Route::get('/stats/bdfi', [StatController::class, 'bdfi']);
-Route::get('/stats/production', [StatController::class, 'production']);
-Route::get('/stats/analyse', [StatController::class, 'analyse']);
+// + accès restreints, voir plus bas
 
 // Zone infos du site
 Route::get('/site', [AnnouncementController::class, 'welcome'])->name('site');
@@ -158,6 +156,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/user/retirer-collection', [UserController::class, 'removeBiblioCollection']);
     Route::post('/user/ajouter-publication', [UserController::class, 'addBiblioPublication']);
     Route::post('/user/retirer-publication', [UserController::class, 'removeBiblioPublication']);
+
+    // Zone statistiques accès restreint
+    Route::get('/stats/production', [StatController::class, 'production']);
+    Route::get('/stats/analyse', [StatController::class, 'analyse']);
 
     Route::middleware('auth.bdfiadmin')->group(function () {
         // Accès restreints de la zone admin (y compris visitor - les restrictions sont au niveau filament & admin) :

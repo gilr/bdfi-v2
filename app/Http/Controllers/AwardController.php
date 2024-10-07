@@ -103,6 +103,7 @@ class AwardController extends Controller
     {
         if ($result = AwardCategory::find($category_id))
         {
+            // TBD --> vers /prix/categorie/{slug}, mais requête des lauréats à revoir
             $prix = $result->award;
             $categorie = $result;
 
@@ -125,11 +126,9 @@ class AwardController extends Controller
     public function prix(Request $request, $text)
     {
 
-        if ($results=Award::find($text))
+        if ($results=Award::firstWhere('slug', $text))
         {
-            // /prix/{id}
-            // Un ID est passé - Pour l'instant c'est la façon propre d'afficher une page éditeur
-            // TBD : Il faudra supprimer l'accès par Id au profit d'un slug => unicité
+            // /prix/{slug}
             $this->context['page'] = $results->name;
 
             $categories = AwardCategory::where('award_id', $results->id)->orderBy('internal_order', 'asc')->get();
@@ -141,6 +140,8 @@ class AwardController extends Controller
         }
         else
         {
+            // /prix/{pattern}
+            // Recherche de tous les prix avec le pattern fourni
             $pagin = 1000;
             $user = Auth::user();
             if ($user)
@@ -148,8 +149,6 @@ class AwardController extends Controller
                 $pagin = $user->items_par_page;
             }
 
-            // /prix/{pattern}
-            // Recherche de tous les prix avec le pattern fourni
             $results = Award::where(function($query) use($text) {
                 $query->where ('name', 'like', '%' . $text .'%')
                         ->orWhere('alt_names', 'like', '%' . $text .'%');

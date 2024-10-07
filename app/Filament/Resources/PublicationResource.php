@@ -12,6 +12,7 @@ use App\Models\Collection;
 use App\Models\Publication;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -33,6 +34,7 @@ use App\Enums\GenreStat;
 use App\Enums\AudienceTarget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PublicationResource extends Resource
 {
@@ -75,8 +77,15 @@ class PublicationResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label('Titre de l\'ouvrage')
                             ->helperText('Titre indiqué en page titre intérieure (et non en couverture - Si différent, utiliser le champ "autres titres" pour le titre de couverture, dos, quatrième... Les titres, sous-titres, collections sont séparés par des tirets, exemple "Titre - Sous-titre".')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Publication::class, 'slug', $state)))
                             ->required()
                             ->maxLength(128),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                            ->label('Slug'),
                         Forms\Components\Select::make('type')
                             ->label('Type de contenu')
                             ->enum(PublicationContent::class)

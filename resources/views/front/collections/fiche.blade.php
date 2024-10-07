@@ -46,12 +46,12 @@
             @else
                 Editeur :
             @endif
-            <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher_id }}'>{{ $results->publisher->name }}</a></span>
+            <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher->slug }}'>{{ $results->publisher->name }}</a></span>
             @if ($results->publisher2_id)
-                , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher2_id }}'>{{ $results->publisher2->name }}</a></span>
+                , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher2->slug }}'>{{ $results->publisher2->name }}</a></span>
             @endif
             @if ($results->publisher3_id)
-                , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher3_id }}'>{{ $results->publisher3->name }}</a></span>
+                , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher3->slug }}'>{{ $results->publisher3->name }}</a></span>
             @endif
         </div>
     @endif
@@ -127,7 +127,7 @@
 
     @if ($results->parent_id != 0)
         <div class='text-base'>
-            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent_id }}'>{{ $results->parent->fullName }} </a></span>
+            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent->slug }}'>{{ $results->parent->fullName }} </a></span>
         </div>
         <div class='text-base'>
             Sous-collections, sous-ensembles :
@@ -136,7 +136,7 @@
         <div class='text-base px-2 mx-2 md:mx-10 self-center'>
             @foreach($results->parent->subcollections as $subcollection)
                 @if ($subcollection->id != $results->id)
-                    <div class='hover:bg-yellow-100 border-b hover:border-purple-400'><a class='sm:p-0.5 md:px-0.5' href='/collections/{{ $subcollection->id }}'> {{ $subcollection->fullShortName }} </a></div>
+                    <div class='hover:bg-yellow-100 border-b hover:border-purple-400'><a class='sm:p-0.5 md:px-0.5' href='/collections/{{ $subcollection->slug }}'> {{ $subcollection->fullShortName }} </a></div>
                 @else
                     <div class='bg-purple-200 border-b border-purple-600 sm:p-0.5 md:px-0.5'> {{ $results->fullShortName }} </div>
                 @endif
@@ -150,7 +150,7 @@
             <span class='font-semibold'>Sous-collection, sous-ensembles :</span>
             @foreach ($results->subcollections as $subcollection)
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->id }}'>{{ $subcollection->fullName }} </a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->slug }}'>{{ $subcollection->fullName }} </a>
                 </div>
             @endforeach
         </div>

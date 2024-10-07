@@ -9,6 +9,7 @@ use App\Models\Collection;
 use App\Models\Publication;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -25,6 +26,7 @@ use App\Enums\CollectionCible;
 use App\Enums\QualityStatus;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CollectionResource extends Resource
 {
@@ -62,8 +64,15 @@ class CollectionResource extends Resource
                 ->schema([
                     Forms\Components\TextInput::make('name')
                         ->label('Nom')
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', SlugService::createSlug(Collection::class, 'slug', $state)))
                         ->required()
                         ->maxLength(128),
+                    Forms\Components\TextInput::make('slug')
+                        ->disabled()
+                        ->dehydrated()
+                        ->helperText('Pour info, l\'URL qui sera utilisée (non modifiable manuellement)')
+                        ->label('Slug'),
                     Forms\Components\TextInput::make('shortname')
                         ->label('Nom court')
                         ->required()

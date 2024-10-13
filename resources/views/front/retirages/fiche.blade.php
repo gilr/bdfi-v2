@@ -12,26 +12,29 @@
     </div>
 
     <div class='text-base'>
-        Date d'Achevé d'Imprimer du retirage : <span class='font-semibold'>{{ StrDateformat(StrDLAItoBDFI($results->ai, $results->approximate_parution)) }}</span>
+        Date de publication : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
     </div>
     <div class='text-base'>
-        Date de publication : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
+        Date d'Achevé d'Imprimer du retirage :
+        <span class='font-semibold'>
+            {{ StrDateformat(StrDLAItoBDFI($results->ai, $results->approximate_parution)) }}
+        </span>
     </div>
     <div class='pl-2'>
         @if ($results->is_verified)
-        Retirage vérifié
-        @if (Illuminate\Support\Str::contains($results->verified_by,";"))
-            <img src='/img/ok.png' class="inline w-5 mb-1" />
-        @endif
-        <img src='/img/ok.png' class="inline w-5 mb-1" />
-        @auth
-            @if (auth()->user()->hasGuestRole())
-                <span class='text-blue-900 bg-sky-200 shadow-sm shadow-blue-600 rounded-sm px-1'> ({{ $results->verified_by }})</span>
+            Retirage vérifié
+            @if (Illuminate\Support\Str::contains($results->verified_by,";"))
+                <img src='/img/ok.png' class="inline w-5 mb-1" />
             @endif
-        @endauth
-    @else
-        <img src='/img/error.png' class="inline w-5 mb-1" /> Retirage non vérifié
-    @endif
+            <img src='/img/ok.png' class="inline w-5 mb-1" />
+            @auth
+                @if (auth()->user()->hasGuestRole())
+                    <span class='text-blue-900 bg-sky-200 shadow-sm shadow-blue-600 rounded-sm px-1'> ({{ $results->verified_by }})</span>
+                @endif
+            @endauth
+        @else
+            <img src='/img/error.png' class="inline w-5 mb-1" /> Retirage non vérifié
+        @endif
     </div>
 
     @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->information))
@@ -62,10 +65,11 @@
             @foreach ($results->publication->reprints as $reprint)
                 <div class='ml-2 md:ml-8'>
                     @if ($results->id === $reprint->id)
-                        <i>Publication {{ StrDateformat($reprint->approximate_parution) }} AI {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </i>
+                        (Fiche courante) <i>Retirage {{ StrDateformat($reprint->approximate_parution) }}
+                        - AI : {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </i>
                     @else
-                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->slug }}'>Publication {{ StrDateformat($reprint->approximate_parution) }}
-                            AI {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }} </a>
+                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/retirages/{{ $reprint->slug }}'>Retirage {{ StrDateformat($reprint->approximate_parution) }}</a>
+                        - AI : {{ StrDateformat(StrDLAItoBDFI($reprint->ai, $reprint->approximate_parution)) }}
                     @endif
                 </div>
             @endforeach

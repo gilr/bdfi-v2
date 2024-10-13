@@ -33,6 +33,13 @@ class CollectionPublicationSeeder extends Seeder
                 'updated_by'   => 1,
                 'deleted_by'   => NULL
             ]);
+
+            // TODO : Champ spécifique version v2 bêta, pourra être supprimé ensuite
+            DB::table('collections')
+                ->where('id', $obj->id_col)
+                ->update(['is_in_v2beta' => 1]);
+
         }
+
     }
 }

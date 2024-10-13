@@ -30,6 +30,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Test sans l'interdiction du lazyLoad pour l'instant
+        // Model::preventLazyLoading();
+        // Interdiction d'accès à un attribute interdit - m'oblige à déclarer des fullname sur (presque) tous les models
+        Model::preventAccessingMissingAttributes();
+        Model::preventSilentlyDiscardingAttributes();
+
         Number::useLocale('fr');
 
         // TODO si on peut trouver mieux (secure ?)

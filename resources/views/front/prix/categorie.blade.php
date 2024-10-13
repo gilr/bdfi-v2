@@ -28,7 +28,7 @@
     </div>
 
     <div class='text-base'>
-        Autres formes du nom : <span class='font-semibold'>{{ $prix->short_name }} {{ $prix->alt_names }}</span>
+        Autres formes du nom : <span class='font-semibold'>{{ $prix->alt_names }}</span>
     </div>
 
     <div class='text-base'>

@@ -16,35 +16,30 @@
     @endif
 
     <div class='text-base p-4 m-4 bg-sky-100 self-center border border-blue-400'>
-        <span class="font-bold text-slate-600">/!\ Version de test BDFI</span>. Pour les informations de test, voir un peu plus bas.
-        Pour le développement de la V2 BDFI, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> ou les commits sur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://github.com/gilr/bdfi-v2'>github</a>. La base des ouvrages est une <b>base très incomplète</b>, qui ne contient qu'une poignée d'éditeurs et de collections sur lequel une première passe de vérifications a eu lieu. On peut y trouver :
+        <div>
+            @if (env('APP_TEST') == "true")
+                <span class="font-bold text-slate-600">/!\ Version de test du site BDFI V2</span>.
+                Pour les informations de test, voir un peu plus bas.
+            @else
+                <span class="font-bold text-slate-600">/!\ Version bêta du site BDFI V2</span>.
+            @endif
+            Pour des informations sur le développement, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> ou les commits sur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://github.com/gilr/bdfi-v2'>github</a>.
+        </div>
+
+        <span class="font-bold text-slate-600">Attention</span>, la base des ouvrages est une <b>base très incomplète</b>, qui ne contient qu'une poignée de collections sur lequel une première passe de vérifications a eu lieu. Pour en connaître le contenu, consulter la <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/v2beta'>page des collections incluses</a>. En fiche éditeur ou en zone de recherche de collection, les collections incluses sont repérables car précédées de l'icone <x-front.display-icon-v2beta-if value='true' />. On trouvera notamment :
         <ul class="list-disc pl-4 ml-4">
-            <li>Des collections ou listes d'ouvrages :
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/dimensions-sf'>Dimensions SF</a> et
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/fantasy-4'>Fantasy</a>
-                de l'éditeur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/calmann-levy'>Calmann-Levy</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/epees-et-dragons'>Epées et Dragons</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/super-fiction'>Super Fiction</a> et
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/super-fiction-2'>Super + Fiction</a>
-                de <a class='text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/albin-michel'>Albin Michel</a>,
-                plusieurs mini-collections (Shadowrun, Tomb Raider, Titan AE, Thraxas, Vampires, Virtuel et Wacraft) ainsi que les <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/thriller-fantastique'>Thriller Fantastique</a>
-                chez <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/fleuve-noir'>Fleuve Noir</a>,
-                les <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/payot-sf'>Payot SF</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/terreur'>Pocket Terreur</a>,
-                J'ai Lu <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/millenaires'>Millénaires</a>,
-                les ouvrages de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/argyll'>Argyll</a>,
-                ainsi que les
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/folio-sf'>Folio SF</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/folio-fantasy'>Folio Fantasy</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/fantasy-20'>Rivages fantasy</a>,
-                <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/alire-grand-format'>Alire Grand Format</a>...</li>
+            <li>Quelques collections de centaines d'ouvrages, comme
+                <x-front.lien-standard link='/collections/folio-sf'>Folio SF</x-front.lien-standard>,
+                <x-front.lien-standard link='/collections/terreur'>Pocket terreur</x-front.lien-standard> ou
+                <x-front.lien-standard link='/collections/angoisse'>Fleuve Noir angoisse</x-front.lien-standard>.
+            </li>
             <li>Un exemple de support de type revue/fanzine, <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/basis'>Basis</a>, et un exemple de support de type magazine : <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/editeurs/v-voir'>V magazine</a></li>
             <li>Des exemples de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/textes/la-chaise-infernale'>feuilleton (parus en épisodes)</a>, de <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/ouvrages/la-route-étoilée'>retirage (réimpression)</a>, de texte repris dans plusieurs publications, et de gestion de
                 <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://bdfi-v2.test/textes/la-bataille-des-astres'>
                 variantes de texte</a> (signature, titre et/ou traduction modifiés).
         </ul>
 
-        <span class="font-semibold text-red-800">Attention</span>, les ouvrages "programmés" sont des données fausse générées uniquement pour test.<br />
+        <span class="font-semibold text-red-800">Attention</span>, les ouvrages "programmés" sont des données 'fake' générées uniquement pour test.<br />
     </div>
 
     <div class='text-base p-4 m-4 self-center border border-orange-400'>
@@ -54,7 +49,7 @@
 
     <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-1 text-sm m-4 self-center'>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Anniversaires de naissance</div>
+            <div class='text-center font-bold mb-2'>Anniversaires de naissance</div>
             @foreach($births as $auteur)
                 <div>{{ substr($auteur->birth_date, 0, 4) }} :
                     <x-front.lien-auteur link='/auteurs/{{ $auteur->slug }}'>{{ $auteur->first_name }} {{ $auteur->name }}</x-front.lien-auteur>
@@ -65,7 +60,7 @@
             @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Dernières publications ajoutées</div>
+            <div class='text-center font-bold mb-2'>Dernières publications ajoutées</div>
             @foreach($created as $result)
                 <div>
                     <x-front.lien-ouvrage link='/ouvrages/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
@@ -73,7 +68,36 @@
             @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Programmes de parution</div>
+            <div class='text-center font-bold mb-2'>Quelques parutions récentes</div>
+            @php
+            $images = array();
+            foreach ($recents as $result) {
+                $images[] = array('url' => "https://www.bdfi.info/couvs/" . InitialeCouv($result->cover_front) . "/" . $result->cover_front . ".jpg", 'caption' => $result->name);
+            }
+            @endphp
+            <livewire:publication-carousel :images="$images" />
+        </div>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold mb-2'>Annonces</div>
+            @foreach($events as $result)
+                <div>
+                    <x-front.lien-texte link='/evenements/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-texte>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-1 text-sm m-4 self-center'>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold mb-2'>Auteurs décédés ce jour</div>
+            @foreach($deaths as $auteur)
+                <div>{{ substr($auteur->birth_date, 0, 4) }}-{{ substr($auteur->date_death, 0, 4) }} :
+                    <x-front.lien-auteur link='/auteurs/{{ $auteur->slug }}'>{{ $auteur->first_name }} {{ $auteur->name }}</x-front.lien-auteur>
+                </div>
+            @endforeach
+        </div>
+        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
+            <div class='text-center font-bold mb-2'>Programmes de parution</div>
             @foreach($programme as $result)
                 <div>
                     <x-front.lien-ouvrage link='/ouvrages/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
@@ -81,26 +105,7 @@
             @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Auteurs décédés ce jour</div>
-            @foreach($deaths as $auteur)
-                <div>{{ substr($auteur->birth_date, 0, 4) }}-{{ substr($auteur->date_death, 0, 4) }} :
-                    <x-front.lien-auteur link='/auteurs/{{ $auteur->slug }}'>{{ $auteur->first_name }} {{ $auteur->name }}</x-front.lien-auteur>
-                </div>
-            @endforeach
-        </div>
-    </div>
-
-    <div class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 text-sm m-4 self-center'>
-        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Annonces</div>
-            @foreach($events as $result)
-                <div>
-                    <x-front.lien-texte link='/evenements/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-texte>
-                </div>
-            @endforeach
-        </div>
-        <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Dernières publications mises à jour</div>
+            <div class='text-center font-bold mb-2'>Dernières publications mises à jour</div>
             @foreach($updated as $result)
                 <div>
                     <x-front.lien-ouvrage link='/ouvrages/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-ouvrage>
@@ -108,7 +113,7 @@
             @endforeach
         </div>
         <div class='border border-orange-400 px-2 sm:pl-5 sm:pr-2 md:pl-4 md:pr-4'>
-            <div class='text-center font-bold'>Dernières discussions forum</div>
+            <div class='text-center font-bold mb-2'>Dernières discussions forum</div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis luctus nisi. Nullam lectus ligula, tincidunt et mi vitae, ornare molestie dui. Morbi porttitor dictum bibendum. Nullam pretium lectus id eros tincidunt pretium. Integer porta iaculis eros, in lacinia arcu imperdiet et. Nunc consectetur velit sit amet ligula porta...
         </div>
     </div>
@@ -139,5 +144,6 @@
         <img src="/img/bdfi_navigation.jpg" />
     </div>
     @endif
+
 
 @endsection

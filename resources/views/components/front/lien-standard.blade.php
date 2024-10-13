@@ -1,0 +1,1 @@
+<a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='{{ $link }}'>{{ $slot }}</a>

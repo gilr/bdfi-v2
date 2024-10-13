@@ -2,9 +2,9 @@
     <div class='ml-2 md:ml-8'>
         @if (isset($suivie) && $suivie)
             @if (auth()->user()->statusPublication($publication->id))
-                <x-front.publication-ok />
+                <x-front.display-icon-pub-owned />
             @else
-                <x-front.publication-nok />
+                <x-front.display-icon-pub-missing />
             @endif
         @endif
         @if($publication->pivot->number)

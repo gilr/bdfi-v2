@@ -155,14 +155,35 @@ class PublicationController extends Controller
                 $pivot_next = DB::table('collection_publication')->where('collection_id', $collection->id)->where('order', $numnext)->first();
                 $pivot_last = DB::table('collection_publication')->where('collection_id', $collection->id)->where('order', $nb)->first();
 
-                $first[$ipn] = $collection->pivot->order !== 1 ? ($pivot_first !== NULL ? $pivot_first->publication_id : 0) : 0;
-                $prev[$ipn] = $pivot_prev ? $pivot_prev->publication_id : 0;
-                $next[$ipn] = $pivot_next ? $pivot_next->publication_id : 0;
-                $last[$ipn] = $collection->pivot->order !== $nb ? ($pivot_last !== NULL ? $pivot_last->publication_id : 0) : 0;
+                $first[$ipn] = ($collection->pivot->order !== 1 && $pivot_first !== null) ?
+                    DB::table('publications')->where('id', $pivot_first->publication_id)->value('slug') : 0;
+                $prev[$ipn] = $pivot_prev ?
+                    DB::table('publications')->where('id', $pivot_prev->publication_id)->value('slug') : 0;
+                $next[$ipn] = $pivot_next ?
+                    DB::table('publications')->where('id', $pivot_next->publication_id)->value('slug') : 0;
+                $last[$ipn] = ($collection->pivot->order !== $nb && $pivot_last !== null) ?
+                    DB::table('publications')->where('id', $pivot_last->publication_id)->value('slug') : 0;
+
                 $ipn++;
             }
 
-            $images = array();
+            // Tableau de correspondance entre les noms des images et les propriétés du résultat
+            $mapping = [
+                "Couverture" => $results->cover_front,
+                "4ième de couverture" => $results->cover_back,
+                "Dos" => $results->cover_spine,
+                "Couverture avec jaquette" => $results->dustjacket_front,
+                "4ième de couverture avec jaquette" => $results->dustjacket_back,
+                "Dos avec jaquette" => $results->dustjacket_spine,
+                "Couverture avec bandeau" => $results->withband_front,
+                "4ième de couverture avec bandeau" => $results->withband_back,
+                "Dos avec bandeau" => $results->withband_spine,
+            ];
+
+            // Filtrer les éléments du tableau pour ne conserver que ceux dont la valeur n'est pas vide
+            $images = array_filter($mapping, fn($value) => !empty($value));
+
+/*            $images = array();
             if ($results->cover_front != "") {
                 $images["Couverture"] = $results->cover_front;
             }
@@ -190,7 +211,7 @@ class PublicationController extends Controller
             if ($results->withband_spine != "") {
                 $images["Dos avec bandeau"] = $results->withband_spine;
             }
-
+*/
             return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'images'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))

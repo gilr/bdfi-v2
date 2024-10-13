@@ -24,6 +24,11 @@ return new class extends Migration
             $table->string('sigle_bdfi', 8)->nullable();
             $table->string('alt_names', 512)->nullable();
 
+            // TODO : Si la collection est complétement vérifiée (pour le futur)
+            $table->boolean('is_verified')->nullable()->default(false);
+            // TODO : Champ spécifique version v2 bêta, pourra être supprimé ensuite
+            $table->boolean('is_in_v2beta');
+
             $table->unsignedInteger('publisher_id')->nullable();
             $table->foreign('publisher_id')
                 ->references('id')

@@ -31,6 +31,9 @@ class CollectionSeeder extends Seeder
                 'sigle_bdfi'       => $obj->sigle ?: "",
                 'alt_names'        => $obj->alt_names ?: "",
 
+                // TODO : Champ spécifique version v2 bêta, pourra être supprimé ensuite
+                'is_in_v2beta'     => 0,
+
                 'publisher_id'     => $obj->id_ed,
                 'publisher2_id'    => $obj->id_ed2 === "0" ? NULL : $obj->id_ed2,
                 'publisher3_id'    => $obj->id_ed3 === "0" ? NULL : $obj->id_ed3,

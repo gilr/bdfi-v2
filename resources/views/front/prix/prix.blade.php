@@ -26,7 +26,7 @@
     </div>
 
     <div class='text-base'>
-        Autres noms : <span class='font-semibold'>{{ $results->short_name }} {{ $results->alt_names }}</span>
+        Autres noms : <span class='font-semibold'>{{ $results->alt_names }}</span>
     </div>
 
     <div class='text-base'>

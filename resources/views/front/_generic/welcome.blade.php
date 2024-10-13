@@ -6,7 +6,7 @@
     <div class='text-sm -my-1 p-0 bold self-center hidden sm:inline'>
         La barre d'initiales ci-dessus donne accès aux index paginés.
     </div>
-    @includeIf('front.'. $area. '._submenu')
+    @includeIf('front.'. $area. '._welcome-submenu')
 
     <div class='text-2xl my-2 md:mt-8 bold self-center'>
         @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))
@@ -15,7 +15,7 @@
         <b>{{ $title }}</b>
     </div>
 
-    @includeIf('front.'. $area. '._message')
+    @includeIf('front.'. $area. '._welcome-message')
 
     <div class='text-lg mx-2 my-1 md:my-2 bold self-center'>
         <form action="{{ route($area . '.search') }}" method="GET">
@@ -25,6 +25,8 @@
             <button class="px-2 bg-emerald-200 border-2 border-green-500 rounded" type="submit">Go</button>
         </form>
     </div>
+
+    @includeIf('front.'. $area. '._welcome-specific')
 
     <div class='text-base my-4 bold self-center'>
         Les dernières fiches modifiées :

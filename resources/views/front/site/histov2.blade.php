@@ -14,19 +14,23 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 7 - 02/10/2024
+        Version V2 bêta 7 - 13/10/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
             <li>Gestion des collections multi-éditeurs</li>
-            <li>Gestion et administration des articles (collections)</li>
-            <li>"Slugification" des pages (url compréhensibles à la place des n°s en base)</li>
+            <li>Gestion et administration des articles (pour onglet de description d'une collections)</li>
+            <li>"Slugification" des pages (url compréhensibles à la place des ID/numéro en base)</li>
             <li>Importante amélioration des temps d'affichage (particulièrement bibliographies et collections de centaines d'ouvrages)</li>
             <li>Ajout de l'info "vérifié" aux retirages</li>
             <li>Ajout des annonces de conventions et salons en page d'accueil</li>
             <li>Initialisation d'une zone 'chiffres et statistiques'</li>
+            <li>Amélioration de la page d'accueil des salons et évènements</li>
+            <li>Ajout d'une page listant les collections de la version béta...</li>
+            <li>... et indiquer en pages éditeurs et recherche collection si une collection est présente en version bêta</li>
+            <li>Ajout d'une première version d'un carrousel de quelques publication récentes en page d'accueil</li>
             <li>Passage de la version bêta sous test.bdfi.net (ne remplace pas le site de test existant !)</li>
-            <li>Corrections diverses</li>
+            <li>Petites corrections diverses</li>
         </ul>
     </div>
     <div class='text-lg font-bold text-purple-900'>

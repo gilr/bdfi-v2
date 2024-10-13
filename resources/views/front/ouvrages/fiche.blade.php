@@ -4,9 +4,9 @@
             @if (auth()->user() && (auth()->user()->statusCollection($collection->id)) && (auth()->user()->statusCollection($collection->id) != 'cachee'))
                 <div class='text-lg mb-8 self-center bg-green-200 shadow-sm shadow-gray-400 rounded-sm px-1'>
                     @if (auth()->user()->statusPublication($results->id))
-                        <x-front.publication-ok /> Ouvrage possédé -
+                        <x-front.display-icon-pub-owned /> Ouvrage possédé -
                     @else
-                        <x-front.publication-nok /> Ouvrage non possédé -
+                        <x-front.display-icon-pub-missing /> Ouvrage non possédé -
                     @endif
                     Collection suivie, {{ auth()->user()->statusCollection($collection->slug) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
                 </div>
@@ -186,7 +186,7 @@
     <!-- zone couverture -->
     @foreach ($images as $key => $value)
         @if ($loop->first)
-            <img style="max-width: 250px; max-height:450px" class='px-1 mx-auto hover-shadow preview' src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide(1)" alt="couverture" title="Couverture {{ $key }}">
+            <img style="max-width: 250px; max-height:450px" class='px-1 mx-auto hover-shadow preview' src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide(1)" alt="couverture" title="{{ $key }}">
             <div class="grid grid-cols-{{ $loop->count - 1 }} mx-auto max-w-fit">
         @else
             <div class="w-14 py-2 px-0.5"><img class="px-0.5 hover-shadow preview" src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide({{ $loop->iteration }})" /></div>
@@ -279,11 +279,9 @@
                 </div>
             @endif
 
-            @if ((auth()->user() && auth()->user()->hasGuestRole()) || ($results->printed_info))
-                <div class='text-base'>
-                    Autres informations imprimées : {{ $results->printed_info }}
-                </div>
-            @endif
+            <!--
+                Pas prévu aujourd'hui : Autres informations imprimées -> $results->printed_info
+            -->
         </div>
     @endif
 

@@ -30,16 +30,18 @@ use App\Http\Controllers\StatController;
 */
 
 Route::get('/', function () {
+    // TODO : passer tout ça dans un controller !!
     $births= App\Models\Author::getBirthsOfDay();
     $deaths = App\Models\Author::getDeathsOfDay();
     $updated = App\Models\Publication::where('status', '<>', 'annonce')->orderBy('updated_at', 'desc')->limit(15)->with('publisher')->get();
     $created = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
+    $recents = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('approximate_parution', 'desc')->limit(15)->with('publisher')->get();
     $programme = App\Models\Publication::where('status', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
     $events = App\Models\Event::where('is_full_scope', '1')->where('is_confirmed', '1')->where('end_date','>=', date("Y-m-d"))->orderBy('start_date', 'asc')->limit(15)->get();
     $area = '';
     $title = '';
     $page = '';
-    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'programme', 'events', 'area', 'title', 'page'));
+    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'recents', 'programme', 'events', 'area', 'title', 'page'));
 })->name('welcome');
 
 Route::get('/symlinkstorage', function () {
@@ -97,6 +99,9 @@ Route::get('/series/{slug}', [CycleController::class, 'page']);     // --> Page 
 // Zone collections
 // Voir les create et store supplémentaires à Filament en zone admin
 Route::get('/collections', [CollectionController::class, 'welcome'])->name('collections');
+// Version bêta seule :
+Route::get('/collections/v2beta', [CollectionController::class, 'v2beta'])->name('v2b7');
+
 Route::get('/collections/search/', [CollectionController::class, 'search'])->name('collections.search');
 Route::get('/collections/index/{i}', [CollectionController::class, 'index']);       // --> Index collections {initiale} (y compris 0 ou 9)
 Route::get('/collections/{slug}', [CollectionController::class, 'page']);           // --> Page collection avec slug

@@ -33,6 +33,21 @@ class CollectionController extends Controller
         return view('front._generic.welcome', compact('results'), $this->context);
     }
 
+    /**
+     * Liste temporaire des collections gérées en V2
+     */
+    public function v2beta()
+    {
+        $results = Collection::where('is_in_v2beta', 1)
+                ->with('publisher')
+                ->orderBy('name', 'asc')
+                ->get();
+
+        $this->context['page'] = 'Collection V2 bêta';
+
+        return view('front.collections.v2beta', compact('results'), $this->context);
+    }
+
     public function search(Request $request)
     {
         $pagin = 1000;

@@ -150,11 +150,47 @@ function StrDetectCentury($aa, $publi): string
 
 
 /**
- * Conversion d'une date au format BDFI (aaaa-mm-jj) vers un format affichable clair  (12 avril 1986, 1er trimestre 2005...)
+ * Conversion d'une date au format BDFI (aaaa-mm-jj) vers un format affichable clair
+ * (12 avril 1986, 1er trimestre 2005...)
  *
- * @return string
+ * @param string $date Date au format aaaa-mm-jj étendu BDFI (avec aaaa-T3-00 ou aaaa-00-00)
+ * @return string Date formatée selon les préférences utilisateur
  */
-function StrDateformat ($date)
+function StrDateformat($date)
+{
+    // Si nulle
+    if (($date == NULL) || ($date == '')) {
+        return 'date inconnue';
+    }
+    elseif (substr($date, 0, 4) == 'n.c.')
+    {
+        return "date non renseignée [$date]";
+    }
+    elseif (strlen($date) == 4)
+    {
+        $date = $date . "-00-00";
+    }
+
+    // Vérification de la validité de la date (format attendu : aaaa-mm-jj BDFI)
+    if (!preg_match('/[\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2})/', $date)) {
+        return 'date invalide : ' . $date;
+    }
+
+    $format = Auth::user()->format_date ?? 'abr'; // Utilise 'abr' comme valeur par défaut si aucune préférence n'est définie
+
+    // Table de correspondance des formats
+    $formats = [
+        'abr' => fn() => StrDateformatClair($date, 1),
+        'clair' => fn() => StrDateformatClair($date, 0),
+        'fr' => fn() => StrDateformatFR($date, 0),
+        'fru' => fn() => StrDateformatFR($date, 1),
+        'db' => fn() => $date
+    ];
+
+    // Utilise le format défini ou retourne la date brute si le format est inconnu
+    return $formats[$format]($date) ?? $date;
+}
+function StrDateformatOld ($date)
 {
     $format = 'abr';
     $user = Auth::user();

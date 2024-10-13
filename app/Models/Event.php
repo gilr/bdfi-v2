@@ -55,6 +55,13 @@ class Event extends Model
     /*
      * Accesseurs supplémentaires
     */
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->name,
+        );
+    }
+
     public function recordName(): Attribute
     {
         return Attribute::make(

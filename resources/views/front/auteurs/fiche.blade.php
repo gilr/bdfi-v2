@@ -47,7 +47,7 @@
                     , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/pays/{{ $auteur->country2->name }}'>{{ $auteur->country2->name }}</a></span>
                 @endif
             @endif
-            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->deathplace); !!}
+            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->place_death); !!}
         </div>
 
         <br />
@@ -197,7 +197,7 @@
                 <span class='font-semibold'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/pays/{{ $auteur->country->name }}'>{{ $auteur->country->name }}</a>
                 </span>
-            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->deathplace); !!}
+            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->place_death); !!}
             </div>
             @endforeach
         </div>

@@ -33,7 +33,7 @@
                   <!-- breadcrumb -->
                     Vous êtes ici :
                     @if (env('APP_TEST') == "true")
-                        <span class="text-xs border-b-2 text-red-500 border-yellow-300">
+                        <span class="text-xs font-bold border-b-2 text-red-500 border-yellow-300">
                             Test {{ env('VERSION') }}
                         </span>
                     @else

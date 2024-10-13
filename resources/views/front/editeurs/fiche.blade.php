@@ -70,16 +70,18 @@
             @foreach ($results->collections as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
-                </div>
+                    </div>
                 @endif
             @endforeach
             @if(count($results->collections2))
             @foreach ($results->collections2 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
-                </div>
+                    </div>
                 @endif
             @endforeach
                 @endif
@@ -87,8 +89,9 @@
             @foreach ($results->collections3 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
-                </div>
+                    </div>
                 @endif
             @endforeach
                 @endif
@@ -103,6 +106,7 @@
             @foreach ($results->collections as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
                     </div>
                 @endif
@@ -112,8 +116,9 @@
             @foreach ($results->collections2 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
-                </div>
+                    </div>
                 @endif
             @endforeach
         @endif
@@ -121,8 +126,9 @@
             @foreach ($results->collections3 as $collection)
                 @if (!$collection->parent_id)
                     <div class='ml-2 md:ml-8'>
+                        <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
-                </div>
+                   </div>
                 @endif
             @endforeach
         @endif

@@ -17,6 +17,7 @@ use App\Http\Controllers\ToolController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,20 +30,7 @@ use App\Http\Controllers\StatController;
 |
 */
 
-Route::get('/', function () {
-    // TODO : passer tout ça dans un controller !!
-    $births= App\Models\Author::getBirthsOfDay();
-    $deaths = App\Models\Author::getDeathsOfDay();
-    $updated = App\Models\Publication::where('status', '<>', 'annonce')->orderBy('updated_at', 'desc')->limit(15)->with('publisher')->get();
-    $created = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
-    $recents = App\Models\Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->orderBy('approximate_parution', 'desc')->limit(15)->with('publisher')->get();
-    $programme = App\Models\Publication::where('status', 'annonce')->orderBy('created_at', 'desc')->limit(15)->with('publisher')->get();
-    $events = App\Models\Event::where('is_full_scope', '1')->where('is_confirmed', '1')->where('end_date','>=', date("Y-m-d"))->orderBy('start_date', 'asc')->limit(15)->get();
-    $area = '';
-    $title = '';
-    $page = '';
-    return view('welcome', compact('births', 'deaths', 'updated', 'created', 'recents', 'programme', 'events', 'area', 'title', 'page'));
-})->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Route::get('/symlinkstorage', function () {
     Artisan::call('storage:link');
@@ -63,6 +51,7 @@ Route::get('/evenements/search/', [EventController::class, 'search'])->name('eve
 Route::get('/evenements/index/{i}', [EventController::class, 'index']);       // --> Index évènement {initiale} (y compris 0 ou 9)
 Route::get('/evenements/{slug}', [EventController::class, 'page']);           // --> Page évènement avec slug
 // Route::get('/evenements/historique', ...);   --> Liste des évènements y compris passés --> après split table
+// TODO : En fait non -> devra être affiché directement sur la page évènement (sinon elle ne dit pas grand chose de plus)
 
 // Zone ouvrages
 // Voir les create et store supplémentaires à Filament en zone admin
@@ -145,7 +134,6 @@ Route::get('/site/historique-v2', [AnnouncementController::class, 'histov2']);
 // Temporaire
 Route::get('/forums', function () { return view('forums', ['area'  => 'forums', 'title'  => '', 'page'  => '']); });
 
-
 // Authentification
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Accès restreint aux utilisateurs connectés - Roles "user" et tout type d'admin (y compris "visitor")
@@ -213,16 +201,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     });
 });
-
-/*
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-*/

@@ -3035,7 +3035,7 @@
 {
 "name": "Ditis",
 "type": "",
-"sigle": "DITISSF",
+"sigle": "DITIS  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -19404,27 +19404,9 @@
 "pays": "2"
 },
 {
-"name": "Larousse",
-"type": "",
-"sigle": "VIELANG",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Floréal roman",
-"type": "",
-"sigle": "FLOREAR",
-"localisation": "",
-"creation": "1922",
-"fin": "1923",
-"pays": "2"
-},
-{
 "name": "Floréal",
 "type": "",
-"sigle": "FLOREAL",
+"sigle": "FLOREAR",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -20073,6 +20055,15 @@
 "name": "Michel Lafon",
 "type": "",
 "sigle": "MLAFON ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Larousse",
+"type": "",
+"sigle": "LAROUSS",
 "localisation": "",
 "creation": "0",
 "fin": "0",

@@ -19,9 +19,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
-            'name'     => 'bdfi',
+            'id'       => '1',
+            'name'     => 'legacy1',
             'role'     => UserRole::SYSADMIN->value,
-            'email'    => 'gilles@bdfi.net',
+            'email'    => 'legacy1@host.net',
             'password' => Hash::make('password'),
             'format_date'  => 'clair',
             'created_at'   => today(),
@@ -32,9 +33,10 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
-            'name'     => 'gilles',
+            'id'       => '2',
+            'name'     => 'legacy2',
             'role'     => UserRole::SYSADMIN->value,
-            'email'    => 'gilles.richardot@free.fr',
+            'email'    => 'legacy2@host.net',
             'password' => Hash::make('password'),
             'format_date'  => 'clair',
             'created_at'   => today(),
@@ -45,9 +47,10 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
-            'name'     => 'christian',
+            'id'       => '3',
+            'name'     => 'legacy3',
             'role'     => UserRole::ADMIN->value,
-            'email'    => 'christian@bdfi.net',
+            'email'    => 'legacy3@hort.net',
             'password' => Hash::make('password'),
             'format_date'  => 'clair',
             'created_at'   => today(),
@@ -58,9 +61,10 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
-            'name'     => 'dom',
+            'id'       => '99',
+            'name'     => 'legacy4',
             'role'     => UserRole::MEMBER->value,
-            'email'    => 'dom.maria@free.fr',
+            'email'    => 'legacy4@host.net',
             'password' => Hash::make('password'),
             'format_date'  => 'clair',
             'created_at'   => today(),
@@ -71,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '10',
             'name'     => 'sysadmin',
             'role'     => UserRole::SYSADMIN->value,
             'email'    => 'sysadmin@bdfi.net',
@@ -84,6 +89,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '11',
             'name'     => 'admin',
             'role'     => UserRole::ADMIN->value,
             'email'    => 'admin@bdfi.net',
@@ -97,6 +103,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '12',
             'name'     => 'admin2',
             'role'     => UserRole::ADMIN->value,
             'email'    => 'admin2@bdfi.net',
@@ -110,6 +117,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '13',
             'name'     => 'admin3',
             'role'     => UserRole::ADMIN->value,
             'email'    => 'admin3@bdfi.net',
@@ -123,6 +131,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '14',
             'name'     => 'editor',
             'role'     => UserRole::MEMBER->value,
             'email'    => 'editor@bdfi.net',
@@ -136,6 +145,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '15',
             'name'     => 'editor2',
             'role'     => UserRole::MEMBER->value,
             'email'    => 'editor2@bdfi.net',
@@ -149,6 +159,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '16',
             'name'     => 'editor3',
             'role'     => UserRole::MEMBER->value,
             'email'    => 'editor3@bdfi.net',
@@ -162,6 +173,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '17',
             'name'     => 'proposant',
             'role'     => UserRole::PROPONENT->value,
             'email'    => 'proposant@bdfi.net',
@@ -175,6 +187,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '18',
             'name'     => 'visitor',
             'role'     => UserRole::GUEST->value,
             'email'    => 'visitor@bdfi.net',
@@ -188,6 +201,7 @@ class DatabaseSeeder extends Seeder
             'deleted_by'   => NULL
         ]);
         DB::table('users')->insert([
+            'id'       => '19',
             'name'     => 'user',
             'role'     => UserRole::USER->value,
             'email'    => 'user@bdfi.net',

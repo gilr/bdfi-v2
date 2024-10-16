@@ -16,9 +16,9 @@
                     </div>
                     <div class="p-2">
                         <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='outils/anniversaires-fb-jour'>Anniversaires du jour</x-admin.link></li>
-                            <li><x-admin.link lien='outils/anniversaires-fb-semaine'>Anniversaires  de la semaine</x-admin.link></li>
-                            <li><x-admin.link lien='outils/anniversaires-fb-mois'>Anniversaires du mois</x-admin.link></li>
+                            <li><x-admin.link lien='/admin/outils/anniversaires-fb-jour'>Anniversaires du jour</x-admin.link></li>
+                            <li><x-admin.link lien='/admin/outils/anniversaires-fb-semaine'>Anniversaires  de la semaine</x-admin.link></li>
+                            <li><x-admin.link lien='/admin/outils/anniversaires-fb-mois'>Anniversaires du mois</x-admin.link></li>
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">

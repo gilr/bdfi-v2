@@ -159,8 +159,14 @@ function StrDetectCentury($aa, $publi): string
 function StrDateformat($date)
 {
     // Si nulle
-    if (($date == NULL) || ($date == '')) {
+    if (($date == NULL) || ($date == ''))
+    {
         return 'date inconnue';
+    }
+    elseif (substr($date, 0, 1) == '?')
+    {
+        // Traitement des dates cop. fr non connues (titre pas paru par exemple)
+        return 'n/a';
     }
     elseif (substr($date, 0, 4) == 'n.c.')
     {
@@ -190,37 +196,6 @@ function StrDateformat($date)
     // Utilise le format défini ou retourne la date brute si le format est inconnu
     return $formats[$format]($date) ?? $date;
 }
-function StrDateformatOld ($date)
-{
-    $format = 'abr';
-    $user = Auth::user();
-    if ($user)
-    {
-        $format = $user->format_date;
-    }
-
-    if ($format === 'abr')
-    {
-        return StrDateformatClair($date, 1);
-    }
-    elseif ($format === 'clair')
-    {
-        return StrDateformatClair($date, 0);
-    }
-    elseif ($format === 'fr')
-    {
-        return StrDateformatFR($date, 0);
-    }
-    elseif ($format === 'fru')
-    {
-        return StrDateformatFR($date, 1);
-    }
-    else // format db
-    {
-        return $date;
-    }
-}
-
 
 function StrDateformatClair ($date, $abrege)
 {

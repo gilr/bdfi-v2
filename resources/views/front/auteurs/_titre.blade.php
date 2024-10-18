@@ -25,6 +25,15 @@
             @foreach ($title->publications as $publication)
                 <li class='ml-5 md:ml-24'>
                     <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->slug }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
+                     @if ($publication->status === App\Enums\PublicationStatus::ANNONCE)
+                        <span class="font-semibold">(publication annoncée)</span>
+                     @endif
+                     @if ($publication->status === App\Enums\PublicationStatus::ABANDONNE)
+                        <span class="font-semibold">(ouvrage annoncé mais non paru)</span>
+                     @endif
+                     @if ($publication->status === App\Enums\PublicationStatus::PROPOSE)
+                        <span class="font-semibold">(Sous réserve - référencement en cours de traitement)</span>
+                     @endif
                 </li>
             @endforeach
         </ul>
@@ -68,6 +77,15 @@
                     @foreach ($variant->publications as $publication)
                         <li class='ml-8 md:ml-24'>
                             <i>in</i> <a class='text-blue-800 text-black border-b border-dotted border-black hover:text-purple-700' href='/ouvrages/{{ $publication->slug }}'> {{ $publication->name }}</a>, {{ $publication->publisher->name }} {{ count($publication->collections) ? ", " . $publication->collections[0]->name : "" }} {{ $publication->is_hardcover ? " (relié)" : "" }},  {{ StrDateformat($publication->approximate_parution) }}
+                            @if ($publication->status == App\Enums\PublicationStatus::ANNONCE)
+                                (annoncé)
+                            @endif
+                            @if ($publication->status == App\Enums\PublicationStatus::ABANDONNE)
+                                (prévu mais non paru)
+                            @endif
+                            @if ($publication->status == App\Enums\PublicationStatus::PROPOSE)
+                                (référencement en cours)
+                            @endif
                         </li>
                     @endforeach
                 </ul>
@@ -102,3 +120,4 @@
     </ul>
 @endif
 --}}
+

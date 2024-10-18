@@ -108,7 +108,7 @@ class AwardController extends Controller
             $categorie = $result;
 
             $this->context['page'] = $categorie->name;
-            $this->context['subarea'] = $prix->id;
+            $this->context['subarea'] = $prix->slug;
             $this->context['subtitle'] = $prix->name;
 
             //$laureats = $result->award_winners()->orderBy('year', 'asc')->get();

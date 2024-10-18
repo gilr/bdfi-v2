@@ -321,7 +321,8 @@ function formatBdfiDate ($gender, $str, $mode, $place="")
    }
 }
 
-function awardAuthors ($name, $id1, $id2, $id3)
+
+function awardAuthors2 ($name, $a1, $a2, $a3)
 {
    $nom1 = $nom2 = $nom3 = "";
    $noms = explode(" et ", $name, 2);
@@ -338,26 +339,95 @@ function awardAuthors ($name, $id1, $id2, $id3)
    }
 
    if ($nom1 != "") {
-      $result = formatAuthor ($nom1, $id1);
+      $result = formatAuthor ($nom1, $a1);
    }
    if ($nom3 != "") {
-      $result = $result . ", " . formatAuthor ($nom2, $id2);
-      $result = $result . " et " . formatAuthor ($nom3, $id3);
+      $result = $result . ", " . formatAuthor ($nom2, $a2);
+      $result = $result . " et " . formatAuthor ($nom3, $a3);
    }
    else if ($nom2 != "") {
-      $result = $result . " et " . formatAuthor ($nom2, $id2);
+      $result = $result . " et " . formatAuthor ($nom2, $a2);
    }
    return $result;
 }
 
-function formatAuthor ($name, $id)
+/**
+ * Génère une chaîne de texte contenant les noms des auteurs formatés, en utilisant un format spécifique pour chaque auteur.
+ *
+ * @param string $name  Les noms des auteurs sous forme de chaîne (séparés par des virgules et/ou "et").
+ * @param object|null $a1  L'objet auteur correspondant au premier nom (ou NULL si non disponible).
+ * @param object|null $a2  L'objet auteur correspondant au deuxième nom (ou NULL si non disponible).
+ * @param object|null $a3  L'objet auteur correspondant au troisième nom (ou NULL si non disponible).
+ * @return string  Les noms des auteurs formatés et concaténés selon leur présence.
+ */
+function awardAuthors ($name, $a1, $a2, $a3)
 {
-      if ($id != NULL) {
-         return "<a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/$id'>$name</a>";
-      }
-      else {
-         return "<span class='text-red-950 italic'>$name</span>";
-      }
+    $result = "";
+
+    // Initialisation des noms des auteurs
+    $nom1 = $nom2 = $nom3 = "";
+
+    // Divise la chaîne des noms pour extraire le premier bloc avant "et"
+    $noms = explode(" et ", $name, 2);
+
+    // Divise le premier bloc par des virgules pour séparer les noms multiples
+    $noms2 = explode(", ", $noms[0], 2);
+    $nom1 = $noms2[0]; // Premier nom trouvé
+
+    // Si un deuxième nom est trouvé après la virgule, l'assigne à $nom2 et le reste de la chaîne à $nom3
+    if (isset($noms2[1]))
+    {
+        $nom2 = $noms2[1];
+        $nom3 = $noms[1] ?? ""; // Utilise le reste de la chaîne après "et" comme $nom3 s'il existe
+    }
+    // Sinon, s'il y a seulement un nom séparé par "et", on l'assigne à $nom2
+    else if (isset($noms[1]))
+    {
+        $nom2 = $noms[1];
+    }
+
+    // Formatage du premier auteur, s'il existe
+    if ($nom1 != "")
+    {
+        $result = formatAuthor ($nom1, $a1);
+    }
+
+    // Si trois auteurs sont présents, les formater et les concaténer
+    if ($nom3 != "")
+    {
+        $result .= ", " . formatAuthor ($nom2, $a2);
+        $result .= " et " . formatAuthor ($nom3, $a3);
+    }
+    // Sinon, s'il y a seulement deux auteurs, les formater et les concaténer
+    else if ($nom2 != "")
+    {
+        $result .= " et " . formatAuthor ($nom2, $a2);
+    }
+
+    // Retourne la chaîne finale avec les auteurs formatés
+    return $result;
+}
+
+
+/**
+ * Formatage du nom de l'auteur avec un lien hypertexte si l'auteur est disponible, sinon affiche le nom en italique.
+ *
+ * @param string $name   Le nom de l'auteur à afficher.
+ * @param object|null $author   L'objet auteur (ou NULL si non disponible), qui contient les informations comme le 'slug'.
+ * @return string   Le nom de l'auteur formaté, soit comme lien hypertexte, soit comme texte en italique.
+ */
+function formatAuthor($name, $author)
+{
+    // Vérifie si l'objet $author n'est pas nul (indiquant que l'auteur existe)
+    if ($author != NULL) {
+        // Retourne le nom de l'auteur comme lien cliquable, stylé avec des classes CSS
+        return "<a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/$author->slug'>$name</a>";
+    }
+    else
+    {
+        // Si l'auteur n'est nul, retourne simplement le nom en texte stylé en italique
+        return "<span class='text-red-950 italic'>$name</span>";
+    }
 }
 
 function StrConvTrad($name)

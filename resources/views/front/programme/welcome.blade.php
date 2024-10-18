@@ -9,7 +9,7 @@
     <b>Programme de publication</b>
 </div>
     <div class='text-xl text-purple-800 mb-2 bold self-center pb-2 italic'>
-        Sous toutes réserves
+        Sous réserve de modifications par les éditeurs.
     </div>
     <div class='text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
         @php

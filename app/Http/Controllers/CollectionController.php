@@ -43,7 +43,7 @@ class CollectionController extends Controller
                 ->orderBy('name', 'asc')
                 ->get();
 
-        $this->context['page'] = 'Collection V2 bêta';
+        $this->context['page'] = 'Collections V2 bêta';
 
         return view('front.collections.v2beta', compact('results'), $this->context);
     }

@@ -14,7 +14,6 @@
              <span class='font-semibold'>{{ $results->name }}</span>
         @endif
         </div>
-
         @if ($results->is_pseudonym)
             <div class='text-base'>
                 Pseudonyme
@@ -65,10 +64,8 @@
 
             @if($autres_pseudos && count($autres_pseudos) !== 0)
                 @foreach ($autres_pseudos as $autre)
-                    @if (!$loop->first)
                         ,
-                    @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature->slug }}'>{{ $autre->fullName }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->fullName }}</a>
                 @endforeach
             @endif
 

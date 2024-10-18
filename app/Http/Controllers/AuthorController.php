@@ -186,12 +186,13 @@ class AuthorController extends Controller
             {
                 $type = 'collaboration';
             }
-            else if ($results->ReferencesCount > 2)
+            else
             {
+                // if ($results->ReferencesCount > 2)
                 $type = 'multi';
             }
 
-            if ($type === 'normal')
+            if ($type == 'normal')
             {
                 // Dans le cas "normal" (auteur sans référence),
                 // on prends tous les titres sous ce nom ou sous signature
@@ -213,7 +214,7 @@ class AuthorController extends Controller
                             ->with(['authors', 'publications.collections', 'publications.publisher', 'parent', 'variants'])
                             ->get();
 
-            if ($type !== 'normal')
+            if ($type != 'normal')
             {
                 $full2 = new \Illuminate\Database\Eloquent\Collection;
                 foreach ($bibliofull as $t)
@@ -251,7 +252,7 @@ class AuthorController extends Controller
                 // Bien entendu, exclure la signature courante !
                 $query = $query . sprintf(") AND signature_id<>'%s'", $id);
                 // ... et les "Trashed" !!!
-                $query = $query . sprintf(" AND signatures.deleted_at=NULL");
+                $query = $query . sprintf(" AND signatures.deleted_at is NULL");
                 $rrr = DB::select($query);
                 // Moyen détourné pour caster le résultat stdClass en modèle Laravel :
                 $autres_pseudos = Author::hydrate($rrr);
@@ -336,7 +337,7 @@ class AuthorController extends Controller
                     // Bien entendu, exclure la signature courante !
                     $query = $query . sprintf(") AND signature_id<>'%s'", $id);
                     // ... et les "Trashed" !!!
-                    $query = $query . sprintf(" AND signatures.deleted_at=NULL");
+                    $query = $query . sprintf(" AND signatures.deleted_at is NULL");
                     $rrr = DB::select($query);
                     // Moyen détourné pour caster le résultat stdClass en modèle Laravel :
                     $autres_pseudos = Author::hydrate($rrr);

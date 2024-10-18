@@ -69,7 +69,7 @@
                 @if ($laureat->position == 99)
                     <div class='bg-gray-300'><a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/annee/{{ $laureat->year }}'>{{ $laureat->year }}</a> : <i>Non attribué</i>  </div>
                 @else
-                    <div><a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/annee/{{ $laureat->year }}'>{{ $laureat->year }}</a> : {!! awardAuthors($laureat->name, $laureat->author_id, $laureat->author2_id, $laureat->author3_id) !!} - {{ $laureat->title }} {{ $laureat->title == "" ? $laureat->vo_title : ($laureat->vo_title == "" ? "" : "(" . $laureat->vo_title . ")") }}  </div>
+                    <div><a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/annee/{{ $laureat->year }}'>{{ $laureat->year }}</a> : {!! awardAuthors($laureat->name, $laureat->author, $laureat->author2, $laureat->author3) !!} - {{ $laureat->title }} {{ $laureat->title == "" ? $laureat->vo_title : ($laureat->vo_title == "" ? "" : "(" . $laureat->vo_title . ")") }}  </div>
                 @endif
             @endforeach
         </div>

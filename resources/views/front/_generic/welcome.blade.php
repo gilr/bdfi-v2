@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-front.menu-index tab='welcome' zone='{{ $area }}' digit='{{ $digit }}'/>
+    <x-front.menu-index tab='welcome' zone='{{ $area }}' digit='{{ $digit }}' searcharea='0'/>
     <div class='text-sm -my-1 p-0 bold self-center hidden sm:inline'>
         La barre d'initiales ci-dessus donne accès aux index paginés.
     </div>
@@ -20,7 +20,7 @@
     <div class='text-lg mx-2 my-1 md:my-2 bold self-center'>
         <form action="{{ route($area . '.search') }}" method="GET">
             Recherche :
-            <input class="px-2 border-2 border-green-500 rounded" type="text" name="s" placeholder='votre recherche...' required/>
+            <input class="px-2 border-2 border-green-500 rounded" type="text" name="s" placeholder='votre recherche...' autofocus required/>
             <input class="appearance-none checked:bg-lime-300 px-2.5 py-1.5 border-2 border-green-500 rounded" id='large' name="m" type="checkbox"/><label class='border-b border-green-500 pl-1' for='large'>Recherche élargie</label>
             <button class="px-2 bg-emerald-200 border-2 border-green-500 rounded" type="submit">Go</button>
         </form>

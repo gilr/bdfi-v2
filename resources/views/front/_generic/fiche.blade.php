@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-front.menu-index tab='{{ strtolower(substr($results->name, 0, 1)) }}' zone='{{ $area }}' digit='{{ $digit }}'/>
+    <x-front.menu-index tab='{{ strtolower(substr($results->name, 0, 1)) }}' zone='{{ $area }}' digit='{{ $digit }}' searcharea='1'/>
 
     <div class='text-2xl my-4 self-center'>
         <b>{{ ($results->full_name ?: $results->name) }}</b>

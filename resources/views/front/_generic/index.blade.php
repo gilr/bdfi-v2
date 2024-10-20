@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-front.menu-index tab='{{ $initial }}' zone='{{ $area }}' digit='{{ $digit }}'/>
+    <x-front.menu-index tab='{{ $initial }}' zone='{{ $area }}' digit='{{ $digit }}' searcharea='1'/>
 
     <div class='text-2xl m-2 self-center h-12'>
         {{ $results->links() }}

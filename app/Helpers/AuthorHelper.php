@@ -183,7 +183,7 @@ function formatAuthorNames ($nbrefs, $nom_bdfi, $prenom, $nom, $pseu, $legal, $f
  *
  * @return string
  */
-function formatAuthorDates ($gender, $birth_date, $date_death, $birthplace, $deathplace)
+function formatAuthorDates ($gender, $birth_date, $date_death, $birthplace, $deathplace, $compact = false)
 {
    $pattern = "";
 
@@ -192,14 +192,19 @@ function formatAuthorDates ($gender, $birth_date, $date_death, $birthplace, $dea
 
    if ($birth_date != "0000-00-00")
    {
-      $pattern = "<br />" . formatBdfiDate($gender, $birth_date, 1, $birthplace) . "\n";
+      if ($compact == false) { $pattern .= "<br />"; }
+      else  { $pattern .= " - "; }
+      $pattern .= formatBdfiDate($gender, $birth_date, 1, $birthplace) . "\n";
    }
    if ($date_death != "0000-00-00")
    {
-      $pattern .= "<br />" . formatBdfiDate($gender, $date_death, 2, $deathplace) . "\n";
+      if ($compact == false) { $pattern .= "<br />"; }
+      else  { $pattern .= " - "; }
+      $pattern .= formatBdfiDate($gender, $date_death, 2, $deathplace) . "\n";
    }
    return $pattern;
 }
+
 function oldFormatAuthorDates ($gender, $birth_date, $date_death, $deathplace)
 {
    $pattern = "";

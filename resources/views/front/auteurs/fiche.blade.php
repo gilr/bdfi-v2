@@ -194,7 +194,7 @@
                 <span class='font-semibold'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/pays/{{ $auteur->country->name }}'>{{ $auteur->country->name }}</a>
                 </span>
-            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->place_death); !!}
+            {!! formatAuthorDates ($auteur->gender, $auteur->birth_date, $auteur->date_death, $auteur->birthplace, $auteur->place_death, true); !!}
             </div>
             @endforeach
         </div>
@@ -205,7 +205,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->signature->slug }}'>{{ $autre->fullName }}</a></span>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->fullName }}</a></span>
                 @endforeach
             </div>
         @endif

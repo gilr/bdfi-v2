@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-front.menu-index tab='9' zone='{{ $area }}' digit='{{ $digit }}'/>
+    <x-front.menu-index tab='9' zone='{{ $area }}' digit='{{ $digit }}' searcharea='1'/>
 
     <div class='text-2xl my-2 md:mt-8 bold self-center'>
         @if ((!auth()->user()) || (auth()->user() && auth()->user()->with_icons))

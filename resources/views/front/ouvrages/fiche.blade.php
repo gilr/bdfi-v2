@@ -18,6 +18,16 @@
 <div class='grid grid-cols-1 lg:grid-cols-12 gap-0.5 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
 
 <div class='bg-gray-100 lg:col-span-5 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+     @if ($results->status === App\Enums\PublicationStatus::ANNONCE)
+        <img src='/img/warning.png' class="inline w-5 mb-1" /> <span class="font-semibold text-red-700">Publication annoncée</span>
+     @endif
+     @if ($results->status === App\Enums\PublicationStatus::ABANDONNE)
+        <img src='/img/warning.png' class="inline w-5 mb-1" /> <span class="font-semibold text-red-700">Ouvrage annoncé, mais jamais publié</span>
+     @endif
+     @if ($results->status === App\Enums\PublicationStatus::PROPOSE)
+        <img src='/img/warning.png' class="inline w-5 mb-1" /> <span class="font-semibold text-red-700">Sous réserve - référencement en cours de traitement</span>
+     @endif
+
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
          {{ $results->name }}
     </div>

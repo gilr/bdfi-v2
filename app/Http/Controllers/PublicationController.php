@@ -144,6 +144,7 @@ class PublicationController extends Controller
             $prev = array();
             $next = array();
             $last = array();
+            $progression = array();
             $ipn = 0;
             foreach ($results->collections as $collection)
             {
@@ -163,7 +164,7 @@ class PublicationController extends Controller
                     DB::table('publications')->where('id', $pivot_next->publication_id)->value('slug') : 0;
                 $last[$ipn] = ($collection->pivot->order !== $nb && $pivot_last !== null) ?
                     DB::table('publications')->where('id', $pivot_last->publication_id)->value('slug') : 0;
-
+                $progression[$ipn] = $collection->pivot->order / $nb;
                 $ipn++;
             }
 
@@ -212,7 +213,7 @@ class PublicationController extends Controller
                 $images["Dos avec bandeau"] = $results->withband_spine;
             }
 */
-            return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'images'), $this->context);
+            return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'progression', 'images'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -259,6 +260,7 @@ class PublicationController extends Controller
                 $prev = array();
                 $next = array();
                 $last = array();
+                $progression = array();
                 $ipn = 0;
                 foreach ($results->collections as $collection)
                 {
@@ -274,6 +276,7 @@ class PublicationController extends Controller
                     $prev[$ipn] = $pivot_prev ? $pivot_prev->publication_id : 0;
                     $next[$ipn] = $pivot_next ? $pivot_next->publication_id : 0;
                     $last[$ipn] = $collection->pivot->order !== $nb ? ($pivot_last !== NULL ? $pivot_last->publication_id : 0) : 0;
+                    $progression[$ipn] = $collection->pivot->order / $nb;
                     $ipn++;
                 }
 
@@ -297,7 +300,7 @@ class PublicationController extends Controller
                     $images["4ième avec bandeau"] = $results->cover_front;
                 }
 
-                return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'images'), $this->context);
+                return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'progression', 'images'), $this->context);
             }
             else
             {

@@ -14,14 +14,19 @@ class PublicationCarousel extends Component
         $this->images = $images;
     }
 
-    public function next()
+    public function nextImage()
     {
         $this->currentIndex = ($this->currentIndex + 1) % count($this->images);
     }
 
-    public function prev()
+    public function prevImage()
     {
         $this->currentIndex = ($this->currentIndex - 1 + count($this->images)) % count($this->images);
+    }
+
+    public function setImage($index)
+    {
+        $this->currentIndex = $index;
     }
 
     public function render()

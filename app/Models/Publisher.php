@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -50,30 +52,30 @@ class Publisher extends Model
         ];
     }
 
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo('App\Models\Country');
     }
 
-    public function collections()
+    public function collections(): HasMany
     {
         return $this->hasMany('App\Models\Collection');
     }
-    public function collections2()
+    public function collections2(): HasMany
     {
         return $this->hasMany('App\Models\Collection', 'publisher2_id');
     }
-    public function collections3()
+    public function collections3(): HasMany
     {
         return $this->hasMany('App\Models\Collection', 'publisher3_id');
     }
 
-    public function publications()
+    public function publications(): HasMany
     {
         return $this->hasMany('App\Models\Publication');
     }
 
-    public function publicationsWithoutCollection()
+    public function publicationsWithoutCollection(): HasMany
     {
         return $this->hasMany('App\Models\Publication')
                 ->whereNotIn('id', function ($query) {

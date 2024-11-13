@@ -10,7 +10,7 @@
     <div class='text-base px-2 mx-2 md:mx-40 self-center'>
         @foreach($prix as $item)
             <div class='hover:bg-purple-100 border-b hover:border-purple-600'>
-                <a class='sm:p-0.5 md:px-0.5' href='/prix/{{ $item->id }}'>{{ $item->name }}</a>
+                <a class='sm:p-0.5 md:px-0.5' href='/prix/{{ $item->slug }}'>{{ $item->name }}</a>
             </div>
         @endforeach
 @endsection

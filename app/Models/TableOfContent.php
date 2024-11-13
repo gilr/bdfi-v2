@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 // Voir commentaires dans AuthorPublication
 //use Illuminate\Database\Eloquent\SoftDeletes;
@@ -34,11 +35,11 @@ class TableOfContent extends Pivot
 
     public $incrementing = true;
 
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author');
     }
-    public function title()
+    public function title(): BelongsTo
     {
         return $this->belongsTo('App\Models\Title');
     }

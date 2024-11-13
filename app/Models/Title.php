@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -67,32 +69,32 @@ class Title extends Model
                     ->orderBy('approximate_parution', 'asc');
     }
 
-    public function parent()
+    public function parent(): BelongsTo
     {
         return $this->belongsTo('App\Models\Title');
     }
 
-    public function variants()
+    public function variants(): HasMany
     {
         return $this->hasMany('App\Models\Title', 'parent_id')
             ->where('variant_type', '!=', 'feuilleton')
             ->orderBy('copyright_fr', 'asc');
     }
 
-    public function episodes()
+    public function episodes(): HasMany
     {
         return $this->hasMany('App\Models\Title', 'parent_id')
             ->where('variant_type', 'feuilleton')
             ->orderBy('copyright_fr', 'asc');
     }
 
-    public function authors()
+    public function authors(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author')
                     ->withTimestamps();
     }
 
-    public function cycles()
+    public function cycles(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Cycle')
                     ->withTimestamps()

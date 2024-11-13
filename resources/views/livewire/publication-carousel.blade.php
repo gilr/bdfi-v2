@@ -77,6 +77,6 @@
 <script>
     setInterval(() => {
        $wire.nextImage();
-    }, 10000);
+    }, 5000);
 </script>
 @endscript

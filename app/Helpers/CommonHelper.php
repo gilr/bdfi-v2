@@ -1,6 +1,54 @@
 <?php
 
 
+/**
+ * Construction du contenu du bloc "info membre" d'une fiche quelconque
+ *
+ * @return string
+ */
+
+function BuildRecordInfo($filament, $area, $results): string
+{
+    $recordInfo = "<div class='text-sm pt-2'>Fiche racine créée le $results->updated_at par ". $results->creator->name . ", et mise à jour le $results->updated_at par " . $results->editor->name . ".";
+
+    if (Auth::user() && (Auth::user()->hasMemberRole()))
+    {
+        $recordInfo .= "<br />Vous pouvez modifier la <a class='text-red-700' href='/filament/$filament/$results->id' target='_blank'>fiche $area <span class='font-bold'>" . ($results->full_name ?: $results->name) . "</span></a> (s'ouvre dans un nouvel onglet).";
+    }
+    if (isset($results->nom_bdfi) && ($results->nom_bdfi !== ""))
+    {
+        $recordInfo .= "<br />Nom BDFI (temporaire) : <span class='font-semibold'>" . $results->nom_bdfi . "</span>";
+    }
+    if (isset($results->sigle_bdfi) && ($results->sigle_bdfi !== ""))
+    {
+        $recordInfo .= "<br />Sigle BDFI (temporaire) : <span class='font-semibold'>" . $results->sigle_bdfi . "</span>";
+    }
+    if (isset($results->quality))
+    {
+        $recordInfo .= "<br />Qualité fiche  : <span class='font-semibold'>" . $results->quality->getLabel() . "</span>";
+    }
+    if (isset($results->private))
+    {
+        if ($results->private)
+        {
+            $recordInfo .= "<br />Infos internes/privées/de travail : <div class='my-2 p-1 border border-yellow-500 bg-yellow-50'>" . $results->private . "</div>";
+        }
+        else
+        {
+            $recordInfo .= "<br />Pas d'infos internes/privées/de travail.";
+        }
+    }
+
+    $recordInfo .= "</div>";
+    return $recordInfo;
+}
+
+/**
+ * Recherche de l'initiale d'une image de couverture
+ * S'il s'agit d'un chiffre de 0 à 9, retourne "09"
+ *
+ * @return string
+ */
 function InitialeCouv($file): string
 {
     $initiale = substr($file, 0, 1);
@@ -11,6 +59,12 @@ function InitialeCouv($file): string
     return $initiale;
 }
 
+/**
+ * Conversion d'un numéro de série en chaîne en clair
+ * En particulier, les "3/4" sont transformés en "3 et 4", et les "1/5" en "1 à 5"
+ *
+ * @return string
+ */
 function StrConvCycleNum($num): string
 {
     $numParts = explode('/', $num);
@@ -425,7 +479,7 @@ function isbnCheckAndConvert ($isbn,$m = "convert") {
         // 0234567899 is a valid number
         $total = 0;
         for ($pos=0; $pos<9; $pos++) {
-            $total = $total + (substr($x, $pos, 1) * (10 - $pos));
+            $total = $total + ((int)substr($x, $pos, 1) * (10 - $pos));
         }
 
         // check digit
@@ -505,7 +559,7 @@ function isbnCheckAndConvert ($isbn,$m = "convert") {
 
             $total = 0;
             for ($pos=0; $pos<9; $pos++) {
-                $total = $total + (substr($isbnnum, $pos, 1) * (10-$pos));
+                $total = $total + ((int)substr($isbnnum, $pos, 1) * (10-$pos));
             }
             $checksum = (11 - ($total % 11)) % 11;
             if ($checksum == 10) { $checksum = "X"; }

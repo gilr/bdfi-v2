@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers\Filament;
+use App\Http\Middleware\MaintenanceModeAdmin;
 
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
@@ -57,6 +58,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                MaintenanceModeAdmin::class,
             ])
             ->authMiddleware([
                 Authenticate::class,

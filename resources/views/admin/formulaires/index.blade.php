@@ -21,12 +21,14 @@
                             </ul>
                         </div>
                     @endif
-                    @if (auth()->user()->isMember())
+                    @if (auth()->user()->hasMemberRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Création rapide
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link>
+                                --- ou --- <x-admin.link lien='formulaires/auteurs/select'>Modification auteur existant</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue non déjà recensée</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/programme-parution'>Ajout publication à paraître</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou inconnu</x-admin.link></li>
@@ -42,6 +44,12 @@
                                 <li><x-admin.link lien='formulaires/programmes-echus'>Confirmation publication programmée, date échue</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/programmes-non-echus'>Confirmation publication programmée, date non échue</ x-admin.link></li>
                             </ul>
+                        </div>
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Vérifications rapides
+                        </div>
+                        <div class="p-2">
+                            <livewire:author-search intro="" label="Vérifier l'existence d'auteur" />
                         </div>
                     @endif
                 </div>

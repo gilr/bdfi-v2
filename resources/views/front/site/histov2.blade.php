@@ -14,15 +14,20 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 7.1 - 22/10/2024
+        Version V2 bêta 7.5 - 13/11/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
-            <li>Amélioration carrousel et plusieurs corrections.</li>
+            <li>Ajout de modes maintenance (un pour le site, un pour l'admin)</li>
+            <li>Révision du design et zoom image sur la fiche retirage, amélioration sur page ouvrage</li>
+            <li>Bloc des dernières discussions du forum en page d'accueil</li>
+            <li>Admin: vérifier si un auteur existe et créer un auteur sans passer par l'admin table</li>
+            <li>Admin: regroupement outils et rapports</li>
+            <li>Rendre collapsable les infos de page d'accueil et les blocs 'membres' de bas de fiche</li>
         </ul>
     </div>
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 7 - 16/10/2024
+        Version V2 bêta 7 - 22/10/2024
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
@@ -36,7 +41,7 @@
             <li>Amélioration de la page d'accueil des salons et évènements</li>
             <li>Ajout d'une page listant les collections de la version béta...</li>
             <li>... et indiquant en pages éditeurs et recherche collection si une collection est présente en version bêta</li>
-            <li>Ajout d'une première version d'un carrousel de quelques publication récentes en page d'accueil</li>
+            <li>Ajout d'un carrousel de quelques publication récentes en page d'accueil</li>
             <li>Mise en place de la version bêta sous bdfi.net (ne remplace pas le site de test existant)</li>
             <li>Gestion des spécificités particulières (indication, users) aux sites de test et de production</li>
         </ul>

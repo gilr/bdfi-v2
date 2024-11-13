@@ -3,7 +3,7 @@
     <x-slot name="header">
         @if (Auth::user()->role->value != App\Enums\UserRole::USER->value)
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Administration BDFI - Rapports et outils') }}
+                {{ __('Administration BDFI - Formulaire, outils et accès aux tables') }}
             </h2>
         @else
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">

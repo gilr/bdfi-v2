@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
@@ -28,19 +29,19 @@ class AwardWinner extends Model
 
     protected $dontKeepRevisionOf = ['deleted_by'];
 
-    public function award_category()
+    public function award_category(): BelongsTo
     {
         return $this->belongsTo('App\Models\AwardCategory');
     }
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author', 'author_id');
     }
-    public function author2()
+    public function author2(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author', 'author2_id');
     }
-    public function author3()
+    public function author3(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author', 'author3_id');
     }

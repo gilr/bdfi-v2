@@ -196,7 +196,7 @@ class AuthorController extends Controller
             {
                 // Dans le cas "normal" (auteur sans référence),
                 // on prends tous les titres sous ce nom ou sous signature
-                $plucked = $results->signatures()->get()->pluck('id');
+                $plucked = $results->signatures()->pluck('signatures.id');
                 $plucked->prepend($id);
             }
             else
@@ -259,7 +259,8 @@ class AuthorController extends Controller
             }
             $award_years = AwardWinner::where('author_id', $id)->orWhere('author2_id', $id)->orWhere('author3_id', $id)->get('year')->sort()->unique('year')->toArray();
 
-            return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos', 'bibliofull'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos', 'bibliofull', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -350,7 +351,8 @@ class AuthorController extends Controller
                     ->unique('year')
                     ->toArray();
 
-                return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'award_years', 'type', 'autres_pseudos', 'info'), $this->context);
             }
             else
             {
@@ -371,7 +373,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.formulaires.creer_auteur');
     }
 
     /**
@@ -380,53 +382,30 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAuthorRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $liste_pays = [
+            'France' => Country::select('id')->where('name', 'France')->get(),
+            'Canada' => Country::select('id')->where('name', 'canada')->get(),
+            'Etats-Unis' => Country::select('id')->where('name', 'Etats-Unis')->get(),
+            'Royaume Uni' => Country::select('id')->where('name', 'Royaume Uni')->get(),
+            '?' => Country::select('id')->where('name', '?')->get()
+        ];
+
+        $pays = $liste_pays["$request->pays"];
+
+        $auteur = Author::create([
+            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'country_id' => $pays[0]['id'],
+            'gender' => $request->gender,
+            'birth_date' => $request->birth_date,
+            'quality' => 'vide',
+        ]);
+
+        return view ('admin.formulaires.creer_auteur', $this->context)->with('status', true)->with('id', $auteur->id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Author $author)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Author $author)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Author $author)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Author $author)
-    {
-        //
-    }
 }

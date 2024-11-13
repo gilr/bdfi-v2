@@ -27,8 +27,8 @@
                                 {{ __('Formulaires') }}
                             </x-nav-link>
                         @endif
-                        <x-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
-                            {{ __('Rapports') }}
+                        <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
+                            {{ __('Formulaires') }}
                         </x-nav-link>
                         <x-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
                             {{ __('Outils') }}
@@ -179,8 +179,8 @@
                 <x-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                     {{ __('Administration') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
-                    {{ __('Rapports') }}
+                <x-responsive-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
+                    {{ __('Formulaires') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
                     {{ __('Outils') }}

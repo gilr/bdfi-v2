@@ -600,7 +600,9 @@
             <div class="flex flex-wrap">
             @foreach ($pubs as $pub)
                 <!-- zone couverture -->
-                <a class='m-auto p-1 lg:p-2' href="/ouvrages/{{ $pub['slug'] }}"><img class='m-auto p-1 lg:p-2 border border-purple-800 h-40' src="https://www.bdfi.info/medium/{{ InitialeCouv($pub['cover_front']) }}/m_{{ $pub['cover_front'] }}.jpg" alt="couv" title="Couverture {{ $pub['name'] }}"></a>
+                <a class='m-auto p-1 lg:p-2' href="/ouvrages/{{ $pub['slug'] }}">
+                    <img class='m-auto p-0.5 md:p-1 border border-purple-800 h-40' src="https://www.bdfi.info/medium/{{ InitialeCouv($pub['cover_front']) }}/m_{{ $pub['cover_front'] }}.jpg" alt="couv" title="Couverture {{ $pub['name'] }}">
+                </a>
             @endforeach
             </div>
         </div>

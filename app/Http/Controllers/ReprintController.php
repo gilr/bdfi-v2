@@ -109,7 +109,8 @@ class ReprintController extends Controller
         {
             // /ouvrages/{slug}
             $this->context['page'] = $results->name;
-            return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -154,7 +155,8 @@ class ReprintController extends Controller
                 else {
                     $this->context['page'] = "$text";
                 }
-                return view ('front._generic.fiche', compact('results'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
             }
             else
             {
@@ -168,58 +170,4 @@ class ReprintController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReprintRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReprintRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reprint  $reprint
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reprint $reprint)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateReprintRequest  $request
-     * @param  \App\Models\Reprint  $reprint
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateReprintRequest $request, Reprint $reprint)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reprint  $reprint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Reprint $reprint)
-    {
-        //
-    }
 }

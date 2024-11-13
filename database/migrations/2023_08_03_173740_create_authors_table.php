@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enums\AuthorGender;
+use App\Enums\QualityStatus;
 
 return new class extends Migration
 {
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->string('nom_bdfi', 64)->nullable();
             $table->string('legal_name', 128)->nullable();
             $table->string('alt_names', 512)->nullable();
-            $table->boolean('is_pseudonym');
+            $table->boolean('is_pseudonym')->default(false);;
 
             $table->string('gender')->default(AuthorGender::INCONNU->value); // Enum AuthorGender['F', 'H', 'IEL', '?'])
 
@@ -45,11 +46,11 @@ return new class extends Migration
             $table->string('date_death', 10)->nullable();
             $table->string('place_death', 64)->nullable();
 
-            $table->boolean('is_visible');
+            $table->boolean('is_visible')->default(true);;
             $table->text('information')->nullable(); // Biographie
             $table->text('private')->nullable();
 
-            $table->string('quality'); // Enum QualityStatus
+            $table->string('quality')->default(QualityStatus::VIDE->value);; // Enum QualityStatus
 
             $table->timestamps();
             $table->unsignedSmallInteger('created_by')->nullable();

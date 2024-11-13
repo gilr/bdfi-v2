@@ -134,7 +134,8 @@ class CollectionController extends Controller
         {
             // /collections/{slug}
             $this->context['page'] = $results->name;
-            return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -178,7 +179,8 @@ class CollectionController extends Controller
                 else {
                     $this->context['page'] = "$text";
                 }
-                return view ('front._generic.fiche', compact('results'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
             }
             else
             {
@@ -226,37 +228,4 @@ class CollectionController extends Controller
         return view ('admin.formulaires.creer_collection', $this->context)->with('status', true)->with('id', $collection->id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Collection $collection)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCollectionRequest  $request
-     * @param  \App\Models\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCollectionRequest $request, Collection $collection)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Collection $collection)
-    {
-        //
-    }
 }

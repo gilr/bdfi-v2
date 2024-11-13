@@ -15,6 +15,7 @@
     @endif
 @endauth
 
+{{-- 12 colonnes, 5 puis 3 puis 4 --}}
 <div class='grid grid-cols-1 lg:grid-cols-12 gap-0.5 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
 
 <div class='bg-gray-100 lg:col-span-5 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
@@ -133,7 +134,7 @@
     </div>
 
     <div class='text-base'>
-        Illustration/copyright couverture : <span class='font-semibold'>{{ $results->cover }}</span>
+        Illustration/copyright couverture : <span class='font-semibold'>{{ normalizeCopyright($results->cover) }}</span>
     </div>
 
     @if (($results->illustrators) && ($results->illustrators != "?"))
@@ -193,18 +194,15 @@
 </div>
 
 <div class='bg-gray-100 lg:col-span-3'>
-    <!-- zone couverture -->
-    @foreach ($images as $key => $value)
-        @if ($loop->first)
-            <img style="max-width: 250px; max-height:450px" class='px-1 mx-auto hover-shadow preview' src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide(1)" alt="couverture" title="{{ $key }}">
-            <div class="grid grid-cols-{{ $loop->count - 1 }} mx-auto max-w-fit">
-        @else
-            <div class="w-14 py-2 px-0.5"><img class="px-0.5 hover-shadow preview" src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" onclick="openLightbox();toSlide({{ $loop->iteration }})" /></div>
-        @endif
-        @if ($loop->last)
-            </div>
-        @endif
-    @endforeach
+    {{-- zone couverture essai pour remplacement --}}
+    @php
+        $covers = array();
+        foreach ($images as $key => $value)
+        {
+            $covers[] = array('url' => "https://www.bdfi.info/couvs/" . InitialeCouv($value) . "/" . $value . ".jpg", 'name' => $key);
+        }
+    @endphp
+    <livewire:cover-slide :covers="$covers" />
 </div>
 
 <div class='bg-gray-100 lg:col-span-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
@@ -377,7 +375,6 @@
         </div>
     @endif
 </div>
-
 </div>
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
@@ -450,182 +447,3 @@
     @endif
     @endif
 </div>
-
-  <style>
-    .preview {
-      width: 100%;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .row > .col {
-      padding: 0 8px;
-    }
-
-    .col {
-      float: left;
-      width: 25%;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: black;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 10px;
-    }
-
-    .modal-content {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: auto;
-      padding: 5px;
-      max-width: 1000px;
-      opacity: 1;
-    }
-
-    .slide {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: auto;
-    }
-
-    .slide > img {
-        background-color: white;
-        opacity: 1;
-        box-shadow: 0px 0px 5px 10px rgba(250, 250, 250, 0.8), 0px 0px 10px 15px rgba(50, 50, 250, 0.5)
-    }
-    .image-slide {
-        width: auto;
-    }
-
-    img.active,
-    .preview:hover {
-      opacity: 1;
-    }
-
-    img.hover-shadow {
-      transition: 0.3s;
-    }
-
-    .hover-shadow:hover {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
-      cursor: pointer;
-   }
-
-    .close {
-      z-index: 1;
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      color: white;
-      padding: 0px 12px 5px 12px;
-      font-size: 35px;
-      font-weight: 800;
-      border-radius: 5px;
-    }
-
-    .close:hover,
-    .close:focus {
-      text-decoration: none;
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 1);
-      color: violet;
-    }
-
-    .previous,
-    .next {
-      z-index: 1;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      margin-top: -50px;
-      color: white;
-      padding: 5px 16px;
-      font-size: 35px;
-      font-weight: bold;
-      transition: 0.6s ease;
-      border-radius: 4px;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .next {
-      right: 0;
-    }
-
-    .previous:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 1);
-      color: violet;
-    }
-  </style>
-
-  <div id="Lightbox" class="modal">
-    <span class="close pointer" onclick="closeLightbox()">&times;</span>
-    <div class="modal-content">
-        @foreach ($images as $key => $value)
-            <div class="slide">
-                <span class="rounded ml-2 px-1 bg-violet-100"> {{ $loop->iteration }} / {{ $loop->count }} - {{ $key }} </span><img src="https://www.bdfi.info/couvs/{{ InitialeCouv($value) }}/{{ $value }}.jpg" class="image-slide" alt="{{ $key }}." />
-            </div>
-            @if (($loop->last) && ($loop->count > 1))
-                <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="next" onclick="changeSlide(1)">&#10095;</a>
-            @endif
-        @endforeach
-    </div>
-  </div>
-
-  <script>
-    let slideIndex = 1;
-    showSlide(slideIndex);
-
-    function openLightbox() {
-      document.getElementById('Lightbox').style.display = 'block';
-    };
-
-    function closeLightbox() {
-      document.getElementById('Lightbox').style.display = 'none';
-    };
-
-    function changeSlide(n) {
-      showSlide(slideIndex += n);
-    };
-
-    function toSlide(n) {
-      showSlide(slideIndex = n);
-    };
-
-    function showSlide(n) {
-      const slides = document.getElementsByClassName('slide');
-
-      if (n > slides.length) {
-        slideIndex = 1;
-      };
-
-      if (n < 1) {
-        slideIndex = slides.length;
-      };
-
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      };
-
-      slides[slideIndex - 1].style.display = 'block';
-    };
-  </script>

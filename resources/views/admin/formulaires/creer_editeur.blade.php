@@ -57,9 +57,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Année de création :
                 {{ html()->text($name = "year_start")->size(5)->class("m-2 bg-yellow-100")->class("font-mono")->placeholder("2024") }}
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                Peut temporairement être mis à 0.
+                (Peut temporairement être mis à 0).
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 Pays :

@@ -4,8 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -61,21 +64,21 @@ class Publication extends Model
         ];
     }
 
-    public function publisher()
+    public function publisher(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publisher');
     }
-    public function collections()
+    public function collections(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection')
                     ->withTimestamps()
                     ->withPivot('id', 'order','number');
     }
-    public function reprints()
+    public function reprints(): HasMany
     {
         return $this->hasMany('App\Models\Reprint');
     }
-    public function titles()
+    public function titles(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Title', 'table_of_content')
                     ->withTimestamps()
@@ -83,7 +86,7 @@ class Publication extends Model
                     ->using('App\Models\TableOfContent');
 //                    ->orderByPivot('start_page', 'asc');
     }
-    public function authors()
+    public function authors(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author')
                     ->withTimestamps()

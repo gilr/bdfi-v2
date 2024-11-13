@@ -34,7 +34,7 @@
                         Pour mettre à jour la publication, c'est ici :
                          <a class="text-red-700" href="/filament/{{ $filament }}/{{ $id }}" target="_blank">fiche {{ $area }} <span class="font-bold"> {{ $id }}</span></a> (s'ouvre dans un nouvel onglet). Entre autres, il faut en définir le contenu, en attachant un titre (qu'il peut falloir créer d'abord), et en général également attacher un ou plusieurs auteurs. Certaines de ces étapes seront rapatriées dans cette zone, mais en attendant, il faut passer par les tables. Si l'ouvrage est possédé, il faut également le passer "vérifié" en saisisant les données de l'onglet 'infos livre'.<br />
                     </div>
-                    <div class="p-2 bg-green-100">
+                    <div class="font-semibold p-2 bg-green-100">
                         Vous pouvez en créer une autre :
                     </div>
                 </div>

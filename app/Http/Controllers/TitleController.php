@@ -112,7 +112,8 @@ class TitleController extends Controller
         {
             // /textes/{slug}
             $this->context['page'] = $results->name;
-            return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -153,7 +154,8 @@ class TitleController extends Controller
                 else {
                     $this->context['page'] = "$text";
                 }
-                return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
             }
             else
             {
@@ -168,62 +170,4 @@ class TitleController extends Controller
         }
     }
 
-
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTitleRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreTitleRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Title  $title
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Title $title)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTitleRequest  $request
-     * @param  \App\Models\Title  $title
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateTitleRequest $request, Title $title)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Title  $title
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Title $title)
-    {
-        //
-    }
 }

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -89,44 +90,43 @@ class User extends Authenticatable
         return "Utilisateur";
     }
 
-    public function collections()
+    public function collections(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->withTimestamps();
     }
-    public function collections_en_cours()
+    public function collections_en_cours(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->wherePivot('status', 'en_cours');
     }
-    public function collections_quasi_ok()
+    public function collections_quasi_ok(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->wherePivot('status', 'quasi_ok');
     }
-    public function collections_terminees()
+    public function collections_terminees(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->wherePivot('status', 'terminee');
     }
-    public function collections_en_pause()
+    public function collections_en_pause(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->wherePivot('status', 'en_pause');
     }
-    public function collections_cachees()
+    public function collections_cachees(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Collection', 'user_collection', 'user_id', 'collection_id')
                     ->withPivot(['status'])
                     ->wherePivot('status', 'cachee');
     }
-
-    public function publications()
+    public function publications(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication', 'user_publication', 'user_id', 'publication_id')
                     ->withTimestamps();

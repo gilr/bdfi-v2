@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -17,7 +21,6 @@ use App\Enums\CollectionGenre;
 use App\Enums\CollectionType;
 use App\Enums\CollectionPeriodicity;
 use App\Enums\QualityStatus;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Collection extends Model
 {
@@ -63,27 +66,27 @@ class Collection extends Model
         ];
     }
 
-    public function publisher()
+    public function publisher(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publisher');
     }
-    public function publisher2()
+    public function publisher2(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publisher', 'publisher2_id');
     }
-    public function publisher3()
+    public function publisher3(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publisher', 'publisher3_id');
     }
-    public function parent()
+    public function parent(): BelongsTo
     {
         return $this->belongsTo('App\Models\Collection');
     }
-    public function subcollections()
+    public function subcollections(): HasMany
     {
         return $this->hasMany('App\Models\Collection', 'parent_id');
     }
-    public function publications()
+    public function publications(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'paru')
@@ -91,7 +94,7 @@ class Collection extends Model
                 ->withPivot('id', 'order','number')
                 ->orderByPivot('order', 'asc');
     }
-    public function publication_announced()
+    public function publication_announced(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'annonce')
@@ -99,7 +102,7 @@ class Collection extends Model
                 ->withPivot('id', 'order','number')
                 ->orderByPivot('order', 'asc');
     }
-    public function publication_proposals()
+    public function publication_proposals(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'proposal')
@@ -107,7 +110,7 @@ class Collection extends Model
                 ->withPivot('id', 'order','number')
                 ->orderByPivot('order', 'asc');
     }
-    public function publication_abandonned()
+    public function publication_abandonned(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'abandon')

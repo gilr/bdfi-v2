@@ -114,7 +114,8 @@ class AwardController extends Controller
             //$laureats = $result->award_winners()->orderBy('year', 'asc')->get();
             $laureats = AwardWinner::where('award_category_id', $category_id)->orderBy('year', 'asc')->get();
 
-            return view('front.prix.categorie', compact('result', 'prix', 'categorie', 'laureats'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $result);
+            return view('front.prix.categorie', compact('result', 'prix', 'categorie', 'laureats', 'info'), $this->context);
         }
         else
         {
@@ -136,7 +137,8 @@ class AwardController extends Controller
             if ($categories->count() == 1) {
                 $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
             }
-            return view('front.prix.prix', compact('results', 'categories', 'laureats'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view('front.prix.prix', compact('results', 'categories', 'laureats', 'info'), $this->context);
         }
         else
         {
@@ -175,7 +177,8 @@ class AwardController extends Controller
                 if ($categories->count() == 1) {
                     $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
                 }
-                return view('front.prix.prix', compact('results', 'categories', 'laureats'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view('front.prix.prix', compact('results', 'categories', 'laureats', 'info'), $this->context);
             }
             else
             {
@@ -189,79 +192,4 @@ class AwardController extends Controller
 
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Award  $award
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Award $award)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Award  $award
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Award $award)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Award  $award
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Award $award)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Award  $award
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Award $award)
-    {
-        //
-    }
 }

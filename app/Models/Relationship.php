@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
@@ -33,15 +34,15 @@ class Relationship extends Pivot
 
     public $incrementing = true;
 
-    public function author1()
+    public function author1(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author');
     }
-    public function author2()
+    public function author2(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author');
     }
-    public function relationship_type()
+    public function relationship_type(): BelongsTo
     {
         return $this->belongsTo('App\Models\RelationshipType');
     }

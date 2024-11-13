@@ -4,8 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -51,17 +54,17 @@ class Cycle extends Model
         ];
     }
 
-    public function parent()
+    public function parent(): BelongsTo
     {
         return $this->belongsTo('App\Models\Cycle');
     }
 
-    public function subseries()
+    public function subseries(): HasMany
     {
         return $this->hasMany('App\Models\Cycle', 'parent_id');
     }
 
-    public function titles()
+    public function titles(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Title')
                     ->withTimestamps()

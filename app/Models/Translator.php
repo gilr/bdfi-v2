@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use App\Enums\AuthorGender;
@@ -35,7 +36,7 @@ class Translator extends Model
 
     protected $dontKeepRevisionOf = ['deleted_by'];
 
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author', 'author_id');
     }

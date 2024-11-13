@@ -2,7 +2,9 @@
     @foreach ($results->publications as $publication)
         <!-- zone couverture -->
         <div class='m-auto p-2'>
-            <a class='m-auto my-0 py-0' href='/ouvrages/{{ $publication->slug }}'><img class='m-auto p-1 lg:p-2 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title='{{ $publication->name }}'></a>
+            <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
+                <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title='{{ $publication->name }}'>
+            </a>
             <div class='text-center'>
                 @if(isset($publication->publisher))
                     {{ $publication->publisher->name }}

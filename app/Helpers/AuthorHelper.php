@@ -56,9 +56,9 @@ function displayAuthorBiblio ($analyse, $results, $title)
       else
       {
          // Cas 2 : une seule signature, mais différente
-         $id = $title->authors[0]->id;
+         $slug = $title->authors[0]->slug;
          $nom = $title->authors[0]->fullname;
-         $credit = " signé <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$id'>$nom</a>";
+         $credit = " signé <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$slug'>$nom</a>";
          return "$credit";
       }
    }
@@ -88,7 +88,7 @@ function displayAuthorBiblio ($analyse, $results, $title)
             {
                if ($author->id != $results->id)
                {
-                  $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->id'>$author->fullname</a>";
+                  $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->fullname</a>";
                }
             }
             return "$credit";
@@ -106,13 +106,19 @@ function displayAuthorBiblio ($analyse, $results, $title)
             $credit = "";
             foreach($title->authors as $author)
             {
-               $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->id'>$author->fullname</a>";
+               $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->fullname</a>";
             }
             return "$credit";
          }
       }
    }
 
+}
+
+function check_page($name)
+{
+   // TO DO !!!!!
+   return "https://wwww.bdfi.net/";
 }
 
 /**
@@ -201,29 +207,6 @@ function formatAuthorDates ($gender, $birth_date, $date_death, $birthplace, $dea
       if ($compact == false) { $pattern .= "<br />"; }
       else  { $pattern .= " - "; }
       $pattern .= formatBdfiDate($gender, $date_death, 2, $deathplace) . "\n";
-   }
-   return $pattern;
-}
-
-function oldFormatAuthorDates ($gender, $birth_date, $date_death, $deathplace)
-{
-   $pattern = "";
-
-   if ($birth_date === NULL) { $birth_date = "0000-00-00"; }
-   if ($date_death === NULL) { $date_death = "0000-00-00"; }
-
-   if (($birth_date != "0000-00-00") && ($date_death != "0000-00-00"))
-   {
-      $pattern = " (" . (($birthplace != "") ? $birthplace . ", " : ""); 
-      $pattern .= formatBdfiDate($gender, $birth_date, 1) . " - " . formatBdfiDate($gender, $date_death, 2) . ")\n";
-   }
-   else if ($birth_date != "0000-00-00")
-   {
-      $pattern = " (" . formatBdfiDate($gender, $birth_date, 1, $birthplace) . ")\n";
-   }
-   else if ($date_death != "0000-00-00")
-   {
-      $pattern = " (" . formatBdfiDate($gender, $date_death, 2, $deathplace) . ")\n";
    }
    return $pattern;
 }
@@ -324,11 +307,17 @@ function formatBdfiDate ($gender, $str, $mode, $place="")
          return ($place != '' ? "$ne à $place, ": "") . "$decede en $an";
       }
    }
+   else
+   {
+      exit("error mode");
+   }
 }
 
 
 function awardAuthors2 ($name, $a1, $a2, $a3)
 {
+   $result="";
+
    $nom1 = $nom2 = $nom3 = "";
    $noms = explode(" et ", $name, 2);
 
@@ -449,6 +438,15 @@ function StrConvTrad($name)
 
    return $morceaux[1] . " " . ucfirst(strtolower($morceaux[0]));
 
+}
+
+/**
+ * Remplacement des signes copyright
+ */
+function normalizeCopyright($info) {
+    $info = str_replace('(c) ', '© ', $info);
+    $info = str_replace('(c)', '© ', $info);
+    return $info;
 }
 
 function normalizeTraducteurs($info) {

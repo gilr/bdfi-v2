@@ -47,11 +47,20 @@
                 Editeur :
             @endif
             <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher->slug }}'>{{ $results->publisher->name }}</a></span>
+            @if ($results->publisher->alt_names)
+                (<span class='font-semibold'>{{ $results->publisher->alt_names }}</span>)
+            @endif
             @if ($results->publisher2_id)
                 , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher2->slug }}'>{{ $results->publisher2->name }}</a></span>
+                @if ($results->publisher2->alt_names)
+                    (<span class='font-semibold'>{{ $results->publisher2->alt_names }}</span>)
+                @endif
             @endif
             @if ($results->publisher3_id)
                 , <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher3->slug }}'>{{ $results->publisher3->name }}</a></span>
+                @if ($results->publisher3->alt_names)
+                    (<span class='font-semibold'>{{ $results->publisher3->alt_names }}</span>)
+                @endif
             @endif
         </div>
     @endif

@@ -13,7 +13,7 @@
         <form action="{{ route($area . '.search') }}" method="GET">
             Recherche au sein de cette zone :
             <input class="px-2 border-2 border-green-500 rounded" type="text" name="s" placeholder='votre recherche...' value='{{ $text }}' required/>
-            <input class="appearance-none checked:bg-lime-300 px-2.5 py-1.5 border-2 border-green-500 rounded" id='large' name="m" @checked($large == 'on') type="checkbox"/><label class='border-b border-green-500 pl-1' for='large'>Recherche élargie</label>
+            <input class="appearance-none checked:bg-lime-300 px-2.5 py-1.5 border-2 border-green-500 rounded" id='large' name="m" @checked($large == "on") type="checkbox"/><label class='border-b border-green-500 pl-1' for='large'>Recherche élargie</label>
             <button class="px-2 bg-emerald-200 border-2 border-green-500 rounded" type="submit">Search</button>
         </form>
     </div>
@@ -29,6 +29,9 @@
                     <x-front.display-icon-v2beta-if value='{{ $result->is_in_v2beta }}' />
                 @endif
                 <a class='sm:p-0.5 md:px-0.5' title='{{ $result->full_name ?: $result->name }}' href='/{{ $area }}/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</a>
+                @if (isset($result->alt_names) && $result->alt_names)
+                    ({{ $result->alt_names }})
+                @endif
             </div>
         @endforeach
     </div>

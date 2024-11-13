@@ -115,6 +115,7 @@ class AuthorResource extends Resource
                         Forms\Components\TextInput::make('birth_date')
                             ->label('Né le')
                             ->helperText("Format 'AAAA-MM-JJ' (exemple : 1983-05-19). 'AAAA-00-00' si l'année seule est connue, et vide ou '0000-00-00' si la date est inconnue. Les formats '1410-circa' ou '-500-circa' sont également acceptés.")
+                            ->regex('/([\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa))/')
                             ->maxLength(10),
                         Forms\Components\TextInput::make('birthplace')
                             ->label('Né à')

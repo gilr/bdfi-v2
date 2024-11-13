@@ -184,36 +184,8 @@ class PublicationController extends Controller
             // Filtrer les éléments du tableau pour ne conserver que ceux dont la valeur n'est pas vide
             $images = array_filter($mapping, fn($value) => !empty($value));
 
-/*            $images = array();
-            if ($results->cover_front != "") {
-                $images["Couverture"] = $results->cover_front;
-            }
-            if ($results->cover_back != "") {
-                $images["4ième de couverture"] = $results->cover_back;
-            }
-            if ($results->cover_spine != "") {
-                $images["Dos"] = $results->cover_spine;
-            }
-            if ($results->dustjacket_front != "") {
-                $images["Couverture avec jaquette"] = $results->dustjacket_front;
-            }
-            if ($results->dustjacket_back != "") {
-                $images["4ième de couverture avec jaquette"] = $results->dustjacket_back;
-            }
-            if ($results->dustjacket_spine != "") {
-                $images["Dos avec jaquette"] = $results->dustjacket_spine;
-            }
-            if ($results->withband_front != "") {
-                $images["Couverture avec bandeau"] = $results->withband_front;
-            }
-            if ($results->withband_back != "") {
-                $images["4ième de couverture avec bandeau"] = $results->withband_back;
-            }
-            if ($results->withband_spine != "") {
-                $images["Dos avec bandeau"] = $results->withband_spine;
-            }
-*/
-            return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'progression', 'images'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'progression', 'images', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -281,25 +253,25 @@ class PublicationController extends Controller
                 }
 
                 $images = array();
-                if ($results->dustjacket_front != "") {
-                    $images["jaquette"] = $results->cover_front;
-                }
-                if ($results->cover_front != "") {
-                    $images["couverture"] = $results->cover_front;
-                }
-                if ($results->withband_front != "") {
-                    $images["bandeau"] = $results->cover_front;
-                }
-                if ($results->dustjacket_back != "") {
-                    $images["4ième avec jaquette"] = $results->cover_front;
-                }
-                if ($results->cover_back != "") {
-                    $images["4ième"] = $results->cover_front;
-                }
-                if ($results->withband_back != "") {
-                    $images["4ième avec bandeau"] = $results->cover_front;
-                }
+                // Tableau de correspondance entre les noms des images et les propriétés du résultat
+                $mapping = [
+                    "Couverture" => $results->cover_front,
+                    "4ième de couverture" => $results->cover_back,
+                    "Dos" => $results->cover_spine,
+                    "Couverture avec jaquette" => $results->dustjacket_front,
+                    "4ième de couverture avec jaquette" => $results->dustjacket_back,
+                    "Dos avec jaquette" => $results->dustjacket_spine,
+                    "Couverture avec bandeau" => $results->withband_front,
+                    "4ième de couverture avec bandeau" => $results->withband_back,
+                    "Dos avec bandeau" => $results->withband_spine,
+                ];
 
+                // Filtrer les éléments du tableau pour ne conserver que ceux dont la valeur n'est pas vide
+                $images = array_filter($mapping, function ($value) {
+                    return $value != "";
+                });
+
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
                 return view ('front._generic.fiche', compact('results', 'first', 'prev', 'next', 'last', 'progression', 'images'), $this->context);
             }
             else
@@ -421,37 +393,4 @@ class PublicationController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Publication  $publication
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Publication $publication)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePublicationRequest  $request
-     * @param  \App\Models\Publication  $publication
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePublicationRequest $request, Publication $publication)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Publication  $publication
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Publication $publication)
-    {
-        //
-    }
 }

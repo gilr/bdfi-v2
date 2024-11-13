@@ -114,7 +114,8 @@ class CycleController extends Controller
         {
             // /series/{slug}
             $this->context['page'] = $results->name;
-            return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -158,7 +159,8 @@ class CycleController extends Controller
                 else {
                     $this->context['page'] = "$text";
                 }
-                return view ('front._generic.fiche', compact('results'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
             }
             else
             {
@@ -172,58 +174,4 @@ class CycleController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCycleRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreCycleRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cycle  $cycle
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cycle $cycle)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCycleRequest  $request
-     * @param  \App\Models\Cycle  $cycle
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCycleRequest $request, Cycle $cycle)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cycle  $cycle
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cycle $cycle)
-    {
-        //
-    }
 }

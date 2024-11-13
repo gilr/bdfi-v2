@@ -22,6 +22,6 @@
         Dernière mise à jour : {{ $results->updated_at }}
     </div>
 
-    <x-front.info-fiche filament='{{ $filament }}' area='{{ $area }}' :results='$results'/>
+    <x-front.info-fiche :results='$results' :content='$info'/>
 
 @endsection

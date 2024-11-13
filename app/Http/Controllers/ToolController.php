@@ -3,13 +3,176 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use DB;
+use App\Models\Award;
+use App\Models\AwardCategory;
+use App\Enums\QualityStatus;
 
 class ToolController extends Controller
 {
     public function index()
     {
         return view('admin.outils.index');
+    }
+
+    /**
+     * Respond to request get /reports/strange-dates
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getStrangeDates()
+    {
+        /*
+         ...
+         ... manque les dates valides syntaxiquement mais qui n'existent pas (callback sur checkdate php)
+        */
+        $year = date("Y") - 19;
+
+        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            SUBSTR(birth_date,1,4) < '0000' OR
+            SUBSTR(birth_date,1,4) > '$year' OR
+            SUBSTR(birth_date,5,1) <> '-' OR
+            SUBSTR(birth_date,6,2) < '00' OR
+            SUBSTR(birth_date,6,2) > '12' OR
+            SUBSTR(birth_date,8,1) <> '-' OR
+            SUBSTR(birth_date,9,2) < '00' OR
+            SUBSTR(birth_date,9,2) > '31'
+            ORDER BY birth_date");
+
+        $year = date("Y");
+        $auteurs2 = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            SUBSTR(date_death,1,4) < '0000' OR
+            SUBSTR(date_death,1,4) > '$year' OR
+            SUBSTR(date_death,5,1) <> '-' OR
+            SUBSTR(date_death,6,2) < '00' OR
+            SUBSTR(date_death,6,2) > '12' OR
+            SUBSTR(date_death,8,1) <> '-' OR
+            SUBSTR(date_death,9,2) < '00' OR
+            SUBSTR(date_death,9,2) > '31'
+            ORDER BY birth_date");
+
+        return view('admin/outils/dates-bizarres', compact('auteurs', 'auteurs2'));
+     }
+
+    /**
+     * Respond to request get /reports/missing-birthdates
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getMissingBirthdates()
+    {
+        //echo "Route getMissingBirthdate1(), depuis /reports/missing-birthdates";
+        /*
+        Les auteurs d'année de naissance inconnue
+        ... alors que l'année de décès est connue...
+        */
+
+        $auteurs = $this->paginateArray(
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+                (SUBSTR(birth_date,1,4)='0000' OR birth_date IS NULL) AND
+                SUBSTR(date_death,1,4)<>'0000'
+                ORDER BY date_death"));
+
+        return view('admin/outils/manque-dates-naissance', compact('auteurs'));
+    }
+
+    /**
+     * Respond to request get /reports/missing-deathdates
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getMissingDeathdates()
+    {
+        /*
+        Les auteurs d'année de décès inconnue
+        ... et dont l'année de naissance est connue, et de plus de 90 ans (ce qui leur donne le droit d'être encore en vie :) ...
+        */
+        $auteurs = $this->paginateArray(
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+                SUBSTR(date_death,1,4)='0000' AND
+                SUBSTR(birth_date,1,4)<>'0000' AND
+                CAST(SUBSTR(birth_date,1,4) AS UNSIGNED) < 1925
+                ORDER BY birth_date"));
+
+        return view('admin/outils/manque-dates-deces', compact('auteurs'));
+    }
+
+    public function paginateArray($data, $perPage = 15)
+    {
+        $page = Paginator::resolveCurrentPage();
+        $total = count($data);
+        $results = array_slice($data, ($page - 1) * $perPage, $perPage);
+
+        return new LengthAwarePaginator($results, $total, $perPage, $page, [
+            'path' => Paginator::resolveCurrentPath(),
+        ]);
+    }
+
+    /**
+     * Respond to request get /reports/missing-countries
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getMissingCountries()
+    {
+        /*
+        Les auteurs de pays inconnus
+        */
+
+        $auteurs = $this->paginateArray(
+            DB::select ("SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death FROM authors WHERE country_id=1 OR country_id IS NULL"));
+
+        return view('admin/outils/manque-nationalite', compact('auteurs'));
+    }
+
+    /**
+     * Respond to request get /reports/bio-status-0
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBioStatus($level)
+    {
+        /*
+        Les bios d'un status donné
+        */
+
+        if ($level == 1) { $state = QualityStatus::EBAUCHE->value; }
+        elseif ($level == 2) { $state = QualityStatus::MOYEN->value; }
+        elseif ($level == 3) { $state = QualityStatus::ACCEPTABLE->value; }
+        elseif ($level == 4) { $state = QualityStatus::TERMINE->value; }
+        elseif ($level == 5) { $state = QualityStatus::VALIDE->value; }
+        elseif ($level == 9) { $state = QualityStatus::A_REVOIR->value; }
+        else {
+            // Valeur par défaut ou si ($level == 0)
+            $state = QualityStatus::VIDE->value;
+        }
+
+        $auteurs = $this->paginateArray(
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE quality='$state'"));
+
+        return view('admin/outils/etat-biographies', compact('auteurs', 'level'));
+    }
+
+    public function getMissingAwards($date)
+    {
+        /*
+        Prix manquants... ou abandonnés
+        */
+        $active_awards = Award::where('year_end', '=' ,'')->get();
+        $results = collect();
+        foreach ($active_awards as $award) {
+            $id = $award->id;
+            $max = (array)DB::selectOne("SELECT MAX(year) FROM award_winners w, award_categories c WHERE w.award_category_id = c.id AND c.award_id = $id");
+            $lastyear = $max[key($max)];
+            if($lastyear <= $date) {
+                $categories = AwardCategory::where('award_id', '=' ,"$id")->get();
+                $results->push([$award, $lastyear, $categories]);
+            }
+        }
+
+        return view('admin/outils/manque-prix', compact('date', 'results'));
     }
 
     /**

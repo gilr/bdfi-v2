@@ -61,6 +61,7 @@ class PublisherController extends Controller
         $this->context['page'] = "recherche \"$text\"";
         return view ('front._generic.choix', compact('text', 'results','large'), $this->context);
     }
+
     /**
      * Index par initiale
      */
@@ -91,6 +92,7 @@ class PublisherController extends Controller
             return redirect('editeurs');
         }
     }
+
     public function page(Request $request, $text)
     {
         if ($results=Publisher::firstWhere('slug', $text))
@@ -98,7 +100,8 @@ class PublisherController extends Controller
             // /editeurs/{slug}
             $this->context['page'] = $results->name;
             $publications = Publication::where('publisher_id', $results->id)->get()->random(fn ($items) => min(10, count($items)))->shuffle();
-            return view ('front._generic.fiche', compact('results', 'publications'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'publications', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -140,7 +143,8 @@ class PublisherController extends Controller
                     $this->context['page'] = "$text";
                 }
                 $publications = Publication::where('publisher_id', $results->id)->get()->random(fn ($items) => min(10, count($items)))->shuffle();
-                return view ('front._generic.fiche', compact('results', 'publications'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'publications', 'info'), $this->context);
             }
             else
             {
@@ -152,6 +156,7 @@ class PublisherController extends Controller
             }
         }
     }
+
     public function hc(Request $request, $text)
     {
         // /editeurs/{slug}/hc
@@ -204,37 +209,4 @@ class PublisherController extends Controller
         return view ('admin.formulaires.creer_editeur', $this->context)->with('status', true)->with('id', $editeur->id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Publisher  $publisher
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Publisher $publisher)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePublisherRequest  $request
-     * @param  \App\Models\Publisher  $publisher
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePublisherRequest $request, Publisher $publisher)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Publisher  $publisher
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Publisher $publisher)
-    {
-        //
-    }
 }

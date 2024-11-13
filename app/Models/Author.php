@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -55,34 +58,34 @@ class Author extends Model
         ];
     }
 
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo('App\Models\Country');
     }
-    public function country2()
+    public function country2(): BelongsTo
     {
         return $this->belongsTo('App\Models\Country', 'country2_id');
     }
 
-    public function winners()
+    public function winners(): HasMany
     {
         return $this->hasMany('App\Models\AwardWinner', 'author_id');
     }
-    public function winners2()
+    public function winners2(): HasMany
     {
         return $this->hasMany('App\Models\AwardWinner', 'author2_id');
     }
-    public function winners3()
+    public function winners3(): HasMany
     {
         return $this->hasMany('App\Models\AwardWinner', 'author3_id');
     }
 
-    public function websites()
+    public function websites(): HasMany
     {
         return $this->hasMany('App\Models\Website');
     }
 
-    public function signatures()
+    public function signatures(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author', 'signatures', 'author_id', 'signature_id')
                     ->using('App\Models\Signature')
@@ -90,7 +93,7 @@ class Author extends Model
                     ->withTimestamps();
     }
 
-    public function references()
+    public function references(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author', 'signatures', 'signature_id', 'author_id')
                     ->using('App\Models\Signature')
@@ -98,7 +101,7 @@ class Author extends Model
                     ->withTimestamps();
     }
 
-    public function relations()
+    public function relations(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author', 'relationships', 'author1_id', 'author2_id')
                     ->using('App\Models\Relationship')
@@ -106,7 +109,7 @@ class Author extends Model
                     ->wherePivotNull('deleted_at')
                     ->withTimestamps();
     }
-    public function inverserelations()
+    public function inverserelations(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author', 'relationships', 'author2_id', 'author1_id')
                     ->using('App\Models\Relationship')
@@ -115,7 +118,7 @@ class Author extends Model
                     ->withTimestamps();
     }
 
-    public function publications()
+    public function publications(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')
                     ->where('status', 'paru')
@@ -124,14 +127,14 @@ class Author extends Model
                     ->using('App\Models\AuthorPublication');
     }
 
-    public function titles()
+    public function titles(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Title')
                     ->orderBy('copyright', 'asc')
                     ->withTimestamps();
     }
 
-    public function writtenDocuments()
+    public function writtenDocuments(): HasMany
     {
         return $this->hasMany('App\Models\Document');
     }

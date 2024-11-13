@@ -68,7 +68,7 @@ class ReprintResource extends Resource
                                     $name = Publication::find($idpub)->name;
                                     // Note: le code suivant ne fonctionne qu'en édition, pas en création (relation publi non pré-existante))
                                     // $name = $record->publication->name;
-                                    $set('slug', SlugService::createSlug(Reprint::class, 'slug', $name . " - retirage " . StrDateformat($state, 'abr')));
+                                    $set('slug', SlugService::createSlug(Reprint::class, 'slug', $name . " - retirage " . StrDateformat($state)));
                                 }
                             })
                             ->required(),

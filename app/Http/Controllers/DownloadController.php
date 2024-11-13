@@ -24,8 +24,8 @@ class DownloadController extends Controller
         $filename = "${model}_" . date ("Y-m-d") . '.csv';
         $headers = [
             'Content-type' => 'application/csv',
+            // ou 'Content-type' => 'text/csv',
             'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
-            'Content-type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename="' . $filename,
             'Expires' =>'0',
             'Pragma' =>'public'

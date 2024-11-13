@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 //use Illuminate\Database\Eloquent\SoftDeletes;
 //use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
@@ -39,11 +40,11 @@ class AuthorPublication extends Pivot
 */
     public $incrementing = true;
 
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo('App\Models\Author');
     }
-    public function publication()
+    public function publication(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publication');
     }

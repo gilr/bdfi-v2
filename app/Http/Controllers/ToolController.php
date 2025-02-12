@@ -30,7 +30,7 @@ class ToolController extends Controller
         */
         $year = date("Y") - 19;
 
-        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+        $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE
             SUBSTR(birth_date,1,4) < '0000' OR
             SUBSTR(birth_date,1,4) > '$year' OR
             SUBSTR(birth_date,5,1) <> '-' OR
@@ -42,7 +42,7 @@ class ToolController extends Controller
             ORDER BY birth_date");
 
         $year = date("Y");
-        $auteurs2 = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+        $auteurs2 = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE
             SUBSTR(date_death,1,4) < '0000' OR
             SUBSTR(date_death,1,4) > '$year' OR
             SUBSTR(date_death,5,1) <> '-' OR
@@ -70,7 +70,7 @@ class ToolController extends Controller
         */
 
         $auteurs = $this->paginateArray(
-            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE
                 (SUBSTR(birth_date,1,4)='0000' OR birth_date IS NULL) AND
                 SUBSTR(date_death,1,4)<>'0000'
                 ORDER BY date_death"));
@@ -90,7 +90,7 @@ class ToolController extends Controller
         ... et dont l'année de naissance est connue, et de plus de 90 ans (ce qui leur donne le droit d'être encore en vie :) ...
         */
         $auteurs = $this->paginateArray(
-            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE
                 SUBSTR(date_death,1,4)='0000' AND
                 SUBSTR(birth_date,1,4)<>'0000' AND
                 CAST(SUBSTR(birth_date,1,4) AS UNSIGNED) < 1925
@@ -122,7 +122,7 @@ class ToolController extends Controller
         */
 
         $auteurs = $this->paginateArray(
-            DB::select ("SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death FROM authors WHERE country_id=1 OR country_id IS NULL"));
+            DB::select ("SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death, slug FROM authors WHERE country_id=1 OR country_id IS NULL"));
 
         return view('admin/outils/manque-nationalite', compact('auteurs'));
     }
@@ -150,7 +150,7 @@ class ToolController extends Controller
         }
 
         $auteurs = $this->paginateArray(
-            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE quality='$state'"));
+            DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE quality='$state'"));
 
         return view('admin/outils/etat-biographies', compact('auteurs', 'level'));
     }

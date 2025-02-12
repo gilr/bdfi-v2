@@ -62,7 +62,7 @@ class AwardCategory extends Model
 
     public function award_winners(): HasMany
     {
-        return $this->hasMany('App\Models\AwardWinner');
+        return $this->hasMany('App\Models\AwardWinner')->orderBy('year', 'desc');;
     }
 
     /*

@@ -2,7 +2,7 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Rapports et outils') !!}
+            {!! __('Administration BDFI &rarr; Outils & Rapports') !!}
         </h2>
     </x-slot>
 

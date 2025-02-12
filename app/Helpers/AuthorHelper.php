@@ -19,9 +19,13 @@ function sanitizeFirstName ($firstname)
    }
 }
 
+
 function displayAuthorBiblio ($analyse, $results, $title)
 {
-   if (($title->authors->count() == 0))
+
+   $authorCount = $title->authors->count();
+
+   if ($authorCount == 0)
    {
       // Cas spécial : pas d'auteur référencé sur cette oeuvre/variante
       if ($analyse == 0)
@@ -33,37 +37,37 @@ function displayAuthorBiblio ($analyse, $results, $title)
          return "<span class='font-semibold text-red-500'> Non crédité ou inconnu</span>";
       }
    }
-   elseif (($title->authors->count() == 1) &&
-       ($results->id == $title->authors[0]->id))
+
+   if ($authorCount == 1)
    {
-      // Cas 1 : une seule signature, et identique
-      if ($analyse == 0)
+      if ($results->id == $title->authors[0]->id)
       {
-         return "<span class='bg-lime-400 font-normal text-xs italic'>K.1 </span>";
+         // Cas 1 : une seule signature, et identique
+         if ($analyse == 0)
+         {
+            return "<span class='bg-lime-400 font-normal text-xs italic'>K.1 </span>";
+         }
+         else
+         {
+            return "";
+         }
       }
       else
       {
-         return "";
+         if ($analyse == 0)
+         {
+            return "<span class='bg-lime-400 font-normal text-xs italic'>K.2 </span>";
+         }
+         else
+         {
+            // Cas 2 : une seule signature, mais différente
+            $slug = $title->authors[0]->slug;
+            $nom = $title->authors[0]->fullname;
+            $credit = " signé <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$slug'>$nom</a>";
+            return "$credit";
+         }
       }
    }
-   elseif (($title->authors->count() == 1) &&
-       ($results->id != $title->authors[0]->id))
-   {
-      if ($analyse == 0)
-      {
-         return "<span class='bg-lime-400 font-normal text-xs italic'>K.2 </span>";
-      }
-      else
-      {
-         // Cas 2 : une seule signature, mais différente
-         $slug = $title->authors[0]->slug;
-         $nom = $title->authors[0]->fullname;
-         $credit = " signé <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$slug'>$nom</a>";
-         return "$credit";
-      }
-   }
-   else
-   {
 
       // Si l'auteur est dans la liste
       $trouve = 0;
@@ -111,8 +115,6 @@ function displayAuthorBiblio ($analyse, $results, $title)
             return "$credit";
          }
       }
-   }
-
 }
 
 function check_page($name)
@@ -136,8 +138,9 @@ function formatAuthorNames ($nbrefs, $nom_bdfi, $prenom, $nom, $pseu, $legal, $f
 
    // A FAIRE : si nbrefs > 2 : format avec lien sur l'URL de la page auteur ici
    $bdfi = "$nom $prenom";
-   $normal = str_replace("' ", "'", "$prenom $nom");
-   $normal = str_replace(" $", "", $normal);
+
+   $normal = str_replace(["' ", " $"], ["'", ""], "$prenom $nom");
+
    if (($nbrefs > 2) && (($link = check_page($nom_bdfi)) != false))
    {
       $pattern .= "<em>$tip ";

@@ -36,14 +36,15 @@ class AwardWinnersRelationManager extends RelationManager
             ->filters([
                 Tables\Filters\TrashedFilter::make()
             ])
+            ->defaultSort('year', 'desc')
             ->headerActions([
-                Tables\Actions\AssociateAction::make()
-                    ->recordSelectSearchColumns(['name']),
+//                Tables\Actions\AssociateAction::make()
+//                    ->recordSelectSearchColumns(['name']),
                 Tables\Actions\CreateAction::make(),
             ])
             ->actions([
-//                  Tables\Actions\EditAction::make(),
-                  Tables\Actions\DissociateAction::make(),
+                  Tables\Actions\EditAction::make(),
+//                Tables\Actions\DissociateAction::make(),
 //                Tables\Actions\DeleteAction::make(),
 //                Tables\Actions\ForceDeleteAction::make(),
 //                Tables\Actions\RestoreAction::make(),
@@ -54,7 +55,7 @@ class AwardWinnersRelationManager extends RelationManager
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
+//                Tables\Actions\AssociateAction::make(),
             ])
             ->modifyQueryUsing(fn (Builder $query) => $query->withoutGlobalScopes([
                 SoftDeletingScope::class,

@@ -25,11 +25,6 @@ class StatResource extends Resource
 
 //    protected static ?string $maxContentWidth = '3xl'; Ne marche plus avec 3.x
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form

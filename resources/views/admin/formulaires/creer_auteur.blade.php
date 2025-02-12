@@ -12,7 +12,7 @@
                 <div class="hidden sm:block">
                     Ajout d'un auteur non déjà en base BDFI.
                 </div>
-                <livewire:author-search intro="Si besoin, vérifier l'existence" label="Recherche d'auteur" />
+                <livewire:author-search intro="Si besoin (c'est mieux !), vérifier l'existence" label="Recherche auteur" />
             </div>
             @if ($errors->any())
                 <div class="p-2">
@@ -44,7 +44,7 @@
             @endif
         </div>
     </div>
-    <div">
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {{ html()->form('POST', '/admin/formulaires/ajout-auteur')->open() }}
             <div class="p-2 text-2xl border-b border-yellow-800">
@@ -102,5 +102,3 @@
         </div>
     </div>
 </x-app-layout>
-
-</div>

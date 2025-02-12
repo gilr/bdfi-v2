@@ -41,11 +41,6 @@ class AnnouncementResource extends Resource
         return "Annonce : " . $record->name;
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -122,7 +117,8 @@ class AnnouncementResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Titre / Sujet')
                     ->limit(25)
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('date')
                     ->label('Date')
                     ->date('j M Y')

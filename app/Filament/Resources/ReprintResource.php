@@ -31,11 +31,6 @@ class ReprintResource extends Resource
     // table column or eloquent accessor
     protected static ?string $recordTitleAttribute = 'fullname';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form

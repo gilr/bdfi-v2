@@ -79,7 +79,6 @@ class CollectionController extends Controller
                 ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate($pagin)
                 ->withQueryString();
-
         }
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix

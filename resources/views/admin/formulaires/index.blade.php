@@ -28,7 +28,7 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link>
-                                --- ou --- <x-admin.link lien='formulaires/auteurs/select'>Modification auteur existant</x-admin.link></li>
+                                --- ou --- <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue non déjà recensée</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/programme-parution'>Ajout publication à paraître</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou inconnu</x-admin.link></li>
@@ -49,7 +49,9 @@
                             Vérifications rapides
                         </div>
                         <div class="p-2">
-                            <livewire:author-search intro="" label="Vérifier l'existence d'auteur" />
+                            <livewire:author-search intro="" label="Existence d'un auteur" />
+                            <livewire:publisher-search intro="" label="Existence d'un éditeur" />
+                            <livewire:collection-search intro="" label="Existence d'une collection" />
                         </div>
                     @endif
                 </div>

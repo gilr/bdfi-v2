@@ -37,6 +37,11 @@ class AuthorResource extends Resource
     // table column or eloquent accessor
     protected static ?string $recordTitleAttribute = 'fullname';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name'];
@@ -45,11 +50,6 @@ class AuthorResource extends Resource
     public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return "Auteur : " . $record->fullname;
-    }
-
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
     }
 
     public static function form(Form $form): Form
@@ -122,6 +122,8 @@ class AuthorResource extends Resource
                             ->maxLength(64),
                         Forms\Components\TextInput::make('date_death')
                             ->label('Décédé le')
+                            ->helperText("Avec les mêmes règles que la date de naissance...")
+                            ->regex('/([\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa))/')
                             ->maxLength(10),
                         Forms\Components\TextInput::make('place_death')
                             ->label('Lieux de décès')

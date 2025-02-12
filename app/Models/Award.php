@@ -53,7 +53,7 @@ class Award extends Model
 
     public function award_categories(): HasMany
     {
-        return $this->hasMany('App\Models\AwardCategory');
+        return $this->hasMany('App\Models\AwardCategory')->orderBy('internal_order');
     }
 
     public function award_winners(): HasMany

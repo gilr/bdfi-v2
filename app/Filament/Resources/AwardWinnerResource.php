@@ -12,6 +12,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
@@ -43,11 +44,6 @@ class AwardWinnerResource extends Resource
         return "Gagnant prix : " . $record->name;
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -57,10 +53,21 @@ class AwardWinnerResource extends Resource
                         Forms\Components\Select::make('award_category_id')
                             ->label('Prix et catégorie')
                             ->relationship('award_category', 'name')
-                            ->getOptionLabelFromRecordUsing(fn (AwardCategory $record) => "{$record->fullCategoryName}")
-// marche pas ?!                            ->getOptionLabelUsing(fn ($record): ?string => AwardCategory::find($record)?->name)
-                            ->helperText('Commencer à saisir le nom d\'une catégorie ("Nouvelle" par exemple). Les prix et catégories seront proposées')
-                            ->searchable(['name'])
+                            ->getOptionLabelFromRecordUsing(fn (AwardCategory $record) => "{$record->fullName}")
+                            ->helperText('Commencer à saisir le nom d\'un prix ou d\'une catégorie ("Verlanger" ou "Nouvelle" par exemple). Les prix et catégories seront proposées')
+                            ->getSearchResultsUsing(fn (string $search) => AwardCategory::query()
+                                ->where('name', 'like', "%{$search}%")
+                                ->orWhereHas('award', function (Builder $query) use ($search) {
+                                    $query->where('name', 'like', "%{$search}%");
+                                })
+                                ->limit(50)
+                                ->get()
+                                ->mapWithKeys(fn ($category) => [
+                                    $category->id => "{$category->award->name}, {$category->name}"
+                                    ])
+                                )
+                            ->searchable()
+                            ->hiddenOn(AwardWinnersRelationManager::class)
                             ->columnSpanFull()
                             ->required(),
                         Forms\Components\TextInput::make('year')
@@ -155,14 +162,29 @@ class AwardWinnerResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('award_category.award.name')
                     ->label('Prix')
-                    ->limit(25, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
-                    ->html()
+                    ->limit(25)
+                    ->tooltip(function (TextColumn $column): ?string {
+                        $state = $column->getState();
+                        if (strlen($state) <= $column->getCharacterLimit()) {
+                            return null;
+                        }
+                        // Only render the tooltip if the column contents exceeds the length limit.
+                        return $state;
+                    })
                     ->hiddenOn(AwardWinnersRelationManager::class)
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('award_category.name')
                     ->label('Catégorie')
-                    ->limit(15, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
-                    ->html()
+                    ->limit(15)
+                    ->tooltip(function (TextColumn $column): ?string {
+                        $state = $column->getState();
+                        if (strlen($state) <= $column->getCharacterLimit()) {
+                            return null;
+                        }
+                        // Only render the tooltip if the column contents exceeds the length limit.
+                        return $state;
+                    })
                     ->hiddenOn(AwardWinnersRelationManager::class)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
@@ -170,12 +192,32 @@ class AwardWinnerResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Pour')
-                    ->limit(25, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
+                    ->limit(25)
+                    ->tooltip(function (TextColumn $column): ?string {
+                        $state = $column->getState();
+                        if (strlen($state) <= $column->getCharacterLimit()) {
+                            return null;
+                        }
+                        // Only render the tooltip if the column contents exceeds the length limit.
+                        return $state;
+                    })
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('vo_title')
+                    ->label('VO')
+                    ->limit(25)
+                    ->tooltip(function (TextColumn $column): ?string {
+                        $state = $column->getState();
+                        if (strlen($state) <= $column->getCharacterLimit()) {
+                            return null;
+                        }
+                        // Only render the tooltip if the column contents exceeds the length limit.
+                        return $state;
+                    })
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('year')
                     ->label('An')
                     ->numeric()
-                    ->date('Y')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('authors')
                     ->label('Auteurs')
@@ -189,12 +231,24 @@ class AwardWinnerResource extends Resource
                     ->numeric()
                     ->sortable(),
                 //
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Créé le')
+                    ->dateTime('j M Y')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('creator.name')
+                    ->label('créé par')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('mis à jour')
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->dateTime('j M Y')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('editor.name')
-                    ->label('par'),
+                    ->label('par')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([

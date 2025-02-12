@@ -7,34 +7,34 @@
     @if($showModal)
         <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center shadow-lg shadow-indigo-500/50">
             <div class="bg-white p-6 rounded-lg shadow-lg w-9/12">
-                <h2 class="text-lg font-semibold mb-4">Rechercher un auteur</h2>
+                <h2 class="text-lg font-semibold mb-4">Rechercher un éditeur</h2>
 
                 <!-- Champ de saisie de la recherche -->
                 <input type="text" wire:model.live.debounce.500ms="search" class="border p-2 w-full mb-4" placeholder="Entrez un extrait de nom...">
 
                 <!-- Présentation des résultats -->
 
-                @if($authors && $authors->isNotEmpty())
+                @if($publishers && $publishers->isNotEmpty())
                     <!-- Liens de pagination -->
                     <div class="mt-4">
-                        Cliquer sur un auteur ouvre sa page biblio dans un nouvel onglet.
+                        Cliquer sur un éditeur ouvre sa page dans un nouvel onglet.
                     </div>
                     <div class="mt-4">
-                        {{ $authors->links() }}
+                        {{ $publishers->links() }}
                     </div>
 
                     <!-- Liste des résultats -->
                     <div class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-0 lg:gap-0.5 border py-2"'>
-                        @foreach($authors as $author)
+                        @foreach($publishers as $publisher)
                             <div>
-                                <x-admin.link-ext lien='/auteurs/{{ $author->slug }}'>
-                                    {{ $author->name }}, {{ $author->first_name }} - {{ $author->birth_date }}
+                                <x-admin.link-ext lien='/editeurs/{{ $publisher->slug }}'>
+                                    {{ $publisher->name }}
                                 </x-admin.link-ext>
                             </div>
                         @endforeach
                     </div>
                 @else
-                    <p>Aucun auteur trouvé.</p>
+                    <p>Aucun éditeur trouvé.</p>
                 @endif
 
                 <!-- Bouton pour fermer la modale -->

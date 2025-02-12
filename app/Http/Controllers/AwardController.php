@@ -112,7 +112,7 @@ class AwardController extends Controller
             $this->context['subtitle'] = $prix->name;
 
             //$laureats = $result->award_winners()->orderBy('year', 'asc')->get();
-            $laureats = AwardWinner::where('award_category_id', $category_id)->orderBy('year', 'asc')->get();
+            $laureats = AwardWinner::where('award_category_id', $category_id)->orderBy('year', 'desc')->get();
 
             $info = buildRecordInfo($this->context['filament'], $this->context['area'], $result);
             return view('front.prix.categorie', compact('result', 'prix', 'categorie', 'laureats', 'info'), $this->context);
@@ -135,7 +135,7 @@ class AwardController extends Controller
             $categories = AwardCategory::where('award_id', $results->id)->orderBy('internal_order', 'asc')->get();
             $laureats = NULL;
             if ($categories->count() == 1) {
-                $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
+                $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'desc')->get();
             }
             $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
             return view('front.prix.prix', compact('results', 'categories', 'laureats', 'info'), $this->context);
@@ -175,7 +175,7 @@ class AwardController extends Controller
                 $categories = AwardCategory::where('award_id', $results->id)->orderBy('internal_order', 'asc')->get();
                 $laureats = NULL;
                 if ($categories->count() == 1) {
-                    $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'asc')->get();
+                    $laureats = AwardWinner::where('award_category_id', $categories->first()->id)->orderBy('year', 'desc')->get();
                 }
                 $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
                 return view('front.prix.prix', compact('results', 'categories', 'laureats', 'info'), $this->context);

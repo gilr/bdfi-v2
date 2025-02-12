@@ -2,7 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Rapports &rarr; Manque dates de naissance') !!}
+            Administration BDFI &rarr;
+            <a href="/admin/outils">Outils & Rapports</a>
+            &rarr; Manque dates de naissance
         </h2>
     </x-slot>
 
@@ -31,7 +33,7 @@
                                 <x-admin.link-ext lien='/filament/authors/{{ $author->id }}'>Fiche {{ $author->id }}</x-admin.link-ext>
                             </td>
                             <td class="py-1 px-2 border border-blue-500">
-                                <x-admin.link-ext lien='/auteurs/{{ $author->id }}'>{{ $author->first_name }} {{ $author->name }}</x-admin.link-ext>
+                                <x-admin.link-ext lien='/auteurs/{{ $author->slug }}'>{{ $author->first_name }} {{ $author->name }}</x-admin.link-ext>
                             </td>
                             <td class="py-1 px-2">
                                 <x-admin.link-ext lien='http://catalogue.bnf.fr/resultats-auteur.do?nomAuteur={{ $author->name }}, {{ $author->first_name }}&filtre=1&pageRech=rau'>BNF</x-admin.link-ext>

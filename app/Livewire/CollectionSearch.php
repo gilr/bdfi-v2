@@ -5,9 +5,9 @@ namespace App\Livewire;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 use Livewire\Component;
-use App\Models\Author;
+use App\Models\Collection;
 
-class AuthorSearch extends Component
+class CollectionSearch extends Component
 {
     use WithPagination, WithoutUrlPagination;
 
@@ -30,17 +30,18 @@ class AuthorSearch extends Component
 
     public function render()
     {
-        $authors = NULL;
+        $collections = NULL;
 
         if ($this->search != "")
         {
-            $authors = Author::where('name', 'like', '%' . $this->search . '%')
+            $collections = Collection::where('name', 'like', "%{$this->search}%")
+                ->orWhere('alt_names', 'like', "%{$this->search}%")
                 ->orderBy('name', 'asc')
-                ->select('name', 'first_name', 'birth_date', 'slug')
+                ->with(['publisher', 'publisher2', 'publisher3'])
                 ->simplePaginate(15);
         }
-        return view('livewire.author-search',  [
-            'authors' => $authors,
+        return view('livewire.collection-search',  [
+            'collections' => $collections,
         ]);
     }
 }

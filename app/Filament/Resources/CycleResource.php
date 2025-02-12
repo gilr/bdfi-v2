@@ -45,11 +45,6 @@ class CycleResource extends Resource
         return "Cycle : " . $record->name;
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form

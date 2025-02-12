@@ -2,7 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Rapports &rarr; Manque récompenses') !!}
+            Administration BDFI &rarr;
+            <a href="/admin/outils">Outils & Rapports</a>
+            &rarr; Manque récompenses
         </h2>
     </x-slot>
 
@@ -32,7 +34,7 @@
                             <td class="py-1 px-2 border border-blue-500">{{ $result[1] }}</td>
                             <td>
                                 @foreach ($result[2] as $categ)
-                                    <x-admin.link-ext lien='/filament/award-categories/{{ $categ->id }}'>{{ $categ->name }}<br /></x-admin.link-ext>
+                                    <x-admin.link-ext lien='/filament/award-categories/{{ $categ->id }}/edit?activeRelationManager=0'>{{ $categ->name }}<br /></x-admin.link-ext>
                                 @endforeach
                             </td>
                         </tr>

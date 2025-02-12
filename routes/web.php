@@ -171,8 +171,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         Route::get('/admin/formulaires/ajout-auteur', [AuthorController::class, 'create']);
         Route::post('/admin/formulaires/ajout-auteur', [AuthorController::class, 'store']);
-        Route::get('/admin/formulaires/modifier-auteur', [AuthorController::class, 'edit']);
-        Route::put('/admin/formulaires/modifier-auteur', [AuthorController::class, 'store']);
+        Route::get('/admin/formulaires/modifier-auteur', function () { return view('admin/formulaires/modifier-auteur'); });
         Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
         Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
         Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);

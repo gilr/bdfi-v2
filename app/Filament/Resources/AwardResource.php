@@ -42,11 +42,6 @@ class AwardResource extends Resource
         return "Prix : " . $record->name;
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -137,15 +132,18 @@ class AwardResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom')
                     ->limit(25)
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('country.name')
                     ->label('Pays')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('alt_names')
                     ->label('Autres dénominations')
                     ->limit(40, "<span class='!bg-indigo-100 dark:!bg-indigo-800  '>&mldr;</span>")
                     ->html()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('year_start')
                     ->label('Début')
                     ->sortable(),
@@ -159,6 +157,15 @@ class AwardResource extends Resource
                         return $record->url <> "";
                     }),
                 //
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Créé le')
+                    ->dateTime('j M Y')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('creator.name')
+                    ->label('créé par')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('mis à jour')
                     ->dateTime('j M Y')

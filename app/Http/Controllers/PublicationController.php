@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Collection;
+use App\Models\TableOfContent;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\PublicationStatus;
 use App\Enums\PublicationFormat;
@@ -371,6 +372,15 @@ class PublicationController extends Controller
             'private' => $request->private,
             'format' => PublicationFormat::INCONNU->value,
         ]);
+
+        if ($request->selected_id !== NULL)
+        {
+            // Ajouter le "sommaire"
+            $content = TableOfContent::create([
+                'publication_id' => $publication->id,
+                'title_id' => $request->selected_id,
+            ]);
+        }
 
         // Trier en fonction de la provenance pour ré-aiguiller sur la bonne page
         if ($request->publication_status === PublicationStatus::PUBLIE->value)

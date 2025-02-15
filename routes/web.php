@@ -176,10 +176,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
         Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
         Route::post('/admin/formulaires/ajout-collection', [CollectionController::class, 'store']);
+        Route::get('/admin/formulaires/ajout-texte', [TitleController::class, 'create']);
         Route::get('/admin/formulaires/ajout-publication', [PublicationController::class, 'create']);
         Route::get('/admin/formulaires/programme-parution', [PublicationController::class, 'createFuture']);
         Route::get('/admin/formulaires/proposer-publication', [PublicationController::class, 'propose']);
-        // les 3 publis sont des store classiques :
+        // les ajouts sont des "store" classiques :
+        Route::post('/admin/formulaires/ajout-texte', [TitleController::class, 'store']);
         Route::post('/admin/formulaires/ajout-publication', [PublicationController::class, 'store']);
         Route::post('/admin/formulaires/programme-parution', [PublicationController::class, 'store']);
         Route::post('/admin/formulaires/proposer-publication', [PublicationController::class, 'store']);

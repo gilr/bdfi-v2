@@ -26,7 +26,13 @@
             <div class='font-bold pt-2 pb-1'><a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/type/{{ $type[0]->type }}'>{{ App\Enums\AwardCategoryType::from($type[0]->type)->GetLabel() }}</a></div>
             @foreach($type as $laureat)
                 <div class='pl-2'>
-                    {!! awardAuthors($laureat->name, $laureat->author, $laureat->author2, $laureat->author3) !!} - {{ $laureat->title }} {{ $laureat->title == "" ? $laureat->vo_title : ($laureat->vo_title == "" ? "" : "(" . $laureat->vo_title . ")") }} :
+                    {!! awardAuthors($laureat->name, $laureat->author, $laureat->author2, $laureat->author3) !!} -
+                    @if ($laureat->titleRef)
+                        <x-front.lien-texte link='/textes/{{ $laureat->titleRef->slug }}'>{{ $laureat->title }}</x-front.lien-ouvrage>
+                    @else
+                        {{ $laureat->title }}
+                    @endif
+                    {{ $laureat->title == "" ? $laureat->vo_title : ($laureat->vo_title == "" ? "" : "(" . $laureat->vo_title . ")") }} :
                     <a class='hover:bg-yellow-100 border-b hover:border-purple-400 sm:px-0.5 md:px-1' href='/prix/{{ $laureat->award_category->award->name }}'>
                         {{ $laureat->award_category->award->name }}
                     </a>,

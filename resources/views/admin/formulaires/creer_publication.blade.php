@@ -32,7 +32,7 @@
                     </div>
                     <div class="p-2">
                         Pour mettre à jour la publication, c'est ici :
-                         <a class="text-red-700" href="/filament/{{ $filament }}/{{ $id }}" target="_blank">fiche {{ $area }} <span class="font-bold"> {{ $id }}</span></a> (s'ouvre dans un nouvel onglet). Entre autres, il faut en définir le contenu, en attachant un titre (qu'il peut falloir créer d'abord), et en général également attacher un ou plusieurs auteurs. Certaines de ces étapes seront rapatriées dans cette zone, mais en attendant, il faut passer par les tables. Si l'ouvrage est possédé, il faut également le passer "vérifié" en saisisant les données de l'onglet 'infos livre'.<br />
+                         <a class="text-red-700" href="/filament/{{ $filament }}/{{ $id }}" target="_blank">fiche {{ $area }} <span class="font-bold"> {{ $id }}</span></a> (s'ouvre dans un nouvel onglet). Entre autres, il faut en définir ou compléter le contenu (en créant si besoin d'autres oeuvres contenues), et en attacher un ou plusieurs auteurs. Certaines de ces étapes seront rapatriées dans cette zone, mais en attendant, il faut passer par les tables. Si l'ouvrage est possédé, il faut également le passer "vérifié" en saisisant les données de l'onglet 'infos livre'.<br />
                     </div>
                     <div class="font-semibold p-2 bg-green-100">
                         Vous pouvez en créer une autre :
@@ -61,7 +61,11 @@
                 Informations indispensables :
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                Titre de contenu de l'ouvrage / la publication :
+                Entrez un extrait de titre pour choisir le contenu principal (une oeuvre) de la publication :
+                <livewire:dynamic-select modelClass="App\Models\Title" />
+            </div>
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                Titre de l'ouvrage / la publication :
                 {{ html()->text($name = "name")->size(80)->class("m-2 bg-yellow-100")->placeholder("Nom de la publication") }}
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

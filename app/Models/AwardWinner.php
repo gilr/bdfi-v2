@@ -45,6 +45,10 @@ class AwardWinner extends Model
     {
         return $this->belongsTo('App\Models\Author', 'author3_id');
     }
+    public function titleRef(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Title', 'title_id');
+    }
     
     /*
      * Accesseurs supplémentaires

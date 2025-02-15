@@ -47,10 +47,10 @@ return new class extends Migration
             $table->string('vo_title', 256)->nullable();
 
             $table->unsignedInteger('title_id')->nullable();
-/*            $table->foreign('title_id')
+            $table->foreign('title_id')
                 ->references('id')
                 ->on('titles')
-                ->onDelete('restrict'); */
+                ->onDelete('restrict');
 
             $table->text('information')->nullable();
 

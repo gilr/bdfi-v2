@@ -14,19 +14,19 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 8 - 12/02/2025
+        Version V2 bêta 8 - 15/02/2025
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
             <li>Ajout de modes maintenance (un pour le site, un pour l'admin)</li>
             <li>Révision du design et zoom image sur la fiche retirage, amélioration sur page ouvrage</li>
             <li>Bloc des dernières discussions du forum en page d'accueil</li>
-            <li>Admin: ajout rapide auteur, éditeur, collection</li>
-            <li>Admin: ajout rapide ouvrage (sans le "contenu") paru, à paraître ou en proposition</li>
+            <li>Admin: ajout rapide auteur, éditeur, collection, ou oeuvre</li>
+            <li>Admin: ajout rapide ouvrage paru, à paraître ou en proposition</li>
             <li>Admin: visualiser les ouvrages à paraître, valider des ouvrages proposés</li>
-            <li>Admin: vérification rapide si un auteur, une collection ou un éditeur existe</li>
+            <li>Admin: vérification rapide si auteur, collection, éditeur, publication ou oeuvre existe</li>
             <li>Admin: révisions menus, formulaires, regroupement outils et rapports</li>
-            <li>Admin "filament" : test et ajustement de toute la gestion filament des prix</li>
+            <li>Admin "filament" : tests et ajustements de toute la gestion filament des prix</li>
             <li>Rendre collapsable les infos de page d'accueil et les blocs 'membres' de bas de fiche</li>
         </ul>
     </div>

@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use App\Models\AwardCategory;
 use App\Models\Author;
+use App\Models\Title;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -118,9 +119,11 @@ class AwardWinnerResource extends Resource
                             ->helperText('Titre original (si non francophone).')
                             ->maxLength(256)
                             ->nullable(),
-                        Forms\Components\TextInput::make('title_id')
+                        Forms\Components\Select::make('title_id')
                             ->label('Lien sur fiche titre (si existe)')
-                            ->numeric()
+                            ->relationship('title', 'name')
+                            ->getOptionLabelFromRecordUsing(fn (Title $record) => "{$record->fullName}")
+                            ->searchable(['name'])
                             ->nullable(),
                         Forms\Components\Textarea::make('information')
                             ->helperText('Note, information, indication particulière (affichée sur site).')

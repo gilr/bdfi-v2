@@ -2,7 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Formulaires &rarr; Modification rapide auteur') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/formulaires">Formulaires</a> &rarr;
+            Modification rapide auteur
         </h2>
     </x-slot>
 

@@ -2,7 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Outils &rarr; Conversion fichiers locaux' ) !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/outils">Outils & Rapports</a> &rarr;
+            Conversion fichiers (format local)
         </h2>
     </x-slot>
 

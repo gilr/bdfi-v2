@@ -2,9 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Administration BDFI &rarr;
-            <a href="/admin/outils">Outils & Rapports</a>
-            &rarr; Fb du jour
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/outils">Outils & Rapports</a> &rarr;
+            Anniversaires du jour
         </h2>
     </x-slot>
 
@@ -12,9 +12,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
 
-                <div class="p-2 text-xl">Texte à copier-coller sur Facebook pour aujourd'hui ({{$today}})</div>
-
-                <br /><br />
+                <div class="p-2 text-xl">Liste des anniversaires de naissance et décès de ce jour</div>
+                <div class="p-2">
+                    Texte à copier-coller par exemple sur Facebook pour ce jour ({{$today}}).
+                </div>
                 <div style='text-align:left; margin: 0 50px 50px 50px; padding: 25px; width:400px; background-color:#ccf; border-radius:3px;'>
                     Aujourd'hui {{ $dateenclair }}, c'est l'anniversaire de :<br /><br />
 

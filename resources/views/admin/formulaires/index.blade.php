@@ -2,7 +2,8 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Formulaires d\'ajout rapide') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/formulaires">Formulaires</a>
         </h2>
     </x-slot>
 
@@ -25,20 +26,6 @@
                             <livewire:title-search intro="" label="Existence d'un texte" />
                         </div>
 
-                    @if (auth()->user()->hasProponentRole())
-                        <div class="p-2 text-2xl border-b border-yellow-800">
-                            Propositions
-                        </div>
-                        <div class="p-2">
-                            Encore en réflexion !
-                        </div>
-                        <div class="p-2">
-                            <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
-                            </ul>
-                        </div>
-                    @endif
-
                     @if (auth()->user()->hasMemberRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Création rapide
@@ -57,8 +44,28 @@
                                 <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou inconnue</x-admin.link></li>
                             </ul>
                         </div>
+                    @endif
+
+                    @if (auth()->user()->hasProponentRole())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Propositions
+                        </div>
+                        <div class="p-2">
+                            Encore en réflexion !
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (auth()->user()->hasMemberRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Autres opérations
+                        </div>
+                        <div class="p-2">
+                            Dans la prochaine version, il sera possible de modifier la date de parution, ou de valider une proposition localement. Pour l'instant, ces pages listent les ouvrages concernés, en indiquant le lien pour d'accès à leur fiche côté gestion des tables.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">

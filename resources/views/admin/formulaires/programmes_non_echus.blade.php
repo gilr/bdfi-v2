@@ -2,11 +2,13 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Formulaires &rarr; Lister les programmes futurs') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/formulaires">Formulaires</a> &rarr;
+            Liste des programmations futures
         </h2>
     </x-slot>
 
-<div class="pb-6">
+    <div class="pb-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
 
@@ -52,6 +54,5 @@
 
             </div>
         </div>
+    </div>
 </x-app-layout>
-
-</div>

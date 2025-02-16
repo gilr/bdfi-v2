@@ -2,7 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Formulaires &rarr; Ajout rapide collection') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/formulaires">Formulaires</a> &rarr;
+            Ajout rapide collection
         </h2>
     </x-slot>
 
@@ -10,6 +12,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="border border-blue-800 rounded-lg p-2 hidden sm:block my-2">
                 Ajout de collection, groupe, revue, fanzine, magazine, journal ou anthologie périodique.
+                <livewire:collection-search intro="Si besoin, (re-)vérifier le non référencement" label="Recherche collection" />
             </div>
             @if ($errors->any())
                 <div class="p-2">
@@ -41,7 +44,7 @@
             @endif
         </div>
     </div>
-    <div">
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {{ html()->form('POST', '/admin/formulaires/ajout-collection')->open() }}
             <div class="p-2 text-2xl border-b border-yellow-800">
@@ -98,6 +101,3 @@
         </div>
     </div>
 </x-app-layout>
-
-
-</div>

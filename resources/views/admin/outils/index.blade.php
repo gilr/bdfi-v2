@@ -2,7 +2,8 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Outils & Rapports') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/outils">Outils & Rapports</a>
         </h2>
     </x-slot>
 
@@ -50,7 +51,7 @@
 
                 <div class="p-6">
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Anniversaire pour Facebook
+                        Les anniversaires d'auteurs
                     </div>
                     <div class="p-2">
                         <ul class="list-disc pl-4">

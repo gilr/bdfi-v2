@@ -2,17 +2,17 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Administration BDFI &rarr; Formulaires &rarr; Ajout rapide auteur') !!}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/formulaires">Formulaires</a> &rarr;
+            Ajout rapide auteur
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="border border-blue-800 rounded-lg p-1 m-1">
-                <div class="hidden sm:block">
-                    Ajout d'un auteur non déjà en base BDFI.
-                </div>
-                <livewire:author-search intro="Si besoin (c'est mieux !), vérifier l'existence" label="Recherche auteur" />
+            <div class="border border-blue-800 rounded-md p-1 m-1">
+                Ajout d'un auteur non déjà en base BDFI.
+                <livewire:author-search intro="Si besoin, (re-)vérifier l'absence" label="Recherche auteur" />
             </div>
             @if ($errors->any())
                 <div class="p-2">

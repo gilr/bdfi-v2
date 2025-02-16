@@ -2,9 +2,9 @@
     <!-- Page d'accueil administration (jetstream) -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Administration BDFI &rarr;
-            <a href="/admin/outils">Outils & Rapports</a>
-            &rarr; Fiches d\'avancement à l'état {{ $level }}
+            <a href="/admin">Administration BDFI</a> &rarr;
+            <a href="/admin/outils">Outils & Rapports</a> &rarr;
+            Fiches d\'avancement à l'état {{ $level }}
         </h2>
     </x-slot>
 

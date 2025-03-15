@@ -18,19 +18,19 @@
     <div class='hidden md:flex text-base p-2 m-5 mx:4 md:mx-12 lg:mx-40 bg-yellow-200 border-l-4 border-red-600'>
         Cette page présente l'historique de la production francophone d'imaginaire, avec diverses répartitions (par genre, par support, par format). Attention, ces schéma ne sont pas représentatifs puisque réalisés sur la base restreinte de la version bêta V2.
     </div>
-    <div class='text-base'>
+    <div class='text-base mb-2'>
         <div>
             @livewire(\App\Livewire\PublicationsByGenreChart::class)
         </div>
     </div>
-    <div class='text-base'>
-        <div>
-            @livewire(\App\Livewire\PublicationsBySupportChart::class)
-        </div>
-    </div>
-    <div class='text-base'>
+    <div class='text-base mb-2'>
         <div>
             @livewire(\App\Livewire\PublicationsByFormatChart::class)
+        </div>
+    </div>
+    <div class='text-base mb-2'>
+        <div>
+            @livewire(\App\Livewire\PublicationsBySupportChart::class)
         </div>
     </div>
 </div>

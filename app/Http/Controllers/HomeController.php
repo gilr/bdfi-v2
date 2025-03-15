@@ -29,7 +29,7 @@ class HomeController extends Controller
             </li>
             <li>Un exemple de support de type revue/fanzine, <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/editeurs/basis'>Basis</a>, et un exemple de support de type magazine : <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/editeurs/v-voir'>V magazine</a></li>
             <li>Des exemples de <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/la-chaise-infernale'>feuilleton (parus en épisodes)</a>, d'<a class='text-blue-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/ouvrages/la-route-étoilée'>ouvrages réimprimés (retirages)</a>, de texte repris dans plusieurs publications, et de gestion de
-                <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/le-navire-etoile'>
+                <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/la-foret-des-mythimages'>
                 variantes de texte</a> (signature, titre et/ou traduction modifiés).
         </ul>
         <span class='font-semibold text-red-800'>Attention</span>, les ouvrages 'programmés' sont des données 'fake' générées uniquement pour test.<br />"
@@ -51,12 +51,14 @@ class HomeController extends Controller
                     ->limit(15)
                     ->with('publisher')
                     ->get();
+
         $created = Publication::where('status', '<>', 'propose')
                     ->where('status', '<>', 'annonce')
                     ->orderBy('created_at', 'desc')
                     ->limit(15)
                     ->with('publisher')
                     ->get();
+
         $recents = Publication::where('status', '<>', 'propose')
                     ->where('status', '<>', 'annonce')
                     ->where('cover_front', '<>', '')
@@ -64,19 +66,30 @@ class HomeController extends Controller
                     ->limit(15)
                     ->with('publisher')
                     ->get();
+
         $programme = Publication::where('status', 'annonce')
                     ->orderBy('created_at', 'desc')
                     ->limit(15)
                     ->with('publisher')
                     ->get();
-        $events = Event::where('is_full_scope', '1')
-                    ->where('is_confirmed', '1')
-                    ->where('end_date','>=', date("Y-m-d"))
-                    ->orderBy('start_date', 'asc')
-                    ->limit(15)
-                    ->get();
 
-        // Exclure les forums privés !
+        // Première requête : seulement ceux qui ont is_full_scope = 1
+        $events = Event::where('is_full_scope', '1')
+                ->where('is_confirmed', '1')
+                ->where('end_date','>=', date("Y-m-d"))
+                ->orderBy('start_date', 'asc')
+                ->limit(15)
+                ->get();
+        // Si moins de 8 résultats, quel que soit le scope
+        if ($events->count() < 8) {
+            $events = Event::where('is_confirmed', '1')
+                ->where('end_date', '>=', date("Y-m-d"))
+                ->orderBy('start_date', 'asc')
+                ->limit(15)
+                ->get();
+        }
+
+        // Récup discussions forums mais en excluant les forums privés !
         $forum_last_topics = DB::connection('mysqlforum')->table('topics')
             ->orderBy('last_post', 'desc')
             ->whereNotIn('forum_id', [34, 27, 24, 20, 4, 13])

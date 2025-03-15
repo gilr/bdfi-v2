@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
+//            'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -65,7 +65,7 @@ return [
 
         'mysqlforum' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
+//            'url' => env('DATABASE_URL'),
             'host' => env('DB_FORUM_HOST', '127.0.0.1'),
             'port' => env('DB_FORUM_PORT', '3306'),
             'database' => env('DB_FORUM_DATABASE', 'forge'),

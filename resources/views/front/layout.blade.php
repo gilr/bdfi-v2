@@ -20,7 +20,7 @@
 <body class="bg-gray-100">
 
     <div class="bg-gradient-to-r from-gray-300 to-yellow-900 text-lg text-white px-4 text-center fixed left-0 py-1 bottom-0 right-0 z-40">
-        <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="/site/a-propos">A propos</a> - &copy; BDFI 2001-2024 - <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="/site/contact">Contacts</a>
+        <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="/site/a-propos">A propos</a> - &copy; BDFI 2001-2025 - <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="/site/contact">Contacts</a>
     </div>
     <div class="h-full w-full flex bg-gray-100 pb-8">
 

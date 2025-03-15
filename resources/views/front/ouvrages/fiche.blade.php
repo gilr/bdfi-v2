@@ -30,7 +30,7 @@
      @endif
 
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
-         {{ $results->name }}
+         {!! $results->name !!}
     </div>
 
     <div class='text-base'>
@@ -43,17 +43,36 @@
         @else
             <div class='text-base'>Auteurs crédités :
         @endif
-        @foreach ($results->authors as $author)
-            @if (!$loop->first)
-                ,
-            @endif
-            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
-            @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
-                <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
+
+        @php
+            $groupedAuthors = [];
+            foreach ($results->authors as $author) {
+                $role = $author->pivot->role->value;
+                $groupedAuthors[$role][] = $author;
+            }
+        @endphp
+
+        @foreach ($groupedAuthors as $role => $authors)
+            @foreach ($authors as $index => $author)
+                @if (!$loop->first)
+                    ,
+                @endif
+                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+            @endforeach
+            @if (($role != App\Enums\AuthorPublicationRole::AUTHOR->value) || count($groupedAuthors) > 1)
+                @php
+                    $roleEnum = App\Enums\AuthorPublicationRole::from($role); // On récupère l'enum
+                @endphp
+                @if (count($groupedAuthors[$role]) > 1)
+                    <span class='hidden xl:inline'>({{ $roleEnum->getLabelPlural() }})</span>
+                @else
+                    <span class='hidden xl:inline'>({{ $roleEnum->getLabel() }})</span>
+                @endif
             @endif
         @endforeach
         </div>
     @endif
+
     @if ($results->publisher_id)
         <div class='text-base'>
             Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publisher->slug }}'>{{ $results->publisher_name != "" ? $results->publisher_name : $results->publisher->name }}</a></span>
@@ -397,7 +416,7 @@
                         @endif
                     </span>
 
-                    <x-front.lien-texte link='/textes/{{ $title->slug }}'>{{ $title->name }}</x-front.lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $title->slug }}'>{!! $title->name !!}</x-front.lien-texte>
 
                     <span class='hidden lg:inline'>
                         @if ($title->type != App\Enums\TitleType::SECTION)

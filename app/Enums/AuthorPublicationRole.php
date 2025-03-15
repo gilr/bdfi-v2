@@ -11,7 +11,15 @@ enum AuthorPublicationRole: string implements HasLabel {
     {
         return match ($this) {
             self::AUTHOR => 'Auteur',
-            self::EDITOR => 'Directeur d\'ouvrage / anthologiste',
+            self::EDITOR => 'Direction d\'ouvrage',
+        };
+    }
+
+    public function getLabelPlural(): string
+    {
+        return match($this) {
+            self::AUTHOR => 'Auteurs',
+            self::EDITOR => 'Direction d\'ouvrage',
         };
     }
 }

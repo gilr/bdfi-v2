@@ -33,7 +33,7 @@ class CollectionPolicy
     }
     public function restore(User $user, Collection $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Collection $record)

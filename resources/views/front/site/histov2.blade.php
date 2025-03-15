@@ -14,7 +14,7 @@
 <div class='grid grid-cols-1 pb-12 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-lg font-bold text-purple-900'>
-        Version V2 bêta 8 - 15/02/2025
+        Version V2 bêta 8 - 15/03/2025
     </div>
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         <ul class="list-disc pl-4 ml-4">
@@ -28,6 +28,7 @@
             <li>Admin: révisions menus, formulaires, regroupement outils et rapports</li>
             <li>Admin "filament" : tests et ajustements de toute la gestion filament des prix</li>
             <li>Rendre collapsable les infos de page d'accueil et les blocs 'membres' de bas de fiche</li>
+            <li>Ajouts des courbes de stats BDFI et de parutions annuelles par genre et format.</li>
         </ul>
     </div>
     <div class='text-lg font-bold text-purple-900'>

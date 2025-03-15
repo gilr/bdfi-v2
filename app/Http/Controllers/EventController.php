@@ -112,7 +112,8 @@ class EventController extends Controller
         {
             // /evenements/{slug}
             $this->context['page'] = $results->name;
-            return view ('front._generic.fiche', compact('results'), $this->context);
+            $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -156,7 +157,8 @@ class EventController extends Controller
                 else {
                     $this->context['page'] = "$text";
                 }
-                return view ('front._generic.fiche', compact('results'), $this->context);
+                $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
+                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
             }
             else
             {

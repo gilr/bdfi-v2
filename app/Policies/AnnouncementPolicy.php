@@ -32,7 +32,7 @@ class AnnouncementPolicy
     }
     public function restore(User $user, Announcement $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destructor;
+        return $user->hasAdminRole() || $user->id === $record->destroyer;
     }
     public function forceDelete(User $user, Announcement $record)
     {

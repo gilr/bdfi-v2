@@ -58,7 +58,7 @@
 {
 "name": "450 ans avant la naissance de Tara Duncan",
 "nom_bdfi": "450 ans avant la naissance de Tara Duncan",
-"parent": "5034",
+"parent": "5082",
 "alt_names": "",
 "vo_names": ""
 },
@@ -72,7 +72,7 @@
 {
 "name": "99 Fear Street",
 "nom_bdfi": "99 Fear Street",
-"parent": "1136",
+"parent": "1147",
 "alt_names": "",
 "vo_names": ""
 },
@@ -184,14 +184,7 @@
 {
 "name": "Abyme",
 "nom_bdfi": "Abyme",
-"parent": "3814",
-"alt_names": "",
-"vo_names": ""
-},
-{
-"name": "Abyme",
-"nom_bdfi": "Abyme",
-"parent": "3814",
+"parent": "3847",
 "alt_names": "",
 "vo_names": ""
 },
@@ -499,7 +492,7 @@
 {
 "name": "Alchymist's Legacy",
 "nom_bdfi": "Alchymist's Legacy",
-"parent": "3619",
+"parent": "3650",
 "alt_names": "",
 "vo_names": ""
 },
@@ -632,7 +625,7 @@
 {
 "name": "Alice et Fillian",
 "nom_bdfi": "Alice et Fillian",
-"parent": "5149",
+"parent": "5202",
 "alt_names": "",
 "vo_names": ""
 },
@@ -660,7 +653,7 @@
 {
 "name": "Alien Force",
 "nom_bdfi": "Alien Force",
-"parent": "344",
+"parent": "345",
 "alt_names": "",
 "vo_names": ""
 },
@@ -954,7 +947,7 @@
 {
 "name": "Anaïs et Iain",
 "nom_bdfi": "Anaïs et Iain",
-"parent": "5149",
+"parent": "5202",
 "alt_names": "La Parisienne et le Highlander",
 "vo_names": ""
 },
@@ -1003,7 +996,7 @@
 {
 "name": "Andromeda",
 "nom_bdfi": "Andromeda",
-"parent": "4154",
+"parent": "4194",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1248,7 +1241,7 @@
 {
 "name": "Aphilie",
 "nom_bdfi": "Aphilie",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 12",
 "vo_names": "Die Aphilie"
 },
@@ -1304,7 +1297,7 @@
 {
 "name": "Après Dune",
 "nom_bdfi": "Après Dune",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1659,16 +1652,23 @@
 "vo_names": ""
 },
 {
+"name": "Assassin's Creed : Mirage",
+"nom_bdfi": "Assassin's Creed : Mirage",
+"parent": "236",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Assassin's Creed Fragments",
 "nom_bdfi": "Assassin's Creed Fragments",
-"parent": "237",
+"parent": "236",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Assassin's Creed Valhalla",
 "nom_bdfi": "Assassin's Creed Valhalla",
-"parent": "237",
+"parent": "236",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1745,7 +1745,7 @@
 {
 "name": "Atlan et Arkonis",
 "nom_bdfi": "Atlan et Arkonis",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 2",
 "vo_names": "Atlan und Arkon"
 },
@@ -1871,7 +1871,7 @@
 {
 "name": "Au-delà du monde de Spiderwick",
 "nom_bdfi": "Au-delà du monde de Spiderwick",
-"parent": "3290",
+"parent": "3320",
 "alt_names": "",
 "vo_names": "Beyond the Spiderwick Chronicles"
 },
@@ -1892,7 +1892,7 @@
 {
 "name": "Aurelia Ryder",
 "nom_bdfi": "Aurelia Ryder",
-"parent": "1570",
+"parent": "1584",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1902,6 +1902,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Brightstorm"
+},
+{
+"name": "Aurora Squad",
+"nom_bdfi": "Aurora Squad",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Aurore",
@@ -1920,7 +1927,7 @@
 {
 "name": "Autour d'Honor",
 "nom_bdfi": "Autour d'Honor",
-"parent": "1360",
+"parent": "1373",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1948,7 +1955,7 @@
 {
 "name": "Aux origines de la saga numéro quatre",
 "nom_bdfi": "Aux origines de la saga numéro quatre",
-"parent": "4025",
+"parent": "4063",
 "alt_names": "",
 "vo_names": ""
 },
@@ -1990,14 +1997,14 @@
 {
 "name": "Avant Dune",
 "nom_bdfi": "Avant Dune",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Avant le labyrinthe",
 "nom_bdfi": "Avant le labyrinthe",
-"parent": "1849",
+"parent": "1869",
 "alt_names": "",
 "vo_names": "Maze Runner Prequels"
 },
@@ -2032,7 +2039,7 @@
 {
 "name": "Aventures dans un monde rebelle",
 "nom_bdfi": "Aventures dans un monde rebelle",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Adventures in Wild Space"
 },
@@ -2242,7 +2249,7 @@
 {
 "name": "Bardioc",
 "nom_bdfi": "Bardioc",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 13",
 "vo_names": "BARDIOC"
 },
@@ -2312,14 +2319,14 @@
 {
 "name": "Battle Born",
 "nom_bdfi": "Battle Born",
-"parent": "1305",
+"parent": "1317",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Battlefront",
 "nom_bdfi": "Battlefront",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2396,7 +2403,7 @@
 {
 "name": "Belzébuth",
 "nom_bdfi": "Belzébuth",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2410,7 +2417,7 @@
 {
 "name": "Ben 10 Classic",
 "nom_bdfi": "Ben 10 Classic",
-"parent": "344",
+"parent": "345",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2543,7 +2550,7 @@
 {
 "name": "Biographies",
 "nom_bdfi": "Biographies",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2557,7 +2564,7 @@
 {
 "name": "Bionicle Légendes",
 "nom_bdfi": "Bionicle Légendes",
-"parent": "365",
+"parent": "366",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2578,14 +2585,14 @@
 {
 "name": "Bjorn aux armées",
 "nom_bdfi": "Bjorn aux armées",
-"parent": "371",
+"parent": "372",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Bjorn aux enfers",
 "nom_bdfi": "Bjorn aux enfers",
-"parent": "371",
+"parent": "372",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2949,7 +2956,7 @@
 {
 "name": "Brotherband",
 "nom_bdfi": "Brotherband",
-"parent": "1654",
+"parent": "1669",
 "alt_names": "",
 "vo_names": ""
 },
@@ -2970,7 +2977,7 @@
 {
 "name": "Bryn Morrow",
 "nom_bdfi": "Bryn Morrow",
-"parent": "33",
+"parent": "32",
 "alt_names": "",
 "vo_names": "Warden of the West"
 },
@@ -3131,7 +3138,7 @@
 {
 "name": "Callista",
 "nom_bdfi": "Callista",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3187,14 +3194,14 @@
 {
 "name": "Capitale du Nord",
 "nom_bdfi": "Capitale du Nord",
-"parent": "740",
+"parent": "745",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Capitale du Sud",
 "nom_bdfi": "Capitale du Sud",
-"parent": "740",
+"parent": "745",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3306,7 +3313,7 @@
 {
 "name": "Cataclysme",
 "nom_bdfi": "Cataclysme",
-"parent": "2101",
+"parent": "2121",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3327,7 +3334,7 @@
 {
 "name": "Catwoman",
 "nom_bdfi": "Catwoman",
-"parent": "329",
+"parent": "330",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3551,7 +3558,7 @@
 {
 "name": "Chasse royale",
 "nom_bdfi": "Chasse royale",
-"parent": "4695",
+"parent": "4739",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3603,6 +3610,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Night Huntress"
+},
+{
+"name": "Chasseuse de primes",
+"nom_bdfi": "Chasseuse de primes",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Chasseuse de vampires",
@@ -3698,7 +3712,7 @@
 {
 "name": "Children of Twilight",
 "nom_bdfi": "Children of Twilight",
-"parent": "5252",
+"parent": "5305",
 "alt_names": "",
 "vo_names": ""
 },
@@ -3915,7 +3929,7 @@
 {
 "name": "Chroniques de Caladan",
 "nom_bdfi": "Chroniques de Caladan",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": "Caladan Trilogy"
 },
@@ -3950,7 +3964,7 @@
 {
 "name": "Chroniques de Raistlin",
 "nom_bdfi": "Chroniques de Raistlin",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Raistlin Chronicles"
 },
@@ -3964,7 +3978,7 @@
 {
 "name": "Chroniques de Ténébreuse",
 "nom_bdfi": "Chroniques de Ténébreuse",
-"parent": "2289",
+"parent": "2310",
 "alt_names": "",
 "vo_names": ""
 },
@@ -4237,7 +4251,7 @@
 {
 "name": "Chroniques du monde émergé",
 "nom_bdfi": "Chroniques du monde émergé",
-"parent": "2845",
+"parent": "2874",
 "alt_names": "",
 "vo_names": "Cronache del mondo emerso"
 },
@@ -4412,7 +4426,7 @@
 {
 "name": "Clone Wars",
 "nom_bdfi": "Clone Wars",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -4426,7 +4440,7 @@
 {
 "name": "Cluny le fléau",
 "nom_bdfi": "Cluny le fléau",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -4538,7 +4552,7 @@
 {
 "name": "Commando Impérial",
 "nom_bdfi": "Commando Impérial",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -4580,6 +4594,13 @@
 {
 "name": "Confins et carrefours",
 "nom_bdfi": "Confins et carrefours",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Conjurations",
+"nom_bdfi": "Conjurations",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -4655,6 +4676,13 @@
 "vo_names": ""
 },
 {
+"name": "Contes et légendes d'Hashkaria",
+"nom_bdfi": "Contes et légendes d'Hashkaria",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Contes et légendes de l'entremonde",
 "nom_bdfi": "Contes et légendes de l'entremonde",
 "parent": "",
@@ -4678,7 +4706,7 @@
 {
 "name": "Contes et nouvelles",
 "nom_bdfi": "Contes et nouvelles",
-"parent": "4875",
+"parent": "4920",
 "alt_names": "",
 "vo_names": ""
 },
@@ -4723,6 +4751,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Raven Duology"
+},
+{
+"name": "Corbellâme",
+"nom_bdfi": "Corbellâme",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Cormac Mac Art",
@@ -4888,7 +4923,7 @@
 {
 "name": "Cugel",
 "nom_bdfi": "Cugel",
-"parent": "2377",
+"parent": "2402",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5000,7 +5035,7 @@
 {
 "name": "Cycle de Fondation",
 "nom_bdfi": "Cycle de Fondation",
-"parent": "1174",
+"parent": "1185",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5042,7 +5077,7 @@
 {
 "name": "Cycle de Nathan",
 "nom_bdfi": "Cycle de Nathan",
-"parent": "603",
+"parent": "605",
 "alt_names": "",
 "vo_names": "The Book of Nate"
 },
@@ -5070,14 +5105,14 @@
 {
 "name": "Cycle de Quint",
 "nom_bdfi": "Cycle de Quint",
-"parent": "603",
+"parent": "605",
 "alt_names": "",
 "vo_names": "The Quint Saga"
 },
 {
 "name": "Cycle de Remiz",
 "nom_bdfi": "Cycle de Remiz",
-"parent": "603",
+"parent": "605",
 "alt_names": "",
 "vo_names": "The Rook Saga"
 },
@@ -5091,7 +5126,7 @@
 {
 "name": "Cycle de Spic",
 "nom_bdfi": "Cycle de Spic",
-"parent": "603",
+"parent": "605",
 "alt_names": "",
 "vo_names": "The Twig Saga"
 },
@@ -5126,7 +5161,7 @@
 {
 "name": "Cycle de l'Ekumen",
 "nom_bdfi": "Cycle de l'Ekumen",
-"parent": "716",
+"parent": "721",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5476,7 +5511,7 @@
 {
 "name": "Dangereuses créatures",
 "nom_bdfi": "Dangereuses créatures",
-"parent": "4977",
+"parent": "5023",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5497,7 +5532,14 @@
 {
 "name": "Dans l'univers des contes interdits",
 "nom_bdfi": "Dans l'univers des contes interdits",
-"parent": "3373",
+"parent": "3404",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Dans la cité électrique",
+"nom_bdfi": "Dans la cité électrique",
+"parent": "",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5553,7 +5595,7 @@
 {
 "name": "Dark Bane",
 "nom_bdfi": "Dark Bane",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Dath Bane"
 },
@@ -5623,7 +5665,7 @@
 {
 "name": "Dark Maul",
 "nom_bdfi": "Dark Maul",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5658,7 +5700,7 @@
 {
 "name": "Dark-Side",
 "nom_bdfi": "Dark-Side",
-"parent": "1455",
+"parent": "1468",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5763,7 +5805,7 @@
 {
 "name": "De l'ombre à la lumière",
 "nom_bdfi": "De l'ombre à la lumière",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": "A Vision of Shadows"
 },
@@ -5875,7 +5917,7 @@
 {
 "name": "Deep Space Nine",
 "nom_bdfi": "Deep Space Nine",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
@@ -5980,7 +6022,7 @@
 {
 "name": "Derrière les lignes ennemies",
 "nom_bdfi": "Derrière les lignes ennemies",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -6127,14 +6169,14 @@
 {
 "name": "Diablo II",
 "nom_bdfi": "Diablo II",
-"parent": "875",
+"parent": "881",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Diablo III",
 "nom_bdfi": "Diablo III",
-"parent": "875",
+"parent": "881",
 "alt_names": "",
 "vo_names": ""
 },
@@ -6155,6 +6197,27 @@
 {
 "name": "Dimension Alain le Bussy",
 "nom_bdfi": "Dimension Alain le Bussy",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Dimension Austin Hall",
+"nom_bdfi": "Dimension Austin Hall",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Dimension Francis Stevens",
+"nom_bdfi": "Dimension Francis Stevens",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Dimension Otis Adelbert Kline",
+"nom_bdfi": "Dimension Otis Adelbert Kline",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -6190,14 +6253,14 @@
 {
 "name": "Diogenes Trilogy",
 "nom_bdfi": "Diogenes Trilogy",
-"parent": "1773",
+"parent": "1790",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Diptyque de l'exilé",
 "nom_bdfi": "Diptyque de l'exilé",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
@@ -6386,7 +6449,7 @@
 {
 "name": "Dossiers fantômes",
 "nom_bdfi": "Dossiers fantômes",
-"parent": "1129",
+"parent": "1140",
 "alt_names": "",
 "vo_names": "Ghost Dossier"
 },
@@ -6400,7 +6463,7 @@
 {
 "name": "Double diamant",
 "nom_bdfi": "Double diamant",
-"parent": "3822",
+"parent": "3855",
 "alt_names": "",
 "vo_names": "Double Diamant Triangle Saga"
 },
@@ -6489,6 +6552,13 @@
 "vo_names": ""
 },
 {
+"name": "Dragon Mage",
+"nom_bdfi": "Dragon Mage",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Dragon Mania",
 "nom_bdfi": "Dragon Mania",
 "parent": "",
@@ -6547,14 +6617,14 @@
 {
 "name": "Dragonologie, les chroniques",
 "nom_bdfi": "Dragonologie, les chroniques",
-"parent": "935",
+"parent": "945",
 "alt_names": "",
 "vo_names": "The Dragonology Chronicles"
 },
 {
 "name": "Dragons of a New Age",
 "nom_bdfi": "Dragons of a New Age",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": ""
 },
@@ -6575,7 +6645,7 @@
 {
 "name": "Dream-Hunter",
 "nom_bdfi": "Dream-Hunter",
-"parent": "2535",
+"parent": "2560",
 "alt_names": "",
 "vo_names": ""
 },
@@ -6645,21 +6715,21 @@
 {
 "name": "Dune, la genèse",
 "nom_bdfi": "Dune, la genèse",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Dune, les origines",
 "nom_bdfi": "Dune, les origines",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Dunk et l'Oeuf",
 "nom_bdfi": "Dunk et l'Oeuf",
-"parent": "3066",
+"parent": "3096",
 "alt_names": "",
 "vo_names": "Dunk and Egg"
 },
@@ -6687,7 +6757,7 @@
 {
 "name": "Défenseurs de la magie",
 "nom_bdfi": "Défenseurs de la magie",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Defenders of Magic Trilogy"
 },
@@ -7133,6 +7203,13 @@
 "vo_names": ""
 },
 {
+"name": "Emblèmes",
+"nom_bdfi": "Emblèmes",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Emergency",
 "nom_bdfi": "Emergency",
 "parent": "",
@@ -7394,7 +7471,7 @@
 {
 "name": "Episode I",
 "nom_bdfi": "Episode I",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -7590,7 +7667,7 @@
 {
 "name": "Etoiles perdues",
 "nom_bdfi": "Etoiles perdues",
-"parent": "2029",
+"parent": "2049",
 "alt_names": "",
 "vo_names": "The Lost Star"
 },
@@ -7779,7 +7856,7 @@
 {
 "name": "Ezra'i",
 "nom_bdfi": "Ezra'i",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -7954,14 +8031,14 @@
 {
 "name": "Fear Street Sagas",
 "nom_bdfi": "Fear Street Sagas",
-"parent": "1136",
+"parent": "1147",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Fear Street Super Chiller",
 "nom_bdfi": "Fear Street Super Chiller",
-"parent": "1136",
+"parent": "1147",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8108,14 +8185,14 @@
 {
 "name": "Final Fantasy XI",
 "nom_bdfi": "Final Fantasy XI",
-"parent": "1158",
+"parent": "1169",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Final Fantasy XIII",
 "nom_bdfi": "Final Fantasy XIII",
-"parent": "1158",
+"parent": "1169",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8185,7 +8262,7 @@
 {
 "name": "Flight of the Falcon",
 "nom_bdfi": "Flight of the Falcon",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8234,7 +8311,7 @@
 {
 "name": "Force rebelle",
 "nom_bdfi": "Force rebelle",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Rebel Force"
 },
@@ -8353,7 +8430,7 @@
 {
 "name": "Frère Wulf",
 "nom_bdfi": "Frère Wulf",
-"parent": "1655",
+"parent": "1670",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8451,7 +8528,7 @@
 {
 "name": "Galaxie de la peur",
 "nom_bdfi": "Galaxie de la peur",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8472,7 +8549,7 @@
 {
 "name": "Gambit",
 "nom_bdfi": "Gambit",
-"parent": "631",
+"parent": "633",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8591,7 +8668,7 @@
 {
 "name": "Generation One",
 "nom_bdfi": "Generation One",
-"parent": "4025",
+"parent": "4063",
 "alt_names": "",
 "vo_names": "Lorien Legacies Reborn"
 },
@@ -8696,7 +8773,7 @@
 {
 "name": "Ghoulfriends Forever",
 "nom_bdfi": "Ghoulfriends Forever",
-"parent": "4235",
+"parent": "4275",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8710,6 +8787,13 @@
 {
 "name": "Gigante",
 "nom_bdfi": "Gigante",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Gilded Magic",
+"nom_bdfi": "Gilded Magic",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -8808,7 +8892,7 @@
 {
 "name": "Gorillard",
 "nom_bdfi": "Gorillard",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8913,7 +8997,7 @@
 {
 "name": "Gridlock Coda",
 "nom_bdfi": "Gridlock Coda",
-"parent": "4820",
+"parent": "4864",
 "alt_names": "",
 "vo_names": ""
 },
@@ -8962,7 +9046,7 @@
 {
 "name": "Guerre des âmes",
 "nom_bdfi": "Guerre des âmes",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The War of Souls"
 },
@@ -8983,7 +9067,7 @@
 {
 "name": "Guerres du monde émergé",
 "nom_bdfi": "Guerres du monde émergé",
-"parent": "2845",
+"parent": "2874",
 "alt_names": "",
 "vo_names": "Le guerre del Mondo Emerso"
 },
@@ -9123,7 +9207,7 @@
 {
 "name": "Hallowed Knights",
 "nom_bdfi": "Hallowed Knights",
-"parent": "48",
+"parent": "47",
 "alt_names": "",
 "vo_names": ""
 },
@@ -9275,6 +9359,13 @@
 "vo_names": ""
 },
 {
+"name": "Haxahaven",
+"nom_bdfi": "Haxahaven",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Headline",
 "nom_bdfi": "Headline",
 "parent": "",
@@ -9305,7 +9396,7 @@
 {
 "name": "Helen Trilogy",
 "nom_bdfi": "Helen Trilogy",
-"parent": "1773",
+"parent": "1790",
 "alt_names": "",
 "vo_names": ""
 },
@@ -9557,7 +9648,7 @@
 {
 "name": "Horrorland",
 "nom_bdfi": "Horrorland",
-"parent": "492",
+"parent": "493",
 "alt_names": "Chair de poule Horrorland",
 "vo_names": "Goosebumps Horrorland"
 },
@@ -9753,7 +9844,7 @@
 {
 "name": "I, Robot",
 "nom_bdfi": "I, Robot",
-"parent": "4687",
+"parent": "4731",
 "alt_names": "La Véritable Histoire de Susan Calvin",
 "vo_names": ""
 },
@@ -9767,7 +9858,7 @@
 {
 "name": "Ian Cormac, agent du Polity",
 "nom_bdfi": "Ian Cormac, agent du Polity",
-"parent": "4546",
+"parent": "4588",
 "alt_names": "",
 "vo_names": ""
 },
@@ -9914,7 +10005,7 @@
 {
 "name": "Impostors",
 "nom_bdfi": "Impostors",
-"parent": "5264",
+"parent": "5317",
 "alt_names": "",
 "vo_names": ""
 },
@@ -9928,7 +10019,7 @@
 {
 "name": "Imriel",
 "nom_bdfi": "Imriel",
-"parent": "1618",
+"parent": "1632",
 "alt_names": "",
 "vo_names": ""
 },
@@ -10047,7 +10138,7 @@
 {
 "name": "Indiana Jones, préquelles",
 "nom_bdfi": "Indiana Jones, préquelles",
-"parent": "1435",
+"parent": "1448",
 "alt_names": "",
 "vo_names": ""
 },
@@ -10605,6 +10696,13 @@
 "vo_names": ""
 },
 {
+"name": "Joey Santana",
+"nom_bdfi": "Joey Santana",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Johannes Cabal",
 "nom_bdfi": "Johannes Cabal",
 "parent": "",
@@ -10719,7 +10817,7 @@
 {
 "name": "Joseph",
 "nom_bdfi": "Joseph",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -10740,7 +10838,7 @@
 {
 "name": "Journal",
 "nom_bdfi": "Journal",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -10761,7 +10859,7 @@
 {
 "name": "Journal de Stefan",
 "nom_bdfi": "Journal de Stefan",
-"parent": "1537",
+"parent": "1551",
 "alt_names": "",
 "vo_names": "Stefan's Diaries"
 },
@@ -10894,7 +10992,7 @@
 {
 "name": "Kal Jerico",
 "nom_bdfi": "Kal Jerico",
-"parent": "4309",
+"parent": "4349",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11104,7 +11202,7 @@
 {
 "name": "Kharadron Overlords",
 "nom_bdfi": "Kharadron Overlords",
-"parent": "48",
+"parent": "47",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11174,7 +11272,7 @@
 {
 "name": "King of Scars",
 "nom_bdfi": "King of Scars",
-"parent": "1278",
+"parent": "1290",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11300,7 +11398,7 @@
 {
 "name": "Krest V",
 "nom_bdfi": "Krest V",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11314,7 +11412,7 @@
 {
 "name": "Krishna",
 "nom_bdfi": "Krishna",
-"parent": "5369",
+"parent": "5424",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11363,7 +11461,7 @@
 {
 "name": "L'Académie Jedi",
 "nom_bdfi": "L'Académie Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11373,6 +11471,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "The Tapestry"
+},
+{
+"name": "L'Académie des dragons",
+"nom_bdfi": "L'Académie des dragons",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "L'Académie diplomatique d'Isuldain",
@@ -11433,7 +11538,7 @@
 {
 "name": "L'Agent des ombres, deuxième saison",
 "nom_bdfi": "L'Agent des ombres, deuxième saison",
-"parent": "1633",
+"parent": "1648",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11454,7 +11559,7 @@
 {
 "name": "L'Amulette magique",
 "nom_bdfi": "L'Amulette magique",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Amulet of Avantia"
 },
@@ -11468,7 +11573,7 @@
 {
 "name": "L'Ancienne République",
 "nom_bdfi": "L'Ancienne République",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11559,7 +11664,7 @@
 {
 "name": "L'Appel des oubliés",
 "nom_bdfi": "L'Appel des oubliés",
-"parent": "3821",
+"parent": "3854",
 "alt_names": "",
 "vo_names": "Call of the Forgotten"
 },
@@ -11620,6 +11725,13 @@
 "vo_names": ""
 },
 {
+"name": "L'Archipel des Dieux",
+"nom_bdfi": "L'Archipel des Dieux",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "L'Archipel des Numinées",
 "nom_bdfi": "L'Archipel des Numinées",
 "parent": "",
@@ -11657,7 +11769,7 @@
 {
 "name": "L'Armada infinie",
 "nom_bdfi": "L'Armada infinie",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 17",
 "vo_names": "Die Endlose Armada"
 },
@@ -11671,7 +11783,7 @@
 {
 "name": "L'Armure magique",
 "nom_bdfi": "L'Armure magique",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Golden Armour"
 },
@@ -11755,14 +11867,14 @@
 {
 "name": "L'Aube des Jedi",
 "nom_bdfi": "L'Aube des Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "L'Aube des clans",
 "nom_bdfi": "L'Aube des clans",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": "Dawn of the Clans"
 },
@@ -11797,7 +11909,7 @@
 {
 "name": "L'Aurore de la victoire",
 "nom_bdfi": "L'Aurore de la victoire",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -11928,6 +12040,13 @@
 "vo_names": ""
 },
 {
+"name": "L'Empire des femmes",
+"nom_bdfi": "L'Empire des femmes",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "L'Empire des illusions",
 "nom_bdfi": "L'Empire des illusions",
 "parent": "",
@@ -12035,7 +12154,7 @@
 {
 "name": "L'Enlèvement",
 "nom_bdfi": "L'Enlèvement",
-"parent": "3891",
+"parent": "3925",
 "alt_names": "",
 "vo_names": "Left Behind Prequels"
 },
@@ -12056,7 +12175,7 @@
 {
 "name": "L'Entre-Deux-guerres",
 "nom_bdfi": "L'Entre-Deux-guerres",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12105,7 +12224,7 @@
 {
 "name": "L'Escadron Alphabet",
 "nom_bdfi": "L'Escadron Alphabet",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Alphabet Squadron"
 },
@@ -12119,7 +12238,7 @@
 {
 "name": "L'Essaim",
 "nom_bdfi": "L'Essaim",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 8",
 "vo_names": "Der Schwarm"
 },
@@ -12133,7 +12252,7 @@
 {
 "name": "L'Exil",
 "nom_bdfi": "L'Exil",
-"parent": "2803",
+"parent": "2831",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12217,7 +12336,7 @@
 {
 "name": "L'Héritage de Shannara",
 "nom_bdfi": "L'Héritage de Shannara",
-"parent": "4838",
+"parent": "4883",
 "alt_names": "",
 "vo_names": "Heritage of Shannara"
 },
@@ -12231,14 +12350,14 @@
 {
 "name": "L'Héritage de la Force",
 "nom_bdfi": "L'Héritage de la Force",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "L'Héritage de la dague noire",
 "nom_bdfi": "L'Héritage de la dague noire",
-"parent": "1958",
+"parent": "1978",
 "alt_names": "",
 "vo_names": "Black Dagger Legacy"
 },
@@ -12336,7 +12455,7 @@
 {
 "name": "L'Hérétique de la Force",
 "nom_bdfi": "L'Hérétique de la Force",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12460,6 +12579,13 @@
 "vo_names": ""
 },
 {
+"name": "L'Odyssée Alcidienne",
+"nom_bdfi": "L'Odyssée Alcidienne",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "L'Odyssée Dalemark",
 "nom_bdfi": "L'Odyssée Dalemark",
 "parent": "",
@@ -12567,7 +12693,7 @@
 {
 "name": "L'Ombre Jaune",
 "nom_bdfi": "L'Ombre Jaune",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12595,14 +12721,14 @@
 {
 "name": "L'Ombre de la rose noire",
 "nom_bdfi": "L'Ombre de la rose noire",
-"parent": "4137",
+"parent": "4177",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "L'Ombre inhumaine",
 "nom_bdfi": "L'Ombre inhumaine",
-"parent": "1992",
+"parent": "2012",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12670,6 +12796,13 @@
 "vo_names": "Order of the Sanguines"
 },
 {
+"name": "L'Ordre des Sicares",
+"nom_bdfi": "L'Ordre des Sicares",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "L'Ordre des loups",
 "nom_bdfi": "L'Ordre des loups",
 "parent": "",
@@ -12714,7 +12847,7 @@
 {
 "name": "L'Ultime Piège des maîtres",
 "nom_bdfi": "L'Ultime Piège des maîtres",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12728,7 +12861,7 @@
 {
 "name": "L'Univers de Honor Harrington",
 "nom_bdfi": "L'Univers de Honor Harrington",
-"parent": "1360",
+"parent": "1373",
 "alt_names": "",
 "vo_names": ""
 },
@@ -12843,6 +12976,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Villain School"
+},
+{
+"name": "L'école des ombres",
+"nom_bdfi": "L'école des ombres",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "L'école des petits vampires",
@@ -13176,7 +13316,7 @@
 {
 "name": "L'île de l'Oubli",
 "nom_bdfi": "L'île de l'Oubli",
-"parent": "863",
+"parent": "869",
 "alt_names": "",
 "vo_names": "The Isle of the Lost"
 },
@@ -13358,7 +13498,7 @@
 {
 "name": "La Bête déracinée",
 "nom_bdfi": "La Bête déracinée",
-"parent": "2669",
+"parent": "2697",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13379,7 +13519,7 @@
 {
 "name": "La Captive du démon",
 "nom_bdfi": "La Captive du démon",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13463,7 +13603,7 @@
 {
 "name": "La Chute d'Ile-Rien",
 "nom_bdfi": "La Chute d'Ile-Rien",
-"parent": "1402",
+"parent": "1415",
 "alt_names": "",
 "vo_names": "Fall of Ile-Rien"
 },
@@ -13491,7 +13631,7 @@
 {
 "name": "La Citadelle assiégée",
 "nom_bdfi": "La Citadelle assiégée",
-"parent": "1658",
+"parent": "1673",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13526,7 +13666,7 @@
 {
 "name": "La Cité de cristal",
 "nom_bdfi": "La Cité de cristal",
-"parent": "3650",
+"parent": "3682",
 "alt_names": "",
 "vo_names": "Avalon: Quest for Magic"
 },
@@ -13575,7 +13715,7 @@
 {
 "name": "La Cité exsangue",
 "nom_bdfi": "La Cité exsangue",
-"parent": "3814",
+"parent": "3847",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13708,7 +13848,7 @@
 {
 "name": "La Confrérie des loups",
 "nom_bdfi": "La Confrérie des loups",
-"parent": "3850",
+"parent": "3884",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13785,7 +13925,7 @@
 {
 "name": "La Convention maudite",
 "nom_bdfi": "La Convention maudite",
-"parent": "2669",
+"parent": "2697",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13855,7 +13995,7 @@
 {
 "name": "La Crise de la flotte noire",
 "nom_bdfi": "La Crise de la flotte noire",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13876,7 +14016,7 @@
 {
 "name": "La Croisade noire du jedi fou",
 "nom_bdfi": "La Croisade noire du jedi fou",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -13960,7 +14100,7 @@
 {
 "name": "La Dernière Prophétie",
 "nom_bdfi": "La Dernière Prophétie",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": "The New Prophecy"
 },
@@ -14016,7 +14156,7 @@
 {
 "name": "La Douleur de la Terre",
 "nom_bdfi": "La Douleur de la Terre",
-"parent": "3850",
+"parent": "3884",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14205,7 +14345,7 @@
 {
 "name": "La Fondation",
 "nom_bdfi": "La Fondation",
-"parent": "1129",
+"parent": "1140",
 "alt_names": "",
 "vo_names": "The Founding"
 },
@@ -14261,7 +14401,7 @@
 {
 "name": "La Genèse de la flotte",
 "nom_bdfi": "La Genèse de la flotte",
-"parent": "2029",
+"parent": "2049",
 "alt_names": "",
 "vo_names": "Genesis Fleet"
 },
@@ -14359,7 +14499,7 @@
 {
 "name": "La Guerre de l'étincelle",
 "nom_bdfi": "La Guerre de l'étincelle",
-"parent": "4095",
+"parent": "4133",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14408,14 +14548,14 @@
 {
 "name": "La Guerre des Ténèbres",
 "nom_bdfi": "La Guerre des Ténèbres",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Guerre des anciens",
 "nom_bdfi": "La Guerre des anciens",
-"parent": "5406",
+"parent": "5462",
 "alt_names": "",
 "vo_names": "War of the Ancients"
 },
@@ -14429,7 +14569,7 @@
 {
 "name": "La Guerre des chasseurs de primes",
 "nom_bdfi": "La Guerre des chasseurs de primes",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "The Bounty Hunter Wars"
 },
@@ -14464,7 +14604,7 @@
 {
 "name": "La Guerre des démons",
 "nom_bdfi": "La Guerre des démons",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Demonwar Saga"
 },
@@ -14478,7 +14618,7 @@
 {
 "name": "La Guerre des mages",
 "nom_bdfi": "La Guerre des mages",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14492,7 +14632,7 @@
 {
 "name": "La Guerre des nains",
 "nom_bdfi": "La Guerre des nains",
-"parent": "3705",
+"parent": "3738",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14506,14 +14646,14 @@
 {
 "name": "La Guerre des serpents",
 "nom_bdfi": "La Guerre des serpents",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Serpentwar Saga"
 },
 {
 "name": "La Guerre des ténèbres",
 "nom_bdfi": "La Guerre des ténèbres",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Darkwar Saga"
 },
@@ -14527,7 +14667,7 @@
 {
 "name": "La Guerre du chaos",
 "nom_bdfi": "La Guerre du chaos",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Chaoswar Saga; Midkemian Trilogy"
 },
@@ -14541,7 +14681,7 @@
 {
 "name": "La Guerre du péché",
 "nom_bdfi": "La Guerre du péché",
-"parent": "875",
+"parent": "881",
 "alt_names": "The Sin War",
 "vo_names": "The Sin War"
 },
@@ -14618,7 +14758,7 @@
 {
 "name": "La Hanse cosmique",
 "nom_bdfi": "La Hanse cosmique",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 16",
 "vo_names": "Die Kosmische Hanse"
 },
@@ -14639,7 +14779,7 @@
 {
 "name": "La Haute République",
 "nom_bdfi": "La Haute République",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "La Lumière des Jedi",
 "vo_names": ""
 },
@@ -14709,7 +14849,7 @@
 {
 "name": "La Ligue de tous les mondes",
 "nom_bdfi": "La Ligue de tous les mondes",
-"parent": "716",
+"parent": "721",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14856,7 +14996,7 @@
 {
 "name": "La Légende de Kerowyn",
 "nom_bdfi": "La Légende de Kerowyn",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14877,7 +15017,7 @@
 {
 "name": "La Légende de Shamir",
 "nom_bdfi": "La Légende de Shamir",
-"parent": "1288",
+"parent": "1300",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14891,7 +15031,7 @@
 {
 "name": "La Légende de Titus Crow",
 "nom_bdfi": "La Légende de Titus Crow",
-"parent": "5165",
+"parent": "5218",
 "alt_names": "",
 "vo_names": ""
 },
@@ -14954,7 +15094,7 @@
 {
 "name": "La Légende des Ravens",
 "nom_bdfi": "La Légende des Ravens",
-"parent": "4624",
+"parent": "4667",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15059,7 +15199,7 @@
 {
 "name": "La Main de Thrawn",
 "nom_bdfi": "La Main de Thrawn",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15185,7 +15325,7 @@
 {
 "name": "La Malédiction des anciens",
 "nom_bdfi": "La Malédiction des anciens",
-"parent": "1938",
+"parent": "1958",
 "alt_names": "",
 "vo_names": "The Eldest Curses"
 },
@@ -15199,7 +15339,7 @@
 {
 "name": "La Malédiction du sang",
 "nom_bdfi": "La Malédiction du sang",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "The Trilogy of the Blood Curse"
 },
@@ -15246,6 +15386,13 @@
 "vo_names": "Daughter of Smoke and Bone; Karou"
 },
 {
+"name": "La Marque des anges (M. Rulliat)",
+"nom_bdfi": "La Marque des anges (M. Rulliat)",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "La Marque des ténèbres",
 "nom_bdfi": "La Marque des ténèbres",
 "parent": "",
@@ -15255,7 +15402,7 @@
 {
 "name": "La Marée des ténèbres",
 "nom_bdfi": "La Marée des ténèbres",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Dark Tide"
 },
@@ -15367,7 +15514,7 @@
 {
 "name": "La Mission de Mered Gadelinne",
 "nom_bdfi": "La Mission de Mered Gadelinne",
-"parent": "718",
+"parent": "723",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15626,21 +15773,21 @@
 {
 "name": "La Première Guerre formique",
 "nom_bdfi": "La Première Guerre formique",
-"parent": "1035",
+"parent": "1046",
 "alt_names": "",
 "vo_names": "Formic War"
 },
 {
 "name": "La Première Loi",
 "nom_bdfi": "La Première Loi",
-"parent": "2835",
+"parent": "2863",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Première Trilogie",
 "nom_bdfi": "La Première Trilogie",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15808,7 +15955,7 @@
 {
 "name": "La Quête d'Ewilan",
 "nom_bdfi": "La Quête d'Ewilan",
-"parent": "1103",
+"parent": "1114",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15836,14 +15983,14 @@
 {
 "name": "La Quête de Deltora 2",
 "nom_bdfi": "La Quête de Deltora 2",
-"parent": "2262",
+"parent": "2283",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Quête de Deltora III",
 "nom_bdfi": "La Quête de Deltora III",
-"parent": "2262",
+"parent": "2283",
 "alt_names": "",
 "vo_names": ""
 },
@@ -15885,7 +16032,7 @@
 {
 "name": "La Quête des ours cycle II",
 "nom_bdfi": "La Quête des ours cycle II",
-"parent": "2269",
+"parent": "2290",
 "alt_names": "",
 "vo_names": "Return to the Wild"
 },
@@ -15969,28 +16116,28 @@
 {
 "name": "La Reine rouge",
 "nom_bdfi": "La Reine rouge",
-"parent": "1700",
+"parent": "1716",
 "alt_names": "",
 "vo_names": "The Red Queen's War"
 },
 {
 "name": "La Revanche des Sith",
 "nom_bdfi": "La Revanche des Sith",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Revanche des nains",
 "nom_bdfi": "La Revanche des nains",
-"parent": "3705",
+"parent": "3738",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Revanche des orcs",
 "nom_bdfi": "La Revanche des orcs",
-"parent": "3733",
+"parent": "3766",
 "alt_names": "",
 "vo_names": "Orcs Bad Blood"
 },
@@ -16053,7 +16200,7 @@
 {
 "name": "La Route des rêves",
 "nom_bdfi": "La Route des rêves",
-"parent": "1658",
+"parent": "1673",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16086,6 +16233,13 @@
 "vo_names": ""
 },
 {
+"name": "La Révolte des Côg'r",
+"nom_bdfi": "La Révolte des Côg'r",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "La Révolte des dragons",
 "nom_bdfi": "La Révolte des dragons",
 "parent": "",
@@ -16102,9 +16256,16 @@
 {
 "name": "La Saga Forerunner",
 "nom_bdfi": "La Saga Forerunner",
-"parent": "1305",
+"parent": "1317",
 "alt_names": "",
 "vo_names": "Forerunner Saga"
+},
+{
+"name": "La Saga Halfling",
+"nom_bdfi": "La Saga Halfling",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "La Saga Sélène",
@@ -16347,14 +16508,14 @@
 {
 "name": "La Saga du Sorceleur",
 "nom_bdfi": "La Saga du Sorceleur",
-"parent": "1234",
+"parent": "1245",
 "alt_names": "The Witcher",
 "vo_names": ""
 },
 {
 "name": "La Saga du prince Ken",
 "nom_bdfi": "La Saga du prince Ken",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16368,14 +16529,14 @@
 {
 "name": "La Saga du templier noir",
 "nom_bdfi": "La Saga du templier noir",
-"parent": "4956",
+"parent": "5002",
 "alt_names": "",
 "vo_names": "The Dark Templar Saga"
 },
 {
 "name": "La Sainte",
 "nom_bdfi": "La Sainte",
-"parent": "1129",
+"parent": "1140",
 "alt_names": "",
 "vo_names": "The Saint"
 },
@@ -16396,30 +16557,37 @@
 {
 "name": "La Science du Disque-monde",
 "nom_bdfi": "La Science du Disque-monde",
-"parent": "2694",
+"parent": "2722",
 "alt_names": "",
 "vo_names": "The Science of Discworld"
 },
 {
 "name": "La Seconde Chute d'Ervalon",
 "nom_bdfi": "La Seconde Chute d'Ervalon",
-"parent": "3249",
+"parent": "3279",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Seconde Trilogie Fondation",
 "nom_bdfi": "La Seconde Trilogie Fondation",
-"parent": "1174",
+"parent": "1185",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Seconde Trilogie des agresseurs",
 "nom_bdfi": "La Seconde Trilogie des agresseurs",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Villains"
+},
+{
+"name": "La Semeuse de vents",
+"nom_bdfi": "La Semeuse de vents",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "La Septième Fille du diable",
@@ -16550,14 +16718,14 @@
 {
 "name": "La Séquence d'Ombre-Terre",
 "nom_bdfi": "La Séquence d'Ombre-Terre",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Séquence des Draconiens",
 "nom_bdfi": "La Séquence des Draconiens",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Kang's Regiment"
 },
@@ -16571,7 +16739,7 @@
 {
 "name": "La Séquence des chasseurs",
 "nom_bdfi": "La Séquence des chasseurs",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "Les Lames du chasseur",
 "vo_names": "The Hunter's Blades Trilogy"
 },
@@ -16592,7 +16760,7 @@
 {
 "name": "La Séquence du retour aux sources",
 "nom_bdfi": "La Séquence du retour aux sources",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16613,6 +16781,13 @@
 {
 "name": "La Team Sherlock",
 "nom_bdfi": "La Team Sherlock",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "La Tentation des fous",
+"nom_bdfi": "La Tentation des fous",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -16690,7 +16865,7 @@
 {
 "name": "La Triade",
 "nom_bdfi": "La Triade",
-"parent": "1353",
+"parent": "1366",
 "alt_names": "",
 "vo_names": "A Triad in Three Acts"
 },
@@ -16711,7 +16886,7 @@
 {
 "name": "La Trilogie Corellienne",
 "nom_bdfi": "La Trilogie Corellienne",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16732,7 +16907,7 @@
 {
 "name": "La Trilogie Kilo-5",
 "nom_bdfi": "La Trilogie Kilo-5",
-"parent": "1305",
+"parent": "1317",
 "alt_names": "",
 "vo_names": "Kilo Five trilogy"
 },
@@ -16844,14 +17019,14 @@
 {
 "name": "La Trilogie de Padmé",
 "nom_bdfi": "La Trilogie de Padmé",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Padmé Trilogy"
 },
 {
 "name": "La Trilogie de Pern",
 "nom_bdfi": "La Trilogie de Pern",
-"parent": "1893",
+"parent": "1913",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16872,7 +17047,7 @@
 {
 "name": "La Trilogie de l'Ergoth",
 "nom_bdfi": "La Trilogie de l'Ergoth",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Ergoth Trilogy"
 },
@@ -16886,7 +17061,7 @@
 {
 "name": "La Trilogie de l'elfe noir",
 "nom_bdfi": "La Trilogie de l'elfe noir",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": "The Dark Elfe Trilogy"
 },
@@ -16949,7 +17124,7 @@
 {
 "name": "La Trilogie des agresseurs",
 "nom_bdfi": "La Trilogie des agresseurs",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Villains"
 },
@@ -16963,7 +17138,7 @@
 {
 "name": "La Trilogie des chroniques",
 "nom_bdfi": "La Trilogie des chroniques",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": ""
 },
@@ -16977,7 +17152,7 @@
 {
 "name": "La Trilogie des contes",
 "nom_bdfi": "La Trilogie des contes",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Tales"
 },
@@ -17019,7 +17194,7 @@
 {
 "name": "La Trilogie des héros",
 "nom_bdfi": "La Trilogie des héros",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Heroes"
 },
@@ -17040,21 +17215,21 @@
 {
 "name": "La Trilogie des légendes",
 "nom_bdfi": "La Trilogie des légendes",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "Légendes de Dragonlance; Légendes de Lancedragon",
 "vo_names": "Legends Trilogy"
 },
 {
 "name": "La Trilogie des mystères",
 "nom_bdfi": "La Trilogie des mystères",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Classics"
 },
 {
 "name": "La Trilogie des nations elfiques",
 "nom_bdfi": "La Trilogie des nations elfiques",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Elven Nations Trilogy"
 },
@@ -17068,14 +17243,14 @@
 {
 "name": "La Trilogie des préludes",
 "nom_bdfi": "La Trilogie des préludes",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Preludes"
 },
 {
 "name": "La Trilogie des pélerins",
 "nom_bdfi": "La Trilogie des pélerins",
-"parent": "1820",
+"parent": "1839",
 "alt_names": "La Trilogie Kammerer",
 "vo_names": ""
 },
@@ -17089,7 +17264,7 @@
 {
 "name": "La Trilogie des rencontres",
 "nom_bdfi": "La Trilogie des rencontres",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17131,28 +17306,28 @@
 {
 "name": "La Trilogie du Prêtre-Roi",
 "nom_bdfi": "La Trilogie du Prêtre-Roi",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Kingpriest Trilogy"
 },
 {
 "name": "La Trilogie du Val Bise",
 "nom_bdfi": "La Trilogie du Val Bise",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": "The Icewind Dale Trilogy"
 },
 {
 "name": "La Trilogie du dernier Héraut-Mage",
 "nom_bdfi": "La Trilogie du dernier Héraut-Mage",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "La Trilogie du dieu mort",
 "nom_bdfi": "La Trilogie du dieu mort",
-"parent": "3899",
+"parent": "3933",
 "alt_names": "",
 "vo_names": "Dead God Trilogy"
 },
@@ -17180,7 +17355,7 @@
 {
 "name": "La Trilogie du magicien noir",
 "nom_bdfi": "La Trilogie du magicien noir",
-"parent": "2840",
+"parent": "2869",
 "alt_names": "",
 "vo_names": "The Black Magician Trilogy"
 },
@@ -17229,7 +17404,7 @@
 {
 "name": "La Trilogie fondatrice",
 "nom_bdfi": "La Trilogie fondatrice",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17243,14 +17418,14 @@
 {
 "name": "La Troisième Force",
 "nom_bdfi": "La Troisième Force",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 1",
 "vo_names": "Die dritte Macht"
 },
 {
 "name": "La Troisième Trilogie",
 "nom_bdfi": "La Troisième Trilogie",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17264,7 +17439,7 @@
 {
 "name": "La Tueuse perdue",
 "nom_bdfi": "La Tueuse perdue",
-"parent": "428",
+"parent": "429",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17327,7 +17502,7 @@
 {
 "name": "La Victoire",
 "nom_bdfi": "La Victoire",
-"parent": "1129",
+"parent": "1140",
 "alt_names": "",
 "vo_names": "The Victory"
 },
@@ -17348,7 +17523,7 @@
 {
 "name": "La Voie 088",
 "nom_bdfi": "La Voie 088",
-"parent": "4218",
+"parent": "4258",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17551,7 +17726,7 @@
 {
 "name": "Last Descendants",
 "nom_bdfi": "Last Descendants",
-"parent": "237",
+"parent": "236",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17810,14 +17985,14 @@
 {
 "name": "Le Chant de la Terre",
 "nom_bdfi": "Le Chant de la Terre",
-"parent": "4313",
+"parent": "4353",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Chant de la Terre",
 "nom_bdfi": "Le Chant de la Terre",
-"parent": "4313",
+"parent": "4353",
 "alt_names": "",
 "vo_names": ""
 },
@@ -17838,6 +18013,13 @@
 {
 "name": "Le Chant des dragons",
 "nom_bdfi": "Le Chant des dragons",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Le Chant des particules",
+"nom_bdfi": "Le Chant des particules",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -17899,6 +18081,20 @@
 "vo_names": "The Cat Who..."
 },
 {
+"name": "Le Chemin des étoiles",
+"nom_bdfi": "Le Chemin des étoiles",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Le Chevalier aux épines",
+"nom_bdfi": "Le Chevalier aux épines",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Le Chevalier-Dragon",
 "nom_bdfi": "Le Chevalier-Dragon",
 "parent": "",
@@ -17936,7 +18132,7 @@
 {
 "name": "Le Château de l'horreur",
 "nom_bdfi": "Le Château de l'horreur",
-"parent": "492",
+"parent": "493",
 "alt_names": "",
 "vo_names": "Hall of Horrors"
 },
@@ -18132,7 +18328,7 @@
 {
 "name": "Le Codex des compagnons",
 "nom_bdfi": "Le Codex des compagnons",
-"parent": "5123",
+"parent": "5176",
 "alt_names": "",
 "vo_names": "Companions Codex"
 },
@@ -18195,7 +18391,7 @@
 {
 "name": "Le Concile",
 "nom_bdfi": "Le Concile",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 11",
 "vo_names": "Das Konzil"
 },
@@ -18209,7 +18405,7 @@
 {
 "name": "Le Conclave des ombres",
 "nom_bdfi": "Le Conclave des ombres",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Conclave of Shadows"
 },
@@ -18279,7 +18475,7 @@
 {
 "name": "Le Cycle d'Ananké",
 "nom_bdfi": "Le Cycle d'Ananké",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18321,7 +18517,7 @@
 {
 "name": "Le Cycle de Dame Asmine d'Alba",
 "nom_bdfi": "Le Cycle de Dame Asmine d'Alba",
-"parent": "4694",
+"parent": "4738",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18356,7 +18552,7 @@
 {
 "name": "Le Cycle de Lucifal",
 "nom_bdfi": "Le Cycle de Lucifal",
-"parent": "4694",
+"parent": "4738",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18370,7 +18566,7 @@
 {
 "name": "Le Cycle de Saphyr",
 "nom_bdfi": "Le Cycle de Saphyr",
-"parent": "4694",
+"parent": "4738",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18384,7 +18580,7 @@
 {
 "name": "Le Cycle de Séliandre",
 "nom_bdfi": "Le Cycle de Séliandre",
-"parent": "1702",
+"parent": "1718",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18454,21 +18650,21 @@
 {
 "name": "Le Cycle des Harkans",
 "nom_bdfi": "Le Cycle des Harkans",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Cycle des Imperators",
 "nom_bdfi": "Le Cycle des Imperators",
-"parent": "1702",
+"parent": "1718",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Cycle des Phénix",
 "nom_bdfi": "Le Cycle des Phénix",
-"parent": "4313",
+"parent": "4353",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18496,7 +18692,7 @@
 {
 "name": "Le Cycle des chambres",
 "nom_bdfi": "Le Cycle des chambres",
-"parent": "2647",
+"parent": "2675",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18510,14 +18706,14 @@
 {
 "name": "Le Cycle des clans",
 "nom_bdfi": "Le Cycle des clans",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Clans"
 },
 {
 "name": "Le Cycle des clans de l'âge des ténèbres",
 "nom_bdfi": "Le Cycle des clans de l'âge des ténèbres",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Dark Ages Clans"
 },
@@ -18650,7 +18846,7 @@
 {
 "name": "Le Cycle du Tigre",
 "nom_bdfi": "Le Cycle du Tigre",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -18818,21 +19014,21 @@
 {
 "name": "Le Destin des Jedi",
 "nom_bdfi": "Le Destin des Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Destin des nains",
 "nom_bdfi": "Le Destin des nains",
-"parent": "3705",
+"parent": "3738",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Deuxième Empire",
 "nom_bdfi": "Le Deuxième Empire",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 4",
 "vo_names": "Das Zweite imperium"
 },
@@ -19070,7 +19266,7 @@
 {
 "name": "Le Fils de Luc",
 "nom_bdfi": "Le Fils de Luc",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19098,7 +19294,7 @@
 {
 "name": "Le Fou et l'assassin",
 "nom_bdfi": "Le Fou et l'assassin",
-"parent": "1672",
+"parent": "1688",
 "alt_names": "",
 "vo_names": "The Fitz and the Fool"
 },
@@ -19189,14 +19385,14 @@
 {
 "name": "Le Grimoire au rubis, cycle II",
 "nom_bdfi": "Le Grimoire au rubis, cycle II",
-"parent": "2741",
+"parent": "2769",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Grimoire au rubis, cycle III",
 "nom_bdfi": "Le Grimoire au rubis, cycle III",
-"parent": "2741",
+"parent": "2769",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19217,14 +19413,14 @@
 {
 "name": "Le Guide officiel",
 "nom_bdfi": "Le Guide officiel",
-"parent": "278",
+"parent": "279",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Haut Druide de Shannara",
 "nom_bdfi": "Le Haut Druide de Shannara",
-"parent": "4838",
+"parent": "4883",
 "alt_names": "",
 "vo_names": "High Druid of Shannara"
 },
@@ -19336,20 +19532,13 @@
 {
 "name": "Le Legs de la faille",
 "nom_bdfi": "Le Legs de la faille",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "The Riftwar Legacy"
 },
 {
 "name": "Le Lien du sang",
 "nom_bdfi": "Le Lien du sang",
-"parent": "",
-"alt_names": "",
-"vo_names": ""
-},
-{
-"name": "Le Lion De Macédoine",
-"nom_bdfi": "Le Lion De Macédoine",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -19399,7 +19588,7 @@
 {
 "name": "Le Livre de Shane",
 "nom_bdfi": "Le Livre de Shane",
-"parent": "158",
+"parent": "157",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19420,7 +19609,7 @@
 {
 "name": "Le Livre de la tribu",
 "nom_bdfi": "Le Livre de la tribu",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Tribe Novels"
 },
@@ -19579,6 +19768,13 @@
 "vo_names": ""
 },
 {
+"name": "Le Lys Noir",
+"nom_bdfi": "Le Lys Noir",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Le Lys noir",
 "nom_bdfi": "Le Lys noir",
 "parent": "",
@@ -19602,7 +19798,7 @@
 {
 "name": "Le Mage-Dragon de Mystara",
 "nom_bdfi": "Le Mage-Dragon de Mystara",
-"parent": "2558",
+"parent": "2586",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19735,7 +19931,7 @@
 {
 "name": "Le Monde d'Ombre-Terre",
 "nom_bdfi": "Le Monde d'Ombre-Terre",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19770,7 +19966,7 @@
 {
 "name": "Le Monde de Meg Corbyn",
 "nom_bdfi": "Le Monde de Meg Corbyn",
-"parent": "4171",
+"parent": "4211",
 "alt_names": "",
 "vo_names": "World of the Others"
 },
@@ -19798,7 +19994,7 @@
 {
 "name": "Le Monde de Xavi El Valent",
 "nom_bdfi": "Le Monde de Xavi El Valent",
-"parent": "2317",
+"parent": "2340",
 "alt_names": "",
 "vo_names": ""
 },
@@ -19826,7 +20022,7 @@
 {
 "name": "Le Monde de la chasseuse de la nuit",
 "nom_bdfi": "Le Monde de la chasseuse de la nuit",
-"parent": "515",
+"parent": "516",
 "alt_names": "",
 "vo_names": "Night Huntress World"
 },
@@ -19843,6 +20039,13 @@
 "parent": "",
 "alt_names": "Terres de sang",
 "vo_names": "The First Law Universe"
+},
+{
+"name": "Le Monde des Premiers",
+"nom_bdfi": "Le Monde des Premiers",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Le Monde des songes",
@@ -19980,7 +20183,7 @@
 {
 "name": "Le Mystère des XV",
 "nom_bdfi": "Le Mystère des XV",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20008,7 +20211,7 @@
 {
 "name": "Le Nouvel Ordre Jedi",
 "nom_bdfi": "Le Nouvel Ordre Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "The New Jedi Order"
 },
@@ -20071,7 +20274,7 @@
 {
 "name": "Le Pacte du Graal",
 "nom_bdfi": "Le Pacte du Graal",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "The Grails Covenant"
 },
@@ -20253,7 +20456,7 @@
 {
 "name": "Le Piège infernal",
 "nom_bdfi": "Le Piège infernal",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20295,7 +20498,7 @@
 {
 "name": "Le Pouvoir de la Force",
 "nom_bdfi": "Le Pouvoir de la Force",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20316,7 +20519,7 @@
 {
 "name": "Le Pouvoir des étoiles",
 "nom_bdfi": "Le Pouvoir des étoiles",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": "Power of Three"
 },
@@ -20344,7 +20547,7 @@
 {
 "name": "Le Prince Caspian",
 "nom_bdfi": "Le Prince Caspian",
-"parent": "3278",
+"parent": "3308",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20512,7 +20715,7 @@
 {
 "name": "Le Protocole de la crème anglaise",
 "nom_bdfi": "Le Protocole de la crème anglaise",
-"parent": "2929",
+"parent": "2958",
 "alt_names": "",
 "vo_names": "The Custard Protocol"
 },
@@ -20589,7 +20792,7 @@
 {
 "name": "Le Retour de l'ange",
 "nom_bdfi": "Le Retour de l'ange",
-"parent": "2513",
+"parent": "2538",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20624,7 +20827,7 @@
 {
 "name": "Le Retour des préludes",
 "nom_bdfi": "Le Retour des préludes",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Preludes II"
 },
@@ -20673,7 +20876,7 @@
 {
 "name": "Le Roi-Dragon de Mystara",
 "nom_bdfi": "Le Roi-Dragon de Mystara",
-"parent": "2558",
+"parent": "2586",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20687,7 +20890,7 @@
 {
 "name": "Le Roman de Pontfol",
 "nom_bdfi": "Le Roman de Pontfol",
-"parent": "747",
+"parent": "752",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20750,14 +20953,14 @@
 {
 "name": "Le Royaume de Gwildor",
 "nom_bdfi": "Le Royaume de Gwildor",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Shade of Death"
 },
 {
 "name": "Le Royaume de Kayonia",
 "nom_bdfi": "Le Royaume de Kayonia",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The World of Chaos"
 },
@@ -20799,7 +21002,7 @@
 {
 "name": "Le Royaume de Tavania",
 "nom_bdfi": "Le Royaume de Tavania",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Lost World"
 },
@@ -20827,7 +21030,7 @@
 {
 "name": "Le Royaume de la fantaisie",
 "nom_bdfi": "Le Royaume de la fantaisie",
-"parent": "1237",
+"parent": "1248",
 "alt_names": "",
 "vo_names": ""
 },
@@ -20862,7 +21065,7 @@
 {
 "name": "Le Royaume des ombres",
 "nom_bdfi": "Le Royaume des ombres",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Dark Realm"
 },
@@ -20967,7 +21170,7 @@
 {
 "name": "Le Sage de Valombre",
 "nom_bdfi": "Le Sage de Valombre",
-"parent": "2305",
+"parent": "2328",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21156,7 +21359,7 @@
 {
 "name": "Le Seigneur-Dragon de Mystara",
 "nom_bdfi": "Le Seigneur-Dragon de Mystara",
-"parent": "2558",
+"parent": "2586",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21226,7 +21429,7 @@
 {
 "name": "Le Siège de Terra",
 "nom_bdfi": "Le Siège de Terra",
-"parent": "1762",
+"parent": "1779",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21359,7 +21562,7 @@
 {
 "name": "Le Taureau Rouge",
 "nom_bdfi": "Le Taureau Rouge",
-"parent": "4926",
+"parent": "4972",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21371,9 +21574,16 @@
 "vo_names": ""
 },
 {
+"name": "Le Temps de la fin",
+"nom_bdfi": "Le Temps de la fin",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Le Temps de la résistance",
 "nom_bdfi": "Le Temps de la résistance",
-"parent": "796",
+"parent": "802",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21436,14 +21646,14 @@
 {
 "name": "Le Triomphe des Nains",
 "nom_bdfi": "Le Triomphe des Nains",
-"parent": "3705",
+"parent": "3738",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Le Triomphe des nains",
 "nom_bdfi": "Le Triomphe des nains",
-"parent": "3705",
+"parent": "3738",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21562,7 +21772,7 @@
 {
 "name": "Le Voyage dans le temps",
 "nom_bdfi": "Le Voyage dans le temps",
-"parent": "1237",
+"parent": "1248",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21590,7 +21800,7 @@
 {
 "name": "Le Voyage du Jerle Shannara",
 "nom_bdfi": "Le Voyage du Jerle Shannara",
-"parent": "4838",
+"parent": "4883",
 "alt_names": "",
 "vo_names": "The Voyage of the jerle Shannara"
 },
@@ -21744,7 +21954,7 @@
 {
 "name": "Les Agents du chaos",
 "nom_bdfi": "Les Agents du chaos",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21786,7 +21996,7 @@
 {
 "name": "Les Alphans",
 "nom_bdfi": "Les Alphans",
-"parent": "4218",
+"parent": "4258",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21863,7 +22073,7 @@
 {
 "name": "Les Animaux fantastiques",
 "nom_bdfi": "Les Animaux fantastiques",
-"parent": "1317",
+"parent": "1329",
 "alt_names": "",
 "vo_names": ""
 },
@@ -21877,7 +22087,7 @@
 {
 "name": "Les Annales du Disque-monde",
 "nom_bdfi": "Les Annales du Disque-monde",
-"parent": "2694",
+"parent": "2722",
 "alt_names": "",
 "vo_names": "Discworld"
 },
@@ -21891,21 +22101,21 @@
 {
 "name": "Les Antipodes",
 "nom_bdfi": "Les Antipodes",
-"parent": "1955",
+"parent": "1975",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Apprentis Jedi",
 "nom_bdfi": "Les Apprentis Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Apprentis Jedi édition spéciale",
 "nom_bdfi": "Les Apprentis Jedi édition spéciale",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -22038,14 +22248,14 @@
 {
 "name": "Les Autres de Darkwood",
 "nom_bdfi": "Les Autres de Darkwood",
-"parent": "1328",
+"parent": "1341",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Autres mondes de Tara Duncan",
 "nom_bdfi": "Les Autres mondes de Tara Duncan",
-"parent": "5034",
+"parent": "5082",
 "alt_names": "",
 "vo_names": ""
 },
@@ -22220,7 +22430,7 @@
 {
 "name": "Les Aventures de Superman",
 "nom_bdfi": "Les Aventures de Superman",
-"parent": "4986",
+"parent": "5032",
 "alt_names": "",
 "vo_names": ""
 },
@@ -22262,14 +22472,14 @@
 {
 "name": "Les Aventures de Wonder Woman",
 "nom_bdfi": "Les Aventures de Wonder Woman",
-"parent": "5450",
+"parent": "5507",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Aventures de Yan Solo",
 "nom_bdfi": "Les Aventures de Yan Solo",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -22395,7 +22605,7 @@
 {
 "name": "Les Bioposis",
 "nom_bdfi": "Les Bioposis",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 3",
 "vo_names": "Die Posbis"
 },
@@ -22458,7 +22668,7 @@
 {
 "name": "Les Bêtes suprêmes",
 "nom_bdfi": "Les Bêtes suprêmes",
-"parent": "158",
+"parent": "157",
 "alt_names": "Animal Tatoo saison II",
 "vo_names": "Fall of the Beasts"
 },
@@ -22486,7 +22696,7 @@
 {
 "name": "Les Cappins",
 "nom_bdfi": "Les Cappins",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 7",
 "vo_names": "Die Cappins"
 },
@@ -22500,7 +22710,7 @@
 {
 "name": "Les Carnets de la constellation",
 "nom_bdfi": "Les Carnets de la constellation",
-"parent": "1288",
+"parent": "1300",
 "alt_names": "",
 "vo_names": ""
 },
@@ -22521,7 +22731,7 @@
 {
 "name": "Les Cavaliers de l'apocalypse",
 "nom_bdfi": "Les Cavaliers de l'apocalypse",
-"parent": "961",
+"parent": "971",
 "alt_names": "",
 "vo_names": "Lords of Deliverance"
 },
@@ -22920,7 +23130,7 @@
 {
 "name": "Les Chroniques de Lancedragon",
 "nom_bdfi": "Les Chroniques de Lancedragon",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "Chroniques de Dragonlance; La Trilogie des chroniques de Lancedragon",
 "vo_names": ""
 },
@@ -22955,21 +23165,21 @@
 {
 "name": "Les Chroniques de Nicci",
 "nom_bdfi": "Les Chroniques de Nicci",
-"parent": "1850",
+"parent": "1870",
 "alt_names": "",
 "vo_names": "The Nicci Chronicles"
 },
 {
 "name": "Les Chroniques de Nick",
 "nom_bdfi": "Les Chroniques de Nick",
-"parent": "2535",
+"parent": "2560",
 "alt_names": "",
 "vo_names": "Chronicles of Nick"
 },
 {
 "name": "Les Chroniques de Pern",
 "nom_bdfi": "Les Chroniques de Pern",
-"parent": "1893",
+"parent": "1913",
 "alt_names": "",
 "vo_names": ""
 },
@@ -23102,7 +23312,7 @@
 {
 "name": "Les Chroniques de Wethrïn",
 "nom_bdfi": "Les Chroniques de Wethrïn",
-"parent": "3151",
+"parent": "3181",
 "alt_names": "",
 "vo_names": ""
 },
@@ -23228,7 +23438,7 @@
 {
 "name": "Les Chroniques des crépusculaires",
 "nom_bdfi": "Les Chroniques des crépusculaires",
-"parent": "3814",
+"parent": "3847",
 "alt_names": "Le Cycle d'Agone",
 "vo_names": ""
 },
@@ -23284,7 +23494,7 @@
 {
 "name": "Les Chroniques du magicien noir",
 "nom_bdfi": "Les Chroniques du magicien noir",
-"parent": "2840",
+"parent": "2869",
 "alt_names": "",
 "vo_names": "The Traitor Spy Trilogy"
 },
@@ -23347,7 +23557,7 @@
 {
 "name": "Les Chroniques kanines",
 "nom_bdfi": "Les Chroniques kanines",
-"parent": "5244",
+"parent": "5297",
 "alt_names": "",
 "vo_names": "Kanin Chronicles"
 },
@@ -23361,14 +23571,14 @@
 {
 "name": "Les Chroniques perdues",
 "nom_bdfi": "Les Chroniques perdues",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Lost Chronicles Trilogy; The Lost Chronicles Trilogy"
 },
 {
 "name": "Les Chroniques pourpres",
 "nom_bdfi": "Les Chroniques pourpres",
-"parent": "1229",
+"parent": "1240",
 "alt_names": "",
 "vo_names": ""
 },
@@ -23410,7 +23620,7 @@
 {
 "name": "Les Citadelles cosmiques",
 "nom_bdfi": "Les Citadelles cosmiques",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 15",
 "vo_names": "Die Kosmischen Burgen"
 },
@@ -23434,6 +23644,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Rain Wild Chronicles"
+},
+{
+"name": "Les Cités divines",
+"nom_bdfi": "Les Cités divines",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Les Cités intérieures",
@@ -23627,7 +23844,7 @@
 {
 "name": "Les Crapauds",
 "nom_bdfi": "Les Crapauds",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -23669,7 +23886,7 @@
 {
 "name": "Les Daces",
 "nom_bdfi": "Les Daces",
-"parent": "3731",
+"parent": "3764",
 "alt_names": "",
 "vo_names": "The Dacians"
 },
@@ -23711,7 +23928,7 @@
 {
 "name": "Les Derniers Guerriers du silence",
 "nom_bdfi": "Les Derniers Guerriers du silence",
-"parent": "3559",
+"parent": "3590",
 "alt_names": "",
 "vo_names": ""
 },
@@ -23739,7 +23956,7 @@
 {
 "name": "Les Dernières Heures",
 "nom_bdfi": "Les Dernières Heures",
-"parent": "1938",
+"parent": "1958",
 "alt_names": "",
 "vo_names": "Last Hours"
 },
@@ -23900,7 +24117,7 @@
 {
 "name": "Les Dragons de l'éternité",
 "nom_bdfi": "Les Dragons de l'éternité",
-"parent": "3528",
+"parent": "3559",
 "alt_names": "",
 "vo_names": "Dragons of Eternity"
 },
@@ -24047,7 +24264,7 @@
 {
 "name": "Les Enfants de D'Hara",
 "nom_bdfi": "Les Enfants de D'Hara",
-"parent": "4668",
+"parent": "4711",
 "alt_names": "",
 "vo_names": "Children of D'Hara"
 },
@@ -24075,7 +24292,7 @@
 {
 "name": "Les Enfants de Ji",
 "nom_bdfi": "Les Enfants de Ji",
-"parent": "3012",
+"parent": "3041",
 "alt_names": "",
 "vo_names": ""
 },
@@ -24187,7 +24404,7 @@
 {
 "name": "Les Enfants des Otori",
 "nom_bdfi": "Les Enfants des Otori",
-"parent": "2579",
+"parent": "2607",
 "alt_names": "",
 "vo_names": "Children of the Otori"
 },
@@ -24341,7 +24558,7 @@
 {
 "name": "Les Entrailles du mal",
 "nom_bdfi": "Les Entrailles du mal",
-"parent": "3850",
+"parent": "3884",
 "alt_names": "",
 "vo_names": ""
 },
@@ -24670,7 +24887,7 @@
 {
 "name": "Les Gardiens de Ji",
 "nom_bdfi": "Les Gardiens de Ji",
-"parent": "3012",
+"parent": "3041",
 "alt_names": "",
 "vo_names": ""
 },
@@ -24684,7 +24901,7 @@
 {
 "name": "Les Gardiens de l'ordre sacré",
 "nom_bdfi": "Les Gardiens de l'ordre sacré",
-"parent": "1045",
+"parent": "1056",
 "alt_names": "",
 "vo_names": ""
 },
@@ -24866,7 +25083,7 @@
 {
 "name": "Les Guerriers de l'ombre",
 "nom_bdfi": "Les Guerriers de l'ombre",
-"parent": "145",
+"parent": "144",
 "alt_names": "",
 "vo_names": ""
 },
@@ -24929,7 +25146,7 @@
 {
 "name": "Les Harpistes",
 "nom_bdfi": "Les Harpistes",
-"parent": "1893",
+"parent": "1913",
 "alt_names": "",
 "vo_names": "Harper Hall"
 },
@@ -24999,7 +25216,7 @@
 {
 "name": "Les Huit Lamentations",
 "nom_bdfi": "Les Huit Lamentations",
-"parent": "48",
+"parent": "47",
 "alt_names": "",
 "vo_names": "Eight Lamentations"
 },
@@ -25062,7 +25279,7 @@
 {
 "name": "Les Héritiers de Chicago",
 "nom_bdfi": "Les Héritiers de Chicago",
-"parent": "3926",
+"parent": "3961",
 "alt_names": "",
 "vo_names": "Heirs of Chicagoland"
 },
@@ -25111,7 +25328,7 @@
 {
 "name": "Les Héritières de l'Olympe",
 "nom_bdfi": "Les Héritières de l'Olympe",
-"parent": "3499",
+"parent": "3530",
 "alt_names": "",
 "vo_names": "Le Eredi dell'Olimpo"
 },
@@ -25237,7 +25454,7 @@
 {
 "name": "Les Jeunes Chevaliers Jedi",
 "nom_bdfi": "Les Jeunes Chevaliers Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -25258,7 +25475,7 @@
 {
 "name": "Les Jumeaux Fowl",
 "nom_bdfi": "Les Jumeaux Fowl",
-"parent": "223",
+"parent": "222",
 "alt_names": "",
 "vo_names": ""
 },
@@ -25391,7 +25608,7 @@
 {
 "name": "Les Livres de la pierre scintillante",
 "nom_bdfi": "Les Livres de la pierre scintillante",
-"parent": "3125",
+"parent": "3155",
 "alt_names": "",
 "vo_names": "The Books of Glittering Stone"
 },
@@ -25405,14 +25622,14 @@
 {
 "name": "Les Livres du Nord",
 "nom_bdfi": "Les Livres du Nord",
-"parent": "3125",
+"parent": "3155",
 "alt_names": "",
 "vo_names": "The Books of the North"
 },
 {
 "name": "Les Livres du Sud",
 "nom_bdfi": "Les Livres du Sud",
-"parent": "3125",
+"parent": "3155",
 "alt_names": "",
 "vo_names": "The Books of the South"
 },
@@ -25503,7 +25720,7 @@
 {
 "name": "Les Légendes d'Avantia",
 "nom_bdfi": "Les Légendes d'Avantia",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": "The Chronicles of Avantia"
 },
@@ -25517,7 +25734,7 @@
 {
 "name": "Les Légendes de Krondor",
 "nom_bdfi": "Les Légendes de Krondor",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": "Legends of the Riftwar"
 },
@@ -25541,6 +25758,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Mither Mages"
+},
+{
+"name": "Les Mages enquêteurs",
+"nom_bdfi": "Les Mages enquêteurs",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Les Magiciennes d'Avalon",
@@ -25601,14 +25825,14 @@
 {
 "name": "Les Marcheurs",
 "nom_bdfi": "Les Marcheurs",
-"parent": "3483",
+"parent": "3514",
 "alt_names": "",
 "vo_names": "Los Caminantes"
 },
 {
 "name": "Les Marcheurs",
 "nom_bdfi": "Les Marcheurs",
-"parent": "3483",
+"parent": "3514",
 "alt_names": "",
 "vo_names": "Los Caminantes"
 },
@@ -25671,7 +25895,7 @@
 {
 "name": "Les Maîtres insulaires",
 "nom_bdfi": "Les Maîtres insulaires",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 5",
 "vo_names": "Die Meister der Insel"
 },
@@ -25776,7 +26000,7 @@
 {
 "name": "Les Mondes d'Ewilan",
 "nom_bdfi": "Les Mondes d'Ewilan",
-"parent": "1103",
+"parent": "1114",
 "alt_names": "",
 "vo_names": ""
 },
@@ -25828,6 +26052,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Fourth Realm Trilogy"
+},
+{
+"name": "Les Monstres d'Outre-Terre",
+"nom_bdfi": "Les Monstres d'Outre-Terre",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Les Monstres de Rookhaven",
@@ -25993,28 +26224,28 @@
 {
 "name": "Les Nouveaux Mystères d'Abyme",
 "nom_bdfi": "Les Nouveaux Mystères d'Abyme",
-"parent": "3814",
+"parent": "3847",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Nouvelles Aventures",
 "nom_bdfi": "Les Nouvelles Aventures",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Nouvelles Aventures de Batman",
 "nom_bdfi": "Les Nouvelles Aventures de Batman",
-"parent": "329",
+"parent": "330",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Nouvelles Aventures de Carnaki",
 "nom_bdfi": "Les Nouvelles Aventures de Carnaki",
-"parent": "461",
+"parent": "462",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26035,14 +26266,14 @@
 {
 "name": "Les Nouvelles Rencontres",
 "nom_bdfi": "Les Nouvelles Rencontres",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Meeting Sextet"
 },
 {
 "name": "Les Nuits de Coruscant",
 "nom_bdfi": "Les Nuits de Coruscant",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26140,21 +26371,21 @@
 {
 "name": "Les Origines",
 "nom_bdfi": "Les Origines",
-"parent": "1938",
+"parent": "1958",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Origines de Bob Morane",
 "nom_bdfi": "Les Origines de Bob Morane",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Origines de Pern",
 "nom_bdfi": "Les Origines de Pern",
-"parent": "1893",
+"parent": "1913",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26217,7 +26448,7 @@
 {
 "name": "Les Perles de Loubia",
 "nom_bdfi": "Les Perles de Loubia",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26420,7 +26651,7 @@
 {
 "name": "Les Primarques",
 "nom_bdfi": "Les Primarques",
-"parent": "1762",
+"parent": "1779",
 "alt_names": "",
 "vo_names": "Primarchs"
 },
@@ -26490,7 +26721,7 @@
 {
 "name": "Les Prisonniers de la dague noire",
 "nom_bdfi": "Les Prisonniers de la dague noire",
-"parent": "1958",
+"parent": "1978",
 "alt_names": "",
 "vo_names": "Prison Camp"
 },
@@ -26686,7 +26917,7 @@
 {
 "name": "Les Routes cosmiques",
 "nom_bdfi": "Les Routes cosmiques",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26752,6 +26983,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "Forgotten Realms"
+},
+{
+"name": "Les Royaumes sauvages",
+"nom_bdfi": "Les Royaumes sauvages",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Les Royaumes éphémères",
@@ -26847,7 +27085,7 @@
 {
 "name": "Les Secondes Chroniques",
 "nom_bdfi": "Les Secondes Chroniques",
-"parent": "3294",
+"parent": "3324",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26903,7 +27141,7 @@
 {
 "name": "Les Secrets du Strom",
 "nom_bdfi": "Les Secrets du Strom",
-"parent": "4975",
+"parent": "5021",
 "alt_names": "",
 "vo_names": ""
 },
@@ -26994,7 +27232,7 @@
 {
 "name": "Les Sept Cités",
 "nom_bdfi": "Les Sept Cités",
-"parent": "1320",
+"parent": "1332",
 "alt_names": "",
 "vo_names": ""
 },
@@ -27050,14 +27288,14 @@
 {
 "name": "Les Serments et l'honneur",
 "nom_bdfi": "Les Serments et l'honneur",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Les Signes du destin",
 "nom_bdfi": "Les Signes du destin",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": "Omen of the Stars"
 },
@@ -27349,6 +27587,13 @@
 "vo_names": "Triad"
 },
 {
+"name": "Les Tribulations du Château Barjot",
+"nom_bdfi": "Les Tribulations du Château Barjot",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Les Tribulations du petit peuple des mousses",
 "nom_bdfi": "Les Tribulations du petit peuple des mousses",
 "parent": "",
@@ -27526,7 +27771,7 @@
 {
 "name": "Les Vieux Mutants",
 "nom_bdfi": "Les Vieux Mutants",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 9",
 "vo_names": "Die Altmutanten"
 },
@@ -27624,7 +27869,7 @@
 {
 "name": "Les Voyages du fils",
 "nom_bdfi": "Les Voyages du fils",
-"parent": "2647",
+"parent": "2675",
 "alt_names": "",
 "vo_names": ""
 },
@@ -27673,6 +27918,13 @@
 {
 "name": "Les Warriors",
 "nom_bdfi": "Les Warriors",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Les Whisperwicks",
+"nom_bdfi": "Les Whisperwicks",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -27750,7 +28002,7 @@
 {
 "name": "Les égarés",
 "nom_bdfi": "Les égarés",
-"parent": "1129",
+"parent": "1140",
 "alt_names": "",
 "vo_names": "The Lost"
 },
@@ -27890,7 +28142,7 @@
 {
 "name": "Les ères de Wethrïn",
 "nom_bdfi": "Les ères de Wethrïn",
-"parent": "3151",
+"parent": "3181",
 "alt_names": "",
 "vo_names": ""
 },
@@ -28112,6 +28364,13 @@
 "vo_names": ""
 },
 {
+"name": "Lola Lokidor, taxi g'lactique",
+"nom_bdfi": "Lola Lokidor, taxi g'lactique",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "London Hayes",
 "nom_bdfi": "London Hayes",
 "parent": "",
@@ -28142,7 +28401,7 @@
 {
 "name": "Lord John Grey",
 "nom_bdfi": "Lord John Grey",
-"parent": "2533",
+"parent": "2558",
 "alt_names": "",
 "vo_names": ""
 },
@@ -28156,6 +28415,13 @@
 {
 "name": "Lords of the Space Marines",
 "nom_bdfi": "Lords of the Space Marines",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Lorelei Clay",
+"nom_bdfi": "Lorelei Clay",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -28212,7 +28478,7 @@
 {
 "name": "Loup-Garou, l'apocalypse",
 "nom_bdfi": "Loup-Garou, l'apocalypse",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Werewolf: The Apocalypse"
 },
@@ -28261,7 +28527,7 @@
 {
 "name": "Lucifer",
 "nom_bdfi": "Lucifer",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -28436,14 +28702,14 @@
 {
 "name": "Légendes",
 "nom_bdfi": "Légendes",
-"parent": "3817",
+"parent": "3850",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Légendes d'Alagaësia",
 "nom_bdfi": "Légendes d'Alagaësia",
-"parent": "1744",
+"parent": "1761",
 "alt_names": "",
 "vo_names": "Tales from Alagaesia; Tales from Alagaesia"
 },
@@ -28464,7 +28730,7 @@
 {
 "name": "Légendes de Dune",
 "nom_bdfi": "Légendes de Dune",
-"parent": "949",
+"parent": "959",
 "alt_names": "",
 "vo_names": ""
 },
@@ -28478,14 +28744,14 @@
 {
 "name": "Légendes de la confrérie",
 "nom_bdfi": "Légendes de la confrérie",
-"parent": "4528",
+"parent": "4570",
 "alt_names": "",
 "vo_names": "Legends of the Brethren Court"
 },
 {
 "name": "Légendes du monde émergé",
 "nom_bdfi": "Légendes du monde émergé",
-"parent": "2845",
+"parent": "2874",
 "alt_names": "",
 "vo_names": "Le leggende del Mondo Emerso"
 },
@@ -28555,7 +28821,7 @@
 {
 "name": "M 87",
 "nom_bdfi": "M 87",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "Cycle 6",
 "vo_names": "M 87"
 },
@@ -28728,6 +28994,13 @@
 "vo_names": ""
 },
 {
+"name": "Magie primordiale",
+"nom_bdfi": "Magie primordiale",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Magik",
 "nom_bdfi": "Magik",
 "parent": "",
@@ -28870,7 +29143,7 @@
 {
 "name": "Malédictions",
 "nom_bdfi": "Malédictions",
-"parent": "1136",
+"parent": "1147",
 "alt_names": "",
 "vo_names": "Fear Street Saga"
 },
@@ -28933,13 +29206,20 @@
 {
 "name": "Mariel",
 "nom_bdfi": "Mariel",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Marina Oswell",
 "nom_bdfi": "Marina Oswell",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Marionnettes",
+"nom_bdfi": "Marionnettes",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -28996,7 +29276,7 @@
 {
 "name": "Martin le guerrier",
 "nom_bdfi": "Martin le guerrier",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29010,14 +29290,14 @@
 {
 "name": "Marvel Arcanes",
 "nom_bdfi": "Marvel Arcanes",
-"parent": "4144",
+"parent": "4184",
 "alt_names": "",
 "vo_names": "Marvel Untold"
 },
 {
 "name": "Marvel Héroïnes",
 "nom_bdfi": "Marvel Héroïnes",
-"parent": "4144",
+"parent": "4184",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29059,14 +29339,14 @@
 {
 "name": "Masas Pavel, agent de l'O.M.U.",
 "nom_bdfi": "Masas Pavel, agent de l'O.M.U.",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Masques",
 "nom_bdfi": "Masques",
-"parent": "4856",
+"parent": "4901",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29122,7 +29402,7 @@
 {
 "name": "Mattiméo",
 "nom_bdfi": "Mattiméo",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29178,7 +29458,7 @@
 {
 "name": "Medstar",
 "nom_bdfi": "Medstar",
-"parent": "631",
+"parent": "633",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29514,7 +29794,7 @@
 {
 "name": "Miss Ylang-Ylang",
 "nom_bdfi": "Miss Ylang-Ylang",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29584,7 +29864,7 @@
 {
 "name": "Moi, Jedi",
 "nom_bdfi": "Moi, Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -29647,21 +29927,21 @@
 {
 "name": "Monster",
 "nom_bdfi": "Monster",
-"parent": "1255",
+"parent": "1267",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Monsterland",
 "nom_bdfi": "Monsterland",
-"parent": "492",
+"parent": "493",
 "alt_names": "",
 "vo_names": "Goosebumps Most Wanted"
 },
 {
 "name": "Monsterland édition spéciale",
 "nom_bdfi": "Monsterland édition spéciale",
-"parent": "4237",
+"parent": "4277",
 "alt_names": "",
 "vo_names": "Goosebumps Most Wanted Special Edition"
 },
@@ -29913,7 +30193,7 @@
 {
 "name": "Mystères dans la Voie Lactée",
 "nom_bdfi": "Mystères dans la Voie Lactée",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -30249,7 +30529,7 @@
 {
 "name": "New Fear Street",
 "nom_bdfi": "New Fear Street",
-"parent": "1136",
+"parent": "1147",
 "alt_names": "",
 "vo_names": ""
 },
@@ -30291,7 +30571,7 @@
 {
 "name": "Nid obscur",
 "nom_bdfi": "Nid obscur",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -30529,21 +30809,21 @@
 {
 "name": "Nouvelle Frontière",
 "nom_bdfi": "Nouvelle Frontière",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Nouvelle génération",
 "nom_bdfi": "Nouvelle génération",
-"parent": "335",
+"parent": "336",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Nouvelle époque",
 "nom_bdfi": "Nouvelle époque",
-"parent": "1951",
+"parent": "1971",
 "alt_names": "",
 "vo_names": ""
 },
@@ -30557,7 +30837,7 @@
 {
 "name": "Nouvelles chroniques",
 "nom_bdfi": "Nouvelles chroniques",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Chronicles: The Second Generation"
 },
@@ -30772,6 +31052,13 @@
 "vo_names": ""
 },
 {
+"name": "Odeyken",
+"nom_bdfi": "Odeyken",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Oeuvres complètes de Sir Arthur Conan Doyle",
 "nom_bdfi": "Oeuvres complètes de Sir Arthur Conan Doyle",
 "parent": "",
@@ -30949,21 +31236,21 @@
 {
 "name": "Origine",
 "nom_bdfi": "Origine",
-"parent": "4053",
+"parent": "4091",
 "alt_names": "",
 "vo_names": "Origin"
 },
 {
 "name": "Origines",
 "nom_bdfi": "Origines",
-"parent": "3564",
+"parent": "3595",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Origines",
 "nom_bdfi": "Origines",
-"parent": "3564",
+"parent": "3595",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31033,7 +31320,7 @@
 {
 "name": "Otherworlds",
 "nom_bdfi": "Otherworlds",
-"parent": "2538",
+"parent": "2563",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31054,7 +31341,7 @@
 {
 "name": "Out of the Shadows",
 "nom_bdfi": "Out of the Shadows",
-"parent": "94",
+"parent": "93",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31157,9 +31444,16 @@
 "vo_names": ""
 },
 {
+"name": "Pallas",
+"nom_bdfi": "Pallas",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Pan-Thau-Ra",
 "nom_bdfi": "Pan-Thau-Ra",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31250,7 +31544,7 @@
 {
 "name": "Par-delà la frontière",
 "nom_bdfi": "Par-delà la frontière",
-"parent": "2029",
+"parent": "2049",
 "alt_names": "",
 "vo_names": "Beyond the Frontier"
 },
@@ -31390,14 +31684,7 @@
 {
 "name": "Paths of Darkness",
 "nom_bdfi": "Paths of Darkness",
-"parent": "5001",
-"alt_names": "",
-"vo_names": ""
-},
-{
-"name": "Pattern Recognition",
-"nom_bdfi": "Pattern Recognition",
-"parent": "",
+"parent": "5049",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31474,7 +31761,7 @@
 {
 "name": "Pendragon avant la guerre",
 "nom_bdfi": "Pendragon avant la guerre",
-"parent": "405",
+"parent": "406",
 "alt_names": "",
 "vo_names": "Pendragon: Before the War"
 },
@@ -31689,6 +31976,13 @@
 "vo_names": "Piper McCloud"
 },
 {
+"name": "Pirates de l'espace",
+"nom_bdfi": "Pirates de l'espace",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Pirates des Caraïbes",
 "nom_bdfi": "Pirates des Caraïbes",
 "parent": "",
@@ -31705,7 +31999,7 @@
 {
 "name": "Piège dans l'espace",
 "nom_bdfi": "Piège dans l'espace",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -31901,7 +32195,7 @@
 {
 "name": "Pour l'empire",
 "nom_bdfi": "Pour l'empire",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32090,7 +32384,7 @@
 {
 "name": "Prélude aux neuf princes d'Ambre",
 "nom_bdfi": "Prélude aux neuf princes d'Ambre",
-"parent": "3777",
+"parent": "3810",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32167,6 +32461,13 @@
 {
 "name": "Pérismer",
 "nom_bdfi": "Pérismer",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Pérégrine Quinn",
+"nom_bdfi": "Pérégrine Quinn",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -32440,7 +32741,7 @@
 {
 "name": "Rebels",
 "nom_bdfi": "Rebels",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32461,7 +32762,7 @@
 {
 "name": "Recueil de nouvelles du SOL",
 "nom_bdfi": "Recueil de nouvelles du SOL",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32524,14 +32825,14 @@
 {
 "name": "Renaissance",
 "nom_bdfi": "Renaissance",
-"parent": "4386",
+"parent": "4426",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Renaissance",
 "nom_bdfi": "Renaissance",
-"parent": "4386",
+"parent": "4426",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32580,7 +32881,7 @@
 {
 "name": "Republic Commando",
 "nom_bdfi": "Republic Commando",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32629,7 +32930,7 @@
 {
 "name": "Retour à Salem",
 "nom_bdfi": "Retour à Salem",
-"parent": "4982",
+"parent": "5028",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32671,7 +32972,7 @@
 {
 "name": "Richard et Kahlan",
 "nom_bdfi": "Richard et Kahlan",
-"parent": "1850",
+"parent": "1870",
 "alt_names": "",
 "vo_names": "Richard and Kahlan"
 },
@@ -32713,7 +33014,7 @@
 {
 "name": "Riposte",
 "nom_bdfi": "Riposte",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Aftermath Trilogy"
 },
@@ -32767,6 +33068,13 @@
 "vo_names": ""
 },
 {
+"name": "Robert Grandon",
+"nom_bdfi": "Robert Grandon",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Robert Langdon",
 "nom_bdfi": "Robert Langdon",
 "parent": "",
@@ -32790,7 +33098,7 @@
 {
 "name": "Robin Page",
 "nom_bdfi": "Robin Page",
-"parent": "5099",
+"parent": "5150",
 "alt_names": "",
 "vo_names": "The Guild Codex: Demonized"
 },
@@ -32846,7 +33154,7 @@
 {
 "name": "Rogue One",
 "nom_bdfi": "Rogue One",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -32993,14 +33301,14 @@
 {
 "name": "Ruine",
 "nom_bdfi": "Ruine",
-"parent": "2898",
+"parent": "2927",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Ruine",
 "nom_bdfi": "Ruine",
-"parent": "2898",
+"parent": "2927",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33077,7 +33385,7 @@
 {
 "name": "Rédemption",
 "nom_bdfi": "Rédemption",
-"parent": "736",
+"parent": "741",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33091,7 +33399,7 @@
 {
 "name": "Rédemption",
 "nom_bdfi": "Rédemption",
-"parent": "736",
+"parent": "741",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33126,7 +33434,7 @@
 {
 "name": "Résistance",
 "nom_bdfi": "Résistance",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33147,7 +33455,7 @@
 {
 "name": "Révélations",
 "nom_bdfi": "Révélations",
-"parent": "4313",
+"parent": "4353",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33280,7 +33588,7 @@
 {
 "name": "Saga de Rollon",
 "nom_bdfi": "Saga de Rollon",
-"parent": "747",
+"parent": "752",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33336,7 +33644,7 @@
 {
 "name": "Saison 2",
 "nom_bdfi": "Saison 2",
-"parent": "1442",
+"parent": "1455",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33350,7 +33658,7 @@
 {
 "name": "Salamandastron",
 "nom_bdfi": "Salamandastron",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33707,7 +34015,7 @@
 {
 "name": "Selena Rosa",
 "nom_bdfi": "Selena Rosa",
-"parent": "3701",
+"parent": "3734",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33749,7 +34057,7 @@
 {
 "name": "Servants of the Empire",
 "nom_bdfi": "Servants of the Empire",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33826,7 +34134,7 @@
 {
 "name": "Shadowlands",
 "nom_bdfi": "Shadowlands",
-"parent": "5453",
+"parent": "5510",
 "alt_names": "",
 "vo_names": ""
 },
@@ -33840,13 +34148,20 @@
 {
 "name": "Shaggartha",
 "nom_bdfi": "Shaggartha",
-"parent": "2702",
+"parent": "2730",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Shalinka",
 "nom_bdfi": "Shalinka",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Shallow White",
+"nom_bdfi": "Shallow White",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -33945,7 +34260,7 @@
 {
 "name": "Short Adventures",
 "nom_bdfi": "Short Adventures",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34148,14 +34463,14 @@
 {
 "name": "Six of Crows",
 "nom_bdfi": "Six of Crows",
-"parent": "1278",
+"parent": "1290",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Skaith",
 "nom_bdfi": "Skaith",
-"parent": "1066",
+"parent": "1077",
 "alt_names": "La Trilogie d'Eric John Stark; La Trilogie de l'étoile Rousse",
 "vo_names": ""
 },
@@ -34169,7 +34484,7 @@
 {
 "name": "Skilgannon le damné",
 "nom_bdfi": "Skilgannon le damné",
-"parent": "714",
+"parent": "719",
 "alt_names": "",
 "vo_names": "Skilgannon the Damned"
 },
@@ -34202,6 +34517,13 @@
 "vo_names": "Edge of Extinction"
 },
 {
+"name": "Skye Doe",
+"nom_bdfi": "Skye Doe",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Skyland",
 "nom_bdfi": "Skyland",
 "parent": "",
@@ -34232,7 +34554,7 @@
 {
 "name": "Slappy World",
 "nom_bdfi": "Slappy World",
-"parent": "492",
+"parent": "493",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34302,7 +34624,7 @@
 {
 "name": "Solaris",
 "nom_bdfi": "Solaris",
-"parent": "4707",
+"parent": "4751",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34554,7 +34876,7 @@
 {
 "name": "Space Marine Conquests",
 "nom_bdfi": "Space Marine Conquests",
-"parent": "3199",
+"parent": "3229",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34659,21 +34981,21 @@
 {
 "name": "Star Wars 6-8 ans",
 "nom_bdfi": "Star Wars 6-8 ans",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Star Wars Visions",
 "nom_bdfi": "Star Wars Visions",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Starblade Chronicles",
 "nom_bdfi": "Starblade Chronicles",
-"parent": "1655",
+"parent": "1670",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34694,14 +35016,14 @@
 {
 "name": "Starcraft Ghost",
 "nom_bdfi": "Starcraft Ghost",
-"parent": "4956",
+"parent": "5002",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Starcraft II",
 "nom_bdfi": "Starcraft II",
-"parent": "4956",
+"parent": "5002",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34715,7 +35037,7 @@
 {
 "name": "Starfleet Academy",
 "nom_bdfi": "Starfleet Academy",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34729,7 +35051,7 @@
 {
 "name": "Starlight & Shadows",
 "nom_bdfi": "Starlight & Shadows",
-"parent": "5001",
+"parent": "5049",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34883,7 +35205,7 @@
 {
 "name": "Super Edition",
 "nom_bdfi": "Super Edition",
-"parent": "2063",
+"parent": "2083",
 "alt_names": "",
 "vo_names": ""
 },
@@ -34897,6 +35219,13 @@
 {
 "name": "Superman",
 "nom_bdfi": "Superman",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Supernatural Security Force",
+"nom_bdfi": "Supernatural Security Force",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -34946,6 +35275,13 @@
 {
 "name": "Svetz",
 "nom_bdfi": "Svetz",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
+"name": "Swodsman of Mars",
+"nom_bdfi": "Swodsman of Mars",
 "parent": "",
 "alt_names": "",
 "vo_names": ""
@@ -35016,14 +35352,14 @@
 {
 "name": "Séquence de l'âge des mortels",
 "nom_bdfi": "Séquence de l'âge des mortels",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Age of Mortals"
 },
 {
 "name": "Séquence de la guerre du chaos",
 "nom_bdfi": "Séquence de la guerre du chaos",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Chaos War"
 },
@@ -35037,7 +35373,7 @@
 {
 "name": "Séquence des barbares",
 "nom_bdfi": "Séquence des barbares",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Barbarians"
 },
@@ -35051,28 +35387,28 @@
 {
 "name": "Séquence des héros",
 "nom_bdfi": "Séquence des héros",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Heroes II"
 },
 {
 "name": "Séquence des nains",
 "nom_bdfi": "Séquence des nains",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "Dwarnen Nations Trilogy"
 },
 {
 "name": "Séquence des premiers peuples",
 "nom_bdfi": "Séquence des premiers peuples",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Lost Histories"
 },
 {
 "name": "Séquence du mur de glace",
 "nom_bdfi": "Séquence du mur de glace",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "IceWall Trilogy"
 },
@@ -35086,7 +35422,7 @@
 {
 "name": "Série 2000",
 "nom_bdfi": "Série 2000",
-"parent": "492",
+"parent": "493",
 "alt_names": "",
 "vo_names": "Goosebumps Series 2000"
 },
@@ -35135,7 +35471,7 @@
 {
 "name": "Série pour jeunes",
 "nom_bdfi": "Série pour jeunes",
-"parent": "3891",
+"parent": "3925",
 "alt_names": "",
 "vo_names": ""
 },
@@ -35532,6 +35868,13 @@
 "vo_names": ""
 },
 {
+"name": "The Blue Ant Trilogy",
+"nom_bdfi": "The Blue Ant Trilogy",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "The Bone Season",
 "nom_bdfi": "The Bone Season",
 "parent": "",
@@ -35562,7 +35905,7 @@
 {
 "name": "The Clone Wars",
 "nom_bdfi": "The Clone Wars",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -35637,6 +35980,13 @@
 "vo_names": ""
 },
 {
+"name": "The Engine of History",
+"nom_bdfi": "The Engine of History",
+"parent": "236",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "The Expanse",
 "nom_bdfi": "The Expanse",
 "parent": "",
@@ -35646,7 +35996,7 @@
 {
 "name": "The Farseer Trilogy",
 "nom_bdfi": "The Farseer Trilogy",
-"parent": "1672",
+"parent": "1688",
 "alt_names": "L'Assassin royal",
 "vo_names": ""
 },
@@ -35686,6 +36036,13 @@
 "vo_names": ""
 },
 {
+"name": "The Great Library of Tomorrow",
+"nom_bdfi": "The Great Library of Tomorrow",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "The Guild Codex",
 "nom_bdfi": "The Guild Codex",
 "parent": "",
@@ -35714,6 +36071,13 @@
 "vo_names": ""
 },
 {
+"name": "The Legend Of Zelda",
+"nom_bdfi": "The Legend Of Zelda",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "The Lying Game",
 "nom_bdfi": "The Lying Game",
 "parent": "",
@@ -35737,14 +36101,14 @@
 {
 "name": "The Mortal Instruments, Renaissance",
 "nom_bdfi": "The Mortal Instruments, Renaissance",
-"parent": "1938",
+"parent": "1958",
 "alt_names": "",
 "vo_names": "Dark Artifices"
 },
 {
 "name": "The Next Generation",
 "nom_bdfi": "The Next Generation",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
@@ -35798,6 +36162,13 @@
 "vo_names": ""
 },
 {
+"name": "The Road to Nowhere",
+"nom_bdfi": "The Road to Nowhere",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "The Rule of One",
 "nom_bdfi": "The Rule of One",
 "parent": "",
@@ -35814,7 +36185,7 @@
 {
 "name": "The Salvation",
 "nom_bdfi": "The Salvation",
-"parent": "1537",
+"parent": "1551",
 "alt_names": "",
 "vo_names": ""
 },
@@ -35863,7 +36234,7 @@
 {
 "name": "The Tawny Man",
 "nom_bdfi": "The Tawny Man",
-"parent": "1672",
+"parent": "1688",
 "alt_names": "Le Prophète blanc",
 "vo_names": ""
 },
@@ -35940,7 +36311,7 @@
 {
 "name": "Thirds Rebels",
 "nom_bdfi": "Thirds Rebels",
-"parent": "5134",
+"parent": "5187",
 "alt_names": "",
 "vo_names": ""
 },
@@ -35996,21 +36367,21 @@
 {
 "name": "Thrawn",
 "nom_bdfi": "Thrawn",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Thrawn l'Ascendance",
 "nom_bdfi": "Thrawn l'Ascendance",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Thrawn l'ascendance",
 "nom_bdfi": "Thrawn l'ascendance",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Thrawn Ascendancy"
 },
@@ -36136,7 +36507,7 @@
 {
 "name": "Titania",
 "nom_bdfi": "Titania",
-"parent": "2860",
+"parent": "2889",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36269,7 +36640,7 @@
 {
 "name": "Tori Dawson",
 "nom_bdfi": "Tori Dawson",
-"parent": "5099",
+"parent": "5150",
 "alt_names": "",
 "vo_names": "The Guild Codex: Spellbound"
 },
@@ -36409,7 +36780,7 @@
 {
 "name": "Trilogie Yan Solo",
 "nom_bdfi": "Trilogie Yan Solo",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36437,7 +36808,7 @@
 {
 "name": "Trilogie de Padmé",
 "nom_bdfi": "Trilogie de Padmé",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36458,7 +36829,7 @@
 {
 "name": "Trilogie de Shannara",
 "nom_bdfi": "Trilogie de Shannara",
-"parent": "4838",
+"parent": "4883",
 "alt_names": "",
 "vo_names": "Shannara"
 },
@@ -36479,7 +36850,7 @@
 {
 "name": "Trilogie de l'empire",
 "nom_bdfi": "Trilogie de l'empire",
-"parent": "2054",
+"parent": "2074",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36493,7 +36864,7 @@
 {
 "name": "Trilogie de la porte interdite",
 "nom_bdfi": "Trilogie de la porte interdite",
-"parent": "428",
+"parent": "429",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36535,7 +36906,7 @@
 {
 "name": "Trilogie des flèches",
 "nom_bdfi": "Trilogie des flèches",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36556,21 +36927,21 @@
 {
 "name": "Trilogie des tempêtes",
 "nom_bdfi": "Trilogie des tempêtes",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Trilogie des vents",
 "nom_bdfi": "Trilogie des vents",
-"parent": "3575",
+"parent": "3606",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Trilogie du Second Age",
 "nom_bdfi": "Trilogie du Second Age",
-"parent": "1105",
+"parent": "1116",
 "alt_names": "",
 "vo_names": "Trilogy of the Second Age"
 },
@@ -36584,7 +36955,7 @@
 {
 "name": "Trilogie du sombre disciple",
 "nom_bdfi": "Trilogie du sombre disciple",
-"parent": "2499",
+"parent": "2524",
 "alt_names": "",
 "vo_names": "The Dark Disciple Trilogy"
 },
@@ -36689,7 +37060,7 @@
 {
 "name": "Troubles intergalactiques",
 "nom_bdfi": "Troubles intergalactiques",
-"parent": "4503",
+"parent": "4544",
 "alt_names": "",
 "vo_names": ""
 },
@@ -36878,7 +37249,7 @@
 {
 "name": "Ultimate Alien",
 "nom_bdfi": "Ultimate Alien",
-"parent": "344",
+"parent": "345",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37107,6 +37478,13 @@
 "vo_names": ""
 },
 {
+"name": "Une aventure de Nico Di Angelo",
+"nom_bdfi": "Une aventure de Nico Di Angelo",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Une aventure de Retief",
 "nom_bdfi": "Une aventure de Retief",
 "parent": "",
@@ -37140,6 +37518,13 @@
 "parent": "",
 "alt_names": "",
 "vo_names": "An Ember in the Ashes"
+},
+{
+"name": "Une cour de lumière et de ténèbres",
+"nom_bdfi": "Une cour de lumière et de ténèbres",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Une enquête de Pat Gallance",
@@ -37186,7 +37571,7 @@
 {
 "name": "Uriel Ventris",
 "nom_bdfi": "Uriel Ventris",
-"parent": "5271",
+"parent": "5324",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37291,21 +37676,21 @@
 {
 "name": "Vampire : l'âge des ténèbres",
 "nom_bdfi": "Vampire : l'âge des ténèbres",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Dark Ages: Vampire"
 },
 {
 "name": "Vampire : la Mascarade",
 "nom_bdfi": "Vampire : la Mascarade",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Vampire : The Masquerade"
 },
 {
 "name": "Vampire : le requiem",
 "nom_bdfi": "Vampire : le requiem",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Vampire : The Requiem"
 },
@@ -37403,7 +37788,7 @@
 {
 "name": "Vampire, ère victorienne",
 "nom_bdfi": "Vampire, ère victorienne",
-"parent": "2838",
+"parent": "2867",
 "alt_names": "",
 "vo_names": "Victorian Age Vampire"
 },
@@ -37473,7 +37858,7 @@
 {
 "name": "Vassili Volkovitch",
 "nom_bdfi": "Vassili Volkovitch",
-"parent": "4343",
+"parent": "4383",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37501,7 +37886,7 @@
 {
 "name": "Vengeful Spirit",
 "nom_bdfi": "Vengeful Spirit",
-"parent": "1762",
+"parent": "1779",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37709,6 +38094,13 @@
 "vo_names": "The Vorrh"
 },
 {
+"name": "Vortex",
+"nom_bdfi": "Vortex",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Voyage au pays du Montnoir",
 "nom_bdfi": "Voyage au pays du Montnoir",
 "parent": "",
@@ -37732,42 +38124,42 @@
 {
 "name": "Voyage vers Star Wars : L'Ascension de Skywalker",
 "nom_bdfi": "Voyage vers Star Wars : L'Ascension de Skywalker",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Journey to Star Wars: The Rise of Skywalker"
 },
 {
 "name": "Voyage vers Star Wars : Le réveil de la Force",
 "nom_bdfi": "Voyage vers Star Wars : Le réveil de la Force",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Journey to Star Wars: The Force Awakens"
 },
 {
 "name": "Voyage vers Star Wars épisode VIII : Les Derniers Jedi",
 "nom_bdfi": "Voyage vers Star Wars épisode VIII : Les Derniers Jedi",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": "Journey to Star Wars: The Last Jedi"
 },
 {
 "name": "Voyager",
 "nom_bdfi": "Voyager",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Voyager",
 "nom_bdfi": "Voyager",
-"parent": "4950",
+"parent": "4996",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "Voyages en Orobolan",
 "nom_bdfi": "Voyages en Orobolan",
-"parent": "4426",
+"parent": "4467",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37872,7 +38264,7 @@
 {
 "name": "Wax et Wayne",
 "nom_bdfi": "Wax et Wayne",
-"parent": "1157",
+"parent": "1168",
 "alt_names": "",
 "vo_names": ""
 },
@@ -37907,7 +38299,7 @@
 {
 "name": "Were-Hunter",
 "nom_bdfi": "Were-Hunter",
-"parent": "2535",
+"parent": "2560",
 "alt_names": "",
 "vo_names": ""
 },
@@ -38122,6 +38514,13 @@
 "vo_names": ""
 },
 {
+"name": "Wolf Queen",
+"nom_bdfi": "Wolf Queen",
+"parent": "4875",
+"alt_names": "",
+"vo_names": ""
+},
+{
 "name": "Wolf clans",
 "nom_bdfi": "Wolf clans",
 "parent": "",
@@ -38131,7 +38530,7 @@
 {
 "name": "Wolven",
 "nom_bdfi": "Wolven",
-"parent": "1958",
+"parent": "1978",
 "alt_names": "",
 "vo_names": "The Lair of the Wolven"
 },
@@ -38166,14 +38565,14 @@
 {
 "name": "World of Warcraft",
 "nom_bdfi": "World of Warcraft",
-"parent": "5406",
+"parent": "5462",
 "alt_names": "",
 "vo_names": ""
 },
 {
 "name": "World of Warcraft: Traveler",
 "nom_bdfi": "World of Warcraft: Traveler",
-"parent": "5406",
+"parent": "5462",
 "alt_names": "",
 "vo_names": ""
 },
@@ -38222,7 +38621,7 @@
 {
 "name": "X-Wings",
 "nom_bdfi": "X-Wings",
-"parent": "4951",
+"parent": "4997",
 "alt_names": "",
 "vo_names": ""
 },
@@ -38236,7 +38635,7 @@
 {
 "name": "Xhatan",
 "nom_bdfi": "Xhatan",
-"parent": "404",
+"parent": "405",
 "alt_names": "",
 "vo_names": ""
 },
@@ -38369,9 +38768,16 @@
 {
 "name": "Zhongguo, nouvelle série",
 "nom_bdfi": "Zhongguo, nouvelle série",
-"parent": "5481",
+"parent": "5538",
 "alt_names": "",
 "vo_names": "Chung Kuo, recasting"
+},
+{
+"name": "Zimiamvian Trilogy",
+"nom_bdfi": "Zimiamvian Trilogy",
+"parent": "",
+"alt_names": "",
+"vo_names": ""
 },
 {
 "name": "Ziusudra",

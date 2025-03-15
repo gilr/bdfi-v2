@@ -2,7 +2,7 @@
     @foreach ($collection->publications as $publication)
         @if (!auth()->user()->statusPublication($publication->id))
             <div class="border border-gray-500 p-px text-left">
-                <x-admin.display-icon-pub-missing />
+                <x-front.display-icon-pub-missing />
                 @if($publication->pivot->number)
                     {{ $publication->pivot->number }}.
                 @endif

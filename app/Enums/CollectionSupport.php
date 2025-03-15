@@ -6,7 +6,7 @@ use Filament\Support\Contracts\HasLabel;
 enum CollectionSupport: string implements HasLabel {
     case PAPIER    = 'papier';
     case NUMERIQUE = 'numerique';
-    case AUDIO     = 'audio';
+    case AUDIO     = 'livre-audio';
     case MIXTE     = 'mixte';
     case AUTRE     = 'autre';
 

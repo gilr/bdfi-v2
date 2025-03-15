@@ -30,7 +30,7 @@ class TranslatorPolicy
     }
     public function restore(User $user, Translator $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destructor;
+        return $user->hasAdminRole() || $user->id === $record->destroyer;
     }
     public function forceDelete(User $user, Translator $record)
     {

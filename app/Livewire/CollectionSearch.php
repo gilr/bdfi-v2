@@ -15,11 +15,13 @@ class CollectionSearch extends Component
     public $search = ''; // Contient l'extrait saisi par l'utilisateur
     public $intro;
     public $label;
+    public $withId;
 
-    public function mount($intro = "", $label = "Rechercher")
+    public function mount($intro = "", $label = "Rechercher", $withId = "FALSE")
     {
         $this->intro = $intro;
         $this->label = $label;
+        $this->withId = $withId;
     }
 
     // Met à jour la recherche et exécute la recherche à chaque modification de "search"

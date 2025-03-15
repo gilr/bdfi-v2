@@ -21,7 +21,14 @@ class PublicationSeeder extends Seeder
     public function run()
     {
         $json = Storage::get('publications.json');
-        $data = json_decode($json);
+        $jsonContent = mb_convert_encoding($json, 'UTF-8', 'UTF-8');
+        $data = json_decode($jsonContent);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+           throw new \Exception('Erreur JSON : ' . json_last_error_msg());
+        }
+
+
         foreach ($data as $obj) {
             DB::table('publications')->insert([
                 'status'           => $obj->status ?: "",

@@ -33,7 +33,7 @@ class ReprintPolicy
     }
     public function restore(User $user, Reprint $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Reprint $record)

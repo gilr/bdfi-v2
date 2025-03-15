@@ -121,6 +121,7 @@ Route::middleware(['public.maintenance'])->group(function () {
     // Zone statistiques
     Route::get('/stats', [StatController::class, 'welcome'])->name('stats');
     Route::get('/stats/bdfi', [StatController::class, 'bdfi']);
+    Route::get('/stats/production', [StatController::class, 'production']);
     // + accès restreints, voir plus bas
 
     // Zone infos du site
@@ -157,7 +158,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/user/retirer-publication', [UserController::class, 'removeBiblioPublication']);
 
         // Zone statistiques accès restreint
-        Route::get('/stats/production', [StatController::class, 'production']);
         Route::get('/stats/analyse', [StatController::class, 'analyse']);
     });
 

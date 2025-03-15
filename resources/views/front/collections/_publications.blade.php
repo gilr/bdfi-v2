@@ -10,7 +10,7 @@
         @if($publication->pivot->number)
             {{ $publication->pivot->number }}.
         @endif
-        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage> -
+        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage> -
 
         <span class='hidden md:inline text-gray-800'>{{ $publication->type->getLabel() }}</span>
         @if(count($publication->authors) > 0)
@@ -20,9 +20,11 @@
                     ,
                 @endif
                 <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                {{--
                 @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                     <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>
                 @endif
+                --}}
             @endforeach
         @endif
          - {{ StrDateformat($publication->approximate_parution) }}

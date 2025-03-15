@@ -33,7 +33,7 @@ class TitlePolicy
     }
     public function restore(User $user, Title $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Title $record)

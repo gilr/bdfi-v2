@@ -33,7 +33,7 @@ class PublisherPolicy
     }
     public function restore(User $user, Publisher $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Publisher $record)

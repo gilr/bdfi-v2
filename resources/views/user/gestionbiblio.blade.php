@@ -20,7 +20,10 @@ $user = Auth::user()
     </div>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2">
-        Attention, l'ajout du suivi d'une collection se fait pour l'instant via son numéro de fiche (à récupérer sur la fiche ou dans l'URL de la collection). Dans le prochaine version, l'ajout se fera via une recherche à partir d'un extrait du nom de la collection.<br />
+        <livewire:collection-search intro="" label="Trouver numéro de collection" withId="YES" />
+    </div>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-2">
+        Attention, l'ajout du suivi d'une collection se fait pour l'instant via son numéro de fiche (à récupérer ci-dessus). Dans la prochaine version, l'ajout se fera directement, plus facilement.<br />
         {{ html()->form('POST', '/user/ajouter-collection')->open() }}
             ID (numéro fiche) de collection :
             {{ html()->text($name = "col")->size(5)->class("p-1 m-1 bg-blue-200") }}

@@ -3,7 +3,7 @@
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-base mt-2 font-semibold bg-yellow-50'>
-         {{ $results->name }}
+         {!! $results->name !!}
     </div>
 
     <div class='text-base'>
@@ -17,8 +17,16 @@
     </div>
 
 
-    <div class='text-base'>Auteur(s) :
+    <div class='text-base'>
+        @if (count($results->authors) > 1)
+            Auteurs :
+        @else
+            Auteur :
+        @endif
         @forelse($results->authors as $author)
+            @if (!$loop->first)
+                ,
+            @endif
             <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
         @empty
             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
@@ -74,7 +82,7 @@
             @else
                 Première publication française sous :
             @endif
-            <x-front.lien-texte link='/textes/{{ $results->parent->slug }}'>{{ $results->parent->name }}</x-front.lien-texte>
+            <x-front.lien-texte link='/textes/{{ $results->parent->slug }}'>{!! $results->parent->name !!}</x-front.lien-texte>
             {{-- on affiche l'auteur que si la variante courante est une variante incluant la  signature --}}
             @if (($results->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
@@ -97,7 +105,7 @@
             @foreach ($results->parent->variants as $variant)
                 <div class='text-base ml-2 md:ml-8'>
                     @if ($results->id !== $variant->id)
-                        <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>
+                        <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte>
 {{--
     case PREMIER       = 'premier';
     case VIRTUEL       = 'virtuel';
@@ -139,7 +147,7 @@
             <span class='font-semibold'>Variantes :</span>
             @foreach ($results->variants as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>
+                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte>
 
                     @if (($variant->variant_type === App\Enums\TitleVariantType::SIGN->value) ||
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRAD->value) ||
@@ -164,7 +172,7 @@
             <span class='font-semibold'>Episodes :</span>
             @foreach ($results->episodes as $variant)
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte> -
+                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte> -
                     @forelse($variant->authors as $author)
                         <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
                     @empty
@@ -256,7 +264,7 @@
 
                                 <div class='ml-2 md:ml-8'>
 
-                                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage>
                                       @if(count($publication->authors) > 0)
                                         -
                                         @foreach($publication->authors as $author)
@@ -305,7 +313,7 @@
                 <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                 <div class='ml-2 md:ml-8'>
-                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                    <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage>
                     @if(count($publication->authors) > 0)
                         -
                         @foreach($publication->authors as $author)
@@ -363,7 +371,7 @@
                         <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                         <div class='ml-2 md:ml-8'>
-                            <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                            <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage>
                             @if(count($publication->authors) > 0)
                             -
                                 @foreach($publication->authors as $author)
@@ -419,7 +427,7 @@
                     <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)
@@ -467,7 +475,7 @@
                     <?php $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name); ?>
 
                     <div class='ml-2 md:ml-8'>
-                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{{ $publication->name }}</x-front.lien-ouvrage>
+                        <x-front.lien-ouvrage link='/ouvrages/{{ $publication->slug }}'>{!! $publication->name !!}</x-front.lien-ouvrage>
                         @if(count($publication->authors) > 0)
                             -
                             @foreach($publication->authors as $author)

@@ -153,7 +153,7 @@ class UserResource extends Resource
                     ->dateTime('j M Y')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
-                Tables\Columns\TextColumn::make('destructor.name')
+                Tables\Columns\TextColumn::make('destroyer.name')
                     ->label('par')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),

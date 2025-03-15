@@ -33,7 +33,7 @@ class AwardCategoryPolicy
     }
     public function restore(User $user, AwardCategory $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, AwardCategory $record)

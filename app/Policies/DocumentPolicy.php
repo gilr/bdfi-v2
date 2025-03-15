@@ -31,7 +31,7 @@ class DocumentPolicy
     }
     public function restore(User $user, Document $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Document $record)

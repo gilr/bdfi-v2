@@ -14,17 +14,22 @@ class HomeController extends Controller
     {
         $notice = [
             'titlev2' => env('APP_TEST') === "true" ? "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Version bêta de test du site BDFI V2</span>." : "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Version bêta du site BDFI V2</span>.",
-            'introv2' => "<span class='font-bold text-slate-600'>Attention</span>, la base des ouvrages est une <b>base très incomplète</b>, qui ne contient qu'une poignée de collections sur lequel une première passe de vérifications a eu lieu.",
+            'introv2' => "<span class='font-bold text-slate-600'>Attention</span>, la base des ouvrages est une <b>base très incomplète</b>, contenant environ 15% des collections, non encore toutes vérifiées.",
             "contentv2" =>"Pour en connaître le contenu, consulter la <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/v2beta'>page des collections incluses</a>. En fiche éditeur ou en zone de recherche de collection, les collections incluses sont repérables car précédées de l'icone <img src='/img/cible_bleue.png' class='inline w-5 mb-1' title='Collection présente en V2 bêta'>. On trouvera notamment :
         <ul class='list-disc pl-4 ml-4'>
+            <li>Quelques collections vérifiées, comme
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/lunes-d-encre'>Lunes d'encre (Denoël)</a>,
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/epees-et-dragons'>Epées et dragons (Albin Michel)</a> ou
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/nebula'>Nébula (Opta)</a>.
+            </li>
             <li>Quelques collections de centaines d'ouvrages, comme
                 <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/folio-sf'>Folio SF</a>,
-                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/terreur'>Pocket terreur</a> ou
-                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/angoisse'>Fleuve Noir angoisse</a>.
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/terreur'>Pocket terreur</a>,
+                <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/angoisse'>Fleuve Noir angoisse</a> ou même <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/anticipation-3'>Fleuve Noir Anticipation</a>.
             </li>
             <li>Un exemple de support de type revue/fanzine, <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/editeurs/basis'>Basis</a>, et un exemple de support de type magazine : <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/editeurs/v-voir'>V magazine</a></li>
-            <li>Des exemples de <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/la-chaise-infernale'>feuilleton (parus en épisodes)</a>, de <a class='text-blue-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/ouvrages/la-route-étoilée'>retirage (réimpression)</a>, de texte repris dans plusieurs publications, et de gestion de
-                <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='https://bdfi-v2.test/textes/la-bataille-des-astres'>
+            <li>Des exemples de <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/la-chaise-infernale'>feuilleton (parus en épisodes)</a>, d'<a class='text-blue-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/ouvrages/la-route-étoilée'>ouvrages réimprimés (retirages)</a>, de texte repris dans plusieurs publications, et de gestion de
+                <a class='text-green-900 border-b border-dotted border-purple-700 hover:text-purple-700' href='/textes/le-navire-etoile'>
                 variantes de texte</a> (signature, titre et/ou traduction modifiés).
         </ul>
         <span class='font-semibold text-red-800'>Attention</span>, les ouvrages 'programmés' sont des données 'fake' générées uniquement pour test.<br />"

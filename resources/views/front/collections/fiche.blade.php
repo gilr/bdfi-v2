@@ -159,7 +159,7 @@
             <span class='font-semibold'>Sous-collection, sous-ensembles :</span>
             @foreach ($results->subcollections as $subcollection)
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->slug }}'>{{ $subcollection->fullName }} </a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->slug }}'>{{ $subcollection->fullShortName }} </a>
                 </div>
             @endforeach
         </div>

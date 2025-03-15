@@ -28,6 +28,9 @@
                         @foreach($collections as $collection)
                             <div>
                                 <x-admin.link-ext lien='/collections/{{ $collection->slug }}'>
+                                    @if($withId === "YES")
+                                        ID {{ $collection->id }} :
+                                    @endif
                                     {{ $collection->name }} - {{ $collection->publisher->name }}
                                 </x-admin.link-ext>
                             </div>

@@ -33,7 +33,7 @@ class EventPolicy
     }
     public function restore(User $user, Event $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $author->destructor;
+        // TBD        return $user->hasAdminRole() || $user->id === $author->destroyer;
         return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Event $record)

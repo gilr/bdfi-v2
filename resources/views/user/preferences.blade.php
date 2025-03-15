@@ -82,12 +82,14 @@
                         @endif
                     </div>
 
+{{--
                     <div class="px-2 pt-4 text-lg sm:text-2xl border-b border-blue-800">
                         (à voir) Fonction permettant la possibilité de proposer des correctifs
                     </div>
 
                     <div class='hidden sm:block'>
-                        @if (!Auth::user()->is_participant)
+                        @if (true)
+                        <!-- if (!Auth::user()->is_participant) -->
                             (A supprimer ou à faire) - L'activation ajouterait sur la plupart des fiches un formulaire (dépliable) permettant d'indiquer des erreurs et proposer des correctifs. Au format texte (fil de discussion).
                         @else
                             Il vous est possible de proposer des corrections sur chaque fiche au travers d'un formulaire spécifique.
@@ -97,7 +99,9 @@
                         <span>
                             <input type="checkbox" name="cor" class="bg-blue-200" {{ Auth::user()->fonction_aide ? "checked" : "" }} disabled /> Possibilité de proposition d'aide et corrections activée si cochée
                         </span>
-                    </div>                    <button class="bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2" type="submit">Valider les modifications</button>
+                    </div>
+--}}
+                    <button class="bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2" type="submit">Valider les modifications</button>
                 </form>
             </div>
         </div>

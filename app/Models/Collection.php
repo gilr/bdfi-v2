@@ -130,16 +130,28 @@ class Collection extends Model
     /*
      * Accesseurs supplémentaires
     */
+    public function qualifiedName(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) =>
+            $this->format === CollectionFormat::GF ?
+                $this->name . ", grand format" :
+            ($this->support === CollectionSupport::NUMERIQUE ?
+                $this->name . ", numérique" :
+                $this->name),
+        );
+    }
+
     public function fullName(): Attribute
     {
        //get: fn($value) => Str::limit($this->name . " (" . $this->publisher->name . ")", 50),
         return Attribute::make(
             get: fn($value) =>
             $this->publisher3 !== NULL ?
-                $this->name . " (" . $this->publisher->name . ", " . $this->publisher2->name . " et " . $this->publisher3->name .")" :
+                $this->qualifiedName . " (" . $this->publisher->name . ", " . $this->publisher2->name . " et " . $this->publisher3->name .")" :
             ($this->publisher2 !== NULL ?
-                $this->name . " (" . $this->publisher->name . " et " . $this->publisher2->name .")" :
-                $this->name . " (" . $this->publisher->name . ")"),
+                $this->qualifiedName . " (" . $this->publisher->name . " et " . $this->publisher2->name .")" :
+                $this->qualifiedName . " (" . $this->publisher->name . ")"),
         );
     }
     public function fullShortName(): Attribute

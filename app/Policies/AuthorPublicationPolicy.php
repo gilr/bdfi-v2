@@ -33,7 +33,7 @@ class AuthorPublicationPolicy
     }
     public function restore(User $user, AuthorPublication $record): bool
     {
-        return $user->hasAdminRole() || $user->id === $record->destructor;
+        return $user->hasAdminRole() || $user->id === $record->destroyer;
     }
     public function forceDelete(User $user, AuthorPublication $record): bool
     {

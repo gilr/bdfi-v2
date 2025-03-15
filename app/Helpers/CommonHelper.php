@@ -110,6 +110,7 @@ function StrDLAItoBDFI($date, $approx_publi): string
 
     $specialCases = [
         'a parution' => 'A parution',
+        'à parution' => 'A parution',
         'n.i.' => 'Non indiq.',
         'n.c' => 'Non indiq.'
     ];

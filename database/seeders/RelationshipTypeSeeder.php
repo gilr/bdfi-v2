@@ -16,24 +16,24 @@ class RelationshipTypeSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_types_lien.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_relationship_types.json');
         $data = json_decode($json);
         foreach ($data as $record) {
             DB::table('relationship_types')->insert([
                 'id'                   => $record->id,
 
-                'name'                 => $record->nom . "-" . $record->inverse,
-                'relationship'         => $record->nom,
-                'reverse_relationship' => $record->inverse,
+                'name'                 => $record->name,
+                'relationship'         => $record->relationship,
+                'reverse_relationship' => $record->reverse_relationship,
 
-                'created_at'           => $record->created_at,
-                'updated_at'           => $record->updated_at,
-                'deleted_at'           => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'           => 1,
-                'updated_by'           => 1,
-                'deleted_by'           => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

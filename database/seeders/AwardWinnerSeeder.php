@@ -17,40 +17,32 @@ class AwardWinnerSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('winners.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_winners.json');
         $data = json_decode($json);
-        foreach ($data as $obj) {
 
-            $author_id = NULL;
-            $author2_id = NULL;
-            $author3_id = NULL;
-            $aut = Author::where('nom_BDFI', $obj->author)->first();
-            if ($aut) { $author_id = $aut->id; }
-            $aut = Author::where('nom_BDFI', $obj->author2)->first();
-            if ($aut) { $author2_id = $aut->id; }
-            $aut = Author::where('nom_BDFI', $obj->author3)->first();
-            if ($aut) { $author3_id = $aut->id; }
-
+        foreach ($data as $record) {
             DB::table('award_winners')->insert([
-                'year'              => ($obj->year == "2010bis" ? "2010" : $obj->year),
-                'award_category_id' => $obj->award_category_id,
-                'position'          => $obj->position,
-                'name'              => $obj->auteurs,
-                'title'             => $obj->title,
-                'author_id'         => $author_id,
-                'author2_id'        => $author2_id,
-                'author3_id'        => $author3_id,
-                'vo_title'          => $obj->vo_title,
-                'title_id'          => NULL,
-                'information'       => $obj->note,
+                'id'                => $record->id,
+                'year'              => $record->year,
+                'award_category_id' => $record->award_category_id,
+                'position'          => $record->position,
+                'name'              => $record->name,
+                'title'             => $record->title,
+                'author_id'         => $record->author_id,
+                'author2_id'        => $record->author2_id,
+                'author3_id'        => $record->author3_id,
+                'vo_title'          => $record->vo_title,
+                'title_id'          => $record->title_id,
+                'information'       => $record->information,
 
-                'created_at'     => today(),
-                'updated_at'     => today(),
-                'deleted_at'     => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                'created_by'     => 1,
-                'updated_by'     => 1,
-                'deleted_by'     => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

@@ -16,23 +16,24 @@ class SignatureSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_pseudonymes.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_signatures.json');
         $data = json_decode($json);
+
         foreach ($data as $record) {
             DB::table('signatures')->insert([
                 'id'           => $record->id,
 
-                'author_id'    => $record->auteur_id,
-                'signature_id' => $record->pseudo_id,
+                'author_id'    => $record->author_id,
+                'signature_id' => $record->signature_id,
 
-                'created_at'   => ($record->created_at !== "0000-00-00 00:00:00") ? $record->created_at : "2014-10-01 00:00:00",
+                'created_at'   => $record->created_at,
                 'updated_at'   => $record->updated_at,
-                'deleted_at'   => NULL,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'   => 1,
-                'updated_by'   => 1,
-                'deleted_by'   => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

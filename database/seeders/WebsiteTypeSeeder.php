@@ -16,25 +16,26 @@ class WebsiteTypeSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_types_site.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_website_types.json');
         $data = json_decode($json);
+
         foreach ($data as $record) {
             DB::table('website_types')->insert([
                 'id'             => $record->id,
 
-                'name'           => $record->nom,
-                'information'    => $record->description,
-                'displayed_text' => $record->affiche,
-                'is_obsolete'    => $record->obsolete,
+                'name'           => $record->name,
+                'information'    => $record->information,
+                'displayed_text' => $record->displayed_text,
+                'is_obsolete'    => $record->is_obsolete,
 
-                'created_at'     => $record->created_at,
-                'updated_at'     => $record->updated_at,
-                'deleted_at'     => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'      => 1,
-                'updated_by'      => 1,
-                'deleted_by'      => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

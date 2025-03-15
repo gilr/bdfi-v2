@@ -16,30 +16,31 @@ class StatSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_stats.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_stats.json');
         $data = json_decode($json);
+
         foreach ($data as $record) {
             DB::table('stats')->insert([
                 'id'            => $record->id,
 
                 'date'          => $record->date,
-                'authors'       => $record->auteurs,
+                'authors'       => $record->authors,
                 'series'        => $record->series,
                 'references'    => $record->references,
-                'novels'        => $record->romans,
-                'short_stories' => $record->nouvelles,
-                'collections'   => $record->recueils,
-                'magazines'     => $record->revues,
-                'essays'        => $record->essais,
+                'novels'        => $record->novels,
+                'short_stories' => $record->short_stories,
+                'collections'   => $record->collections,
+                'magazines'     => $record->magazines,
+                'essays'        => $record->essays,
 
-                'created_at'  => $record->created_at,
-                'updated_at'  => $record->updated_at,
-                'deleted_at'  => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'  => 1,
-                'updated_by'  => 1,
-                'deleted_by'  => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

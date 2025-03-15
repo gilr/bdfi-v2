@@ -18,47 +18,38 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_evenements.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_events.json');
         $data = json_decode($json);
+
         foreach ($data as $record) {
-
-            $date_debut = $record->date_debut;
-            if ($date_debut == "2016-06-99") { $date_debut = "2016-06-01"; }
-            if ($date_debut == "2018-04-99") { $date_debut = "2018-04-01"; }
-            if ($date_debut == "2019-06-00") { $date_debut = "2019-06-01"; }
-
-            $date_fin = $record->date_fin;
-            if ($date_fin == "2016-06-99") { $date_fin = "2016-06-01"; }
-            if ($date_fin == "2017-11-99") { $date_fin = "2017-11-01"; }
-            if ($date_fin == "2018-04-99") { $date_fin = "2018-04-01"; }
-            if ($date_fin == "2019-06-00") { $date_fin = "2019-06-01"; }
 
             DB::table('events')->insert([
                 'id'          => $record->id,
-                'slug'             => SlugService::createSlug(Event::class, 'slug', $record->sujet),
 
-                'name'        => $record->sujet,
-                'start_date'  => $date_debut,
-                'end_date'    => $date_fin,
-                'place'       => $record->lieu,
-                'information' => $record->description,
-                'url'         => $record->url,
+                'name'        => $record->name,
+                'slug'        => $record->slug,
+                                // SlugService::createSlug(Event::class, 'slug', $record->sujet),
                 'type'        => $record->type,
+                'start_date'  => $record->start_date,
+                'end_date'    => $record->end_date,
+                'place'       => $record->place,
+                'information' => $record->information,
+                'url'         => $record->url,
 
-                'is_confirmed'     => $record->est_valide,
-                'is_full_scope'    => !$record->en_marge,
-                'publication_date' => $record->publie_a !== "0000-00-00 00:00:00" ? $record->publie_a : NULL,
+                'is_confirmed'     => $record->is_confirmed,
+                'is_full_scope'    => !$record->is_full_scope,
+                'publication_date' => $record->publication_date,
 
-                'created_at'  => $record->created_at,
-                'updated_at'  => $record->updated_at,
-                'deleted_at'  => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'  => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'updated_by'  => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'deleted_by'  => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }
-
 }
+

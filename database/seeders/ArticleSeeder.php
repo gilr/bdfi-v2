@@ -6,7 +6,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use App\Models\Collection;
 
 class ArticleSeeder extends Seeder
 {
@@ -15,30 +14,26 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        $json = Storage::get('articles.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_articles.json');
         $data = json_decode($json);
-        foreach ($data as $obj) {
 
-            $item = Collection::where('name', $obj->collection)->first();
-            if ($item) {
-                $item_id = $item->id;
+        foreach ($data as $record) {
+            DB::table('articles')->insert([
+                'id'           => $record->id,
 
-                DB::table('articles')->insert([
-                    'item_type'       => 'App\Models\Collection',
-                    'item_id'         => $item_id,
-                    'content'         => $obj->content,
+                'item_type'    => $record->item_type,
+                'item_id'      => $record->item_id,
+                'content'      => $record->content,
 
-                    'created_at'     => today(),
-                    'updated_at'     => today(),
-                    'deleted_at'     => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                    'created_by'     => 1,
-                    'updated_by'     => 1,
-                    'deleted_by'     => NULL
-                ]);
-            }
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
+            ]);
         }
-
     }
 }

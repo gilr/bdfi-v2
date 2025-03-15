@@ -16,7 +16,7 @@ class AnnouncementSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_annonces.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_announcements.json');
         $data = json_decode($json);
         foreach ($data as $record) {
             DB::table('announcements')->insert([
@@ -24,18 +24,18 @@ class AnnouncementSeeder extends Seeder
 
                 'date'        => $record->date,
                 'type'        => $record->type,
-                'name'        => $record->sujet,
-                'information' => $record->description,
+                'name'        => $record->name,
+                'information' => $record->information,
                 'url'         => $record->url,
 
                 'created_at'  => $record->created_at,
                 'updated_at'  => $record->updated_at,
-                'deleted_at'  => NULL,
+                'deleted_at'  => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'  => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'updated_by'  => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'deleted_by'  => NULL
+                // TBC si besoin d'ajuster'
+                'created_by'  => $record->created_by,
+                'updated_by'  => $record->updated_by,
+                'deleted_by'  => $record->deleted_by,
             ]);
         }
     }

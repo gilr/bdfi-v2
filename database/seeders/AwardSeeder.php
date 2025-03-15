@@ -18,29 +18,31 @@ class AwardSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('awards.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_awards.json');
         $data = json_decode($json);
-        foreach ($data as $obj) {
+        foreach ($data as $record) {
             DB::table('awards')->insert([
-                'name'          => $obj->name ?: "",
-                'slug'          => SlugService::createSlug(Award::class, 'slug', $obj->name),
+                'id'            => $record->id,
+                'name'          => $record->name,
+                'slug'          => $record->slug,
+                                // SlugService::createSlug(Award::class, 'slug', $record->name),
 
-                'alt_names'     => $obj->alt_names ?: "",
-                'year_start'    => $obj->year_start ?: "",
-                'year_end'      => $obj->year_end ?: "",
-//                'given_by'      => $obj->given_by ?: "",
-                'given_for'     => $obj->given_for ?: "",
-                'country_id'    => $obj->country_id ?: "",
-                'url'           => $obj->url ?: "",
-                'information'   => $obj->description ?: "",
+                'alt_names'     => $record->alt_names,
+                'year_start'    => $record->year_start,
+                'year_end'      => $record->year_end,
+                'given_for'     => $record->given_for,
+                'country_id'    => $record->country_id,
+                'url'           => $record->url,
+                'information'   => $record->information,
 
-                'created_at'     => today(),
-                'updated_at'     => today(),
-                'deleted_at'     => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                'created_by'     => 1,
-                'updated_by'     => 1,
-                'deleted_by'     => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
 

@@ -19,49 +19,44 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_auteurs.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_authors.json');
         $data = json_decode($json);
+
         foreach ($data as $record) {
             DB::table('authors')->insert([
                 'id'           => $record->id,
 
-                'name'         => $record->nom,
+                'name'         => $record->name,
                 'nom_bdfi'     => $record->nom_bdfi,
-                'first_name'   => $record->prenom,
-                'slug'         => SlugService::createSlug(Author::class, 'slug', ($record->prenom == "" ? $record->nom : sanitizeFirstName($record->prenom) . " " . $record->nom)),
+                'first_name'   => $record->first_name,
+                'slug'         => $record->slug,
+                                    // SlugService::createSlug(Author::class, 'slug', ($record->first_name == "" ? $record->name : sanitizeFirstName($record->first_name) . " " . $record->name)),
 
-                'is_pseudonym' => $record->pseudo,
-                'legal_name'   => $record->nom_legal,
-                'alt_names'    => $record->formes_nom,
-                'gender'       => $record->sexe,
-                'birth_date'   => $record->date_naiss,
-                'birthplace'   => $record->lieu_naiss,
-                'date_death'   => $record->date_deces,
-                'place_death'  => $record->lieu_deces,
-                'information'  => $record->bio,
-                'private'      => $record->work_priv,
-                'is_visible'   => 1,
+                'is_pseudonym' => $record->is_pseudonym,
+                'legal_name'   => $record->legal_name,
+                'alt_names'    => $record->alt_names,
+                'gender'       => $record->gender,
+                'birth_date'   => $record->birth_date,
+                'birthplace'   => $record->birthplace,
+                'date_death'   => $record->date_death,
+                'place_death'  => $record->place_death,
+                'information'  => $record->information,
+                'private'      => $record->private,
+                'is_visible'   => $record->is_visible,
 
-                'country_id'   => $record->pays_id,
-                'country2_id'  => $record->pays2_id,
-                'quality'      => ($record->avancement_id == 5 ? QualityStatus::VALIDE :
-                                    ($record->avancement_id == 4 ? QualityStatus::TERMINE :
-                                    ($record->avancement_id == 3 ? QualityStatus::ACCEPTABLE :
-                                    ($record->avancement_id == 2 ? QualityStatus::MOYEN :
-                                    ($record->avancement_id == 1 ? QualityStatus::EBAUCHE :
-                                    ($record->avancement_id == 9 ? QualityStatus::A_REVOIR :
-                                    QualityStatus::VIDE)))))),
+                'country_id'   => $record->country_id,
+                'country2_id'  => $record->country2_id,
+                'quality'      => $record->quality,
 
                 'created_at'   => $record->created_at,
                 'updated_at'   => $record->updated_at,
-                'deleted_at'   => NULL,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'   => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'updated_by'   => ($record->user_id == 99 ? 1 : $record->user_id + 1),
-                'deleted_by'   => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }
-
 }

@@ -233,7 +233,7 @@ class DatabaseSeeder extends Seeder
             AwardSeeder::class,
             AwardCategorySeeder::class,
             AwardWinnerSeeder::class,
-/*  */
+/* */
             CycleSeeder::class,
 
             PublisherSeeder::class,

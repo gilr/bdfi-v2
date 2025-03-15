@@ -18,27 +18,28 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv1\bdfibase_table_pays.json');
+        $json = Storage::get('bdfiv2\bdfibasev2_table_countries.json');
         $data = json_decode($json);
-        foreach ($data as $obj) {
+        foreach ($data as $record) {
             DB::table('countries')->insert([
-                'id'             => $obj->id,
+                'id'             => $record->id,
 
-                'name'           => $obj->nom,
-                'slug'             => SlugService::createSlug(Country::class, 'slug', $obj->nom),
+                'name'           => $record->name,
+                'slug'           => $record->slug,
+                    // SlugService::createSlug(Country::class, 'slug', $record->name),
 
-                'nationality'    => $obj->nationalite,
-                'code'           => $obj->code,
-                'internal_order' => $obj->ordre_interne,
+                'nationality'    => $record->nationality,
+                'code'           => $record->code,
+                'internal_order' => $record->internal_order,
 
-                'created_at'     => $obj->created_at,
-                'updated_at'     => $obj->updated_at,
-                'deleted_at'     => NULL,
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
 
-                // 99=>1 - 1=>2 - 2=>3 - 3=>4
-                'created_by'     => 1,
-                'updated_by'     => 1,
-                'deleted_by'     => NULL
+                // TBD si besoin de revoir
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
             ]);
         }
     }

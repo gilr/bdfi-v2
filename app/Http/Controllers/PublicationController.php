@@ -158,13 +158,25 @@ class PublicationController extends Controller
                 $pivot_last = DB::table('collection_publication')->where('collection_id', $collection->id)->where('order', $nb)->first();
 
                 $first[$ipn] = ($collection->pivot->order !== 1 && $pivot_first !== null) ?
-                    DB::table('publications')->where('id', $pivot_first->publication_id)->value('slug') : 0;
+                    DB::table('publications')
+                        ->where('id', $pivot_first->publication_id)
+                        ->whereNull('deleted_at')
+                        ->value('slug') : 0;
                 $prev[$ipn] = $pivot_prev ?
-                    DB::table('publications')->where('id', $pivot_prev->publication_id)->value('slug') : 0;
+                    DB::table('publications')
+                        ->where('id', $pivot_prev->publication_id)
+                        ->whereNull('deleted_at')
+                        ->value('slug') : 0;
                 $next[$ipn] = $pivot_next ?
-                    DB::table('publications')->where('id', $pivot_next->publication_id)->value('slug') : 0;
+                    DB::table('publications')
+                        ->where('id', $pivot_next->publication_id)
+                        ->whereNull('deleted_at')
+                        ->value('slug') : 0;
                 $last[$ipn] = ($collection->pivot->order !== $nb && $pivot_last !== null) ?
-                    DB::table('publications')->where('id', $pivot_last->publication_id)->value('slug') : 0;
+                    DB::table('publications')
+                        ->where('id', $pivot_last->publication_id)
+                        ->whereNull('deleted_at')
+                        ->value('slug') : 0;
                 $progression[$ipn] = $collection->pivot->order / $nb;
                 $ipn++;
             }

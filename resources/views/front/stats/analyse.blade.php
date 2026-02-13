@@ -11,7 +11,7 @@
 <x-front.menu-stats tab='analyse' />
 
 <div class='text-2xl my-2 md:mt-8 bold self-center'>
-    <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/><b>Analyse production d'imaginaire</b>
+    <img sb-icon src="/img/{{ $icon }}" class="w-4 md:w-8 inline" title="{{ $title }}"/><b>Analyse de la production d'imaginaire</b>
 </div>
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>

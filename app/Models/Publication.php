@@ -64,6 +64,11 @@ class Publication extends Model
         ];
     }
 
+    public function first_edition(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Publication');
+    }
+
     public function publisher(): BelongsTo
     {
         return $this->belongsTo('App\Models\Publisher');
@@ -72,7 +77,8 @@ class Publication extends Model
     {
         return $this->belongsToMany('App\Models\Collection')
                     ->withTimestamps()
-                    ->withPivot('id', 'order','number');
+                    ->withPivot('id', 'order','number', 'deleted_at')
+                    ->wherePivot('deleted_at', null);
     }
     public function reprints(): HasMany
     {
@@ -82,16 +88,18 @@ class Publication extends Model
     {
         return $this->belongsToMany('App\Models\Title', 'table_of_content')
                     ->withTimestamps()
-                    ->withPivot(['level', 'order', 'start_page', 'end_page'])
-                    ->using('App\Models\TableOfContent');
+                    ->withPivot(['level', 'order', 'start_page', 'end_page', 'deleted_at'])
+                    ->using('App\Models\TableOfContent')
+                    ->wherePivot('deleted_at', null);
 //                    ->orderByPivot('start_page', 'asc');
     }
     public function authors(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Author')
                     ->withTimestamps()
-                    ->withPivot(['id', 'role']) // Add extra fields to the 'pivot' object
-                    ->using('App\Models\AuthorPublication');
+                    ->withPivot(['id', 'role', 'deleted_at']) // Add extra fields to the 'pivot' object
+                    ->using('App\Models\AuthorPublication')
+                    ->wherePivot('deleted_at', null); // Exclude soft-deleted relationships
     }
 
     /*

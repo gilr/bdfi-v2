@@ -11,14 +11,14 @@
         <b>Soit vous avez emprunté un chemin non balisé (et nous ne vous en félicitons pas), </b>
     </div>
     <div class='text-2xl mb-4 self-center sm:px-20 px-2 text-center'>
-        <b>soit vous avez suivi une de nos routes commerciales, mais une catastrophe (plus ou moins naturelle) vous a fait dévier du chemin prévu et vous a conduit à atterrir en ce lieu.</b>
+        <b>soit vous avez suivi une de nos routes commerciales, mais un évènement inattendu vous a fait dévier du chemin prévu, traverser un champ d'astéroides, et atterrir en catastrophe en ce lieu perdu.</b>
     </div>
 
-    <div class='text-lg mt-16 self-center sm:px-20 px-2'>
-        Mais quoi qu'il en soit, vous êtes mal.
+    <div class='text-xl mt-16 self-center sm:px-20 px-2'>
+        Quoi qu'il en soit, vous êtes mal.
     </div>
     <div class='text-xs mt-8 self-center sm:px-20 px-2'>
-        Et quelle qu'en soit la cause, il va bien falloir vous sortir d'ici tout seul.
+        Et il va bien falloir vous sortir d'ici tout seul...
     </div>
 
 @endsection

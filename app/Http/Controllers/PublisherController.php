@@ -50,11 +50,33 @@ class PublisherController extends Controller
         }
         else
         {
-            $results = Publisher::where(function($query) use($text) {
+            $relations = ['collections', 'collections2', 'collections3'];
+
+            $results = Publisher::query()
+                ->leftJoin('collections as c1', 'publishers.id', '=', 'c1.publisher_id')
+                ->leftJoin('collections as c2', 'publishers.id', '=', 'c2.publisher2_id')
+                ->leftJoin('collections as c3', 'publishers.id', '=', 'c3.publisher3_id')
+                ->where(function($query) use ($text) {
+                    $query->where('publishers.name', 'like', '%' . $text . '%')
+                          ->orWhere('publishers.alt_names', 'like', '%' . $text . '%')
+                          ->orWhere('c1.name', 'like', '%' . $text . '%')
+                          ->orWhere('c1.alt_names', 'like', '%' . $text . '%')
+                          ->orWhere('c2.name', 'like', '%' . $text . '%')
+                          ->orWhere('c2.alt_names', 'like', '%' . $text . '%')
+                          ->orWhere('c3.name', 'like', '%' . $text . '%')
+                          ->orWhere('c3.alt_names', 'like', '%' . $text . '%');
+                })
+                ->orderBy('publishers.name', 'asc')
+                ->select('publishers.*')   // indispensable pour éviter les collisions de colonnes
+                ->with($relations)         // eager loading des relations
+                ->simplePaginate($pagin)
+                ->withQueryString();
+
+/*            $results = Publisher::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%')
                 ->orWhere('alt_names', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
-
+            */
         }
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix
@@ -162,7 +184,11 @@ class PublisherController extends Controller
         // /editeurs/{slug}/hc
         $publisher = Publisher::firstWhere('slug', $text);
         $results = Publisher::firstWhere('slug', $text)->publicationsWithoutCollection()->get();
-        return view ('front.editeurs.hc', compact('publisher', 'results'), $this->context);
+
+        // Si au moins un ouvrage de l'ensemble a un champ 'first_edition_id' non nul :
+        $has_new_editions = $results->whereNotNull('first_edition_id')->isNotEmpty();
+
+        return view ('front.editeurs.hc', compact('publisher', 'results', 'has_new_editions'), $this->context);
     }
 
     /**

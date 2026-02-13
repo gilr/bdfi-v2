@@ -47,6 +47,12 @@ return new class extends Migration
             $table->text('information')->nullable();
             $table->text('private')->nullable();
 
+            $table->unsignedInteger('first_edition_id')->nullable(); // Uniquement dans même collection !
+            $table->foreign('first_edition_id')
+                ->references('id')
+                ->on('publications')
+                ->onDelete('restrict');
+
             $table->string('cover_front', 64)->nullable();
             $table->string('cover_back', 64)->nullable();
             $table->string('cover_spine', 64)->nullable();

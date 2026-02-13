@@ -36,6 +36,9 @@
                         <x-nav-link href="{{ url('/filament') }}">
                             {{ __('Gestion tables') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('admin/labs') }}" :active="request()->is('admin/labs*')">
+                            {{ __('Labs') }}
+                        </x-nav-link>
                     @endif
                     <x-nav-link href="{{ route('welcome') }}" >
                         {{ __('Retour site') }}

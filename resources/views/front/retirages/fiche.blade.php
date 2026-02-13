@@ -6,6 +6,9 @@
                 <x-front.lien-ouvrage link='/ouvrages/{{ $results->publication->slug }}'>{{ $results->publication->name }}</x-front.lien-ouvrage>
             </span>
         </div>
+    <div class='text-base'>
+        Type : <span>{{ $results->publication->type->getLabel() }}</span>
+    </div>
         <div class='text-base'>
             Editeur : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->publication->publisher->slug }}'>{{ $results->publication->publisher->name }}</a></span>
         </div>
@@ -14,10 +17,10 @@
         </div>
 
         <div class='text-base'>
-            Date de publication : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
+            Date de publication du retirage : <span class='font-semibold'>{{ StrDateformat($results->approximate_parution) }}</span>
         </div>
         <div class='text-base'>
-            Date d'Achevé d'Imprimer du retirage :
+            Achevé d'Imprimer du retirage :
             <span class='font-semibold'>
                 {{ StrDateformat(StrDLAItoBDFI($results->ai, $results->approximate_parution)) }}
             </span>

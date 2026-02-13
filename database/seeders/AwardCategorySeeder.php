@@ -18,7 +18,7 @@ class AwardCategorySeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('bdfiv2/bdfibasev2_table_categories.json');
+        $json = Storage::get('bdfiv2/bdfibasev2_table_award_categories.json');
         $data = json_decode($json);
 
         foreach ($data as $record) {

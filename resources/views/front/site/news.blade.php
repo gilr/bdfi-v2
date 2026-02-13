@@ -10,8 +10,9 @@
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     <div class='hidden md:flex text-base p-2 m-5 mx:4 md:mx-12 lg:mx-40 bg-yellow-200 border-l-4 border-red-600'>
-        Liste des évolutions majeures, remerciements groupés, points périodiques, en commençant par les plus récents. Les remerciements individuels sont indiqués en page "remerciements".
+        Liste des évolutions majeures, remerciements groupés, points périodiques, en commençant par les plus récents. Les remerciements individuels sont indiqués en page "remerciements". Attention, il s'agit ici de l'historique des évolutions V1.
     </div>
+
     <div class='text-2xl m-2 self-center h-12'>
         {{ $results->links() }}
     </div>

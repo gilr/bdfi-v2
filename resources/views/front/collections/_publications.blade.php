@@ -27,6 +27,6 @@
                 --}}
             @endforeach
         @endif
-         - {{ StrDateformat($publication->approximate_parution) }}
+         - {{ StrDateYear($publication->approximate_parution) }}
     </div>
 @endforeach

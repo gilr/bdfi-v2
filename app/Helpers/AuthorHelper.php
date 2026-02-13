@@ -9,6 +9,7 @@
 function sanitizeFirstName ($firstname)
 {
    $pattern = "/\.[A-Z]/i";
+   // Si besoin, pour les majuscules accentuées : $pattern = "/\.[\p{Lu}]/u";
    if (preg_match($pattern, $firstname))
    {
       return str_replace('.', '. ', $firstname);
@@ -536,4 +537,27 @@ function isName($info)
         return 1;
     }
     return 0;
+}
+
+/*
+   Fonction de formatage traducteurs pour V1 (fichiers COL)
+   --- A supprimer à terme
+*/
+function StrTraducteursToCol($name)
+{
+
+   // Faire : spliter d'abord les "morceaux" (voir plus haut)
+
+
+   $morceaux = explode(" ", $name);
+   if (count($morceaux) == 1)
+   {
+      return strtoupper($name);
+   }
+
+   // TODO : simpliste pour l'instant
+   $morceaux = explode(" ", $name, 2);
+
+   return strtoupper(Str::ascii($morceaux[1])) . " " . ucfirst(strtolower($morceaux[0]));
+
 }

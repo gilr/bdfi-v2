@@ -7,7 +7,7 @@
     </div>
     <div class="flex text-xl pb-2 self-center">
         Version BDFI {{ env('VERSION') }} -
-        Données <span class="font-bold mx-2">très</span> incomplètes
+        Données <span class="font-bold mx-2">très</span> incomplètes (environ {{ $taux_remplissage }}%)
     </div>
     @if (env('APP_TEST') == "true")
         <div class="font-bold text-red-500 flex text-2xl pb-2 self-center">
@@ -53,7 +53,7 @@
             @php
                 $images = array();
                 foreach ($recents as $result) {
-                    $images[] = array('url' => "https://www.bdfi.info/couvs/" . InitialeCouv($result->cover_front) . "/" . $result->cover_front . ".jpg", 'caption' => $result->name);
+                    $images[] = array('url' => "https://www.bdfi.info/couvs/" . InitialeCouv($result->cover_front) . "/" . $result->cover_front . ".jpg", 'caption' => $result->name, 'book' => $result->slug);
                 }
             @endphp
             <livewire:publication-carousel :images="$images" />

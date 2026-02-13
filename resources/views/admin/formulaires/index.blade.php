@@ -46,6 +46,22 @@
                         </div>
                     @endif
 
+                    @if (auth()->user()->hasMemberRole())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Corrections rapides
+                        </div>
+                        <div class="p-2">
+                            ajout-variant : Choix de deux titres (auteur, trad) non déjà reliés, et du type de lien. Valider pour ajouter un lien.<br />
+                            inverser-variant : Recherche des variants via un titre - Afficher la liste, sélectionner, appliquer l'inversion
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout d'un lien entre deux variantes de texte/oeuvre</x-admin.link>
+                                <li><x-admin.link lien='formulaires/ajout-texte'>Inversion du sens du lien entre deux variantes de texte/oeuvre</x-admin.link></li>
+                            </ul>
+                        </div>
+                    @endif
+
                     @if (auth()->user()->hasProponentRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Propositions

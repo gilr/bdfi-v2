@@ -12,6 +12,9 @@
     <div class="border-b-4 {{ ($tab == 'merci' ? 'bg-yellow-100 border-yellow-500' : 'border-gray-300 hover:bg-purple-100 hover:border-purple-400') }}">
         <a class='px-2 md:px-4' href='/site/merci'>Remerciements</a>
     </div>
+    <div class="border-b-4 {{ ($tab == 'faq' ? 'bg-yellow-100 border-yellow-500' : 'border-gray-300 hover:bg-purple-100 hover:border-purple-400') }}">
+        <a class='px-2 md:px-4' href='/site/faq'>F.A.Q.</a>
+    </div>
     <div class="border-b-4 {{ ($tab == 'aides' ? 'bg-yellow-100 border-yellow-500' : 'border-gray-300 hover:bg-purple-100 hover:border-purple-400') }}">
         <a class='px-2 md:px-4' href='/site/aides'>Nous aider</a>
     </div>

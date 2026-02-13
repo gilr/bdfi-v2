@@ -16,6 +16,10 @@ class ToolController extends Controller
     {
         return view('admin.outils.index');
     }
+    public function labIndex()
+    {
+        return view('admin.labs.index');
+    }
 
     /**
      * Respond to request get /reports/strange-dates
@@ -39,6 +43,7 @@ class ToolController extends Controller
             SUBSTR(birth_date,8,1) <> '-' OR
             SUBSTR(birth_date,9,2) < '00' OR
             SUBSTR(birth_date,9,2) > '31'
+            AND deleted_at IS NULL
             ORDER BY birth_date");
 
         $year = date("Y");
@@ -51,6 +56,7 @@ class ToolController extends Controller
             SUBSTR(date_death,8,1) <> '-' OR
             SUBSTR(date_death,9,2) < '00' OR
             SUBSTR(date_death,9,2) > '31'
+            AND deleted_at IS NULL
             ORDER BY birth_date");
 
         return view('admin/outils/dates-bizarres', compact('auteurs', 'auteurs2'));
@@ -73,6 +79,7 @@ class ToolController extends Controller
             DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death, slug FROM authors WHERE
                 (SUBSTR(birth_date,1,4)='0000' OR birth_date IS NULL) AND
                 SUBSTR(date_death,1,4)<>'0000'
+                AND deleted_at IS NULL
                 ORDER BY date_death"));
 
         return view('admin/outils/manque-dates-naissance', compact('auteurs'));
@@ -94,6 +101,7 @@ class ToolController extends Controller
                 SUBSTR(date_death,1,4)='0000' AND
                 SUBSTR(birth_date,1,4)<>'0000' AND
                 CAST(SUBSTR(birth_date,1,4) AS UNSIGNED) < 1925
+                AND deleted_at IS NULL
                 ORDER BY birth_date"));
 
         return view('admin/outils/manque-dates-deces', compact('auteurs'));
@@ -111,7 +119,7 @@ class ToolController extends Controller
     }
 
     /**
-     * Respond to request get /reports/missing-countries
+     * Respond to request get /admin/outils/manque-nationalite
      *
      * @return \Illuminate\Http\Response
      */
@@ -122,9 +130,38 @@ class ToolController extends Controller
         */
 
         $auteurs = $this->paginateArray(
-            DB::select ("SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death, slug FROM authors WHERE country_id=1 OR country_id IS NULL"));
+            DB::select ("
+                SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death, slug 
+                FROM authors 
+                WHERE (country_id=1 OR country_id IS NULL)
+                AND deleted_at IS NULL
+                "));
 
         return view('admin/outils/manque-nationalite', compact('auteurs'));
+    }
+
+    /**
+     * Respond to request get /admin/outils/erreur-nationalite
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCountryErrors()
+    {
+        /*
+        Les auteurs avec nation en double, ou pays2 mais pas pays principal
+        */
+
+        $auteurs = $this->paginateArray(
+            DB::select("
+                SELECT id, nom_bdfi, name, first_name, is_pseudonym, birth_date, date_death, slug, country_id, country2_id
+                FROM authors
+                WHERE country2_id <> 1
+                AND deleted_at IS NULL
+                AND country2_id IS NOT NULL
+                AND (country_id = country2_id OR country_id = 1 OR country_id IS NULL)
+            "));
+
+        return view('admin/outils/erreur-nationalite', compact('auteurs'));
     }
 
     /**
@@ -184,10 +221,12 @@ class ToolController extends Controller
 
         $auteurs = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
             SUBSTR(birth_date,5,6) = '$today'
+            AND deleted_at IS NULL
             ORDER BY birth_date");
 
         $auteurs2 = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
             SUBSTR(date_death,5,6) = '$today'
+            AND deleted_at IS NULL
             ORDER BY date_death");
 
         $today = date("d/m");
@@ -216,10 +255,12 @@ class ToolController extends Controller
             $data[$i]['day'] = $day;
             $data[$i]['auteurs'] = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
                 SUBSTR(birth_date,5,6) = '$day'
+                AND deleted_at IS NULL
                 ORDER BY birth_date");
 
             $data[$i]['auteurs2'] = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
                 SUBSTR(date_death,5,6) = '$day'
+                AND deleted_at IS NULL
                 ORDER BY date_death");
 
             $day = date("d/m", time() + $i * 24 * 60 * 60);
@@ -250,10 +291,12 @@ class ToolController extends Controller
             $data[$i]['day'] = $day;
             $data[$i]['auteurs'] = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
                 SUBSTR(birth_date,5,6) = '$day'
+                AND deleted_at IS NULL
                 ORDER BY birth_date");
 
             $data[$i]['auteurs2'] = DB::select ("SELECT id, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE 
                 SUBSTR(date_death,5,6) = '$day'
+                AND deleted_at IS NULL
                 ORDER BY date_death");
 
             $day = date("d/m", time() + $i * 24 * 60 * 60);

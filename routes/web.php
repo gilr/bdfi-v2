@@ -7,7 +7,7 @@ use App\Http\Controllers\CycleController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\PublicationController;
-use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ReprintController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TitleController;
@@ -125,14 +125,15 @@ Route::middleware(['public.maintenance'])->group(function () {
     // + accès restreints, voir plus bas
 
     // Zone infos du site
-    Route::get('/site', [AnnouncementController::class, 'welcome'])->name('site');
-    Route::get('/site/news', [AnnouncementController::class, 'news']);
-    Route::get('/site/base', [AnnouncementController::class, 'stats']);
-    Route::get('/site/merci', [AnnouncementController::class, 'thanks']);
-    Route::get('/site/aides', [AnnouncementController::class, 'help']);
-    Route::get('/site/a-propos', [AnnouncementController::class, 'about']);
-    Route::get('/site/contact', [AnnouncementController::class, 'contact']);
-    Route::get('/site/historique-v2', [AnnouncementController::class, 'histov2']);
+    Route::get('/site', [SiteController::class, 'welcome'])->name('site');
+    Route::get('/site/news', [SiteController::class, 'news']);
+    Route::get('/site/base', [SiteController::class, 'stats']);
+    Route::get('/site/merci', [SiteController::class, 'thanks']);
+    Route::get('/site/aides', [SiteController::class, 'help']);
+    Route::get('/site/a-propos', [SiteController::class, 'about']);
+    Route::get('/site/contact', [SiteController::class, 'contact']);
+    Route::get('/site/faq', [SiteController::class, 'faq']);
+    Route::get('/site/historique-v2', [SiteController::class, 'histov2']);
 
     // Forums => redirection sur sous-domaine en PHP 5.6
     // Temporaire
@@ -200,12 +201,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/admin/outils/manque-date-deces', [ToolController::class, 'getMissingDeathdates']);
         Route::get('/admin/outils/etat-biographies-{i}', [ToolController::class, 'getBioStatus']);
         Route::get('/admin/outils/manque-nationalite', [ToolController::class, 'getMissingCountries']);
+        Route::get('/admin/outils/erreur-nationalite', [ToolController::class, 'getCountryErrors']);
 //        Route::get('/admin/outils/manque-fiche', [ToolController::class, 'getMissingRecords']);
         Route::get('/admin/outils/prix-{an}', [ToolController::class, 'getMissingAwards']);
         Route::get('/admin/outils/anniversaires-fb-jour', [ToolController::class, 'getFbToday']);
         Route::get('/admin/outils/anniversaires-fb-semaine', [ToolController::class, 'getFbWeek']);
         Route::get('/admin/outils/anniversaires-fb-mois', [ToolController::class, 'getFbMonth']);
-        Route::get('/admin/outils/conversion-sommaire', [ToolController::class, 'getConvertContent']);
+//        Route::get('/admin/outils/conversion-sommaire', [ToolController::class, 'getConvertContent']);
+
+        Route::get('/admin/labs', [ToolController::class, 'labIndex'])->name('admin/labs');
+        Route::get('/admin/labs/conversion-format', function () { return view('admin/labs/conversion-format'); });
+        Route::get('/admin/labs/conversion-content', function () { return view('admin/labs/conversion-content'); });
+        Route::get('/admin/labs/telecharge-format', [DownloadController::class, 'exportConvertedFormat'])->name('labs.download');
+
 
         // Gestion des Téléchargement tables - générique multi-modèle
         Route::get('/admin/telechargements', [DownloadController::class, 'index']);

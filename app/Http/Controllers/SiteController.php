@@ -10,7 +10,7 @@ use App\Models\Announcement;
 use App\Models\Publication;
 use App\Models\Stat;
 
-class AnnouncementController extends Controller
+class SiteController extends Controller
 {
 
     public $context = [
@@ -80,6 +80,12 @@ class AnnouncementController extends Controller
     {
         $this->context['page'] = 'A propos';
         return view('front.site.about', $this->context);
+    }
+
+    public function faq()
+    {
+        $this->context['page'] = 'Questions fréquentes';
+        return view('front.site.faq', $this->context);
     }
 
     public function histov2()

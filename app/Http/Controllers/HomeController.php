@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Publication;
+use App\Models\Title;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,9 +14,9 @@ class HomeController extends Controller
     public function index()
     {
         $notice = [
-            'titlev2' => env('APP_TEST') === "true" ? "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Version bêta de test du site BDFI V2</span>." : "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Version bêta du site BDFI V2</span>.",
-            'introv2' => "<span class='font-bold text-slate-600'>Attention</span>, la base des ouvrages est une <b>base très incomplète</b>, contenant environ 15% des collections, non encore toutes vérifiées.",
-            "contentv2" =>"Pour en connaître le contenu, consulter la <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/v2beta'>page des collections incluses</a>. En fiche éditeur ou en zone de recherche de collection, les collections incluses sont repérables car précédées de l'icone <img src='/img/cible_bleue.png' class='inline w-5 mb-1' title='Collection présente en V2 bêta'>. On trouvera notamment :
+            'titlev2' => env('APP_TEST') === "true" ? "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Attention, ce site n'est pas un site officiel, mais une version de test du site BDFI V2</span>." : "<span class='font-bold text-slate-600'><img src='/img/warning.png' class='inline w-5 mb-1' /> Attention, ce site n'est pas un site officiel, mais une version bêta du futur site BDFI V2</span>.",
+            'introv2' => "La quantité de données (collections) est réduite, et des erreurs ou plantages sont possibles.",
+            "contentv2" =>"Pour connaître les collections référencées dans cette v2, consulter la page des <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/collections/v2beta'>collections incluses</a>. En fiche éditeur ou en zone de recherche de collection, ces collections incluses sont également repérables grâve à l'icone <img src='/img/cible_bleue.png' class='inline w-5 mb-1' title='Collection présente en V2 bêta'>. On trouvera notamment :
         <ul class='list-disc pl-4 ml-4'>
             <li>Quelques collections vérifiées, comme
                 <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/collections/lunes-d-encre'>Lunes d'encre (Denoël)</a>,
@@ -40,7 +41,7 @@ class HomeController extends Controller
         }
         else
         {
-            $notice['contentv2'] = $notice['contentv2'] . "Pour des informations sur le développement, voir <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> ou les commits sur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://github.com/gilr/bdfi-v2'>github</a>.";
+            $notice['contentv2'] = $notice['contentv2'] . "Pour des informations sur l'avancement et sur le développement, voir la page <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='/site/historique-v2'>avancement version V2</a> ou les commits sur <a class='underline text-red-700 sm:p-0.5 md:px-0.5' href='https://github.com/gilr/bdfi-v2'>github</a>.";
         }
 
         // Récupérer les données nécessaires
@@ -96,12 +97,15 @@ class HomeController extends Controller
             ->limit(15)
             ->get();
 
+        // Taux de remplissage approximatif
+        $taux_remplissage = round((Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
+
         // Définir des variables supplémentaires
         $area = '';
         $title = '';
         $page = '';
 
         // Retourner la vue avec les données
-        return view('welcome', compact('notice', 'births', 'deaths', 'updated', 'created', 'recents', 'programme', 'events', 'forum_last_topics', 'area', 'title', 'page'));
+        return view('welcome', compact('notice', 'births', 'deaths', 'updated', 'created', 'recents', 'programme', 'events', 'forum_last_topics', 'area', 'title', 'page', 'taux_remplissage'));
     }
 }

@@ -81,6 +81,10 @@ class ReprintResource extends Resource
                         ->onColor('success')
                         ->offColor('danger')
                         ->required(),
+                        Forms\Components\TextInput::make('verified_by')
+                            ->label('Vérifié par')
+                            ->helperText("Prénom ou identifiant du vérificateur - toujours le même de préférence sur l'ensemble des fiches. Si plusieurs vérificateurs, format \"user1; user2\".")
+                            ->maxLength(256),
 
                 Section::make('Informations')
                     ->schema([

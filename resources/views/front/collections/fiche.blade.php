@@ -35,10 +35,6 @@
         </div>
     @endif
 
-    <div class='text-base'>
-        Nombre de publications : <span class='font-semibold'>{{ count($results->publications) }}</span>
-    </div>
-
     @if ($results->publisher_id)
         <div class='text-base'>
             @if ($results->publisher2_id)
@@ -64,6 +60,10 @@
             @endif
         </div>
     @endif
+
+    <div class='text-base'>
+        Nombre de publications : <span class='font-semibold'>{{ count($results->publications) }}</span>
+    </div>
 
     <div class='text-base'>
         Support : <span class='font-semibold'>{{ $results->support->getLabel() }}</span>
@@ -139,7 +139,7 @@
             Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent->slug }}'>{{ $results->parent->fullName }} </a></span>
         </div>
         <div class='text-base'>
-            Sous-collections, sous-ensembles :
+            Sous-collection, sous-ensemble :
         </div>
 
         <div class='text-base px-2 mx-2 md:mx-10 self-center'>
@@ -156,7 +156,7 @@
 
     @if (count($results->subcollections) != 0)
         <div class='text-base'>
-            <span class='font-semibold'>Sous-collection, sous-ensembles :</span>
+            <span class='font-semibold'>Sous-collection, sous-ensemble :</span>
             @foreach ($results->subcollections as $subcollection)
                 <div class='ml-2 md:ml-8'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $subcollection->slug }}'>{{ $subcollection->fullShortName }} </a>

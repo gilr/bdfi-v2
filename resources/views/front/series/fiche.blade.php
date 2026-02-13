@@ -18,7 +18,23 @@
         </div>
     @endif
 
-    @if (auth()->user() && auth()->user()->hasGuestRole())
+    <div class='text-base'>
+        @if (count($results->getAuthors()) > 1)
+            Contributeurs :
+        @else
+            Contributeur :
+        @endif
+        @forelse($results->getAuthors() as $author)
+            @if (!$loop->first)
+                ,
+            @endif
+            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+        @empty
+            <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
+        @endforelse
+    </div>
+
+      @if (auth()->user() && auth()->user()->hasGuestRole())
         <div class='text-base'>
             Type de série : <span class='text-blue-900 bg-sky-200 shadow-sm shadow-blue-600 rounded-sm px-1'>{{ $results->type->getLabel() }}</span>
         </div>
@@ -47,11 +63,27 @@
         </div>
     @endif
 
+<style>
+.scroll-container {
+    max-height: 300px; /* Hauteur de la zone ascenseur */
+    overflow-y: auto;
+    border-left: 2px solid #ccc;
+    margin: 5px;
+    padding: 0 5px;
+    direction: rtl; /* Ascenseur à gauche en inversant direction */
+    scrollbar-width: thick; /* Firefox uniquement */
+}
+.scroll-container * {
+    direction: ltr; /* ... mais texte dans le bon sens */
+}
+</style>
+
     @if(count($results->subseries) != 0)
         <hr class="mx-24 my-2 border-dotted border-purple-800"/>
 
         <div class='text-base'>
             <span class='font-semibold'>Séries filles :</span>
+            <div class='scroll-container'>
             @foreach ($results->subseries as $subserie)
                 <div class='ml-2 md:ml-8'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/series/{{ $subserie->slug }}'>
@@ -69,6 +101,7 @@
                 </div>
             @endforeach
         </div>
+        </div>
     @endif
 
 </div>
@@ -76,110 +109,116 @@
 
 <?php $pubs=array(); ?>
 
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-
-    @if(count($results->titles) != 0)
-        <hr class="mx-24 my-2 border-dotted border-purple-800"/>
-
-        <div class='text-base'>
-            <span class='font-semibold'>Liste des oeuvres attachées à la série {{ ($results->full_name ?: $results->name) }} :</span>
-            @foreach ($results->titles as $title)
-                @if (($title->parent_id == 0) && (!$title->is_serial))
-                    {{-- On ne traite que les titres de niveau "parent" --}}
-                    {{-- et on exclue les épisodes --}}
-                    @foreach ($title->publications as $publication)
+<!--- Liste des ouvrages !-->
+@if(count($results->titles) != 0)
+    @foreach ($results->titles as $title)
+        @if (($title->parent_id == 0) && (!$title->is_serial))
+            {{-- On ne traite que les titres de niveau "parent" --}}
+            {{-- et on exclue les épisodes --}}
+            @foreach ($title->publications as $publication)
+                @php
+                    $pubs[] = array(
+                        "id" => $publication->id,
+                        "slug" => $publication->slug,
+                        "cover_front" => $publication->cover_front,
+                        "name" => $publication->name,
+                        "publisher" => isset($publication->publisher) ? $publication->publisher->name : "inconnu",
+                        "paru" => $publication->approximate_parution);
+                @endphp
+            @endforeach
+            @if(count($title->variants) !== 0)
+                @foreach ($title->variants as $variant)
+                    @foreach ($variant->publications as $publication)
                         @php
-                            $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name);
+                            $pubs[] = array(
+                                "id" => $publication->id,
+                                "slug" => $publication->slug,
+                                "cover_front" => $publication->cover_front,
+                                "name" => $publication->name,
+                                "publisher" => isset($publication->publisher) ? $publication->publisher->name : "inconnu",
+                                "paru" => $publication->approximate_parution);
                         @endphp
                     @endforeach
-                    <div class='ml-2 md:ml-8'>
-                        @if ($title->pivot->number)
-                            {{ StrConvCycleNum($title->pivot->number) }} -
-                        @endif
-                        <x-front.lien-texte link='/textes/{{ $title->slug }}'>{{ $title->name }}</x-front.lien-texte>
-                        ({{ $title->copyright }}{{ $title->title_vo != NULL ? ", $title->title_vo), " . StrDateformat($title->copyright_fr) : ")"}}
-
-                        @if(count($title->authors) != 0)
-                        -
-                        @foreach($title->authors as $author)
-                            @if (!$loop->first)
-                                ,
-                            @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
-                        @endforeach
-                        @endif
-                    </div>
-                    @if(count($title->variants) !== 0)
-                        @foreach ($title->variants as $variant)
-                            @foreach ($variant->publications as $publication)
-                                @php
-                                    $pubs[] = array("id" => $publication->id, "slug" => $publication->slug, "cover_front" => $publication->cover_front, "name" => $publication->name);
-                                @endphp
-                            @endforeach
-                            <div class='ml-5 md:ml-16'>
-                                @if ($variant->variant_type !== App\Enums\TitleVariantType::TRAD->value)
-{{--
-    case PREMIER       = 'premier';
-    case VIRTUEL       = 'virtuel';
-    case EPISODE       = 'feuilleton';
-    case EXTRAIT       = 'extrait';
-    case SIGN          = 'signature';
-    case TRAD          = 'traduction';
-    case TITRE         = 'titre';
-    case SIGNTRADTITRE = 'sign+trad+titre';
-    case SIGNTRAD      = 'sign+trad';
-    case SIGNTITRE     = 'sign+titre';
-    case TRADTITRE     = 'trad+titre';
-    case INCONNU       = 'inconnu';
-        App\Enums\GenreAppartenance::NON s'il y a eu cast
-        sinon App\Enums\GenreAppartenance::NON->value
---}}
-                                    @if ($variant->variant_type === App\Enums\TitleVariantType::TRADTITRE->value)
-                                        <i>Retraduit sous</i>
-                                    @else
-                                        <i>Sous</i>
-                                    @endif
-                                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>,
-                                    {{ StrDateformat($variant->copyright_fr) }} -
-                                    @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
-                                    @empty
-                                        <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
-                                    @endforelse
-                                @else
-                                    <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{{ $variant->name }}</x-front.lien-texte>,
-                                    nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
-                                    @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
-                                    @empty
-                                        <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
-                                    @endforelse
-                                @endif
-                            </div>
-                        @endforeach
-                    @endif
-                @endif
-            @endforeach
-
-        </div>
-    @endif
-</div>
+                @endforeach
+            @endif
+        @endif
+    @endforeach
+@endif
 
 <?php
     $series = collect($pubs);
     $unique=$series->unique('id');
 ?>
 
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+@if(count($results->titles) < 25)
+    <!--- Si moins de 25, affichage à plat !-->
 
-    @if(count($unique) != 0)
-        <div class='text-base pt-4'>
-            <span class='font-semibold'>Galerie :</span>
-            @include ('front.series._gallery', ['pubs' => $unique])
+    <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+        @include ('front.series._liste')
+    </div>
+
+    <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+
+        @if(count($unique) != 0)
+            <div class='text-base pt-4'>
+                <span class='font-semibold'>Galerie :</span>
+                @include ('front.series._gallery', ['pubs' => $unique])
+            </div>
+        @endif
+    </div>
+
+@else
+    <!--- Sinon, affichage en onglets !-->
+    <style>
+    input.rad { display: none; }
+    input.rad + label { display: inline-block; }
+
+    input.rad ~ .tab {
+        display: none;
+        overflow: hidden;
+        border-top: 1px solid blue;
+        padding: 12px;
+    }
+
+    #tab1:checked ~ .tab.content1,
+    #tab2:checked ~ .tab.content2 { display: block; }
+
+    input.rad + label {
+      border: 1px solid #999;
+      background: #EEE;
+      padding: 4px 12px;
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+      position: relative;
+      top: 1px;
+      width:240px;
+    }
+    input.rad:checked + label {
+      background-color: rgb(233 213 255);
+      border-bottom: 1px solid transparent;
+      font-weight: 600;
+    }
+
+    .tab:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    </style>
+
+    <div class='block pt-2 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
+        <input class='rad' type="radio" name="tabs" checked="checked" id="tab1" />
+        <label for="tab1">Oeuvres</label>
+        <input class='rad' type="radio" name="tabs" id="tab2" />
+        <label for="tab2">Galerie</label>
+        <div class="tab content1 text-base">
+            @include ('front.series._liste')
         </div>
-    @endif
-</div>
-
+        <div class="tab content2 text-base">
+            @include ('front.series._gallery', ['pubs' => $unique])
+       </div>
+    </div>
+@endif
 
 
 

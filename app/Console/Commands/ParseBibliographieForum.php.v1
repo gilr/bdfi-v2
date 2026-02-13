@@ -1,0 +1,132 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class ParseBibliographieForum extends Command
+{
+    protected $signature = 'biblio:parse';
+    protected $description = 'Parse un fichier bibliographique en JSON';
+
+    public function handle()
+    {
+
+        $path = storage_path('app/biblio.txt');
+        if (!file_exists($path)) {
+            $this->error("Fichier non trouvé : $path");
+            return;
+        }
+
+        $content = file_get_contents($path);
+        $blocks = $this->splitByYear($content);
+        $nbYears = count($blocks);
+        $this->info("--- $nbYears année(s) détectée(s)");
+
+        if ($nbYears > 0) {
+            $this->line("Années trouvées : " . implode(', ', array_keys($blocks)));
+        } else {
+            $this->warn("/!\ Aucun bloc d'année détecté. Vérifie le format : [b]2022[/b] attendu.");
+        }
+
+        $json = [];
+
+        $totalBooks = 0;
+
+        foreach ($blocks as $year => $block) {
+            $this->info("--- Traitement de l'année $year");
+            $books = $this->parseBooks($block);
+            $covers = $this->extractCovers($block);
+
+            if (empty($books)) {
+                $this->warn("/!\ Aucun livre trouvé pour $year");
+            }
+
+            foreach ($books as $index => $book) {
+                $book['annee_parution'] = $year;
+                $book['couverture'] = $covers[$index] ?? null;
+                $json[] = $book;
+
+                $this->line("--- Livre : {$book['titre']} ({$book['auteur_nom']})");
+                $totalBooks++;
+            }
+        }
+
+        $outputPath = storage_path('app/output.json');
+        file_put_contents($outputPath, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        $this->info("--- Parsing terminé : $totalBooks livres extraits");
+        $this->info("Parsing terminé ! Fichier généré : $outputPath");
+    }
+
+    private function splitByYear(string $content): array
+    {
+        // On découpe sur les balises [b]YYYY[/b]
+        preg_match_all('/\[b\](\d{4})\[\/b\](.*?)(?=\[b\]\d{4}\[\/b\]|$)/s', $content, $matches, PREG_SET_ORDER);
+
+        $blocks = [];
+
+        foreach ($matches as $match) {
+            $year = $match[1];
+            $text = trim($match[2]);
+            $blocks[$year] = $text;
+        }
+
+        return $blocks;
+    }
+
+    private function parseBooks(string $block): array
+    {
+        $lines = preg_split('/\r\n|\r|\n/', $block);
+        $books = [];
+
+        foreach ($lines as $line) {
+            $line = strip_tags($line);
+
+            if (preg_match('/^\[i\](.*)\[\/i\]$/', $line, $matches)) {
+                $hors_genres = true;
+                $line = trim($matches[1]); // On retire les balises [i]...[/i]
+            }
+            else
+            {
+                $hors_genres = false;
+            }
+
+            if (!str_starts_with(trim($line), '-')) continue;
+
+            preg_match('/^- (.+?) \.\. (.+?) (?:\((.+?)\) )?\((\d{4}(?:\/\d{4})?)\) - isbn ?: ([\d\-]+)  couv\. ?: (.+)$/', $line, $m);
+
+            if ($m) {
+                [$_, $auteur, $titre, $serie, $copyright, $isbn, $illustrateur] = $m;
+
+                $parts = explode(' ', $auteur);
+                $prenom = array_shift($parts);
+                $nom = implode(' ', $parts);
+
+                $books[] = [
+                    'hors_genres' => $hors_genres,
+                    'auteur_prenom' => $prenom,
+                    'auteur_nom' => $nom,
+                    'titre' => $titre,
+                    'serie' => $serie,
+                    'copyright' => $copyright,
+                    'isbn' => $isbn,
+                    'illustrateur' => $illustrateur,
+                ];
+            }
+            else
+            {
+                $this->warn("/!\ Ligne non reconnue : $line");
+            }
+        }
+
+        return $books;
+    }
+
+    private function extractCovers(string $block): array
+    {
+        preg_match_all('/\[url=[^\]]*\/([^\/\]]+)\.jpg\]/i', $block, $matches);
+        return $matches[1] ?? [];
+    }
+
+}

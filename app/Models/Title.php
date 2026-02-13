@@ -64,8 +64,9 @@ class Title extends Model
     {
         return $this->belongsToMany('App\Models\Publication', 'table_of_content')
                     ->withTimestamps()
-                    ->withPivot(['level', 'order', 'start_page', 'end_page'])
+                    ->withPivot(['level', 'order', 'start_page', 'end_page', 'deleted_at'])
                     ->using('App\Models\TableOfContent')
+                    ->wherePivot('deleted_at', null)
                     ->orderBy('approximate_parution', 'asc');
     }
 
@@ -98,7 +99,8 @@ class Title extends Model
     {
         return $this->belongsToMany('App\Models\Cycle')
                     ->withTimestamps()
-                    ->withPivot('number', 'order');
+                    ->withPivot('number', 'order', 'deleted_at')
+                    ->wherePivot('deleted_at', null);
     }
 
     /*

@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Route;
+
 use Livewire\Component;
 use App\Models\Author;
 
@@ -16,6 +18,12 @@ class AuthorSearchAndEdit extends Component
     public $birthplace = '';
     public $date_death = '';
     public $bio = '';
+
+    // Obligatoire pour interdire les bots pirateurs
+    protected static $middlewares = [
+        'auth.bdfiadmin',
+        'admin.maintenance',
+    ];
 
     public function updatedSearch()
     {

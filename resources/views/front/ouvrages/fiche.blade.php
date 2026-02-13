@@ -86,23 +86,23 @@
                     n° {{ $collection->pivot->number }} &nbsp; &nbsp;
                 @endif
                 @if ($first[$loop->index])
-                    <a class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $first[$loop->index] }}'>&#10094;&#10094;</a>
+                    <a data-nav="first" class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $first[$loop->index] }}'>&#10094;&#10094;</a>
                 @else
                     <span class='text-sm text-slate-400 border bg-slate-100 px-2 border-slate-300 rounded shadow-md'>&#10094;&#10094;</span>
                 @endif
                 @if ($prev[$loop->index])
-                    <a class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $prev[$loop->index] }}'>&#10094;</a>
+                    <a data-nav="prev" class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $prev[$loop->index] }}'>&#10094;</a>
                 @else
                     <span class='text-sm text-slate-400 border bg-slate-100 px-2 border-slate-300 rounded shadow-md'>&#10094;</span>
                 @endif
                 <span class='text-gray-200 text-xs italic'>{{ $collection->pivot->order }}</span>
                 @if ($next[$loop->index])
-                      <a class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $next[$loop->index] }}'>&#10095;</a>
+                      <a data-nav="next" class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $next[$loop->index] }}'>&#10095;</a>
                 @else
                     <span class='text-sm text-slate-400 border bg-slate-100 px-1.5 border-slate-300 rounded shadow-md'>&#10095;</span>
                 @endif
                 @if ($last[$loop->index])
-                    <a class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $last[$loop->index] }}'>&#10095;&#10095;</a>
+                    <a data-nav="last" class='text-sm border bg-purple-100 px-1.5 border-purple-700 rounded shadow-md shadow-indigo-500/40 hover:text-purple-700 focus:text-purple-900' href='/ouvrages/{{ $last[$loop->index] }}'>&#10095;&#10095;</a>
                 @else
                     <span class='text-sm text-slate-400 border bg-slate-100 px-2 border-slate-300 rounded shadow-md'>&#10095;&#10095;</span>
                 @endif
@@ -187,12 +187,19 @@
             {{ isbnCheckAndConvert($results->isbn) }}
         </div>
     @endif
+    @if ($results->first_edition_id !== NULL)
+        <div class='text-base'>
+            Nouvelle édition dans la collection.
+        </div>
+    @endif
 
     <div class='text-base'>
         @if ($results->is_genre == App\Enums\GenreAppartenance::NON)
             <img src='/img/error.png' class="inline w-5 mb-1" /> Hors genres référencés par BDFI
+        @elseif ($results->is_genre == App\Enums\GenreAppartenance::INCONNU)
+            <img src='/img/error.png' class="inline w-5 mb-1" /> Genre de l'ouvrage à confirmer
         @elseif ($results->genre_stat != App\Enums\GenreStat::INCONNU)
-            {{ $results->genre_stat->getLabel() }} <sup title="Genre de référencement BDFI"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg></sup>
+            {{ $results->genre_stat->getLabel() }} <sup title="Genre de référencement BDFI - Cliquez pour consulter la FAQ"><a href="/site/faq"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg></a></sup>
         @endif
     </div>
 
@@ -375,7 +382,8 @@
         <hr class="mx-24 my-2 border-dotted border-purple-800"/>
 
         <div class='text-base'>
-            <span class='font-semibold'>Retirages :</span>
+            <span class='font-semibold'>Retirages</span>
+            <sup title="Nouveau tirage à l'identique - Cliquez pour consulter la FAQ"><a href="/site/faq"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg></a></sup> :
             @foreach ($results->reprints as $reprint)
                 @if (!$loop->first)
                     ,
@@ -459,10 +467,45 @@
                         @endforeach
                     @endif
                     </span>
-
+                    <span class='hidden sm:inline italic text-stone-500'>
+                        @if ($title->is_genre == App\Enums\GenreAppartenance::NON)
+                            (Hors genres référencés)
+                        @elseif ($title->is_genre == App\Enums\GenreAppartenance::INCONNU)
+                            (Genre à confirmer)
+                        @endif
+                    </span>
                 </div>
             @endforeach
         </div>
     @endif
     @endif
 </div>
+
+<script>
+document.addEventListener('keydown', function (e) {
+
+    // Premier (Home)
+    if (e.key === 'Home') {
+        const first = document.querySelector('a[data-nav="first"]');
+        if (first) window.location = first.href;
+    }
+
+    // Dernier (End)
+    if (e.key === 'End') {
+        const last = document.querySelector('a[data-nav="last"]');
+        if (last) window.location = last.href;
+    }
+
+    // Précédent (flèche gauche)
+    if (e.key === 'ArrowLeft') {
+        const prev = document.querySelector('a[data-nav="prev"]');
+        if (prev) window.location = prev.href;
+    }
+
+    // Suivant (flèche droite)
+    if (e.key === 'ArrowRight') {
+        const next = document.querySelector('a[data-nav="next"]');
+        if (next) window.location = next.href;
+    }
+});
+</script>

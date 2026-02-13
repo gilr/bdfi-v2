@@ -28,9 +28,9 @@
                 @if ($area == "collections")
                     <x-front.display-icon-v2beta-if value='{{ $result->is_in_v2beta }}' />
                 @endif
-                <a class='sm:p-0.5 md:px-0.5' title='{{ $result->full_name ?: $result->name }}' href='/{{ $area }}/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</a>
+                <a class='sm:p-0.5 md:px-0.5' title='{!! $result->full_name ?: $result->name !!}' href='/{{ $area }}/{{ $result->slug }}'>{!! $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) !!}</a>
                 @if (isset($result->alt_names) && $result->alt_names)
-                    ({{ $result->alt_names }})
+                    ({!! $result->alt_names !!})
                 @endif
             </div>
         @endforeach

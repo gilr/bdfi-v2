@@ -1,3 +1,10 @@
+@push('styles')
+    @include('front.partials.zoom-styles')
+@endpush
+@push('scripts')
+    @include('front.partials.zoom-scripts')
+@endpush
+
 <div class='grid grid-cols-1 lg:grid-cols-2 gap-1 bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4'>
 
 <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
@@ -72,6 +79,7 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->qualifiedName }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                     </div>
                 @endif
             @endforeach
@@ -81,6 +89,7 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                     </div>
                 @endif
             @endforeach
@@ -91,13 +100,14 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->qualifiedName }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                     </div>
                 @endif
             @endforeach
                 @endif
             @if(count($results->publicationsWithoutCollection))
                 <div class='ml-2 md:ml-8'>
-                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->slug }}/hc'><i> Ouvrages hors collections et groupes</i></a>
+                    <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/editeurs/{{ $results->slug }}/hc'><i> Ouvrages hors collection et regroupement</i></a>
                 </div>
             @endif
         </div>
@@ -108,6 +118,7 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->qualifiedName }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                     </div>
                 @endif
             @endforeach
@@ -118,6 +129,7 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->qualifiedName }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                     </div>
                 @endif
             @endforeach
@@ -128,6 +140,7 @@
                     <div class='ml-2 md:ml-8'>
                         <x-front.display-icon-v2beta-if value='{{ $collection->is_in_v2beta }}' />
                         <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->qualifiedName }} </a>
+                        ({{ StrDateformat($collection->year_start) }} - {{ $collection->year_end == NULL ? "" : StrDateformat($collection->year_end) }})
                    </div>
                 @endif
             @endforeach
@@ -147,9 +160,13 @@
                 <div class="flex flex-wrap">
                     @foreach ($results->publications as $publication)
                         <!-- zone couverture -->
-                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
-                            <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}">
-                        </a>
+                        <div class='m-auto p-2 relative image-container'>
+                            <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
+                                <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }} - Aller vers la page ouvrage">
+                            </a>
+                            <!-- Icône loupe -->
+                            <div class="zoom-icon" title="Agrandir la couverture" onclick="openZoomedImage('https://www.bdfi.info/couvs/{{ InitialeCouv($publication->cover_front) }}/{{ $publication->cover_front }}.jpg')">🔍</div>
+                        </div>
                     @endforeach
                 </div>
             @else
@@ -157,9 +174,13 @@
                 <div class="flex flex-wrap">
                     @foreach ($publications as $publication)
                         <!-- zone couverture -->
-                        <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
-                            <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }}">
-                        </a>
+                        <div class='m-auto p-2 relative image-container'>
+                            <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
+                                <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title="Couverture {{ $publication->name }} - Aller vers la page ouvrage">
+                            </a>
+                            <!-- Icône loupe -->
+                            <div class="zoom-icon" title="Agrandir la couverture" onclick="openZoomedImage('https://www.bdfi.info/couvs/{{ InitialeCouv($publication->cover_front) }}/{{ $publication->cover_front }}.jpg')">🔍</div>
+                        </div>
                     @endforeach
                 </div>
             @endif

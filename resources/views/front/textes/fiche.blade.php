@@ -61,8 +61,10 @@
     <div class='text-base'>
         @if ($results->is_genre == App\Enums\GenreAppartenance::NON)
             <img src='/img/error.png' class="inline w-5 mb-1" /> Hors genres référencés par BDFI
+        @elseif ($results->is_genre == App\Enums\GenreAppartenance::INCONNU)
+            <img src='/img/error.png' class="inline w-5 mb-1" /> Genre de l'oeuvre à confirmer
         @elseif ($results->genre_stat != App\Enums\GenreStat::INCONNU)
-            {{ $results->genre_stat->getLabel() }} <sup title="Choix de référencement BDFI"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg></sup>
+            {{ $results->genre_stat->getLabel() }} <sup title="Genre de référencement BDFI - Cliquez pour consulter la FAQ"><a href="/site/faq"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg></a></sup>
         @endif
     </div>
 
@@ -601,18 +603,4 @@
     </div>
 </div>
 
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @if($pubs && (count($pubs) !== 0))
-        <div class='text-base pt-4'>
-            <span class='font-semibold'>Galerie :</span>
-            <div class="flex flex-wrap">
-            @foreach ($pubs as $pub)
-                <!-- zone couverture -->
-                <a class='m-auto p-1 lg:p-2' href="/ouvrages/{{ $pub['slug'] }}">
-                    <img class='m-auto p-0.5 md:p-1 border border-purple-800 h-40' src="https://www.bdfi.info/medium/{{ InitialeCouv($pub['cover_front']) }}/m_{{ $pub['cover_front'] }}.jpg" alt="couv" title="Couverture {{ $pub['name'] }}">
-                </a>
-            @endforeach
-            </div>
-        </div>
-    @endif
-</div>
+@include ('front.textes._gallery')

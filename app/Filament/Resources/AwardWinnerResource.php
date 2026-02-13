@@ -121,7 +121,7 @@ class AwardWinnerResource extends Resource
                             ->nullable(),
                         Forms\Components\Select::make('title_id')
                             ->label('Lien sur fiche titre (si existe)')
-                            ->relationship('title', 'name')
+                            ->relationship('titleRef', 'name')
                             ->getOptionLabelFromRecordUsing(fn (Title $record) => "{$record->fullName}")
                             ->searchable(['name'])
                             ->nullable(),
@@ -255,7 +255,7 @@ class AwardWinnerResource extends Resource
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

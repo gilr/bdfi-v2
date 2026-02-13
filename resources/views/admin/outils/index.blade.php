@@ -21,6 +21,7 @@
                             <li><x-admin.link lien='outils/manque-date-naissance'>Date de naissance inconnue</x-admin.link> (mais décès connu)</li>
                             <li><x-admin.link lien='outils/manque-date-deces'>Date de décès inconnue</x-admin.link> (et naissance connue)</li>
                             <li><x-admin.link lien='outils/manque-nationalite'>Nationalité manquante</x-admin.link></li>
+                            <li><x-admin.link lien='outils/erreur-nationalite'>Nationalité erronée</x-admin.link></li>
                             <li>Bios <x-admin.link lien='outils/etat-biographies-0'>"vides"</x-admin.link> et
                             <x-admin.link lien='outils/etat-biographies-1'>"en ébauche"</x-admin.link></li>
                             <li>Et bios en état <x-admin.link lien='outils/etat-biographies-2'>"moyen"</x-admin.link>,

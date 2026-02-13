@@ -1,10 +1,19 @@
+@push('styles')
+    @include('front.partials.zoom-styles')
+@endpush
+@push('scripts')
+    @include('front.partials.zoom-scripts')
+@endpush
+
 <div class="flex flex-wrap text-sm">
     @foreach ($results->publications as $publication)
         <!-- zone couverture -->
-        <div class='m-auto p-2'>
+        <div class='m-auto p-2 relative image-container'>
             <a class='m-auto p-1 lg:p-2' href='/ouvrages/{{ $publication->slug }}'>
-                <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title='{{ $publication->name }}'>
+                <img class='m-auto p-0.5 md:p-1 border border-purple-800' src="https://www.bdfi.info/vignettes/{{ InitialeCouv($publication->cover_front) }}/v_{{ $publication->cover_front }}.jpg" alt="couv" title='{{ $publication->name }} - Aller vers la page ouvrage'>
             </a>
+            <!-- Icône loupe -->
+            <div class="zoom-icon" title="Agrandir la couverture" onclick="openZoomedImage('https://www.bdfi.info/couvs/{{ InitialeCouv($publication['cover_front']) }}/{{ $publication['cover_front'] }}.jpg')">🔍</div>
             <div class='text-center'>
                 @if(isset($publication->publisher))
                     {{ $publication->publisher->name }}

@@ -5,7 +5,9 @@
             <img style="max-width: 250px; max-height:450px" class='p-1 mx-auto hover-shadow border border-purple-800' src="{{ $mycover['url'] }}" wire:click="openCover(0)" alt="couverture" title="{{ $mycover['name'] }}">
             <div class="grid grid-cols-{{ $loop->count - 1 }} mx-auto max-w-fit">
         @else
-            <div class="w-14 py-2 px-0.5"><img class="px-0.5 hover-shadow" src="{{ $mycover['url'] }}" wire:click="openCover({{ $loop->iteration - 1 }})" /></div>
+            <div class="w-14 h-20 flex items-center justify-center cursor-pointer py-2 px-0.5" wire:click="openCover({{ $loop->iteration - 1 }})">
+                <img class="h-full w-auto object-contain hover-shadow pointer-events-none px-0.5" src="{{ $mycover['url'] }}" />
+            </div>
         @endif
         @if ($loop->last)
             </div>

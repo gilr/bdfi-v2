@@ -151,6 +151,15 @@ class PublicationResource extends Resource
                 Tabs\Tab::make('BDFI Infos')
                     ->badge('!')
                     ->schema([
+                        Forms\Components\Select::make('first_edition_id')
+                            ->label('1ere édition dans la collection')
+                            ->helperText("Uniquement pour les nouvelles éditions qui ne sont pas des retirages.")
+                            ->relationship('first_edition', 'name')
+                            ->hiddenOn('create')
+                            ->hint(fn (Title $record) => $record->first_edition_id == 0 ? "C'est une 1ere édition dans la collection" : new HtmlString('<a href="' . TitleResource::getUrl('view', ['record' => $record->first_edition_id]) . '">Aller à la fiche 1ere édition</a>'))
+                            ->hintColor('info')
+                            ->hintIcon('heroicon-m-link')
+                            ->searchable(['name']),
                         Forms\Components\Toggle::make('is_visible')
                             ->label('Visible sur le site')
                             ->helperText('Décoché (gris), l\'ouvrage ne sera pas affiché. Permet de stocker des ouvrages limites ou des "faux-amis".')

@@ -41,6 +41,7 @@ class PublicationSeeder extends Seeder
                 'support'          => $obj->support ?: PublicationSupport::PAPIER,
                 'format'           => $obj->format ?: PublicationFormat::INCONNU,
 
+                'first_edition_id' => $obj->reedition_de ?: NULL,
                 'is_verified'      => $obj->is_verified ?: "0",
                 'verified_by'      => $obj->verified_by ?: "",
                 'dl'               => $obj->dl ? StrDLAItoBDFI($obj->dl, $obj->approximate_parution) : "",
@@ -73,7 +74,7 @@ class PublicationSeeder extends Seeder
 
                 'cover_front'      => $obj->cover_front ?: '',
                 'cover_back'       => $obj->cover_back ?: '',
-                'cover_spine'      => "",
+                'cover_spine'      => $obj->cover_spine ?: '',
                 'withband_front'   => $obj->withband_front ?: '',
                 'withband_back'    => "",
                 'withband_spine'   => "",

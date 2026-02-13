@@ -113,15 +113,15 @@ class AuthorResource extends Resource
                             ->label('Pays 2 (double nationatlité)')
                             ->searchable(),
                         Forms\Components\TextInput::make('birth_date')
-                            ->label('Né le')
+                            ->label('Né(e) le')
                             ->helperText("Format 'AAAA-MM-JJ' (exemple : 1983-05-19). 'AAAA-00-00' si l'année seule est connue, et vide ou '0000-00-00' si la date est inconnue. Les formats '1410-circa' ou '-500-circa' sont également acceptés.")
                             ->regex('/([\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa))/')
                             ->maxLength(10),
                         Forms\Components\TextInput::make('birthplace')
-                            ->label('Né à')
+                            ->label('Né(e) à')
                             ->maxLength(64),
                         Forms\Components\TextInput::make('date_death')
-                            ->label('Décédé le')
+                            ->label('Décédé(e) le')
                             ->helperText("Avec les mêmes règles que la date de naissance...")
                             ->regex('/([\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa))/')
                             ->maxLength(10),
@@ -216,11 +216,11 @@ class AuthorResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birth_date')
-                    ->label('Né le')
+                    ->label('Né(e) le')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthplace')
-                    ->label('Né à')
+                    ->label('Né(e) à')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('date_death')
@@ -228,7 +228,7 @@ class AuthorResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('place_death')
-                    ->label('Décédé à')
+                    ->label('Décédé(e) à')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_visible')

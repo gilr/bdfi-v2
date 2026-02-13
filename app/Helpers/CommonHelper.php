@@ -112,7 +112,7 @@ function StrDLAItoBDFI($date, $approx_publi): string
         'a parution' => 'A parution',
         'à parution' => 'A parution',
         'n.i.' => 'Non indiq.',
-        'n.c' => 'Non indiq.'
+        'n.c.' => 'Non indiq.',
     ];
 
     if (array_key_exists($date, $specialCases)) {
@@ -129,18 +129,18 @@ function StrDLAItoBDFI($date, $approx_publi): string
     $year_approx=substr($approx_publi, 0, 4);
 
     $monthMappings = [
-        'january' => '01', 'jan' => '01', 'janv' => '01',  'janv.' => '01',
-        'february' => '02', 'fev' => '02', 'fevr' => '02', 'fevr.' => '02', 'fév' => '02', 'févr' => '02', 'févr.' => '02', 'feb' => '02',
+        'january' => '01', 'jan' => '01', 'janv' => '01', 'janv.' => '01', 'janvier' => '01',
+        'february' => '02', 'fev' => '02', 'fevr' => '02', 'fevr.' => '02', 'fév' => '02', 'févr' => '02', 'févr.' => '02', 'feb' => '02', 'fevrier' => '02', 'février' => '02',
         'march' => '03', 'mar' => '03', 'mars' => '03',
-        'april' => '04', 'avr' => '04', 'avr.' => '04', 'apr' => '04',
+        'april' => '04', 'apr' => '04', 'avr' => '04', 'avr.' => '04', 'avril' => '04',
         'mai' => '05', 'may' => '05',
         'june' => '06', 'jun' => '06', 'juin' => '06',
-        'july' => '07', 'jul' => '07', 'juil' => '07', 'juil.' => '07',
+        'july' => '07', 'jul' => '07', 'juil' => '07', 'juil.' => '07', 'juillet' => '07',
         'august' => '08', 'aug' => '08', 'aou' => '08', 'aout' => '08', 'août' => '08',
-        'september' => '09', 'sep' => '09', 'sept' => '09', 'sept.' => '09',
-        'october' => '10', 'oct' => '10', 'oct.' => '10',
-        'november' => '11', 'nov' => '11', 'nov.' => '11',
-        'december' => '12', 'dec' => '12', 'dec.' => '12', 'déc' => '12', 'déc.' => '12',
+        'september' => '09', 'sep' => '09', 'sept' => '09', 'sept.' => '09', 'septembre' => '09',
+        'october' => '10', 'oct' => '10', 'oct.' => '10', 'octobre' => '10',
+        'november' => '11', 'nov' => '11', 'nov.' => '11', 'novembre' => '11',
+        'december' => '12', 'dec' => '12', 'dec.' => '12', 'déc' => '12', 'déc.' => '12', 'decembre' => '12', 'décembre' => '12',
         't1' => 'T1', '1t' => 'T1',
         't2' => 'T2', '2t' => 'T2',
         't3' => 'T3', '3t' => 'T3',
@@ -203,6 +203,44 @@ function StrDetectCentury($aa, $publi): string
     }
 }
 
+/**
+ * Affichage de l'année seule pour une date
+ *
+ * @param string $date Date au format aaaa-mm-jj étendu BDFI (avec aaaa-T3-00 ou aaaa-00-00)
+ * @return string Date formatée selon les préférences utilisateur
+ */
+function StrDateYear($date)
+{
+    // Si nulle
+    if (($date == NULL) || ($date == ''))
+    {
+        return 'date inconnue';
+    }
+    if (($date == 'A parution') || ($date == 'Non indiq.'))
+    {
+        return $date;
+    }
+    elseif (substr($date, 0, 1) == '?')
+    {
+        // Traitement des dates cop. fr non connues (titre pas paru par exemple)
+        return 'n/a';
+    }
+    elseif (substr($date, 0, 4) == 'n.c.')
+    {
+        return "date non renseignée [$date]";
+    }
+    elseif (strlen($date) == 4)
+    {
+        $date = $date . "-00-00";
+    }
+
+    // Vérification de la validité de la date (format attendu : aaaa-mm-jj BDFI)
+    if (!preg_match('/[\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2})/', $date)) {
+        return 'date invalide : ' . $date;
+    }
+
+    return substr($date, 0, 4);
+}
 
 /**
  * Conversion d'une date au format BDFI (aaaa-mm-jj) vers un format affichable clair
@@ -217,6 +255,10 @@ function StrDateformat($date)
     if (($date == NULL) || ($date == ''))
     {
         return 'date inconnue';
+    }
+    if (($date == 'A parution') || ($date == 'Non indiq.'))
+    {
+        return $date;
     }
     elseif (substr($date, 0, 1) == '?')
     {
@@ -510,14 +552,14 @@ function isbnCheckAndConvert ($isbn,$m = "convert") {
             // convert the 10-digit ISBN to a 13-digit ISBN
             $isbnnum = "978" . substr($x, 0, 9);
             $total = 0;
-            for ($pos=0; $pos<12; $pos++) {
-                if (($pos % 2) == 0) { $y = 1; }
-                else { $y = 3; }
-                $total = $total + ((int)substr($x, $pos, 1) * (int)$y);
+            for ($pos = 0; $pos < 12; $pos++) {
+                $digit = (int)substr($isbnnum, $pos, 1);
+                $weight = ($pos % 2 == 0) ? 1 : 3;
+                $total += $digit * $weight;
             }
             $checksum = (10 - ($total % 10)) % 10;
-            $isbnnum = "978-" . substr($isbn, 0, 12) . "$checksum";
-            return "ISBN 13 : $isbnnum";
+            $isbn13 = "978-" . substr($isbn, 0, 12) . "$checksum";
+            return "ISBN 13 : $isbn13";
         }
     }
     else

@@ -28,7 +28,7 @@ class StoreAuthorRequest extends FormRequest
         return [
             'name'          => 'required|max:32',
             'first_name'    => 'required|max:32',
-            'pays'          => Rule::in(['France', 'Canada', 'Etats Unis', 'Royaume Uni', '?']),
+            'pays'          => Rule::in(['France', 'Canada', 'Etats-Unis', 'Royaume Uni', '?']),
             'gender'        => [Rule::enum(AuthorGender::class)],
             'birth_date'    => ['required', 'size:10', 'regex:/[\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa)/']
         ];

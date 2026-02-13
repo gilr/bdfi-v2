@@ -91,7 +91,8 @@ class Collection extends Model
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'paru')
                 ->withTimestamps()
-                ->withPivot('id', 'order','number')
+                ->withPivot('id', 'order','number', 'deleted_at')
+                ->wherePivot('deleted_at', null)
                 ->orderByPivot('order', 'asc');
     }
     public function publication_announced(): BelongsToMany
@@ -99,7 +100,8 @@ class Collection extends Model
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'annonce')
                 ->withTimestamps()
-                ->withPivot('id', 'order','number')
+                ->withPivot('id', 'order','number', 'deleted_at')
+                ->wherePivot('deleted_at', null)
                 ->orderByPivot('order', 'asc');
     }
     public function publication_proposals(): BelongsToMany
@@ -107,7 +109,8 @@ class Collection extends Model
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'proposal')
                 ->withTimestamps()
-                ->withPivot('id', 'order','number')
+                ->withPivot('id', 'order','number', 'deleted_at')
+                ->wherePivot('deleted_at', null)
                 ->orderByPivot('order', 'asc');
     }
     public function publication_abandonned(): BelongsToMany
@@ -115,7 +118,8 @@ class Collection extends Model
         return $this->belongsToMany('App\Models\Publication')
                 ->where('status', 'abandon')
                 ->withTimestamps()
-                ->withPivot('id', 'order','number')
+                ->withPivot('id', 'order','number', 'deleted_at')
+                ->wherePivot('deleted_at', null)
                 ->orderByPivot('order', 'asc');
     }
 

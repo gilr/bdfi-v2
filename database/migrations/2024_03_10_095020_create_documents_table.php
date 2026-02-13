@@ -23,8 +23,9 @@ return new class extends Migration
                 ->on('authors')
                 ->onDelete('restrict');
 
-            // articleable_id - integer
-            // articleable_type - string
+            // documentable_id - integer
+            // documentable_type - string
+            // --> la fonction MorphTo est nommée item()
             $table->string('item_type');
             $table->unsignedInteger('item_id');
 

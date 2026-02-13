@@ -16,6 +16,7 @@ return new class extends Migration
 
             // articleable_id - integer
             // articleable_type - string
+            // --> la fonction MorphTo est nommée item()
             $table->string('item_type');
             $table->unsignedInteger('item_id');
 

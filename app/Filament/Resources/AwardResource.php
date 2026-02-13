@@ -175,7 +175,7 @@ class AwardResource extends Resource
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

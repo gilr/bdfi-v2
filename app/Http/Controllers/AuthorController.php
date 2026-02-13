@@ -196,7 +196,9 @@ class AuthorController extends Controller
             {
                 // Dans le cas "normal" (auteur sans référence),
                 // on prends tous les titres sous ce nom ou sous signature
-                $plucked = $results->signatures()->pluck('signatures.id');
+                // Gros bug ?! ?!
+                //$plucked = $results->signatures()->pluck('signatures.id');
+                $plucked = $results->signatures()->pluck('signatures.signature_id');
                 $plucked->prepend($id);
             }
             else
@@ -403,6 +405,9 @@ class AuthorController extends Controller
             'gender' => $request->gender,
             'birth_date' => $request->birth_date,
             'quality' => 'vide',
+            'is_pseudonym' => false,
+            'is_visible' => true,
+            'date_death' => '0000-00-00',
         ]);
 
         return view ('admin.formulaires.creer_auteur', $this->context)->with('status', true)->with('id', $auteur->id);

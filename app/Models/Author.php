@@ -123,6 +123,7 @@ class Author extends Model
         return $this->belongsToMany('App\Models\Publication')
                     ->where('status', 'paru')
                     ->withPivot(['id', 'role'])
+                    ->wherePivotNull('deleted_at')
                     ->withTimestamps()
                     ->using('App\Models\AuthorPublication');
     }
@@ -130,6 +131,7 @@ class Author extends Model
     public function titles(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Title')
+                    ->wherePivotNull('deleted_at')
                     ->orderBy('copyright', 'asc')
                     ->withTimestamps();
     }
@@ -148,6 +150,17 @@ class Author extends Model
         return $this->morphOne(Document::class, 'item');
     }
 
+    /**
+     * Get the cycles of the author
+     */
+    public function getCycles()
+    {
+        return Cycle::whereHas('titles', function ($query) {
+            $query->whereHas('authors', function ($q) {
+                $q->where('authors.id', $this->id); // Ajout du préfixe authors.id pour éviter l’ambiguïté
+            });
+        })->distinct()->get();
+    }
 
 /*
     public function title_novels()
@@ -274,6 +287,7 @@ class Author extends Model
 
         $auteurs = DB::select ("SELECT id, slug, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
             SUBSTR(birth_date,5,6) = '$today'
+            AND deleted_at IS NULL
             ORDER BY birth_date");
 
         return $auteurs;;
@@ -284,6 +298,7 @@ class Author extends Model
 
         $auteurs = DB::select ("SELECT id, slug, nom_bdfi, name, first_name, birth_date, date_death FROM authors WHERE
             SUBSTR(date_death,5,6) = '$today'
+            AND deleted_at IS NULL
             ORDER BY date_death");
 
         return $auteurs;;

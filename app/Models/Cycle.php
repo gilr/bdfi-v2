@@ -68,8 +68,22 @@ class Cycle extends Model
     {
         return $this->belongsToMany('App\Models\Title')
                     ->withTimestamps()
-                    ->withPivot('number', 'order')
+                    ->withPivot('number', 'order', 'deleted_at')
+                    ->wherePivot('deleted_at', null)
                     ->orderByPivot('order', 'asc');
+    }
+
+
+    /**
+     * Get the authors of the cycle
+     */
+    public function getAuthors()
+    {
+        return Author::whereHas('titles', function ($query) {
+            $query->whereHas('cycles', function ($q) {
+                $q->where('cycles.id', $this->id);
+            });
+        })->distinct()->get();
     }
 
     /*

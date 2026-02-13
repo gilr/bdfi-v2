@@ -1,5 +1,23 @@
 [
 {
+"name": "Editions du Simplon",
+"type": "",
+"sigle": "SIMARAF",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Editions de l'Arabesque",
+"type": "",
+"sigle": "SIMARAF",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Fleuve Noir",
 "type": "",
 "sigle": "XX_SW  ",
@@ -12,6 +30,24 @@
 "name": "Pocket",
 "type": "",
 "sigle": "XX_SW  ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Losfeld",
+"type": "",
+"sigle": "BIZARR ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Jean-Jacques Pauvert",
+"type": "",
+"sigle": "BIZARR ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -45,9 +81,27 @@
 "pays": "2"
 },
 {
+"name": "Opta",
+"type": "",
+"sigle": "CLA_TOT",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Nouvelles Editions Opta",
+"type": "",
+"sigle": "CLA_TOT",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Plon",
 "type": "",
-"sigle": "DUMARE ",
+"sigle": "BLADE  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -56,7 +110,7 @@
 {
 "name": "Presses de la Cité",
 "type": "",
-"sigle": "DUMARE ",
+"sigle": "BLADE  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -65,7 +119,34 @@
 {
 "name": "Vaugirard",
 "type": "",
-"sigle": "DUMARE ",
+"sigle": "BLADE  ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Pon",
+"type": "",
+"sigle": "SURVIV ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Sipe",
+"type": "",
+"sigle": "4DIMS  ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Seno",
+"type": "",
+"sigle": "4DIMS  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -117,15 +198,6 @@
 "pays": "2"
 },
 {
-"name": ". Inculte",
-"type": "",
-"sigle": "INCULTE",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "10/18",
 "type": "",
 "sigle": "1018   ",
@@ -150,15 +222,6 @@
 "localisation": "",
 "creation": "0",
 "fin": "0",
-"pays": "2"
-},
-{
-"name": "34 [revue] [bimensuel]",
-"type": "",
-"sigle": "REVUE34",
-"localisation": "",
-"creation": "1949",
-"fin": "1953",
 "pays": "2"
 },
 {
@@ -243,7 +306,7 @@
 "pays": "2"
 },
 {
-"name": "A Vue d'Oeil [grands caractères]",
+"name": "A Vue d'Oeil",
 "type": "",
 "sigle": "AVUEDOE",
 "localisation": "",
@@ -561,15 +624,6 @@
 "name": "Actes Sud",
 "type": "",
 "sigle": "ACTSUD ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Actes Sud [livre-audio]",
-"type": "",
-"sigle": "ASU_AUD",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -900,16 +954,7 @@
 "pays": "2"
 },
 {
-"name": "Almanach Ouest France [almanach] [annuel]",
-"type": "",
-"sigle": "ALMANOF",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach Paroissial de la Loire Inférieure [almanach] [annuel]",
+"name": "Almanach Paroissial",
 "type": "",
 "sigle": "ALPARLI",
 "localisation": "",
@@ -918,90 +963,18 @@
 "pays": "2"
 },
 {
-"name": "Almanach Radio Luxembourg [almanach] [annuel]",
-"type": "",
-"sigle": "ALMRADL",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach Radio Magazine [almanach] [annuel]",
-"type": "",
-"sigle": "ALMRADM",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach Vermot [almanach] [annuel]",
+"name": "Almanach Vermot",
 "type": "",
 "sigle": "ALMAVER",
 "localisation": "",
-"creation": "1886",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach d'Olive [almanach] [annuel]",
-"type": "",
-"sigle": "ALMOLIV",
-"localisation": "",
 "creation": "0",
 "fin": "0",
 "pays": "2"
 },
 {
-"name": "Almanach de l'Ouest Eclair [almanach] [annuel]",
-"type": "",
-"sigle": "ALMANOE",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach de la France, de Bordeaux et du Sud-Ouest [almanach] [annuel]",
-"type": "",
-"sigle": "ALMFBSO",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach de la Maîtresse Piroteau [almanach] [annuel]",
-"type": "",
-"sigle": "ALMMPIR",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach de la gazette d'Alès [almanach] [annuel]",
+"name": "Almanach de la gazette d'Alès",
 "type": "",
 "sigle": "ALMGAZA",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach du Pélerin [almanach] [annuel]",
-"type": "",
-"sigle": "ALMAPEL",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Almanach du Rail [almanach]",
-"type": "",
-"sigle": "ALMRAIL",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -1433,7 +1406,7 @@
 {
 "name": "Arcade",
 "type": "",
-"sigle": "ARCA   ",
+"sigle": "ARCADE ",
 "localisation": "Montréal, Canada",
 "creation": "0",
 "fin": "0",
@@ -1443,6 +1416,15 @@
 "name": "Arcane 17",
 "type": "",
 "sigle": "ARCA_LN",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Arcanes",
+"type": "",
+"sigle": "ARCANES",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -1782,15 +1764,6 @@
 "pays": "2"
 },
 {
-"name": "Association ImaJn'ère",
-"type": "",
-"sigle": "IMAJNER",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Association LRS",
 "type": "",
 "sigle": "LRS    ",
@@ -1888,6 +1861,15 @@
 "creation": "0",
 "fin": "0",
 "pays": "11"
+},
+{
+"name": "Association imaJn'ère",
+"type": "",
+"sigle": "IMAJNER",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
 },
 {
 "name": "Assyelle",
@@ -2169,7 +2151,7 @@
 "pays": "14"
 },
 {
-"name": "Audible [livre-audio]",
+"name": "Audible",
 "type": "",
 "sigle": "AUDIBLE",
 "localisation": "",
@@ -2178,7 +2160,7 @@
 "pays": "2"
 },
 {
-"name": "Audiolib [livre-audio]",
+"name": "Audiolib",
 "type": "",
 "sigle": "AUDIOLI",
 "localisation": "",
@@ -2187,7 +2169,7 @@
 "pays": "2"
 },
 {
-"name": "Audiolude [livre-audio]",
+"name": "Audiolude",
 "type": "",
 "sigle": "AUDIOLU",
 "localisation": "",
@@ -2325,15 +2307,6 @@
 "name": "BZZ",
 "type": "",
 "sigle": "BZZ    ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Baam !",
-"type": "",
-"sigle": "JAI_BAA",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -2925,12 +2898,12 @@
 "pays": "2"
 },
 {
-"name": "Bonjour dimanche [magazine] [hebdo]",
+"name": "Bonjour dimanche",
 "type": "",
 "sigle": "BONJDIM",
-"localisation": "",
-"creation": "1946",
-"fin": "1949",
+"localisation": "magazine",
+"creation": "0",
+"fin": "0",
 "pays": "2"
 },
 {
@@ -3105,7 +3078,7 @@
 "pays": "2"
 },
 {
-"name": "Bulle Noire [plaquette]",
+"name": "Bulle Noire",
 "type": "",
 "sigle": "PLBN   ",
 "localisation": "",
@@ -3177,12 +3150,12 @@
 "pays": "2"
 },
 {
-"name": "C'est la vie [magazine] [hebdo]",
+"name": "C'est la vie",
 "type": "",
 "sigle": "CLAVIE ",
-"localisation": "",
-"creation": "1949",
-"fin": "1952",
+"localisation": "magazine",
+"creation": "0",
+"fin": "0",
 "pays": "2"
 },
 {
@@ -3213,7 +3186,7 @@
 "pays": "2"
 },
 {
-"name": "CDL Eins A Mediem GmbH [livre-audio]",
+"name": "CDL Eins A Mediem GmbH",
 "type": "",
 "sigle": "EAMGMBH",
 "localisation": "",
@@ -3222,7 +3195,7 @@
 "pays": "2"
 },
 {
-"name": "CDL éditions [livre-audio]",
+"name": "CDL éditions",
 "type": "",
 "sigle": "CDL_ED ",
 "localisation": "",
@@ -3402,24 +3375,6 @@
 "pays": "2"
 },
 {
-"name": "Caméra",
-"type": "",
-"sigle": "CAMERA2",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Caméra 34 [revue] [mensuel]",
-"type": "",
-"sigle": "CAMER34",
-"localisation": "",
-"creation": "1953",
-"fin": "1954",
-"pays": "2"
-},
-{
 "name": "Canaille",
 "type": "",
 "sigle": "CANREVO",
@@ -3447,7 +3402,7 @@
 "pays": "2"
 },
 {
-"name": "CaracoLivres [livre-audio]",
+"name": "CaracoLivres",
 "type": "",
 "sigle": "CARACOL",
 "localisation": "",
@@ -3591,7 +3546,7 @@
 "pays": "2"
 },
 {
-"name": "Centre Beaubourg [plaquette]",
+"name": "Centre Beaubourg",
 "type": "",
 "sigle": "PLCB   ",
 "localisation": "",
@@ -3681,6 +3636,15 @@
 "pays": "2"
 },
 {
+"name": "Cercle du livre de France",
+"type": "",
+"sigle": "CLF    ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Chaix-Desfossés-Néogravure",
 "type": "",
 "sigle": "CDN_FIL",
@@ -3744,7 +3708,7 @@
 "pays": "2"
 },
 {
-"name": "Chardon bleu [grands caractères]",
+"name": "Chardon bleu",
 "type": "",
 "sigle": "CHARDGS",
 "localisation": "",
@@ -4185,7 +4149,7 @@
 "pays": "2"
 },
 {
-"name": "Compagnie du Savoir [livre-audio]",
+"name": "Compagnie du Savoir",
 "type": "",
 "sigle": "COMPSAV",
 "localisation": "",
@@ -4233,6 +4197,15 @@
 "name": "Contre-Dires",
 "type": "",
 "sigle": "CONTRED",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Convention Nationale SF de Lodève",
+"type": "",
+"sigle": "LAUTRE ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -4320,7 +4293,7 @@
 "pays": "2"
 },
 {
-"name": "Corps 16 [grands caractères]",
+"name": "Corps 16",
 "type": "",
 "sigle": "CORPS16",
 "localisation": "",
@@ -4682,7 +4655,7 @@
 {
 "name": "Degliame",
 "type": "",
-"sigle": "DEGG   ",
+"sigle": "DEGL_GF",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -4790,7 +4763,7 @@
 {
 "name": "Demain",
 "type": "",
-"sigle": "DEMAIN0",
+"sigle": "DEMAIN ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -4822,6 +4795,15 @@
 "creation": "0",
 "fin": "0",
 "pays": "2"
+},
+{
+"name": "Desclez",
+"type": "",
+"sigle": "DESC_NE",
+"localisation": "Canada",
+"creation": "0",
+"fin": "0",
+"pays": "14"
 },
 {
 "name": "Desclée De Brouwer",
@@ -5562,15 +5544,6 @@
 "pays": "2"
 },
 {
-"name": "Editions 84",
-"type": "",
-"sigle": "ED84   ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Editions Armoricaines",
 "type": "",
 "sigle": "ARMORIC",
@@ -5583,6 +5556,15 @@
 "name": "Editions Blanche",
 "type": "",
 "sigle": "EDBLANC",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Editions Caribéennes",
+"type": "",
+"sigle": "CARIBE ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -6127,15 +6109,6 @@
 "creation": "0",
 "fin": "0",
 "pays": "14"
-},
-{
-"name": "Editions de l'Arabesque",
-"type": "",
-"sigle": "ARABESE",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
 },
 {
 "name": "Editions de l'Atelier In8",
@@ -7542,15 +7515,6 @@
 "pays": "2"
 },
 {
-"name": "Editions du Simplon",
-"type": "",
-"sigle": "SIMPLON",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Editions du Siècle",
 "type": "",
 "sigle": "EDSIECL",
@@ -8010,7 +7974,7 @@
 "pays": "2"
 },
 {
-"name": "Erika [livre-audio]",
+"name": "Erika",
 "type": "",
 "sigle": "ERIKA  ",
 "localisation": "",
@@ -8172,7 +8136,7 @@
 "pays": "2"
 },
 {
-"name": "Euredif",
+"name": "Eurédif",
 "type": "",
 "sigle": "EUREDIF",
 "localisation": "",
@@ -8181,18 +8145,9 @@
 "pays": "2"
 },
 {
-"name": "Euredif/Playboy",
+"name": "Eurédif/Playboy",
 "type": "",
 "sigle": "EUREDIP",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Eurédif",
-"type": "",
-"sigle": "EUREDFG",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -8604,7 +8559,7 @@
 "pays": "2"
 },
 {
-"name": "Feryane [grands caractères]",
+"name": "Feryane",
 "type": "",
 "sigle": "FERYANE",
 "localisation": "",
@@ -8665,6 +8620,15 @@
 "creation": "0",
 "fin": "0",
 "pays": "14"
+},
+{
+"name": "Filaplomb",
+"type": "",
+"sigle": "FILAPLO",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
 },
 {
 "name": "Filipacchi",
@@ -8802,11 +8766,11 @@
 "pays": "2"
 },
 {
-"name": "Fluide glacial [revue] [trimestriel]",
+"name": "Fluide glacial",
 "type": "",
 "sigle": "FLUIDE ",
 "localisation": "",
-"creation": "1976",
+"creation": "0",
 "fin": "0",
 "pays": "2"
 },
@@ -8982,7 +8946,7 @@
 "pays": "2"
 },
 {
-"name": "Frémeaux & Associés [livre-audio]",
+"name": "Frémeaux & Associés",
 "type": "",
 "sigle": "FREMEAU",
 "localisation": "",
@@ -9183,51 +9147,6 @@
 "name": "GP",
 "type": "",
 "sigle": "GP_GS  ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Galaxies hors-série 2010",
-"type": "",
-"sigle": "GAL2010",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Galaxies hors-série 2011",
-"type": "",
-"sigle": "GAL2011",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Galaxies hors-série 23-1",
-"type": "",
-"sigle": "GAL23-1",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Galaxies hors-série 23-2",
-"type": "",
-"sigle": "GAL23-2",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Galaxies hors-série n° 41 et Géante Rouge n° 12-13",
-"type": "",
-"sigle": "GALAXHS",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -9468,6 +9387,15 @@
 "pays": "2"
 },
 {
+"name": "Georges Ventillard",
+"type": "",
+"sigle": "ALMOLIV",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Gephyre",
 "type": "",
 "sigle": "GEPHYRE",
@@ -9506,7 +9434,7 @@
 {
 "name": "Ginkgo éditeur",
 "type": "",
-"sigle": "GINK_BI",
+"sigle": "GINKGO ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -9657,7 +9585,7 @@
 "pays": "2"
 },
 {
-"name": "Grenouille [jeunesse]",
+"name": "Grenouille",
 "type": "",
 "sigle": "GRENOUI",
 "localisation": "",
@@ -9695,7 +9623,7 @@
 {
 "name": "Gründ",
 "type": "",
-"sigle": "SORCHE2",
+"sigle": "GRUND  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -10062,7 +9990,7 @@
 "pays": "2"
 },
 {
-"name": "Hardigan [livre-audio]",
+"name": "Hardigan",
 "type": "",
 "sigle": "HARDIG ",
 "localisation": "",
@@ -10575,12 +10503,12 @@
 "pays": "2"
 },
 {
-"name": "IMA, l'ami des jeunes [journal] [hebdo]",
+"name": "IMA, l'ami des jeunes",
 "type": "",
 "sigle": "IMAAMIJ",
 "localisation": "",
-"creation": "1955",
-"fin": "1958",
+"creation": "0",
+"fin": "0",
 "pays": "2"
 },
 {
@@ -10764,6 +10692,15 @@
 "pays": "14"
 },
 {
+"name": "Imprimerie Nationale",
+"type": "",
+"sigle": "IMPRNSA",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Imprimerie d'Averbode",
 "type": "",
 "sigle": "PRESTOF",
@@ -10818,6 +10755,15 @@
 "pays": "2"
 },
 {
+"name": "Inanna",
+"type": "",
+"sigle": "INANNA ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Inanna éditions",
 "type": "",
 "sigle": "INANNA ",
@@ -10838,7 +10784,7 @@
 {
 "name": "Inculte",
 "type": "",
-"sigle": "INCUL_B",
+"sigle": "INCULTE",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -11018,7 +10964,7 @@
 {
 "name": "J. Ferenczi et fils",
 "type": "",
-"sigle": "FER_RP ",
+"sigle": "DEMAIN0",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -11289,15 +11235,6 @@
 "name": "Jean-Cyrille Godefroy",
 "type": "",
 "sigle": "GODEFRO",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Jean-Jacques Pauvert",
-"type": "",
-"sigle": "PAUV   ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -11853,18 +11790,18 @@
 "pays": "11"
 },
 {
-"name": "L'Ami du Médecin [revue]",
-"type": "",
-"sigle": "AMIdMED",
-"localisation": "",
-"creation": "1909",
-"fin": "1939",
-"pays": "2"
-},
-{
 "name": "L'Ami du Peuple",
 "type": "",
 "sigle": "AMIPEUP",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "L'Ami du médecin",
+"type": "",
+"sigle": "AMIdMED",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -12042,7 +11979,7 @@
 "pays": "2"
 },
 {
-"name": "L'Auto [journal] [quotidien]",
+"name": "L'Auto",
 "type": "",
 "sigle": "LAUTO  ",
 "localisation": "",
@@ -12135,15 +12072,6 @@
 "name": "L'Encrier Renversé",
 "type": "",
 "sigle": "ENRV   ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "L'Encrier Renversé [plaquette]",
-"type": "",
-"sigle": "PLFF   ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -12348,6 +12276,15 @@
 "pays": "2"
 },
 {
+"name": "L'Ouest-Eclair",
+"type": "",
+"sigle": "ALMANOE",
+"localisation": "Rennes",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "L'Oulifan",
 "type": "",
 "sigle": "OULI   ",
@@ -12396,15 +12333,6 @@
 "name": "L'aube enclavée",
 "type": "",
 "sigle": "AENC   ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "L'autre, fanzine de la 26ième Convention Nationale SF de Lodève",
-"type": "",
-"sigle": "LAUTRE ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -12906,6 +12834,15 @@
 "pays": "2"
 },
 {
+"name": "La France de Bordeaux et du Sud-Ouest",
+"type": "",
+"sigle": "ALMFBSO",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "La Gazette de Terrania",
 "type": "",
 "sigle": "GTER   ",
@@ -13041,15 +12978,6 @@
 "pays": "2"
 },
 {
-"name": "La Martingale",
-"type": "",
-"sigle": "MARTING",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "La Martinière",
 "type": "",
 "sigle": "LAMARTI",
@@ -13152,6 +13080,15 @@
 "name": "La Nouvelle Fiction",
 "type": "",
 "sigle": "NOVF   ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "La Nouvelle Librairie",
+"type": "",
+"sigle": "NVLIB  ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -13482,15 +13419,6 @@
 "pays": "2"
 },
 {
-"name": "La Vie du Rail",
-"type": "",
-"sigle": "VIERAIL",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "La Vie en rose",
 "type": "",
 "sigle": "VIEROSE",
@@ -13782,6 +13710,15 @@
 "name": "Le Bilboquet",
 "type": "",
 "sigle": "BILBOQ ",
+"localisation": "Canada",
+"creation": "0",
+"fin": "0",
+"pays": "14"
+},
+{
+"name": "Le Biocreux",
+"type": "",
+"sigle": "BIOCRE ",
 "localisation": "Canada",
 "creation": "0",
 "fin": "0",
@@ -14166,7 +14103,7 @@
 "pays": "2"
 },
 {
-"name": "Le Journal",
+"name": "Le Journal [quotidien]",
 "type": "",
 "sigle": "LEJOURN",
 "localisation": "",
@@ -14256,7 +14193,7 @@
 "pays": "2"
 },
 {
-"name": "Le Livre qui parle [livre-audio]",
+"name": "Le Livre qui parle",
 "type": "",
 "sigle": "LIVPARL",
 "localisation": "",
@@ -15174,6 +15111,15 @@
 "pays": "2"
 },
 {
+"name": "Les Almanachs départementaux",
+"type": "",
+"sigle": "ALMMPIR",
+"localisation": "Le Mans",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Les Arts et le Livre",
 "type": "",
 "sigle": "ARTSLIV",
@@ -15615,12 +15561,12 @@
 "pays": "2"
 },
 {
-"name": "Les Primaires [revue] [mensuel]",
+"name": "Les Primaires",
 "type": "",
 "sigle": "PRIMAIR",
 "localisation": "",
-"creation": "1925",
-"fin": "1939",
+"creation": "0",
+"fin": "0",
 "pays": "2"
 },
 {
@@ -15789,6 +15735,15 @@
 "name": "Les portes du soleil",
 "type": "",
 "sigle": "PORT_IM",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Les éditions Chasse-galerie",
+"type": "",
+"sigle": "CHAGAL ",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -16029,6 +15984,15 @@
 "pays": "2"
 },
 {
+"name": "Libertalia",
+"type": "",
+"sigle": "LIBERTA",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Libr. des 3 Mousquetaires",
 "type": "",
 "sigle": "L3MOUSQ",
@@ -16263,6 +16227,24 @@
 "pays": "2"
 },
 {
+"name": "Librairie nationale d'éducation et de récréation",
+"type": "",
+"sigle": "LIBNEDR",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Librairie nouvelle",
+"type": "",
+"sigle": "LIBNOUV",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Libre Expression",
 "type": "",
 "sigle": "LIBREXP",
@@ -16470,7 +16452,7 @@
 "pays": "2"
 },
 {
-"name": "Lizzie [livre-audio]",
+"name": "Lizzie",
 "type": "",
 "sigle": "LIZZIE ",
 "localisation": "",
@@ -16526,16 +16508,7 @@
 {
 "name": "Long Shu Publishing",
 "type": "",
-"sigle": "LGSHUCY",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Losfeld",
-"type": "",
-"sigle": "LOSF   ",
+"sigle": "LGSHUDN",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -16677,21 +16650,12 @@
 "pays": "2"
 },
 {
-"name": "Lui [hebdo]",
-"type": "",
-"sigle": "LUI    ",
-"localisation": "",
-"creation": "1959",
-"fin": "1960",
-"pays": "2"
-},
-{
-"name": "Lui, le magazine de l'homme moderne [magazine] [mensuel]",
+"name": "Lui, le magazine de l'homme moderne",
 "type": "",
 "sigle": "LUIMM  ",
 "localisation": "",
-"creation": "1963",
-"fin": "1994",
+"creation": "0",
+"fin": "0",
 "pays": "2"
 },
 {
@@ -16969,6 +16933,15 @@
 "type": "",
 "sigle": "BONPRES",
 "localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Maison de la bonne presse",
+"type": "",
+"sigle": "ALMAPEL",
+"localisation": "Paris",
 "creation": "0",
 "fin": "0",
 "pays": "2"
@@ -17559,15 +17532,6 @@
 "pays": "2"
 },
 {
-"name": "Michel Lévy frères",
-"type": "",
-"sigle": "SORCHE1",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Michel Quintin",
 "type": "",
 "sigle": "QUINTIN",
@@ -18054,7 +18018,7 @@
 "pays": "2"
 },
 {
-"name": "Musée et revue des dames et des demoiselles [magazine] [mensuel]",
+"name": "Musée et revue des dames et des demoiselles",
 "type": "",
 "sigle": "MRDAMES",
 "localisation": "",
@@ -18232,6 +18196,15 @@
 "creation": "0",
 "fin": "0",
 "pays": "2"
+},
+{
+"name": "Naaman",
+"type": "",
+"sigle": "NAAMAN ",
+"localisation": "Canada",
+"creation": "0",
+"fin": "0",
+"pays": "14"
 },
 {
 "name": "Nabu Press",
@@ -18639,18 +18612,9 @@
 "pays": "2"
 },
 {
-"name": "Nouvelles Editions Opta",
-"type": "",
-"sigle": "CLA_NE ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Nouvelles Editions Oswald",
 "type": "",
-"sigle": "NEOCLUC",
+"sigle": "NEOCLUB",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -19080,15 +19044,6 @@
 "pays": "14"
 },
 {
-"name": "Opta",
-"type": "",
-"sigle": "CLAH   ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Optic",
 "type": "",
 "sigle": "OPTIC  ",
@@ -19209,6 +19164,15 @@
 "name": "Otrante",
 "type": "",
 "sigle": "OTRANTE",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Ouest-France",
+"type": "",
+"sigle": "ALMANOF",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -19962,15 +19926,6 @@
 "pays": "2"
 },
 {
-"name": "Pierre-Guillaume De Roux",
-"type": "",
-"sigle": "PGDR   ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Pierre-Guillaume de Roux",
 "type": "",
 "sigle": "PGDROUX",
@@ -20304,7 +20259,7 @@
 "pays": "2"
 },
 {
-"name": "Pottermore Publishing [livre-audio]",
+"name": "Pottermore Publishing",
 "type": "",
 "sigle": "POTTERM",
 "localisation": "",
@@ -20493,24 +20448,6 @@
 "pays": "2"
 },
 {
-"name": "Presses de la Cité, Futurama Deuxième série",
-"type": "",
-"sigle": "FUTU   ",
-"localisation": "",
-"creation": "1976",
-"fin": "1982",
-"pays": "2"
-},
-{
-"name": "Presses de la Cité, Futurama Première série",
-"type": "",
-"sigle": "FUT1   ",
-"localisation": "",
-"creation": "1974",
-"fin": "1976",
-"pays": "2"
-},
-{
 "name": "Presses de la Renaissance",
 "type": "",
 "sigle": "PREN   ",
@@ -20538,7 +20475,7 @@
 "pays": "2"
 },
 {
-"name": "Pretorian Media GmbH [livre-audio]",
+"name": "Pretorian Media GmbH",
 "type": "",
 "sigle": "PRETORI",
 "localisation": "",
@@ -20898,6 +20835,24 @@
 "pays": "2"
 },
 {
+"name": "Radio Télé Luxembourg",
+"type": "",
+"sigle": "ALMRADL",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Radio magazine",
+"type": "",
+"sigle": "ALMRADM",
+"localisation": "Paris",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Radio-Picardie",
 "type": "",
 "sigle": "RADPIC ",
@@ -21159,15 +21114,6 @@
 "pays": "11"
 },
 {
-"name": "Revue Caméra",
-"type": "",
-"sigle": "CAMERA ",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Revue Embarcadère",
 "type": "",
 "sigle": "EMBC   ",
@@ -21396,6 +21342,15 @@
 "name": "Revue et gazette musicale de Paris",
 "type": "",
 "sigle": "GAZMUSP",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Revue française de sociologie",
+"type": "",
+"sigle": "RFRASOC",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -22095,7 +22050,7 @@
 "pays": "2"
 },
 {
-"name": "Scotch Arleston, Plaquette illustrée [plaquette]",
+"name": "Scotch Arleston, Plaquette illustrée",
 "type": "",
 "sigle": "PLSC   ",
 "localisation": "",
@@ -22143,15 +22098,6 @@
 "name": "Sekhmet",
 "type": "",
 "sigle": "SEKHMET",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
-"name": "Seno",
-"type": "",
-"sigle": "4D_SENO",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -22275,15 +22221,6 @@
 "pays": "2"
 },
 {
-"name": "Sipe",
-"type": "",
-"sigle": "4D_SIPE",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Sirius",
 "type": "",
 "sigle": "SIRIUS ",
@@ -22320,7 +22257,7 @@
 "pays": "2"
 },
 {
-"name": "Sixtrid [livre-audio]",
+"name": "Sixtrid",
 "type": "",
 "sigle": "SIXTRID",
 "localisation": "",
@@ -22491,6 +22428,24 @@
 "pays": "2"
 },
 {
+"name": "Société moderne d'éditions et de publications françaises",
+"type": "",
+"sigle": "LUI    ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Société nationale des chemins de fer français",
+"type": "",
+"sigle": "ALMRAIL",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
 "name": "Société nouvelle de librairie et d'édition, Libraire Georges Bellais",
 "type": "",
 "sigle": "SNLESOC",
@@ -22617,7 +22572,7 @@
 "pays": "2"
 },
 {
-"name": "SonoBook [livre-audio]",
+"name": "SonoBook",
 "type": "",
 "sigle": "SONOBO ",
 "localisation": "",
@@ -22770,15 +22725,6 @@
 "pays": "2"
 },
 {
-"name": "Stock, Stock Plus Musique n° 10",
-"type": "",
-"sigle": "SORCHE3",
-"localisation": "",
-"creation": "0",
-"fin": "0",
-"pays": "2"
-},
-{
 "name": "Stop",
 "type": "",
 "sigle": "STOP   ",
@@ -22851,7 +22797,7 @@
 "pays": "2"
 },
 {
-"name": "Super Boy [magazine]",
+"name": "Super Boy",
 "type": "",
 "sigle": "STORY  ",
 "localisation": "",
@@ -22908,6 +22854,15 @@
 "name": "Syllepse",
 "type": "",
 "sigle": "SYLL   ",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
+},
+{
+"name": "Sylvain Gay",
+"type": "autoediteur",
+"sigle": "AE_SGAY",
 "localisation": "",
 "creation": "0",
 "fin": "0",
@@ -23173,6 +23128,15 @@
 "creation": "0",
 "fin": "0",
 "pays": "59"
+},
+{
+"name": "Terre des jeunes",
+"type": "",
+"sigle": "TJEUNES",
+"localisation": "",
+"creation": "0",
+"fin": "0",
+"pays": "2"
 },
 {
 "name": "Terres Latines",
@@ -23868,7 +23832,7 @@
 "pays": "2"
 },
 {
-"name": "Voir de Près [grands caractères]",
+"name": "Voir de Près",
 "type": "",
 "sigle": "VOIRP16",
 "localisation": "",
@@ -23931,7 +23895,7 @@
 "pays": "2"
 },
 {
-"name": "Vues & Voix [livre-audio]",
+"name": "Vues & Voix",
 "type": "",
 "sigle": "VUE_VOI",
 "localisation": "",
@@ -24075,27 +24039,9 @@
 "pays": "14"
 },
 {
-"name": "XYZ, la revue de la nouvelle",
-"type": "",
-"sigle": "XYZR   ",
-"localisation": "Montréal, Canada",
-"creation": "0",
-"fin": "0",
-"pays": "14"
-},
-{
 "name": "Xuensé",
 "type": "",
 "sigle": "XUEN   ",
-"localisation": "Belgique",
-"creation": "0",
-"fin": "0",
-"pays": "11"
-},
-{
-"name": "Xuensé Spécial",
-"type": "",
-"sigle": "XUES   ",
 "localisation": "Belgique",
 "creation": "0",
 "fin": "0",

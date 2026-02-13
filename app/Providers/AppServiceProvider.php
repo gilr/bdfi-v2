@@ -11,6 +11,10 @@ use Filament\Notifications\Livewire\Notifications;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
 
+use App\Transformers\FormatTransformerManager;
+use App\Transformers\Types\BBcodeTransformer;
+use App\Transformers\Types\ColTransformer;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,7 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(FormatTransformerManager::class, function () {
+            $manager = new FormatTransformerManager();
+            $manager->register('bbcode', new BBcodeTransformer());
+            $manager->register('col-utf8', new ColUtf8Transformer());
+            $manager->register('col', new ColTransformer());
+            $manager->register('json', new JsonTransformer());
+            $manager->register('csv', new CsvTransformer());
+            $manager->register('excel', new ExcelTransformer());
+            return $manager;
+        });
     }
 
     /**

@@ -12,14 +12,14 @@
     </div>
 
     <div class='text-base p-4 m-4 bg-sky-100 self-center border border-blue-400'>
-        Cette page présente la liste de toutes les collections et sélections d'ouvrages incluses dans la version courante V2 Bêta</b>
+        Cette page présente la liste des collections et sélections d'ouvrages incluses dans la version courante V2 bêta ({{ $taux_remplissage }}% de la V1)</b>
     </div>
 
-    <div class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
+    <div class=' columns-1 md:columns-2 xl:columns-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
         @foreach($results as $result)
             <div class='hover:bg-orange-100 border-b hover:border-purple-600'>
                 <x-front.display-icon-v2beta-if value='{{ $result->is_in_v2beta }}' />
-                <a class='sm:p-0.5 md:px-0.5' title='{{ $result->full_name ?: $result->name }}' href='/collections/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</a>
+                <a class='sm:p-0.5 md:px-0.5' title='{{ $result->full_name ?: $result->name }}' href='/{{ $area }}/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</a>
             </div>
         @endforeach
     </div>

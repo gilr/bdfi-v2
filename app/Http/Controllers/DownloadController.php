@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class DownloadController extends Controller
 {
@@ -48,4 +49,15 @@ class DownloadController extends Controller
         return Response()->stream($callback, 200, $headers);
     }
 
+    public function exportConvertedFormat()
+    {
+        $content = session('exportData');
+        $format = session('exportFormat', 'txt'); // fallback
+        $filename = "export.$format";
+
+        return Response::make($content, 200, [
+            'Content-Type' => 'text/plain',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+        ]);
+    }
 }

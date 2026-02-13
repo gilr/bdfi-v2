@@ -6,7 +6,7 @@
     {{-- Début de texte visible en permanence --}}
         {!! $blockIntro !!}
         {{-- Bouton de repli/déploiement intégré --}}
-        <span class="inline-block underline underline-offset-4 decoration-2 decoration-sky-500" wire:click="toggle">{{ $isExpanded ? "⬆️ (cliquer pour refermer)" : "⬇️ (cliquer pour plus d'info)" }}</span>
+        <span class="pl-4 inline-block underline underline-offset-4 decoration-2 decoration-sky-500" wire:click="toggle">{{ $isExpanded ? "⬆️ Refermer ⬆️" : "⬇️ Plus d'info ? ⬇️" }}</span>
     </p>
 
     {{-- Contenu repliable --}}

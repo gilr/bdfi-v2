@@ -1,9 +1,11 @@
 <div class="carousel-container">
     @if (count($images) > 0)
         <div id="carousel-image" class="carousel-image">
-            <img class='px-1 mx-auto border shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]' src="{{ $images[$currentIndex]['url'] }}" alt="{{ $images[$currentIndex]['caption'] }}">
+            <a target="_blank" href="/ouvrages/{{ $images[$currentIndex]['book'] }}" title="Ouvre l'ouvrage dans un autre onglet">
+                <img class='px-1 mx-auto border shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]' src="{{ $images[$currentIndex]['url'] }}" alt="{{ $images[$currentIndex]['caption'] }}">
+            </a>
             <div class="carousel-caption">
-                <h5>{{ $images[$currentIndex]['caption'] }}</h5>
+                <h5 title="{{ $images[$currentIndex]['caption'] }}">{{ Str::limit($images[$currentIndex]['caption'], 30) }}</h5>
             </div>
         </div>
 

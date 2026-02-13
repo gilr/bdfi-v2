@@ -14,6 +14,10 @@
 </div>
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+    <div class='text-base p-2 m-5 mx:4 md:mx-20 bg-yellow-200 border-l-4 border-red-600'>
+        Attention, il s'agit ici de l'historique des données V1. Il va falloir à un moment ou à un autre trouver comment faire le lien V1 - V2 !
+    </div>
+
     @if ($record = $results->last())
         <div class='text-base font-bold text-purple-900'>
             La dernière image statistique ({{ StrDateformat($record->date->format('Y-m-d')) }})

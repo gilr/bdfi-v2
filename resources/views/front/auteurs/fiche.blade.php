@@ -96,6 +96,20 @@
             </div>
         @endif
 
+        <div class='text-base'>
+            @if (count($results->getCycles()) > 1)
+                <span class='font-semibold'>Cycles :</span>
+            @elseif (count($results->getCycles()) == 1)
+                <span class='font-semibold'>Cycle :</span>
+            @endif
+            @foreach($results->getCycles() as $cycle)
+                @if (!$loop->first)
+                    ,
+                @endif
+                <x-front.lien-serie link='/series/{{ $cycle->slug }}'>{{ $cycle->name }}</x-front.lien-serie>
+            @endforeach
+        </div>
+
         @if(count($award_years))
             <div class='text-base pt-2'>
                 <span class='font-semibold'>{{ ($results->gender == App\Enums\AuthorGender::F ? "Primée" : "Primé") }} en :</span>
@@ -109,14 +123,22 @@
                 @endforeach
             </div>
         @endif
+
     </div>
 
     <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-        <div class='hidden lg:block'>
+        <div class='hidden md:flex justify-center'>
             @if($auteur->country->name != "?")
-                <a href='/auteurs/pays/{{ $results->country->name }}'>
+                <a class='inline-block' href='/auteurs/pays/{{ $results->country->name }}'>
                     <img class='m-auto p-1 lg:p-1.5 border border-purple-800' src="/img/drapeaux/{{ Str::slug(remove_accents($results->country->name),'_') }}.png" />
                 </a>
+                @if ($auteur->country2_id !== NULL)
+                    @if ($auteur->country2->name !== "?")
+                        <a class='inline-block pl-2' href='/auteurs/pays/{{ $results->country2->name }}'>
+                            <img class='m-auto p-1 lg:p-1.5 border border-purple-800' src="/img/drapeaux/{{ Str::slug(remove_accents($results->country2->name),'_') }}.png" />
+                        </a>
+                    @endif
+                @endif
             @else
                 <img class='m-auto p-1 lg:p-1.5 border border-purple-800' src="/img/drapeaux/incnat.png" />
             @endif
@@ -260,28 +282,28 @@
 <?php asort($laureats); ?>
 
 @if(count($results->titles) + count($laureats) < 25)
-<!--- Si moins de 25, affichage à plat !-->
+    <!--- Si moins de 25, affichage à plat !-->
 
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @include ('front.auteurs._biblio')
-</div>
+    <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+        @include ('front.auteurs._biblio')
+    </div>
 
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @if(count($results->publications) !== 0)
-        <div class='text-base pt-4'>
-            <span class='font-semibold'>Galerie :</span>
-            @include ('front.auteurs._gallery')
-        </div>
-    @endif
-</div>
-<div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
-    @if($laureats && (count($laureats) !== 0))
-        <div class='text-base pt-2'>
-            <span class='font-semibold'>Prix décernés :</span>
-            @include ('front.auteurs._prix')
-        </div>
-    @endif
-</div>
+    <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+        @if(count($results->publications) !== 0)
+            <div class='text-base pt-4'>
+                <span class='font-semibold'>Galerie :</span>
+                @include ('front.auteurs._gallery')
+            </div>
+        @endif
+    </div>
+    <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
+        @if($laureats && (count($laureats) !== 0))
+            <div class='text-base pt-2'>
+                <span class='font-semibold'>Prix décernés :</span>
+                @include ('front.auteurs._prix')
+            </div>
+        @endif
+    </div>
 @else
     <!--- Sinon, affichage en onglets !-->
     <style>
@@ -346,6 +368,3 @@
         @endif
     </div>
 @endif
-
-
-

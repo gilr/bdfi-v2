@@ -10,7 +10,7 @@
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
     <div class='text-base p-2 m-5 mx:4 md:mx-20 bg-yellow-200 border-l-4 border-red-600'>
-        Le site <span class="font-bold text-red-800">BDFI</span> a été créé début 2001 par Christian Moulin et Gilles Richardot. Il a fait suite et remplacé le site <span class="font-bold italic text-red-800">Imagine...</span> qui était apparu en ligne deux ans auparavant, en juin 1999.
+        Le site <span class="font-bold text-red-800">BDFI</span> a été créé début 2001 par Christian Moulin et Gilles Richardot. Il a fait suite et a remplacé le site <span class="font-bold italic text-red-800">Imagine...</span> qui était apparu en ligne deux ans auparavant, en juin 1999.
     </div>
 
     <div class='text-lg font-bold text-purple-900'>
@@ -56,30 +56,31 @@
             <img class='inline mx-4' src="https://www.forumpimpf.net/styles/forumpimpf/theme/images/site_logo.png" style="height: 100px" />
         </div>
         <ul class="list-disc pl-4 md:pl-12">
-            <li><span class="text-blue-800">Charles Vassallo</span> qui nous avait permis d'utiliser un extrait de son travail pour notre bannière. Voir sur son site ses <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="http://charles.vassallo.pagesperso-orange.fr/">travaux sur les fractales de Markus-Lyapounov</a>.</li>
-            <li><span class="text-blue-800">Patrick Bouteau</span> qui nous avait permis d'utiliser les marques-pages orientés SF, fantasy et fantastique de son superbe site, <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="http://www.lemuseedumarquepage.fr/Site/Accueil.htm/">le Musée du Marque-Page</a>.</li>
+            <li><span class="text-blue-800">Charles Vassallo</span> qui nous avait permis d'utiliser un extrait de son travail sur les fractales de Markus-Lyapounov pour notre bannière de site. Son site a semble-t-il malheureusement disparu.</li>
         </ul>
         <div class='m-2 md:mx-40'>
-            <img class='inline mx-4' src="http://charles.vassallo.pagesperso-orange.fr/images/lyap_art/comp03.jpg" style="height: 250px" />
-            <img class='inline mx-4' src="http://www.lemuseedumarquepage.fr/Editions/Images-B/Belial.Fr/97.jpg" style="height: 250px" />
-            <img class='inline mx-4' src="http://www.lemuseedumarquepage.fr/Editions/Images-M/Mnemos.Fr/55.jpg" style="height: 250px" />
+            <img class='inline mx-4' src="/img/bdfi.jpg" />
+        </div>
+        <ul class="list-disc pl-4 md:pl-12">
+            <li><span class="text-blue-800">Patrick Bouteau</span> qui nous avait permis d'utiliser les marques-pages orientés SF, fantasy et fantastique de sa superbe vitrine, <a class="border-b border-dotted border-red-700 text-red-800 hover:text-purple-700" href="http://www.lemuseedumarquepage.fr/Site/Accueil.htm">le Musée du Marque-Page</a>.</li>
+        </ul>
+        <div class='m-2 md:mx-40'>
+            <img class='inline mx-4' src="/img/mp97.jpg" />
+            <img class='inline mx-4' src="/img/mp55.jpg" />
         </div>
     </div>
 
     <div class='text-lg font-bold text-purple-900'>
         Techniques
     </div>
-    <div class='text-base p-2 m-5 mx:4 md:mx-20 bg-yellow-200 border-l-4 border-red-600'>
-        Un important chantier est toujours en cours actuellement, cette partie est encore amenée à évoluer.
-    </div>
     <div class='text-base ml-2 sm:ml-8 pb-2'>
         <ul>
             <li><span class="font-semibold">Laravel</span> - framework de développement PHP</li>
+            <li><span class="font-semibold">Livewire</span> - Composants front-end dynamiques</li>
             <li><span class="font-semibold">Tailwind CSS</span> - framework de développement CSS (feuilles de style) </li>
             <li><span class="font-semibold">MySQL</span> - base de données</li>
-            <li><span class="font-semibold">Laravel Filament</span> - plugin panneau d'administration pour Laravel</li>
-            <li><span class="font-semibold">barryvdh/laravel-debugbar</span> - plugin de debug laravel</li>
-            <li><span class="font-semibold">venturecraft/revisionable</span> - plugin de gestion d'historique</li>
+            <li><span class="font-semibold">le Panel Builder de Filament PHP</span> - Administration Laravel</li>
+            <li><span class="font-semibold">Plugins laravel</span> - barryvdh/laravel-debugbar (debug), Venturecraft/revisionable (gestion d'historique), wildside/userstamps...</li>
         </ul>
     </div>
 </div>

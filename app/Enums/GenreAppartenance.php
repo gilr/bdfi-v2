@@ -7,6 +7,7 @@ enum GenreAppartenance: string implements HasLabel {
     case OUI     = 'oui';
     case PARTIEL = 'partiel';
     case NON     = 'non';
+    case INCONNU = 'inconnu';
 
     public function getLabel(): ?string
     {
@@ -14,6 +15,7 @@ enum GenreAppartenance: string implements HasLabel {
             self::OUI     => 'Oui',
             self::PARTIEL => 'Partiel',
             self::NON     => 'Non',
+            self::INCONNU => 'Inconnu',
         };
     }
 }

@@ -75,15 +75,15 @@ class CollectionResource extends Resource
                     Forms\Components\TextInput::make('alt_names')
                         ->label('Variantes de nom ou autres noms usuels. Les séparer par des virgules.')
                         ->maxLength(512),
-                    Forms\Components\Select::make('publisher_id')
-                        ->label('Editeur')
-                        ->relationship('publisher', 'name')
-                        ->searchable(['name']),
                     Forms\Components\Select::make('parent_id')
                         ->label('Collection "parente"')
                         ->helperText('A utiliser pour les sous-groupes ou séries d\'une collection principale')
                         ->relationship('parent', 'name')
                         ->getOptionLabelFromRecordUsing(fn (Collection $record) => "{$record->name} ( {$record->publisher->name} )")
+                        ->searchable(['name']),
+                    Forms\Components\Select::make('publisher_id')
+                        ->label('Editeur')
+                        ->relationship('publisher', 'name')
                         ->searchable(['name']),
                     Forms\Components\Select::make('publisher2_id')
                         ->label('Editeur 2')

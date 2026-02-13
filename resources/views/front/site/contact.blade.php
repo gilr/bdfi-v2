@@ -30,12 +30,15 @@
         Bientôt...
     </div>
     <div class='text-base p-1 mt-1 md:px-10 mx:4 md:mx-20'>
+        Des réflexions sont en cours pour l'ajout de fonctions de contact ou proposition, via un système de tickets (après inscription) et/ou un formulaire direct (sans inscription). A suivre !
+        {{--
         Il sera bientôt également possible de contacter l'équipe BDFI :
         <ul class="list-disc pl-4 md:pl-12">
             <li>Via un système de ticket (messages, corrections, aides, idées) après inscription/connexion sur le site</li>
             <li>Par formulaire direct (sans inscription)</li>
         </ul>
          Ces fonctions sont en cours de développement.
+         --}}
     </div>
 
 </div>

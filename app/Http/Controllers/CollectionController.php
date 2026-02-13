@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Collection;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\QualityStatus;
+use App\Models\Publication;
+use App\Models\Title;
 
 class CollectionController extends Controller
 {
@@ -43,9 +45,12 @@ class CollectionController extends Controller
                 ->orderBy('name', 'asc')
                 ->get();
 
+        // Taux de remplissage approximatif
+        $taux_remplissage = round((Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
+
         $this->context['page'] = 'Collections V2 bêta';
 
-        return view('front.collections.v2beta', compact('results'), $this->context);
+        return view('front.collections.v2beta', compact('results', 'taux_remplissage'), $this->context);
     }
 
     public function search(Request $request)
@@ -71,12 +76,22 @@ class CollectionController extends Controller
         }
         else
         {
-            $results = Collection::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                        ->orWhere('alt_names', 'like', '%' . $text .'%');
+            $relations = ['publisher', 'publisher2', 'publisher3'];
+
+            $results = Collection::query()
+                ->leftJoin('publishers as p1', 'collections.publisher_id', '=', 'p1.id')
+                ->leftJoin('publishers as p2', 'collections.publisher2_id', '=', 'p2.id')
+                ->leftJoin('publishers as p3', 'collections.publisher3_id', '=', 'p3.id')
+                ->where(function($query) use ($text) {
+                    $query->where('collections.name', 'like', '%' . $text . '%')
+                          ->orWhere('collections.alt_names', 'like', '%' . $text . '%')
+                          ->orWhere('p1.name', 'like', '%' . $text . '%')
+                          ->orWhere('p2.name', 'like', '%' . $text . '%')
+                          ->orWhere('p3.name', 'like', '%' . $text . '%');
                 })
-                ->orderBy('name', 'asc')
-                ->with(['publisher', 'publisher2', 'publisher3'])
+                ->orderBy('collections.name', 'asc')
+                ->select('collections.*') // indispensable pour hydrater correctement le modèle
+                ->with($relations)        // eager loading des relations
                 ->simplePaginate($pagin)
                 ->withQueryString();
         }
@@ -134,7 +149,11 @@ class CollectionController extends Controller
             // /collections/{slug}
             $this->context['page'] = $results->name;
             $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
-            return view ('front._generic.fiche', compact('results', 'info'), $this->context);
+
+            // Si au moins un ouvrage de la collection a un champs 'first_edition_id' non nul :
+            $has_new_editions = $results->publications()->whereNotNull('first_edition_id')->exists();
+
+            return view ('front._generic.fiche', compact('results', 'info', 'has_new_editions'), $this->context);
         }
         else if ((strlen($text) == 1) && ctype_alpha($text))
         {
@@ -179,7 +198,9 @@ class CollectionController extends Controller
                     $this->context['page'] = "$text";
                 }
                 $info = buildRecordInfo($this->context['filament'], $this->context['area'], $results);
-                return view ('front._generic.fiche', compact('results', 'info'), $this->context);
+
+                // Si au moins un ouvrage de la collection a un champs 'first_edition_id' non nul :
+                return view ('front._generic.fiche', compact('results', 'info', 'has_new_editions'), $this->context);
             }
             else
             {

@@ -49,6 +49,24 @@ class EventSeeder extends Seeder
                 'updated_by'   => $record->updated_by,
                 'deleted_by'   => $record->deleted_by,
             ]);
+
+            // Une occurrence par évènement (cf. database/sql/2026_11_events_phase1.sql)
+            DB::table('event_occurrences')->insert([
+                'event_id'         => $record->id,
+                'start_date'       => $record->start_date,
+                'end_date'         => $record->end_date,
+                'place'            => trim($record->place) ?: null,
+                'information'      => $record->information ?: null,
+                'is_confirmed'     => $record->is_confirmed,
+                'publication_date' => $record->publication_date,
+
+                'created_at'   => $record->created_at,
+                'updated_at'   => $record->updated_at,
+                'deleted_at'   => $record->deleted_at,
+                'created_by'   => $record->created_by,
+                'updated_by'   => $record->updated_by,
+                'deleted_by'   => $record->deleted_by,
+            ]);
         }
     }
 }

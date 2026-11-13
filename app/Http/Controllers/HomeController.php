@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Publication;
 use App\Models\Title;
-use App\Models\Event;
+use App\Models\EventOccurrence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -75,16 +75,20 @@ class HomeController extends Controller
                     ->get();
 
         // Première requête : seulement ceux qui ont is_full_scope = 1
-        $events = Event::where('is_full_scope', '1')
+        // (le scope est porté par l'évènement, la confirmation et les dates par l'occurrence)
+        $events = EventOccurrence::upcoming()
                 ->where('is_confirmed', '1')
-                ->where('end_date','>=', date("Y-m-d"))
+                ->whereHas('event', fn ($q) => $q->where('is_full_scope', '1'))
+                ->with('event')
                 ->orderBy('start_date', 'asc')
                 ->limit(15)
                 ->get();
         // Si moins de 8 résultats, quel que soit le scope
         if ($events->count() < 8) {
-            $events = Event::where('is_confirmed', '1')
-                ->where('end_date', '>=', date("Y-m-d"))
+            $events = EventOccurrence::upcoming()
+                ->where('is_confirmed', '1')
+                ->whereHas('event')
+                ->with('event')
                 ->orderBy('start_date', 'asc')
                 ->limit(15)
                 ->get();

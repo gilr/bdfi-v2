@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventOccurrence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,6 +12,7 @@ class EventController extends Controller
     public $context = [
         'area'     => 'evenements',
         'title'    => 'Salons et évènements',
+        'extended' => 'aux lieux et informations',
         'icon'     => 'festival.png',
         'filament' => 'events',
         'page'     => '',
@@ -19,12 +21,21 @@ class EventController extends Controller
 
     public function welcome()
     {
+        // Occurrences en cours ou � venir (bloc sp�cifique de l'accueil de la zone)
+        $occurrences = EventOccurrence::upcoming()
+            ->whereHas('event')
+            ->with('event')
+            ->orderBy('start_date', 'asc')
+            ->limit(25)
+            ->get();
+
+        // Derni�res fiches modifi�es
         $results = Event::orderBy('updated_at', 'desc')
             ->limit(25)
             ->get();
 
         // A FAIRE - TO DO - TBD - liste des actifs en plus (-> sumenu subview)
-        return view('front._generic.welcome', compact('results'), $this->context);
+        return view('front._generic.welcome', compact('results', 'occurrences'), $this->context);
     }
 
     public function search(Request $request)
@@ -38,27 +49,23 @@ class EventController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
-        if ($large !== "on")
-        {
-            $results = Event::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
-        }
-        else
-        {
-            $results = Event::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                        ->orWhere('place', 'like', '%' . $text .'%')
-                        ->orWhere('information', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
 
-        }
+        $results = Event::where(function($query) use($text, $large) {
+            $query->where('name', 'like', '%' . $text .'%');
+            if ($large === "on")
+            {
+                $query->orWhere('place', 'like', '%' . $text .'%');
+                $query->orWhere('information', 'like', '%' . $text .'%');
+                $query->orWhereHas('occurrences', function ($q) use ($text) {
+                    $q->where('place', 'like', '%' . $text .'%')
+                      ->orWhere('information', 'like', '%' . $text .'%')
+                      ->orWhere('label', 'like', '%' . $text .'%');
+                });
+            }
+        })
+        ->orderBy('name', 'asc')
+        ->simplePaginate($pagin)
+        ->withQueryString();
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix
         $this->context['page'] = "recherche \"$text\"";
@@ -108,7 +115,7 @@ class EventController extends Controller
 
     public function page(Request $request, $text)
     {
-        if ($results=Event::firstWhere('slug', $text))
+        if ($results=Event::with('occurrences')->firstWhere('slug', $text))
         {
             // /evenements/{slug}
             $this->context['page'] = $results->name;
@@ -149,7 +156,7 @@ class EventController extends Controller
             else if($results->count() == 1)
             {
                 // Un résultat unique, on redirige gentiment vers lui avec un éventuel avertissement
-                $results = $results[0];
+                $results = $results[0]->load('occurrences');
                 if (strtolower($text) != strtolower($results->name)) {
                     $this->context['page'] = "/$text/ ⇒ $results->name";
                     $request->session()->flash('warning', 'Le nom demandé ("' . $text . '") n\'existe pas exactement sous cette forme. Mais comme chez BDFI on est cool, on a fouillé un peu et on vous a trouvé un résultat possible. Essayez quand même d\'indiquer un nom exact la prochaine fois, ou passez par le moteur de recherche.');

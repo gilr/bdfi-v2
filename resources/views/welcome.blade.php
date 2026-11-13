@@ -62,7 +62,7 @@
             <div class='text-center font-bold mb-2'>Annonces</div>
             @foreach($events as $result)
                 <div>
-                    <x-front.lien-texte link='/evenements/{{ $result->slug }}'>{{ $result->full_name ? Str::limit($result->full_name, 50) : Str::limit($result->name, 50) }}</x-front.lien-texte>
+                    <x-front.lien-texte link='/evenements/{{ $result->event->slug }}'>{{ Str::limit($result->full_name, 50) }}</x-front.lien-texte>
                 </div>
             @endforeach
         </div>

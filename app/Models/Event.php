@@ -10,6 +10,8 @@ use Venturecraft\Revisionable\RevisionableTrait;
 use Wildside\Userstamps\Userstamps;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\EventType;
+use App\Enums\EventPeriodicity;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
 {
@@ -23,7 +25,8 @@ class Event extends Model
         'end_date' => 'datetime:Y-m-d',
         'start_date' => 'datetime:Y-m-d',
         'publication_date' => 'datetime',
-        'type' => EventType::class
+        'type' => EventType::class,
+        'periodicity' => EventPeriodicity::class,
     ];
 
     protected $revisionEnabled = true;
@@ -50,6 +53,11 @@ class Event extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function occurrences(): HasMany
+    {
+        return $this->hasMany(EventOccurrence::class);
     }
 
     /*

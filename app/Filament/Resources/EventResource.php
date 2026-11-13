@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use App\Enums\EventType;
+use App\Enums\EventPeriodicity;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -64,38 +65,37 @@ class EventResource extends Resource
                             ->enum(EventType::class)
                             ->options(EventType::class)
                             ->required(),
+                        Forms\Components\Select::make('periodicity')
+                            ->label('Périodicité')
+                            ->enum(EventPeriodicity::class)
+                            ->options(EventPeriodicity::class),
                         Forms\Components\TextInput::make('place')
-                            ->label('Lieu')
-                            ->maxLength(64)
-                            ->required(),
-                        Forms\Components\Toggle::make('is_confirmed')
-                            ->label('Est confirmé ?')
-                            ->onColor('success')
-                            ->offColor('danger')
-                            ->required(),
+                            ->label('Lieu habituel')
+                            ->helperText('Si toujours le même. Peut être précisé ou remplacé dans chaque occurrence.')
+                            ->maxLength(64),
                         Forms\Components\Toggle::make('is_full_scope')
                             ->label('Imaginaire ET littérature ?')
                             ->onColor('success')
-                            ->offColor('danger')
+                            ->offColor('warning')
                             ->required(),
-                        Forms\Components\DatePicker::make('start_date')
-                            ->label('Débute le')
-                            ->helperText('Date du début de l\'évènement. Par défaut, la date de ce jour est pré-remplie')
-                            ->default(today())
-                            ->required(),
-                        Forms\Components\DatePicker::make('end_date')
-                            ->label('Se termine le')
-                            ->required(),
+                        Forms\Components\TextInput::make('year_start')
+                            ->label('Année de création')
+                            ->helperText('Année de la première occurrence')
+                            ->minValue(1900)
+                            ->numeric()
+                            ->maxLength(4),
+                        Forms\Components\TextInput::make('year_end')
+                            ->label('Année de fin')
+                            ->helperText('Année de la dernière occurrence, vide si toujours actif (une nouvelle occurrence est alors à rechercher).')
+                            ->numeric()
+                            ->maxLength(4),
                         Forms\Components\TextInput::make('url')
                             ->maxLength(256),
-                        Forms\Components\DateTimePicker::make('publication_date')
-                            ->label('Date de publication')
-                            ->helperText('Permet de définir à quelle date cet évènement sera visible sur BDFI'),
                         Forms\Components\Textarea::make('information')
                             ->label('Description')
+                            ->helperText('Description générale. Les informations propres à une occurrence vont dans celle-ci.')
                             ->maxLength(65535)
-                            ->columnSpanFull()
-                            ->required(),
+                            ->columnSpanFull(),
                     ])
                     ->columns(2),
 
@@ -145,24 +145,38 @@ class EventResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('type')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('periodicity')
+                    ->label('Périodicité')
+                    ->toggleable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('year_start')
+                    ->label('Depuis')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('year_end')
+                    ->label('Jusqu\'à')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('occurrences_count')
+                    ->label('Occ.')
+                    ->counts('occurrences')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('occurrences_max_end_date')
+                    ->label('Dernière occ.')
+                    ->max('occurrences', 'end_date')
+                    ->date('j M Y')
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_future')
                     ->label('Futur ?')
                     ->boolean()
-                    ->state(function (Event $record): bool {
-                        return $record->end_date >= today();
-                    }),
-                Tables\Columns\IconColumn::make('is_confirmed')
-                    ->label('Confirmé')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('start_date')
-                    ->label('Début')
-                    ->dateTime('l j M Y')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('end_date')
-                    ->label('Fin')
-                    ->dateTime('l j M Y')
-                    ->toggleable(isToggledHiddenByDefault: true)
-                    ->sortable(),
+                    ->state(fn (Event $record): bool => $record->occurrences_max_end_date >= today()->format('Y-m-d')),
+                Tables\Columns\IconColumn::make('to_search')
+                    ->label('À rechercher')
+                    ->tooltip('Toujours actif (pas d\'année de fin), mais aucune occurrence à venir')
+                    ->icon(fn (bool $state): ?string => $state ? 'heroicon-o-magnifying-glass' : null)
+                    ->color('warning')
+                    ->state(fn (Event $record): bool => !$record->year_end && $record->periodicity !== EventPeriodicity::UNIQUE
+                        && !($record->occurrences_max_end_date >= today()->format('Y-m-d'))),
                 Tables\Columns\TextColumn::make('place')
                     ->limit(15, "<span class='!bg-indigo-100 dark:!bg-indigo-800'>&mldr;</span>")
                     ->tooltip(function (TextColumn $column): ?string {
@@ -182,11 +196,6 @@ class EventResource extends Resource
                     ->label('+large')
                     ->boolean()
                     ->toggleable(isToggledHiddenByDefault: true)
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('publication_date')
-                    ->label('Publié le')
-                    ->toggleable(isToggledHiddenByDefault: true)
-                    ->dateTime()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -218,6 +227,16 @@ class EventResource extends Resource
             ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                Tables\Filters\Filter::make('to_search')
+                    ->label('À rechercher (actifs sans occurrence à venir)')
+                    ->query(fn (Builder $query): Builder => $query
+                        ->whereNull('year_end')
+                        ->where(fn ($q) => $q->whereNull('periodicity')->orWhere('periodicity', '<>', EventPeriodicity::UNIQUE->value))
+                        ->whereDoesntHave('occurrences', fn ($q) => $q->where('end_date', '>=', date('Y-m-d')))),
+                Tables\Filters\Filter::make('upcoming')
+                    ->label('Avec une occurrence à venir')
+                    ->query(fn (Builder $query): Builder => $query
+                        ->whereHas('occurrences', fn ($q) => $q->where('end_date', '>=', date('Y-m-d')))),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -238,7 +257,7 @@ class EventResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\OccurrencesRelationManager::class,
         ];
     }
     

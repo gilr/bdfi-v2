@@ -24,15 +24,60 @@
 
             <h3 class="font-bold mb-2">Modifier l'enregistrement de {{ $first_name }} {{ $name }}</h3>
 
-            <label>Date de naissance :</label>
-            <input type="text" wire:model="birth_date" class="border p-2 mb-2">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+                <label for="edit_name" class="w-32 font-semibold">Nom *</label>
+                <input id="edit_name" type="text" wire:model="name" maxlength="32" class="w-64 border rounded bg-yellow-100 p-2">
+                <label for="edit_first_name" class="font-semibold ml-2">Prénom(s)</label>
+                <input id="edit_first_name" type="text" wire:model="first_name" maxlength="32" class="w-64 border rounded bg-yellow-100 p-2">
+            </div>
 
-            <label>Date de décès :</label>
-            <input type="text" wire:model="date_death" class="border p-2 mb-2">
-            <br />
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+                <label for="edit_country_id" class="w-32 font-semibold">Nationalité</label>
+                <select id="edit_country_id" wire:model="country_id" class="w-64 border rounded bg-yellow-100 p-2">
+                    <optgroup label="Les plus fréquentes">
+                        @foreach ($countries['frequent'] as $c)
+                            <option value="{{ $c->id }}">{{ $c->name }}</option>
+                        @endforeach
+                    </optgroup>
+                    <optgroup label="Tous les pays">
+                        @foreach ($countries['others'] as $c)
+                            <option value="{{ $c->id }}">{{ $c->name }}</option>
+                        @endforeach
+                    </optgroup>
+                </select>
+                <label for="edit_gender" class="font-semibold ml-2">H/F & co</label>
+                <select id="edit_gender" wire:model="gender" class="w-48 border rounded bg-yellow-100 p-2">
+                    @foreach ($genders as $g)
+                        <option value="{{ $g->value }}">{{ $g->getLabel() }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-            <label>Lieu de naissance :</label>
-            <input type="text" wire:model="birthplace" class="border p-2 w-full mb-2">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+                <label for="edit_is_pseudonym" class="w-32 font-semibold">Pseudonyme</label>
+                <input type="checkbox" id="edit_is_pseudonym" wire:model="is_pseudonym">
+                <label for="edit_legal_name" class="font-semibold ml-2">Nom légal</label>
+                <input id="edit_legal_name" type="text" wire:model="legal_name" maxlength="128" class="w-64 border rounded bg-yellow-100 p-2"
+                       placeholder="Si pseudonyme ou nom de plume">
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+                <label for="edit_birth_date" class="w-32 font-semibold">Naissance</label>
+                <input id="edit_birth_date" type="text" wire:model="birth_date" maxlength="10" class="w-32 border rounded bg-yellow-100 p-2"
+                       placeholder="AAAA-MM-JJ">
+                <label for="edit_birthplace" class="font-semibold ml-2">Lieu</label>
+                <input id="edit_birthplace" type="text" wire:model="birthplace" maxlength="64" class="w-48 border rounded bg-yellow-100 p-2">
+                <label for="edit_date_death" class="font-semibold ml-2">Décès</label>
+                <input id="edit_date_death" type="text" wire:model="date_death" maxlength="10" class="w-32 border rounded bg-yellow-100 p-2"
+                       placeholder="AAAA-MM-JJ">
+            </div>
+            <div class="text-xs text-gray-500 mb-2">AAAA-MM-JJ, 00 si mois ou jour inconnu (1983-00-00), AAAA-circa ou -AAA-circa ; laisser vide une date inconnue</div>
+
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+                <label for="edit_alt_names" class="w-32 font-semibold">Écritures alt.</label>
+                <input id="edit_alt_names" type="text" wire:model="alt_names" maxlength="512" class="w-full border rounded bg-yellow-100 p-2 max-w-xl"
+                       placeholder="Autres écritures/graphies du nom, séparées par des virgules">
+            </div>
 
             <label>Biographie :</label>
             <textarea wire:model="bio" rows="5"  class="border p-2 w-full mb-2"></textarea>

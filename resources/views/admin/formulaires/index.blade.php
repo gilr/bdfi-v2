@@ -30,7 +30,7 @@
 
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
-                            Création rapide
+                            Création rapide, liée aux ouvrages
                         </div>
                         <div class="p-2">
                             Pour une variante d'oeuvre, attendez les nouveaux formulaires, passez par les tables... ou adressez vous au chef :-)
@@ -38,11 +38,11 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus mais à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus mais encore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnant d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
                             </ul>
                         </div>
@@ -55,7 +55,7 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester)</span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
                         </div>
                     @endif
 
@@ -64,7 +64,7 @@
                             Propositions
                         </div>
                         <div class="p-2">
-                            En approche, encore en réflexion - Ne pas utiliser !
+                            Va être totalement remis à plat : les propositions seront stockées au format JSON dans une table spécifique, et non dans la table 'normale' des publications. Cela permettra plus facilement de gérer des données encore manquantes (auteur ou cycle non existant en base), et est plus ouvert pour évoluer vers d'autres propositions (d'autres données, ou en modification en plus de création).
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">

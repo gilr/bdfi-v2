@@ -13,7 +13,15 @@
 
                 <div class="p-6">
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Rapports sur tables auteurs
+                        Rapports concernant les publications et textes
+                    </div>
+                    <div class="p-2">
+                        <ul class="list-disc pl-4">
+                            <li><x-admin.link lien='rapports/erreurs-variantes'>Erreurs sur les variantes de textes</x-admin.link> (rattachements incohérents)</li>
+                        </ul>
+                    </div>
+                    <div class="p-2 text-2xl border-b border-yellow-800">
+                        Rapports concernant les auteurs
                     </div>
                     <div class="p-2">
                         <ul class="list-disc pl-4">
@@ -33,7 +41,7 @@
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Rapports sur tables prix
+                        Rapports concernant les prix
                     </div>
                     <div class="p-2">
                         <ul class="list-disc pl-4">

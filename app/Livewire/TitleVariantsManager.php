@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Bdfi\VariantDates;
 use App\Enums\TitleVariantType;
 use App\Models\Title;
 
@@ -352,50 +353,12 @@ class TitleVariantsManager extends Component
      */
     private function earlierThanParent(Collection $group): array
     {
-        $rootDate = $this->dateRange($group->get($this->rootId)?->copyright_fr);
-        if (!$rootDate) {
-            return [];
-        }
+        $rootDate = $group->get($this->rootId)?->copyright_fr;
 
         return $group
-            ->filter(function ($t) use ($rootDate) {
-                $date = $t->id === $this->rootId ? null : $this->dateRange($t->copyright_fr);
-
-                // Antérieure seulement si c'est certain : la fin de sa période précède le début de celle du parent
-                return $date && $date[1] < $rootDate[0];
-            })
+            ->filter(fn ($t) => $t->id !== $this->rootId && $t->variant_type !== TitleVariantType::EPISODE->value
+                && VariantDates::isEarlier($t->copyright_fr, $rootDate))
             ->keys()->all();
-    }
-
-    /**
-     * Période couverte par une date BDFI, en [début, fin] comparables (AAAAMMJJ) : AAAA-MM-JJ avec
-     * 00 si mois ou jour inconnus, AAAA-Tn-00 pour un trimestre, AAAA-circa. Null si date inconnue.
-     * @return array{0: int, 1: int}|null
-     */
-    private function dateRange(?string $date): ?array
-    {
-        if (!preg_match('/^(\d{4})(?:-(\d{2}|T[1-4])(?:-(\d{2}))?)?/', (string) $date, $m) || (int) $m[1] === 0) {
-            return null;
-        }
-
-        $year = (int) $m[1];
-        $month = $m[2] ?? '00';
-        $day = (int) ($m[3] ?? 0);
-
-        if ($month[0] === 'T') {
-            $quarter = (int) $month[1];
-            [$from, $to] = [($quarter - 1) * 3 + 1, $quarter * 3];
-        } elseif ((int) $month === 0) {
-            [$from, $to] = [1, 12];
-        } else {
-            $from = $to = (int) $month;
-        }
-        $exactDay = $from === $to && $day > 0;
-
-        return [
-            $year * 10000 + $from * 100 + ($exactDay ? $day : 0),
-            $year * 10000 + $to * 100 + ($exactDay ? $day : 31),
-        ];
     }
 
     private function searchTitles(string $text, ?Collection $exclude = null): Collection

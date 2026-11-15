@@ -8,6 +8,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use DB;
 use App\Models\Award;
 use App\Models\AwardCategory;
+use App\Models\Title;
+use App\Enums\TitleVariantType;
+use App\Bdfi\VariantDates;
 use App\Enums\QualityStatus;
 
 class ReportController extends Controller
@@ -207,6 +210,70 @@ class ReportController extends Controller
         }
 
         return view('admin/rapports/manque-prix', compact('date', 'results'));
+    }
+
+    /**
+     * Respond to request get /admin/rapports/erreurs-variantes
+     * Textes dont le rattachement parent/variantes est incohérent (un seul parent, "premier" ou "virtuel",
+     * toutes les variantes rattachées directement à lui).
+     */
+    public function getVariantErrors()
+    {
+        $valid = array_map(fn ($c) => $c->value, TitleVariantType::cases());
+        $parentTypes = [TitleVariantType::PREMIER->value, TitleVariantType::VIRTUEL->value];
+        $in = fn (array $values) => "'" . implode("','", $values) . "'";
+
+        // Par ordre de gravité décroissante : ce même ordre sert à classer les lignes du rapport
+        $queries = [
+            'Type de variante inconnu' => "SELECT id FROM titles WHERE deleted_at IS NULL AND variant_type NOT IN ({$in($valid)})",
+            'Parent supprimé' => "SELECT c.id FROM titles c JOIN titles p ON p.id = c.parent_id
+                WHERE c.deleted_at IS NULL AND p.deleted_at IS NOT NULL",
+            'Parent de lui-même' => "SELECT id FROM titles WHERE deleted_at IS NULL AND parent_id = id",
+            'Parent et enfant' => "SELECT t.id FROM titles t WHERE t.deleted_at IS NULL AND t.parent_id <> t.id
+                AND t.variant_type IN ({$in($valid)}) AND t.variant_type NOT IN ({$in($parentTypes)})
+                AND EXISTS (SELECT 1 FROM titles k WHERE k.parent_id = t.id AND k.id <> t.id AND k.deleted_at IS NULL)",
+            'Premier ou virtuel, et enfant' => "SELECT id FROM titles WHERE deleted_at IS NULL AND parent_id IS NOT NULL
+                AND parent_id <> id AND variant_type IN ({$in($parentTypes)})",
+            'Parent de type variante' => "SELECT t.id FROM titles t WHERE t.deleted_at IS NULL AND t.parent_id IS NULL
+                AND t.variant_type IN ({$in($valid)}) AND t.variant_type NOT IN ({$in($parentTypes)})
+                AND EXISTS (SELECT 1 FROM titles k WHERE k.parent_id = t.id AND k.deleted_at IS NULL)",
+            'Variante sans parent' => "SELECT t.id FROM titles t WHERE t.deleted_at IS NULL AND t.parent_id IS NULL
+                AND t.variant_type IN ({$in($valid)}) AND t.variant_type NOT IN ({$in($parentTypes)})
+                AND NOT EXISTS (SELECT 1 FROM titles k WHERE k.parent_id = t.id AND k.deleted_at IS NULL)",
+        ];
+
+        // id du texte => libellés des erreurs, et rang de sa première erreur (la plus grave)
+        $errors = [];
+        $rank = [];
+        $position = 0;
+        foreach ($queries as $label => $sql) {
+            foreach (DB::select($sql) as $row) {
+                $errors[$row->id][] = $label;
+                $rank[$row->id] ??= $position;
+            }
+            $position++;
+        }
+
+        // Variante parue avant son parent (dates connues des deux) : présélection par l'année en SQL,
+        // puis comparaison précise (mois, trimestre) en PHP. Un épisode de feuilleton est normalement
+        // antérieur au texte complet : ce n'est pas une erreur.
+        $pairs = DB::select("SELECT c.id, c.copyright_fr AS child_date, p.copyright_fr AS parent_date
+            FROM titles c JOIN titles p ON p.id = c.parent_id
+            WHERE c.deleted_at IS NULL AND p.deleted_at IS NULL AND c.parent_id <> c.id
+            AND c.variant_type <> 'feuilleton'
+            AND LEFT(c.copyright_fr, 4) <= LEFT(p.copyright_fr, 4)");
+        foreach ($pairs as $pair) {
+            if (VariantDates::isEarlier($pair->child_date, $pair->parent_date)) {
+                $errors[$pair->id][] = 'Date fr antérieure à celle du parent (' . $pair->parent_date . ')';
+                $rank[$pair->id] ??= $position;
+            }
+        }
+
+        $titles = Title::with('authors')->whereIn('id', array_keys($errors))->get()
+            ->sort(fn ($a, $b) => [$rank[$a->id], $a->name] <=> [$rank[$b->id], $b->name])
+            ->values();
+
+        return view('admin/rapports/erreurs-variantes', compact('titles', 'errors'));
     }
 
     /**

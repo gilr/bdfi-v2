@@ -98,16 +98,11 @@
                             @endif
                         </td>
                         <td class="py-1 px-2 border border-blue-500">
-                            <span class="font-semibold">{{ $t->name }}</span>
-                            <span class="text-xs text-gray-500">#{{ $t->id }}</span><br />
-                            {{ $describe($t) }}
-                            @if (in_array($t->id, $earlier, true))
-                                <div class="text-red-700 font-semibold">⚠ Date fr antérieure à celle du parent : est-ce lui le premier ?</div>
-                            @endif
-                            <span class="text-xs">
-                                · <a class="text-red-700" href="/textes/{{ $t->slug }}" target="_blank">page</a>
-                                · <a class="text-red-700" href="/filament/titles/{{ $t->id }}" target="_blank">fiche</a>
-                            </span>
+                            <x-admin.title-summary :title="$t">
+                                @if (in_array($t->id, $earlier, true))
+                                    <div class="text-red-700 font-semibold">⚠ Date fr antérieure à celle du parent : est-ce lui le premier ?</div>
+                                @endif
+                            </x-admin.title-summary>
                         </td>
                         <td class="py-1 px-2 border border-blue-500">
                             <select wire:change="setType({{ $t->id }}, $event.target.value)" @disabled(!$canEdit)

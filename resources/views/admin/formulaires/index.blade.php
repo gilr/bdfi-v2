@@ -37,13 +37,13 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus)(à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus mais à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnant d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnant d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
                             </ul>
                         </div>
                     @endif
@@ -54,10 +54,8 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A revoir)</span> <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> ajout-variant : Choix de deux titres (auteur, trad) non déjà reliés, et du type de lien. Valider pour ajouter un lien.<br /></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> inverser-variant : Recherche des variants via un titre - Afficher la liste, sélectionner, appliquer l'inversion</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> scinder-variant : Supprimer une liaison erronée - Recherche des variants via un titre - Afficher la liste, sélectionner, supprimer le lien</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester)</span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
                         </div>
                     @endif
 
@@ -66,7 +64,7 @@
                             Propositions
                         </div>
                         <div class="p-2">
-                            Encore en réflexion !
+                            En approche, encore en réflexion - Ne pas utiliser !
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Enums\PublicationStatus;
 use App\Enums\PublicationContent;
 use App\Enums\PublicationSupport;
+use App\Enums\PublicationFormat;
 use App\Enums\GenreAppartenance;
 use App\Enums\GenreStat;
 use App\Enums\AudienceTarget;
@@ -48,15 +49,95 @@ class StorePublicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'publication_status'    => [Rule::enum(PublicationStatus::class)],
+            'publication_status'    => ['required', Rule::enum(PublicationStatus::class)],
             'name'                  => 'required|max:128',
-            'type'                  => [Rule::enum(PublicationContent::class)],
-            'support'               => [Rule::enum(PublicationSupport::class)],
-            'approximate_parution'  => ['required', 'max:10', 'regex:/([\-012][\-0-9]{3}-(T[1-4]-00|[0-9]{2}-[0-9]{2}))/'],
-            'is_genre'              => [Rule::enum(GenreAppartenance::class)],
-            'genre_stat'            => [Rule::enum(GenreStat::class)],
-            'target_audience'       => [Rule::enum(AudienceTarget::class)],
-            'isbn'                  => 'max:18',
+            'type'                  => ['required', Rule::enum(PublicationContent::class)],
+            'support'               => ['required', Rule::enum(PublicationSupport::class)],
+            'format'                => ['nullable', Rule::enum(PublicationFormat::class)],
+            // AAAA-MM-JJ (MM/JJ à 00 si inconnus), AAAA-Tn-00 (trimestre), ou AAAA-circa
+            'approximate_parution'  => ['required', 'max:10', 'regex:/^(\d{4}-(\d{2}-\d{2}|T[1-4]-00)|-?\d{1,4}-circa)$/'],
+            'is_genre'              => ['required', Rule::enum(GenreAppartenance::class)],
+            'genre_stat'            => ['required', Rule::enum(GenreStat::class)],
+            'target_audience'       => ['required', Rule::enum(AudienceTarget::class)],
+            'isbn'                  => 'nullable|max:18',
+            'no_isbn'               => 'nullable|boolean',   // l'ouvrage n'a pas d'ISBN => "-"
+            'is_hardcover'          => 'nullable|boolean',
+            'has_dustjacket'        => 'nullable|boolean',
+            'has_coverflaps'        => 'nullable|boolean',
+            // Éditeur (EntityPicker) : existant (publisher_id), sinon à créer à la volée (publisher_name)
+            'publisher_id'          => ['nullable', 'integer', Rule::exists('publishers', 'id')],
+            'publisher_name'        => ['nullable', 'string', 'max:128'],
+            // Collection (EntityPicker, existante uniquement) et son n° éventuel dans cette collection
+            'collection_id'         => ['nullable', 'integer', Rule::exists('collections', 'id')],
+            'collection_number'     => ['nullable', 'string', 'max:16'],
+            // Auteurs (EntityPicker, existants uniquement) : jusqu'à deux pour l'instant
+            'author1_id'            => ['nullable', 'integer', Rule::exists('authors', 'id')],
+            'author2_id'            => ['nullable', 'integer', Rule::exists('authors', 'id')],
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'approximate_parution.regex' => 'Date de parution : formats acceptés AAAA-MM-00, AAAA-00-00, AAAA-MM-JJ, AAAA-Tn-00 (trimestre) ou AAAA-circa.',
+        ];
+    }
+
+    /**
+     * Ouvrage à paraître : la parution prévue ne peut pas être passée, avec une tolérance d'un mois
+     * (ouvrage annoncé dont la parution effective n'a pas encore été vérifiée). Pas de date approximative.
+     */
+    public function withValidator($validator): void
+    {
+        $validator->after(function ($validator) {
+            $author1 = $this->input('author1_id');
+            $author2 = $this->input('author2_id');
+            if (filled($author1) && filled($author2) && (int) $author1 === (int) $author2) {
+                $validator->errors()->add('author2_id', 'Auteur 2 : ne peut pas être le même que l\'auteur 1.');
+            }
+
+            if ($this->input('publication_status') !== PublicationStatus::ANNONCE->value
+                || $validator->errors()->has('approximate_parution')) {
+                return;
+            }
+
+            $date = (string) $this->input('approximate_parution');
+            $end = self::periodEnd($date);
+
+            if ($end === null) {
+                $validator->errors()->add('approximate_parution',
+                    'Ouvrage à paraître : la date prévue doit être précise (AAAA-MM-00, AAAA-Tn-00, AAAA-00-00...), pas approximative.');
+            } elseif ($end->lt(now()->subMonthNoOverflow()->startOfMonth())) {
+                $validator->errors()->add('approximate_parution',
+                    "Ouvrage à paraître : la date prévue ({$date}) est passée. Au plus un mois en arrière est toléré "
+                    . '(à partir de ' . now()->subMonthNoOverflow()->format('m/Y') . ') ; sinon, enregistrer l\'ouvrage comme paru.');
+            }
+        });
+    }
+
+    /** Dernier jour de la période désignée par la date (année, trimestre, mois ou jour) ; null si approximative */
+    private static function periodEnd(string $date): ?\Illuminate\Support\Carbon
+    {
+        if (!preg_match('/^(\d{4})-(\d{2}|T([1-4]))-(\d{2})$/', $date, $m)) {
+            return null;   // AAAA-circa
+        }
+
+        $year = (int) $m[1];
+
+        if (($m[3] ?? '') !== '') {                       // trimestre : dernier jour du 3e mois
+            return \Illuminate\Support\Carbon::create($year, (int) $m[3] * 3, 1)->endOfMonth();
+        }
+
+        $month = (int) $m[2];
+        $day = (int) $m[4];
+
+        if ($month === 0) {                               // année seule
+            return \Illuminate\Support\Carbon::create($year, 12, 31)->endOfDay();
+        }
+        if ($day === 0 || !checkdate($month, $day, $year)) {   // mois seul (ou jour invalide : fin du mois)
+            return \Illuminate\Support\Carbon::create($year, $month, 1)->endOfMonth();
+        }
+
+        return \Illuminate\Support\Carbon::create($year, $month, $day)->endOfDay();
     }
 }

@@ -65,10 +65,10 @@
 
 <div class='grid grid-cols-1 mx-2 sm:ml-5 sm:mr-2 md:ml-10 md:mr-4 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
     <div class='text-lg font-bold text-purple-900'>
-        A quoi correspond la "recherche élargie" dans une zone donnée ?
+        A quoi correspond la "recherche étendue" dans une zone donnée ?
     </div>
     <div class='text-base p-2 mx-2 md:mx-12 self-center'>
-        La recherche simple (non "élargie") permet de chercher tous les éléments de cette zone dont le nom principal contient la chaîne de texte (l'extrait de nom) saisie. La recherche élargie permet d'étendre cette recherche à d'autres informations attachées aux élements, qui peuvent être les pseudonymes, le nom complet ou une autre forme d'écriture (pour un auteur), ou des variantes de nommage (pour un éditeur, une collection, un ouvrage, un texte ou une série), voire même des informations liées (les noms d'éditeurs pour une recherche de collections ou inversement).
+        La recherche simple permet de chercher tous les éléments de cette zone dont le nom principal contient la chaîne de texte (l'extrait de nom) saisie. La recherche étendue permet d'élargir cette recherche à d'autres informations pertinentes attachées aux élements. Il peit s'agir de l'ISBN (pour un ouvrage) les pseudonymes, le nom complet ou une autre forme d'écriture (pour un auteur), ou des variantes de nommage (pour un éditeur, une collection, un ouvrage, un texte ou une série), voire même des informations liées (les noms d'éditeurs pour une recherche de collections et inversement).
     </div>
 </div>
 

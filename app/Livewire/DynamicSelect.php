@@ -14,6 +14,7 @@ class DynamicSelect extends Component
 
     public function mount($modelClass)
     {
+        // TODO : Ici, introduire par sécurité une liste blanche des modèles utilisés
         $this->modelClass = $modelClass;
     }
 

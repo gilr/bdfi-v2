@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\AwardWinnerController;
 use App\Http\Controllers\CycleController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\CollectionController;
@@ -171,48 +172,60 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/admin/formulaires', function () { return view('admin/formulaires/index'); })->name('admin/formulaires');
 
         Route::get('/admin/formulaires/ajout-auteur', [AuthorController::class, 'create']);
-        Route::post('/admin/formulaires/ajout-auteur', [AuthorController::class, 'store']);
         Route::get('/admin/formulaires/modifier-auteur', function () { return view('admin/formulaires/modifier-auteur'); });
         Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
-        Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
         Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
-        Route::post('/admin/formulaires/ajout-collection', [CollectionController::class, 'store']);
         Route::get('/admin/formulaires/ajout-texte', [TitleController::class, 'create']);
         Route::get('/admin/formulaires/ajout-publication', [PublicationController::class, 'create']);
         Route::get('/admin/formulaires/programme-parution', [PublicationController::class, 'createFuture']);
         Route::get('/admin/formulaires/proposer-publication', [PublicationController::class, 'propose']);
+        Route::get('/admin/formulaires/ajout-annee-prix', [AwardWinnerController::class, 'create']);
+
         // les ajouts sont des "store" classiques :
+        Route::post('/admin/formulaires/ajout-auteur', [AuthorController::class, 'store']);
+        Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
+        Route::post('/admin/formulaires/ajout-collection', [CollectionController::class, 'store']);
         Route::post('/admin/formulaires/ajout-texte', [TitleController::class, 'store']);
         Route::post('/admin/formulaires/ajout-publication', [PublicationController::class, 'store']);
         Route::post('/admin/formulaires/programme-parution', [PublicationController::class, 'store']);
         Route::post('/admin/formulaires/proposer-publication', [PublicationController::class, 'store']);
+        Route::post('/admin/formulaires/ajout-annee-prix', [AwardWinnerController::class, 'store']);
+
         // Mais aussi les autres actions comme validation et confirmation
         Route::get('/admin/formulaires/publications-proposees', [PublicationController::class, 'indexProposal']);
         Route::get('/admin/formulaires/programmes-echus', [PublicationController::class, 'indexExpiredFuture']);
         Route::get('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'indexFuture']);
+
         // plus les put pour valider/confirmer unitairement...
         Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
         Route::put('/admin/formulaires/programmes-echus', [PublicationController::class, 'updateExpiredFuture']);
         Route::put('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'updateFuture']);
 
+        // Rapports : listes d'éléments potentiellement erronés ou à compléter
+        Route::get('/admin/rapports', [ReportController::class, 'index'])->name('admin/rapports');
+        Route::get('/admin/rapports/dates-bizarres', [ReportController::class, 'getStrangeDates']);
+        Route::get('/admin/rapports/manque-date-naissance', [ReportController::class, 'getMissingBirthdates']);
+        Route::get('/admin/rapports/manque-date-deces', [ReportController::class, 'getMissingDeathdates']);
+        Route::get('/admin/rapports/etat-biographies-{i}', [ReportController::class, 'getBioStatus']);
+        Route::get('/admin/rapports/manque-nationalite', [ReportController::class, 'getMissingCountries']);
+        Route::get('/admin/rapports/erreur-nationalite', [ReportController::class, 'getCountryErrors']);
+//        Route::get('/admin/rapports/manque-fiche', [ReportController::class, 'getMissingRecords']);
+        Route::get('/admin/rapports/prix-{an}', [ReportController::class, 'getMissingAwards']);
+        Route::get('/admin/rapports/anniversaires-fb-jour', [ReportController::class, 'getFbToday']);
+        Route::get('/admin/rapports/anniversaires-fb-semaine', [ReportController::class, 'getFbWeek']);
+        Route::get('/admin/rapports/anniversaires-fb-mois', [ReportController::class, 'getFbMonth']);
+
+        // Outils : conversions de formats, import de publications
         Route::get('/admin/outils', [ToolController::class, 'index'])->name('admin/outils');
-        Route::get('/admin/outils/dates-bizarres', [ToolController::class, 'getStrangeDates']);
-        Route::get('/admin/outils/manque-date-naissance', [ToolController::class, 'getMissingBirthdates']);
-        Route::get('/admin/outils/manque-date-deces', [ToolController::class, 'getMissingDeathdates']);
-        Route::get('/admin/outils/etat-biographies-{i}', [ToolController::class, 'getBioStatus']);
-        Route::get('/admin/outils/manque-nationalite', [ToolController::class, 'getMissingCountries']);
-        Route::get('/admin/outils/erreur-nationalite', [ToolController::class, 'getCountryErrors']);
-//        Route::get('/admin/outils/manque-fiche', [ToolController::class, 'getMissingRecords']);
-        Route::get('/admin/outils/prix-{an}', [ToolController::class, 'getMissingAwards']);
-        Route::get('/admin/outils/anniversaires-fb-jour', [ToolController::class, 'getFbToday']);
-        Route::get('/admin/outils/anniversaires-fb-semaine', [ToolController::class, 'getFbWeek']);
-        Route::get('/admin/outils/anniversaires-fb-mois', [ToolController::class, 'getFbMonth']);
+        Route::get('/admin/outils/conversion-format', function () { return view('admin/outils/conversion-format'); });
+        Route::get('/admin/outils/conversion-content', function () { return view('admin/outils/conversion-content'); });
+        Route::get('/admin/outils/telecharge-format', [DownloadController::class, 'exportConvertedFormat'])->name('outils.download');
+        Route::get('/admin/outils/import-analyse', function () { return view('admin/outils/import-analyse'); });
+        Route::get('/admin/outils/import', function () { return view('admin/outils/import'); });
 //        Route::get('/admin/outils/conversion-sommaire', [ToolController::class, 'getConvertContent']);
 
+        // Labs : essais divers
         Route::get('/admin/labs', [ToolController::class, 'labIndex'])->name('admin/labs');
-        Route::get('/admin/labs/conversion-format', function () { return view('admin/labs/conversion-format'); });
-        Route::get('/admin/labs/conversion-content', function () { return view('admin/labs/conversion-content'); });
-        Route::get('/admin/labs/telecharge-format', [DownloadController::class, 'exportConvertedFormat'])->name('labs.download');
 
 
         // Gestion des Téléchargement tables - générique multi-modèle

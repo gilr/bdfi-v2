@@ -244,14 +244,24 @@ class Author extends Model
     public function recordName(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => 'auteur "' . $this->fullName . '"',
+            get: fn($value) => 'auteur "' . $this->fullName . '"'
         );
     }
 
     public function fullName(): Attribute
     {
+        // Nom, Prénom
         return Attribute::make(
-            get: fn($value) => ($this->first_name == "" ? $this->name : sanitizeFirstName($this->first_name) . " " . $this->name),
+            get: fn($value) => ($this->first_name == "" ? $this->name :
+              ($this->name == "" ? sanitizeFirstName($this->first_name) : $this->name . ", " . sanitizeFirstName($this->first_name))
+             )
+        );
+    }
+    public function firstNameFirst(): Attribute
+    {
+        // Prénom Nom
+        return Attribute::make(
+             get: fn($value) => ($this->first_name == "" ? $this->name : sanitizeFirstName($this->first_name) . " " . $this->name)
         );
     }
 

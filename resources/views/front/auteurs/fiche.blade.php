@@ -8,11 +8,7 @@
     <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
         <div class='text-base mt-2 bg-yellow-50'>
-        @if ($results->first_name)
-             <span class='font-semibold'>{{ $results->name }}</span>, {{ sanitizeFirstName($results->first_name) }}
-        @else
-             <span class='font-semibold'>{{ $results->name }}</span>
-        @endif
+            <span class='font-semibold'>{{ $results->firstNameFirst }}</span>
         </div>
         @if ($results->is_pseudonym)
             <div class='text-base'>
@@ -20,7 +16,7 @@
             </div>
         @endif
 
-        @if (($results->legal_name) && ($results->legal_name !== $results->fullName))
+        @if (($results->legal_name) && ($results->legal_name !== $results->firstNameFirst))
             <div class='text-base'>
                 Nom légal : <span class="font-semibold">{{ $results->legal_name }}</span>
             </div>
@@ -58,14 +54,14 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $reference->slug }}'>{{ $reference->fullname }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $reference->slug }}'>{{ $reference->firstNameFirst }}</a>
                 @endforeach
             @endif
 
             @if($autres_pseudos && count($autres_pseudos) !== 0)
                 @foreach ($autres_pseudos as $autre)
                         ,
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->fullName }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->firstNameFirst }}</a>
                 @endforeach
             @endif
 
@@ -74,7 +70,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $signature->slug }}'>{{ $signature->fullname }}</a>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $signature->slug }}'>{{ $signature->firstNameFirst }}</a>
                 @endforeach
             @endif
             </div>
@@ -85,13 +81,13 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->reverse_relationship }})
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->firstNameFirst }}</a> ({{ $relation->pivot->relationship_type->reverse_relationship }})
                 @endforeach
                 @foreach ($results->inverserelations as $relation)
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->fullname }}</a> ({{ $relation->pivot->relationship_type->relationship }})
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $relation->slug }}'>{{ $relation->firstNameFirst }}</a> ({{ $relation->pivot->relationship_type->relationship }})
                 @endforeach
             </div>
         @endif
@@ -188,7 +184,7 @@
     <div class='bg-gray-100 px-2 sm:pl-5 sm:pr-2 md:pl-10 md:pr-4'>
 
         <div class='text-base mt-2 font-semibold bg-yellow-50'>
-             <span class='font-semibold'>{{ $results->fullname }}</span>
+            <span class='font-semibold'>{{ $results->firstNameFirst }}</span>
         </div>
 
         @if ($results->is_pseudonym)
@@ -212,7 +208,7 @@
         <div class='text-base ml-2 my-2'>
             @foreach ($results->references as $auteur)
             <div>
-                &rarr; <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $auteur->slug }}'>{{ $auteur->fullName }}</a> -
+                &rarr; <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $auteur->slug }}'>{{ $auteur->firstNameFirst }}</a> -
                 <span class='font-semibold'>
                     <a class='border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/pays/{{ $auteur->country->name }}'>{{ $auteur->country->name }}</a>
                 </span>
@@ -227,7 +223,7 @@
                     @if (!$loop->first)
                         ,
                     @endif
-                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->fullName }}</a></span>
+                    <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $autre->slug }}'>{{ $autre->firstNameFirst }}</a></span>
                 @endforeach
             </div>
         @endif
@@ -244,10 +240,10 @@
             @endif
             @if ($type == 'collaboration')
               @if ($results->references[0]->information)
-                    <span class='font-semibold'>{!! $results->references[0]->fullName !!}</span> : {!! $results->references[0]->information !!} <br />
+                    <span class='font-semibold'>{!! $results->references[0]->firstNameFirst !!}</span> : {!! $results->references[0]->information !!} <br />
                 @endif
                 @if ($results->references[1]->information)
-                    <span class='font-semibold'>{!! $results->references[1]->fullName !!}</span> : {!! $results->references[1]->information !!}
+                    <span class='font-semibold'>{!! $results->references[1]->firstNameFirst !!}</span> : {!! $results->references[1]->information !!}
                 @endif
             @endif
         </div>

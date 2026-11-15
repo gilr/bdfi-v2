@@ -15,6 +15,7 @@ class ReprintController extends Controller
     public $context = [
         'area'     => 'retirages',
         'title'    => 'Retirages',
+        'extended' => 'aux noms de cycle',
         'icon'     => 'livre2.png',
         'filament' => 'reprints',
         'page'     => '',

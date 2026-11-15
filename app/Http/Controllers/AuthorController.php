@@ -19,6 +19,7 @@ class AuthorController extends Controller
     public $context = [
         'area'     => 'auteurs',
         'title'    => 'Auteurs',
+        'extended' => 'au nom légal et variantes de nom',
         'icon'     => 'auteur.png',
         'filament' => 'authors',
         'page'     => '',
@@ -52,29 +53,23 @@ class AuthorController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
-        if ($large !== "on")
-        {
-            $results = Author::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                        ->orWhere('first_name', 'like', '%' . $text .'%');
-                    })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
-        }
-        else
-        {
-            $results = Author::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                        ->orWhere('first_name', 'like', '%' . $text .'%')
-                        ->orWhere('legal_name', 'like', '%' . $text .'%')
-                        ->orWhere('alt_names', 'like', '%' . $text .'%');
-                    })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
 
-        }
+        $results = Author::where(function($query) use($text, $large) {
+            // Recherche sur nom et prénom
+            $query->where('name', 'like', '%' . $text .'%')
+                ->orWhere('first_name', 'like', '%' . $text .'%');
+
+            if ($large === "on")
+            {
+                // recherche étendue
+                // ...aux noms légal et aux noms alternatifs
+                $query->orWhere('legal_name', 'like', '%' . $text .'%');
+                $query->orWhere('alt_names', 'like', '%' . $text .'%');
+            }
+        })
+        ->orderBy('name', 'asc')
+        ->simplePaginate($pagin)
+        ->withQueryString();
 
 /*
             $results = Author::where(function($query) use($text) {
@@ -375,7 +370,33 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view ('admin.formulaires.creer_auteur');
+        // Après une création (redirection depuis store), la session porte l'auteur créé
+        return view('admin.formulaires.creer_auteur', $this->context + [
+            'status'    => session('status'),
+            'id'        => session('id'),
+            'label'     => session('label'),
+            'countries' => $this->countryOptions(),
+            'unknownCountryId' => Country::where('name', '?')->value('id'),
+        ]);
+    }
+
+    /**
+     * Pays pour la liste du formulaire : "Inconnu", puis les plus fréquents chez les auteurs, puis tous les autres
+     * par ordre alphabétique.
+     * @return array{frequent: \Illuminate\Support\Collection, others: \Illuminate\Support\Collection}
+     */
+    private function countryOptions(): array
+    {
+        $frequentIds = DB::table('authors')->whereNull('deleted_at')->whereNotNull('country_id')
+            ->select('country_id', DB::raw('count(*) as n'))->groupBy('country_id')
+            ->orderByDesc('n')->limit(8)->pluck('country_id')->all();
+
+        $all = Country::orderBy('name')->get(['id', 'name'])->reject(fn ($c) => $c->name === '?');
+
+        return [
+            'frequent' => collect($frequentIds)->map(fn ($id) => $all->firstWhere('id', $id))->filter()->values(),
+            'others'   => $all->reject(fn ($c) => in_array($c->id, $frequentIds))->values(),
+        ];
     }
 
     /**
@@ -388,29 +409,49 @@ class AuthorController extends Controller
     {
         $validated = $request->validated();
 
-        $liste_pays = [
-            'France' => Country::select('id')->where('name', 'France')->get(),
-            'Canada' => Country::select('id')->where('name', 'canada')->get(),
-            'Etats-Unis' => Country::select('id')->where('name', 'Etats-Unis')->get(),
-            'Royaume Uni' => Country::select('id')->where('name', 'Royaume Uni')->get(),
-            '?' => Country::select('id')->where('name', '?')->get()
-        ];
+        $name = trim($validated['name']);
+        $firstName = filled($validated['first_name'] ?? null) ? trim($validated['first_name']) : null;
 
-        $pays = $liste_pays["$request->pays"];
+        // Doublon : même nom et même prénom (vide = absent), comme la recherche de l'import.
+        // Création seulement si l'homonymie est confirmée.
+        if (!$request->boolean('homonym')) {
+            $duplicates = Author::where('name', $name)
+                ->where(fn ($q) => $firstName === null
+                    ? $q->whereNull('first_name')->orWhere('first_name', '')
+                    : $q->where('first_name', $firstName))
+                ->get(['id', 'name', 'first_name', 'slug', 'birth_date', 'date_death']);
+
+            if ($duplicates->isNotEmpty()) {
+                return back()->withInput()
+                    ->with('duplicates', $duplicates->map(fn ($a) => [
+                        'id'    => $a->id,
+                        'label' => trim(($a->first_name ?? '') . ' ' . $a->name),
+                        'slug'  => $a->slug,
+                        'dates' => ($a->birth_date ?: '?') . ' / ' . ($a->date_death ?: '?'),
+                    ])->all())
+                    ->withErrors(['name' => 'Un auteur de même nom et prénom existe déjà : vérifiez ci-dessous, '
+                        . 'puis cochez « Créer quand même » s\'il s\'agit d\'un homonyme.']);
+            }
+        }
 
         $auteur = Author::create([
-            'name' => $request->name,
-            'first_name' => $request->first_name,
-            'country_id' => $pays[0]['id'],
-            'gender' => $request->gender,
-            'birth_date' => $request->birth_date,
+            'name' => $name,
+            'first_name' => $firstName,
+            'country_id' => $validated['country_id'],
+            'gender' => $validated['gender'] ?? \App\Enums\AuthorGender::INCONNU->value,
+            'birth_date' => filled($validated['birth_date'] ?? null) ? $validated['birth_date'] : '0000-00-00',
+            'date_death' => filled($validated['date_death'] ?? null) ? $validated['date_death'] : '0000-00-00',
+            'is_pseudonym' => $request->boolean('is_pseudonym'),
             'quality' => 'vide',
-            'is_pseudonym' => false,
             'is_visible' => true,
-            'date_death' => '0000-00-00',
         ]);
 
-        return view ('admin.formulaires.creer_auteur', $this->context)->with('status', true)->with('id', $auteur->id);
+        // Redirection (POST/redirect/GET) : un rafraîchissement de la page ne recrée pas l'auteur
+        return redirect('/admin/formulaires/ajout-auteur')->with([
+            'status' => true,
+            'id'     => $auteur->id,
+            'label'  => trim(($auteur->first_name ?? '') . ' ' . $auteur->name),
+        ]);
     }
 
 }

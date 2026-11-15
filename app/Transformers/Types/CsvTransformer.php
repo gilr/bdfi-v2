@@ -40,6 +40,7 @@ class CsvTransformer implements FormatTransformer
         return [
             'Sexe', 'PRENOM', 'NOM', 'TITRE', 'Série', 'N° Série', 'TITRE_ORIGINAL', 'GENRE', 'RNO', 'A/J', 'Format', 'Dim./Durée', 'Pages', 'Imag/Blanche/Auto', 'EDITEUR', 'COLLECTION', 'NR', 'tri', 'nom_img', 'O', 'AN_COPY', 'Mois Paru', 'AN_PARU', 'O/R', 'Type', 'DL', 'AI', 'Imprimeur', 'PRIX (Award)', 'AN_PRIX', 'S Tr', 'Traducteur', 'ISBN', 'Commentaires', 'Sexe Il', 'Illustr. / Narrat.'
         ];
+
     }
     protected function getExpectedHeader2Bis(): array
     {

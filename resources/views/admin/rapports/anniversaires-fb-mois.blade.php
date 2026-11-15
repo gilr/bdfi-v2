@@ -3,7 +3,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/admin">Administration BDFI</a> &rarr;
-            <a href="/admin/outils">Outils & Rapports</a> &rarr;
+            <a href="/admin/rapports">Rapports</a> &rarr;
             Anniversaires du mois
         </h2>
     </x-slot>
@@ -14,7 +14,7 @@
 
         <div class="p-2 text-xl">Texte à programmer sur Facebook à 00:00 de chaque jour prochain</div>
 
-        Pour ce jour courant ({{$today}}), voir : <a class="text-yellow-700 border-b border-yellow-500 hover:bg-yellow-100 hover:border-purple-800" href="{{url('/admin/outils/anniversaires-fb-jour')}}">Anniversaires du jour - A copier-coller sur facebook</a>
+        Pour ce jour courant ({{$today}}), voir : <a class="text-yellow-700 border-b border-yellow-500 hover:bg-yellow-100 hover:border-purple-800" href="{{url('/admin/rapports/anniversaires-fb-jour')}}">Anniversaires du jour - A copier-coller sur facebook</a>
 
         @foreach ($data as $jour)
 

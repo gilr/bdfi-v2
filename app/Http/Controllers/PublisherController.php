@@ -9,12 +9,14 @@ use App\Models\Publication;
 use App\Models\Publisher;
 use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PublisherController extends Controller
 {
     public $context = [
         'area'     => 'editeurs',
         'title'    => 'Editeurs',
+        'extended' => 'aux variantes de noms et collections',
         'icon'     => 'editeurs.png',
         'filament' => 'publishers',
         'page'     => '',
@@ -42,14 +44,17 @@ class PublisherController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
+
         if ($large !== "on")
         {
+            // Recherche simple
             $results = Publisher::where(function($query) use($text) {
                 $query->where('name', 'like', '%' . $text .'%');
             })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
         }
         else
         {
+            // Recherche étendue
             $relations = ['collections', 'collections2', 'collections3'];
 
             $results = Publisher::query()
@@ -196,9 +201,39 @@ class PublisherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Show the form for creating a new resource.
+     * Après une création (redirection depuis store), la session porte l'éditeur créé.
+     */
     public function create()
     {
-        return view ('admin.formulaires.creer_editeur');
+        return view('admin.formulaires.creer_editeur', $this->context + [
+            'status'    => session('status'),
+            'id'        => session('id'),
+            'label'     => session('label'),
+            'slug'      => session('slug'),
+            'countries' => $this->countryOptions(),
+            'unknownCountryId' => Country::where('name', '?')->value('id'),
+        ]);
+    }
+
+    /**
+     * Pays pour la liste du formulaire : "Inconnu", puis les plus fréquents chez les éditeurs,
+     * puis tous les autres par ordre alphabétique.
+     * @return array{frequent: \Illuminate\Support\Collection, others: \Illuminate\Support\Collection}
+     */
+    private function countryOptions(): array
+    {
+        $frequentIds = DB::table('publishers')->whereNull('deleted_at')->whereNotNull('country_id')
+            ->select('country_id', DB::raw('count(*) as n'))->groupBy('country_id')
+            ->orderByDesc('n')->limit(8)->pluck('country_id')->all();
+
+        $all = Country::orderBy('name')->get(['id', 'name'])->reject(fn ($c) => $c->name === '?');
+
+        return [
+            'frequent' => collect($frequentIds)->map(fn ($id) => $all->firstWhere('id', $id))->filter()->values(),
+            'others'   => $all->reject(fn ($c) => in_array($c->id, $frequentIds))->values(),
+        ];
     }
 
     /**
@@ -210,29 +245,42 @@ class PublisherController extends Controller
     public function store(StorePublisherRequest $request)
     {
         $validated = $request->validated();
-        $liste_pays = [
-            'France' => Country::select('id')->where('name', 'France')->get(),
-            'Canada' => Country::select('id')->where('name', 'canada')->get(),
-            'Suisse' => Country::select('id')->where('name', 'Suisse')->get(),
-            'Belgique' => Country::select('id')->where('name', 'Belgique')->get(),
-            'Luxembourg' => Country::select('id')->where('name', 'Luxembourg')->get()
-        ];
+        $name = trim($validated['name']);
 
+        // Doublon : même nom déjà en base. Création seulement si l'homonymie est confirmée.
+        if (!$request->boolean('homonym')) {
+            $duplicates = Publisher::where('name', $name)
+                ->get(['id', 'name', 'slug', 'year_start']);
 
-        $pays = $liste_pays["$request->pays"];
-        //$collection = new Collection;
-        //$collection->name = $request->name;
-        //$collection->save();
+            if ($duplicates->isNotEmpty()) {
+                return back()->withInput()
+                    ->with('duplicates', $duplicates->map(fn ($p) => [
+                        'id'    => $p->id,
+                        'label' => $p->name,
+                        'slug'  => $p->slug,
+                        'dates' => (string) $p->year_start,
+                    ])->all())
+                    ->withErrors(['name' => 'Un éditeur de même nom existe déjà : vérifiez ci-dessous, '
+                        . 'puis cochez « Créer quand même » s\'il s\'agit d\'un homonyme.']);
+            }
+        }
+
         $editeur = Publisher::create([
-            'name' => $request->name,
-            'alt_names' => $request->alt_names,
-            'year_start' => $request->year_start,
-            'type' => $request->type,
-            'country_id' => $pays[0]['id'],
+            'name' => $name,
+            'alt_names' => filled($validated['alt_names'] ?? null) ? trim($validated['alt_names']) : null,
+            'year_start' => $validated['year_start'],
+            'type' => $validated['type'],
+            'country_id' => $validated['country_id'],
             'quality' => 'vide',
         ]);
 
-        return view ('admin.formulaires.creer_editeur', $this->context)->with('status', true)->with('id', $editeur->id);
+        // Redirection (POST/redirect/GET) : un rafraîchissement de la page ne recrée pas l'éditeur
+        return redirect('/admin/formulaires/ajout-editeur')->with([
+            'status' => true,
+            'id'     => $editeur->id,
+            'label'  => $editeur->name,
+            'slug'   => $editeur->slug,
+        ]);
     }
 
 }

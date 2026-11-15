@@ -28,7 +28,10 @@ class SiteController extends Controller
             ->limit(25)
             ->with('publisher')
             ->get();
-        $results2 = Revision::orderBy('updated_at', 'desc')
+        $results2 = Revision::where([
+                ['revisionable_type', '<>', 'App\Models\User']
+            ])
+            ->orderBy('updated_at', 'desc')
             ->limit(25)
             ->get();
 
@@ -40,7 +43,7 @@ class SiteController extends Controller
         $this->context['page'] = 'Evolutions';
         setlocale( LC_TIME, "fr-FR" );
         $results = Announcement::where([
-              ['type', '<>', 'remerciement'],
+                ['type', '<>', 'remerciement'],
                 ['type', '<>', 'consecration']
             ])
             ->orderBy('date', 'desc')

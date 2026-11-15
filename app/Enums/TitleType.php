@@ -34,10 +34,10 @@ enum TitleType: string implements HasLabel {
     case JEU          = 'game';
     case INCONNU      = 'inconnu';
 // Autres ?
-// Omnibus, revue, magazine, journal ?
+// revue, magazine, journal => magazine
 // excerpt ? (ou plutôt short fiction et nom = "Titre (extrait)")
-// coverart ? interiorart ? backcovertart ?
-// review ? inverview ? (pb auteurs...)
+// coverart ? interiorart ? backcovertart => pas géré pour l'instant
+// review ? inverview ? (pb auteurs...) => pas géré non plus pour l'instant
 
     public function getLabel(): ?string
     {

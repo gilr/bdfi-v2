@@ -9,7 +9,12 @@
 
 function BuildRecordInfo($filament, $area, $results): string
 {
-    $recordInfo = "<div class='text-sm pt-2'>Fiche racine créée le $results->updated_at par ". $results->creator->name . ", et mise à jour le $results->updated_at par " . $results->editor->name . ".";
+    // Null-safe : created_by/updated_by peut être vide, ou pointer vers un compte qui n'existe plus
+    // (référence orpheline), auquel cas la relation creator()/editor() est elle-même null.
+    $creatorName = $results->creator->name ?? 'compte inconnu';
+    $editorName = $results->editor->name ?? 'compte inconnu';
+
+    $recordInfo = "<div class='text-sm pt-2'>Fiche racine créée le $results->updated_at par ". $creatorName . ", et mise à jour le $results->updated_at par " . $editorName . ".";
 
     if (Auth::user() && (Auth::user()->hasMemberRole()))
     {

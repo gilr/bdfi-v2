@@ -10,12 +10,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Enums\QualityStatus;
 use App\Models\Publication;
 use App\Models\Title;
+use App\Models\Publisher;
+use App\Models\Country;
+use App\Enums\PublisherType;
 
 class CollectionController extends Controller
 {
     public $context = [
         'area'     => 'collections',
         'title'    => 'Collections',
+        'extended' => 'aux variantes de noms et éditeurs',
         'icon'     => 'collection.png',
         'filament' => 'collections',
         'page'     => '',
@@ -64,8 +68,10 @@ class CollectionController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
+
         if ($large !== "on")
         {
+            // Recherche simple
             $results = Collection::where(function($query) use($text) {
                     $query->where('name', 'like', '%' . $text .'%');
                 })
@@ -76,6 +82,7 @@ class CollectionController extends Controller
         }
         else
         {
+            // Recherche étendue
             $relations = ['publisher', 'publisher2', 'publisher3'];
 
             $results = Collection::query()
@@ -218,9 +225,18 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Show the form for creating a new resource.
+     * Après une création (redirection depuis store), la session porte la collection créée.
+     */
     public function create()
     {
-        return view ('admin.formulaires.creer_collection');
+        return view('admin.formulaires.creer_collection', $this->context + [
+            'status' => session('status'),
+            'id'     => session('id'),
+            'label'  => session('label'),
+            'slug'   => session('slug'),
+        ]);
     }
 
     /**
@@ -232,20 +248,89 @@ class CollectionController extends Controller
     public function store(StoreCollectionRequest $request)
     {
         $validated = $request->validated();
+        $name = trim($validated['name']);
+        // Nom court = nom (cas sans sous-collection) si laissé vide
+        $shortname = filled($validated['shortname'] ?? null) ? trim($validated['shortname']) : $name;
 
-        //$collection = new Collection;
-        //$collection->name = $request->name;
-        //$collection->save();
+        // Doublon : même nom déjà en base. Création seulement si l'homonymie est confirmée.
+        if (!$request->boolean('homonym')) {
+            $duplicates = Collection::where('name', $name)
+                ->get(['id', 'name', 'slug', 'year_start']);
+
+            if ($duplicates->isNotEmpty()) {
+                return back()->withInput()
+                    ->with('duplicates', $duplicates->map(fn ($c) => [
+                        'id'    => $c->id,
+                        'label' => $c->name,
+                        'slug'  => $c->slug,
+                        'dates' => (string) $c->year_start,
+                    ])->all())
+                    ->withErrors(['name' => 'Une collection de même nom existe déjà : vérifiez ci-dessous, '
+                        . 'puis cochez « Créer quand même » s\'il s\'agit d\'une homonymie.']);
+            }
+        }
+
+        // Éditeur (EntityPicker) : existant, à créer à la volée, ou aucun pour l'instant
+        $publisherId = $this->resolvePublisher($validated['publisher_id'] ?? null, $validated['publisher_name'] ?? null);
+        if ($publisherId instanceof \Illuminate\Http\RedirectResponse) {
+            return $publisherId;
+        }
+
         $collection = Collection::create([
-            'name' => $request->name,
-            'shortname' => $request->shortname,
-            'year_start' => $request->year_start,
-            'type' => $request->type,
-            'support' => $request->support,
+            'name' => $name,
+            'shortname' => $shortname,
+            'year_start' => $validated['year_start'],
+            'type' => $validated['type'],
+            'support' => $validated['support'],
+            // NOT NULL sans défaut, absents de l'ancien formulaire (le crée échouait en base)
+            'periodicity' => $validated['periodicity'],
+            'is_in_v2beta' => false,
             'quality' => QualityStatus::VIDE->value,
+            'publisher_id' => $publisherId,
         ]);
 
-        return view ('admin.formulaires.creer_collection', $this->context)->with('status', true)->with('id', $collection->id);
+        // Redirection (POST/redirect/GET) : un rafraîchissement de la page ne recrée pas la collection
+        return redirect('/admin/formulaires/ajout-collection')->with([
+            'status' => true,
+            'id'     => $collection->id,
+            'label'  => $collection->name,
+            'slug'   => $collection->slug,
+        ]);
+    }
+
+    /**
+     * Résout l'éditeur choisi via l'EntityPicker : existant (id), à créer à la volée (nom saisi sans
+     * sélection), ou aucun (champ laissé vide). Un nom qui correspond exactement à un éditeur existant
+     * n'est jamais créé en double : la sélection via la recherche est demandée à la place.
+     *
+     * @return int|null|\Illuminate\Http\RedirectResponse id de l'éditeur à lier, null si aucun,
+     *         ou une redirection (erreur) si le nom saisi correspond à un éditeur déjà en base
+     */
+    private function resolvePublisher(?int $publisherId, ?string $publisherName): int|null|\Illuminate\Http\RedirectResponse
+    {
+        if (filled($publisherId)) {
+            return $publisherId;
+        }
+
+        $name = trim((string) $publisherName);
+        if ($name === '') {
+            return null;
+        }
+
+        $existing = Publisher::where('name', $name)->first(['id', 'slug']);
+        if ($existing) {
+            return back()->withInput()->withErrors(['publisher_name' => "Un éditeur nommé « {$name} » existe déjà "
+                . "(#{$existing->id}) : utilisez la recherche pour le sélectionner, au lieu de taper son nom."]);
+        }
+
+        // Création à la volée : mêmes valeurs par défaut que le formulaire dédié (ajout-editeur)
+        return Publisher::create([
+            'name' => $name,
+            'year_start' => 0,   // inconnue ; à corriger ensuite dans Filament si besoin
+            'type' => PublisherType::EDITEUR->value,
+            'country_id' => Country::where('name', '?')->value('id'),
+            'quality' => QualityStatus::VIDE->value,
+        ])->id;
     }
 
 }

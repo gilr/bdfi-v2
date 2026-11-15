@@ -114,6 +114,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        // AJOUT traces livewire pour recherche de la faille
+        'livewire' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/livewire.log'),
+            'level' => 'debug',
+        ],
     ],
 
 ];

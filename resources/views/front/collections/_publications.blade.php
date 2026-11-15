@@ -19,7 +19,7 @@
                 @if (!$loop->first)
                     ,
                 @endif
-                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                 {{--
                 @if ($author->pivot->role != App\Enums\AuthorPublicationRole::AUTHOR)
                     <span class='hidden xl:inline'>({{ $author->pivot->role->getLabel() }})</span>

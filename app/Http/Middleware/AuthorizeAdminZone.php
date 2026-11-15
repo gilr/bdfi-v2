@@ -18,10 +18,9 @@ class AuthorizeAdminZone
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-        if (!$user) {
-            return redirect('/');
-        }
-        if ($user->role->value === UserRole::USER->value) {
+
+        # Refuser les USER simples (tous les autres, de GUEST à SYSADMIN ont un accès - mais peuvent se voir refuser certaines fonctions)
+        if (!$user || $user->role->value === UserRole::USER->value) {
             return redirect('/');
         }
         return $next($request);

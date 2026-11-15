@@ -35,7 +35,6 @@
     <div class='grid grid-cols-1 text-base px-2 mx-2 md:mx-12 self-center'>
         @foreach($results2 as $result)
         <?php
-            $href = "/nova/resources/". Str::plural(Str::kebab(class_basename($result->revisionable_type))) . "/" . $result->revisionable_id;
             $pubtitle = class_exists($class = $result->revisionable_type) ? $class::withTrashed()->find($result->revisionable_id)->name : "...";
             $old = Str::limit($result->old_value, 40, "...");
             $new = Str::limit($result->new_value, 40, "...");

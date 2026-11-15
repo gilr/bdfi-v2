@@ -63,7 +63,7 @@ function displayAuthorBiblio ($analyse, $results, $title)
          {
             // Cas 2 : une seule signature, mais différente
             $slug = $title->authors[0]->slug;
-            $nom = $title->authors[0]->fullname;
+            $nom = $title->authors[0]->firstNameFirst;
             $credit = " signé <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$slug'>$nom</a>";
             return "$credit";
          }
@@ -93,7 +93,7 @@ function displayAuthorBiblio ($analyse, $results, $title)
             {
                if ($author->id != $results->id)
                {
-                  $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->fullname</a>";
+                  $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->firstNameFirst</a>";
                }
             }
             return "$credit";
@@ -111,7 +111,7 @@ function displayAuthorBiblio ($analyse, $results, $title)
             $credit = "";
             foreach($title->authors as $author)
             {
-               $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->fullname</a>";
+               $credit = $credit . " <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/$author->slug'>$author->firstNameFirst</a>";
             }
             return "$credit";
          }

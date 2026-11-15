@@ -29,7 +29,7 @@
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @endforeach
                         @endif
                     </div>
@@ -70,7 +70,7 @@
                                     <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte>,
                                     {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse
@@ -78,7 +78,7 @@
                                     <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte>,
                                     nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse

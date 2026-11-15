@@ -3,7 +3,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/admin">Administration BDFI</a> &rarr;
-            <a href="/admin/outils">Outils & Rapports</a> &rarr;
+            <a href="/admin/rapports">Rapports</a> &rarr;
             Manque récompenses prix
         </h2>
     </x-slot>
@@ -24,6 +24,7 @@
                         <tr class="bg-blue-50">
                             <th class="p-1">Award</th>
                             <th class="p-1">Dernier lauréat</th>
+                            <th class="p-1">Saisie</th>
                             <th class="p-1">Liens sur catégories</th>
                         </tr>
                     </thead>
@@ -32,6 +33,9 @@
                         <tr class="border border-blue-500">
                             <td class="py-1 px-2 border border-blue-500">{{ $result[0]->name }}</td>
                             <td class="py-1 px-2 border border-blue-500">{{ $result[1] }}</td>
+                            <td class="py-1 px-2 border border-blue-500">
+                                <x-admin.link lien='/admin/formulaires/ajout-annee-prix?award_id={{ $result[0]->id }}&year={{ $result[1] + 1 }}'>Saisir {{ $result[1] + 1 }}</x-admin.link>
+                            </td>
                             <td>
                                 @foreach ($result[2] as $categ)
                                     <x-admin.link-ext lien='/filament/award-categories/{{ $categ->id }}/edit?activeRelationManager=0'>{{ $categ->name }}<br /></x-admin.link-ext>

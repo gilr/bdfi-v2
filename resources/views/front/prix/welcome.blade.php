@@ -15,7 +15,7 @@
     <div class='text-xl text-purple-800 mb-2 bold self-center pb-2'>
         Liste des prix récompensant ou ayant récompensé des oeuvres d'imaginaire
     </div>
-    <div class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
+    <div class='columns-1 md:columns-2 xl:columns-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
         @foreach($prix as $myprix)
             <div class='hover:bg-yellow-100 border-b hover:border-purple-600'>
                 <a class='sm:p-0.5 md:px-0.5' href='/prix/{{ $myprix->slug }}'><span class='font-semibold'>{{ $myprix->name }}</span> ({{ $myprix->country->name }})</a>

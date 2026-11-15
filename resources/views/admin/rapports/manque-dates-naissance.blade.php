@@ -3,8 +3,8 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/admin">Administration BDFI</a> &rarr;
-            <a href="/admin/outils">Outils & Rapports</a> &rarr;
-            Manque dates de décès
+            <a href="/admin/rapports">Rapports</a> &rarr;
+            Manque dates de naissance
         </h2>
     </x-slot>
 
@@ -27,8 +27,8 @@
                         @foreach ($auteurs as $author)
                         <tr class="border border-blue-500">
                             <td class="py-1 px-2 border border-blue-500">{{ $author->name }} {{ $author->first_name }}</td>
-                            <td class="py-1 px-2 border border-blue-500"><strong>{{ $author->birth_date }}</strong></td>
-                            <td class="py-1 px-2 border border-blue-500 text-red-500">{{ $author->date_death }}</td>
+                            <td class="py-1 px-2 border border-blue-500 text-red-500"><strong>{{ $author->birth_date }}</strong></td>
+                            <td class="py-1 px-2 border border-blue-500">{{ $author->date_death }}</td>
                             <td class="py-1 px-2 border border-blue-500">
                                 <x-admin.link-ext lien='/filament/authors/{{ $author->id }}'>Fiche {{ $author->id }}</x-admin.link-ext>
                             </td>

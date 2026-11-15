@@ -28,7 +28,7 @@
             @if (!$loop->first)
                 ,
             @endif
-            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
         @empty
             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
         @endforelse

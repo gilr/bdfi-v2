@@ -1,9 +1,9 @@
 <x-app-layout>
-    <!-- Page d'accueil administration (jetstream) -->
+    <!-- Zone Labs : essais divers -->
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/admin">Administration BDFI</a> &rarr;
-            <a href="/admin/outils">Labs - tests & outils</a>
+            <a href="/admin/labs">Labs - essais divers</a>
         </h2>
     </x-slot>
 
@@ -13,17 +13,11 @@
 
                 <div class="p-6">
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Transformation entre formats
+                        Essais en cours
                     </div>
                     <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='labs/conversion-format'>Conversion de format</x-admin.link></li>
-                        </ul>
-                    </div>
-                    <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='labs/conversion-content'>Conversion sommaire</x-admin.link></li>
-                        </ul>
+                        Aucun essai pour l'instant. Les outils stabilisés sont dans la zone
+                        <x-admin.link lien='outils'>Outils</x-admin.link>.
                     </div>
                 </div>
             </div>

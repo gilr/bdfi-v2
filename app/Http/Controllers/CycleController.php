@@ -13,6 +13,7 @@ class CycleController extends Controller
     public $context = [
         'area'     => 'series',
         'title'    => 'Cycles, séries',
+        'extended' => 'aux titres originaux et aux variantes',
         'icon'     => 'series.png',
         'filament' => 'cycles',
         'page'     => '',
@@ -42,27 +43,20 @@ class CycleController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
-        if ($large !== "on")
-        {
-            $results = Cycle::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
-        }
-        else
-        {
-            $results = Cycle::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                    ->orWhere('alt_names', 'like', '%' . $text .'%')
-                    ->orWhere('vo_names', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->simplePaginate($pagin)
-                ->withQueryString();
 
-        }
+        $results = Cycle::where(function($query) use($text, $large)
+        {
+            $query->where('name', 'like', '%' . $text .'%');
+            if ($large === "on")
+            {
+                // recherche étendue
+                $query->orWhere('alt_names', 'like', '%' . $text .'%');
+                $query->orWhere('vo_names', 'like', '%' . $text .'%');
+            }
+        })
+        ->orderBy('name', 'asc')
+        ->simplePaginate($pagin)
+        ->withQueryString();
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix
         $this->context['page'] = "recherche \"$text\"";

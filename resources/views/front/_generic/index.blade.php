@@ -16,7 +16,7 @@
         @endforeach
     </div>
 -->
-    <div class=' columns-1 md:columns-2 xl:columns-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
+    <div class='columns-1 md:columns-2 xl:columns-3 text-base px-2 mx-2 md:mx-12 lg:mx-24 self-center sm:w-10/12'>
         @foreach($results as $result)
             <div class='hover:bg-orange-100 border-b hover:border-purple-600'>
                 @if ($area == "collections")

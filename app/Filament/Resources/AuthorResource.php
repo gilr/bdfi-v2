@@ -82,10 +82,13 @@ class AuthorResource extends Resource
                         Forms\Components\Toggle::make('is_visible')
                             ->label('La fiche doit s\'afficher (si décoché, elle sera cachée)')
                             ->onColor('success')
+                            ->offColor('danger')
+                            ->default(True)
                             ->required(),
                         Forms\Components\Toggle::make('is_pseudonym')
                             ->label('Ce nom est un pseudonyme')
-                            ->onColor('warning')
+                            ->onColor('success')
+                            ->offColor('warning')
                             ->required(),
                         Forms\Components\Select::make('gender')
                             ->label('H/F & co')

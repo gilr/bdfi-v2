@@ -171,9 +171,16 @@
     @endif
 
     <div class='text-base'>
+        {{-- "-" : l'ouvrage n'a pas d'ISBN (n/a) ; "?" ou vide : ISBN inconnu (ou existence inconnue) --}}
+        @php
+            $isbnValue = trim((string) $results->isbn);
+            $noIsbn = in_array($isbnValue, ['', '-', '?'], true);
+        @endphp
         ISBN : <span class='font-semibold'>
-            @if ($results->isbn == "-")
+            @if ($isbnValue === '-')
                 n/a
+            @elseif ($noIsbn)
+                inconnu
             @else
                 {{ $results->isbn }}
                 <span class="font-light text-base">
@@ -182,7 +189,7 @@
             @endif
         </span>
     </div>
-    @if ($results->isbn != "-")
+    @if (!$noIsbn)
         <div class='text-xs ml-2'>
             {{ isbnCheckAndConvert($results->isbn) }}
         </div>

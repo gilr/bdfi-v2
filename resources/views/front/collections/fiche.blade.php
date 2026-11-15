@@ -136,7 +136,7 @@
 
     @if ($results->parent_id != 0)
         <div class='text-base'>
-            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent->slug }}'>{{ $results->parent->fullName }} </a></span>
+            Collection parente : <span class='font-semibold'><a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $results->parent->slug }}'>{{ $results->parent->fullShortName }} </a></span>
         </div>
         <div class='text-base'>
             Sous-collection, sous-ensemble :

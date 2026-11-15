@@ -139,12 +139,18 @@ class PublicationResource extends Resource
                             ->maxLength(10),
                         Forms\Components\Toggle::make('is_hardcover')
                             ->label('Ouvrage relié')
+                            ->onColor('success')
+                            ->offColor('warning')
                             ->required(),
                         Forms\Components\Toggle::make('has_dustjacket')
                             ->label('Avec jaquette')
+                            ->onColor('success')
+                            ->offColor('warning')
                             ->required(),
                         Forms\Components\Toggle::make('has_coverflaps')
                             ->label('Avec couverture à rabats')
+                            ->onColor('success')
+                            ->offColor('warning')
                             ->required(),
                         ])
                     ->columns(2),
@@ -156,13 +162,15 @@ class PublicationResource extends Resource
                             ->helperText("Uniquement pour les nouvelles éditions qui ne sont pas des retirages.")
                             ->relationship('first_edition', 'name')
                             ->hiddenOn('create')
-                            ->hint(fn (Title $record) => $record->first_edition_id == 0 ? "C'est une 1ere édition dans la collection" : new HtmlString('<a href="' . TitleResource::getUrl('view', ['record' => $record->first_edition_id]) . '">Aller à la fiche 1ere édition</a>'))
+                            ->hint(fn (Publication $record) => $record->first_edition_id == 0 ? "C'est une 1ere édition dans la collection" : new HtmlString('<a href="' . TitleResource::getUrl('view', ['record' => $record->first_edition_id]) . '">Aller à la fiche 1ere édition</a>'))
                             ->hintColor('info')
                             ->hintIcon('heroicon-m-link')
                             ->searchable(['name']),
                         Forms\Components\Toggle::make('is_visible')
                             ->label('Visible sur le site')
                             ->helperText('Décoché (gris), l\'ouvrage ne sera pas affiché. Permet de stocker des ouvrages limites ou des "faux-amis".')
+                            ->onColor('success')
+                            ->offColor('warning')
                             ->default(True)
                             ->columnSpanFull()
                             ->required(),
@@ -208,7 +216,7 @@ class PublicationResource extends Resource
                             ->label('Est vérifié ?')
                             ->helperText("Si vérifié livre entre les mains. Indique que les informations DL, AI, imprimeur... sont validées, mais aussi le sommaire réel (titres de début de page, et non sommaire).")
                             ->onColor('success')
-                            ->offColor('danger')
+                            ->offColor('warning')
                             ->required(),
                         Forms\Components\TextInput::make('verified_by')
                             ->label('Vérifié par')

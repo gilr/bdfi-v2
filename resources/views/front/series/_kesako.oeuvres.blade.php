@@ -20,7 +20,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
+                            <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }} </a>
                         @endforeach
                         @endif
                     </div>
@@ -40,14 +40,14 @@
                                     @endif
                                     <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}, {{ StrDateformat($variant->copyright_fr) }}</a> -
                                     @forelse($variant->authors as $author)
-                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
+                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }} </a>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse
                                 @else
                                     <a class='text-blue-800 border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/textes/{{ $variant->slug }}'>{{ $variant->name }}</a>, nouvelle traduction, {{ StrDateformat($variant->copyright_fr) }} -
                                     @forelse($variant->authors as $author)
-                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }} </a>
+                                        <a class='border-b border-dotted border-purple-700 hover:text-purple-700 focus:text-purple-900' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }} </a>
                                     @empty
                                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                                     @endforelse

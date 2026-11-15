@@ -113,27 +113,29 @@
 
         </ul>
 
-        <div class="mt-2 h-32 flex items-center w-full">
-            <!-- Action Section (le SVG est un bouton de delog) -->
-            <button
-                class="h-16 p-4 mx-auto hidden sm:flex justify-center items-center w-full focus:text-yellow-600 bg-yellow-50 border-gray-500 hover:bg-purple-50 focus:outline-none">
-                <svg
-                    class="h-5 w-5 text-red-700"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                    <polyline points="16 17 21 12 16 7"></polyline>
-                    <line x1="21" y1="12" x2="9" y2="12"></line>
-                </svg>
-                <div class="text-xs">bye</div>
-            </button>
+        <div class="mt-2 h-16 flex items-center w-full">
+        @if (Route::has('login'))
+            @auth
+                <div class="h-16 p-4 mx-auto hidden sm:flex justify-center items-center w-full text-red-600 hover:text-yellow-600 focus:text-purple-600 bg-yellow-50 border-gray-500 hover:bg-yellow-100 focus:outline-none">
+                <form method="POST" style="display:inline" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="h-16 p-4 mx-auto hidden sm:flex justify-center items-center w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                        </svg>
+                        <span class="text-xs pl-1">Bye</span>
+                    </button>
+                </form>
+                </div>
+            @else
+                <a href="{{ route('login') }}" class="h-12 p-2 transition-colors mx-auto flex justify-center items-center w-full text-red-600 hover:text-yellow-600 focus:text-purple-600 bg-yellow-50 border-gray-500 hover:bg-yellow-100 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                    </svg>
+                    <span class="text-xs pl-1">Log</span>
+                </a>
+            @endauth
+        @endif
         </div>
 
     </aside>

@@ -6,8 +6,10 @@
 $authent = Auth::user()->name;
 $role = Auth::user()->role->getLabel();
 $vrole = Auth::user()->role->value;
-$creator = $results->creator->name;
-$editor = $results->editor->name;
+// Null-safe : created_by/updated_by peut être vide, ou pointer vers un compte qui n'existe plus
+// (référence orpheline), auquel cas la relation est elle-même null.
+$creator = $results->creator->name ?? 'compte inconnu';
+$editor = $results->editor->name ?? 'compte inconnu';
 
 $blockTitle = <<< END
 Bloc d'information fiche.

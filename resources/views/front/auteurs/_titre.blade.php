@@ -20,7 +20,7 @@
             {!! displayAuthorBiblio (1, $results, $title) !!}
 {{--
             @forelse($title->authors as $author)
-                <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
+                <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</a>
             @empty
                 <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
             @endforelse
@@ -63,7 +63,7 @@
                         {!! displayAuthorBiblio (1, $results, $variant) !!}
 {{--
                         @forelse($variant->authors as $author)
-                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
+                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</a>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
@@ -76,7 +76,7 @@
                         {!! displayAuthorBiblio (1, $results, $variant) !!}
 {{--
                         @forelse($variant->authors as $author)
-                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</a>
+                            <a class='text-red-800 border-b border-dotted border-purple-700 hover:text-purple-700' href='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</a>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse

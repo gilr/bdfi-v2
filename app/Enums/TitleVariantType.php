@@ -37,7 +37,7 @@ enum TitleVariantType: string implements HasLabel {
     public function getDescription(): ?string
     {
         return match ($this) {
-            self::PREMIER       => 'Titre parent, la première publication francophone connue ',
+            self::PREMIER       => 'Titre parent, la première publication francophone connue',
             self::VIRTUEL       => 'Titre parent virtuel, première publication, non publiée, mais avec le vrai nom d\'auteur',
             self::EPISODE       => 'Partie d\'un texte publié en feuilleton',
             self::EXTRAIT       => 'Partie du texte d\'origine publiée seule',

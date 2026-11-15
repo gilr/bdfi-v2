@@ -61,7 +61,7 @@ class PublicationSeeder extends Seeder
                 'cover'                  => $obj->cover ?: "",
                 'illustrators'           => $obj->illustrators ?: "",
                 'approximate_parution'   => $obj->approximate_parution ?: "",
-                'approximate_pages'      => $obj->pages ?: 0,
+                'approximate_pages'      => $obj->pages ?: null,
                 'approximate_price'      => $obj->prix ?: "",
 
 
@@ -82,8 +82,8 @@ class PublicationSeeder extends Seeder
                 'dustjacket_back'    => "",
                 'dustjacket_spine'   => "",
 
-                'information'      => $obj->description ?: 0,
-                'private'          => $obj->private ?: 0,
+                'information'      => $obj->description ?: null,
+                'private'          => $obj->private ?: null,
 
                 'created_at'   => today(),
                 'updated_at'   => today(),

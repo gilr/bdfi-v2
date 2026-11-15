@@ -27,7 +27,7 @@
             @if (!$loop->first)
                 ,
             @endif
-            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
         @empty
             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
         @endforelse
@@ -91,7 +91,7 @@
                  ($results->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                 -
                 @forelse($results->parent->authors as $author)
-                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                 @empty
                     <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                 @endforelse
@@ -127,7 +127,7 @@
                              ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                             <span class='italic'> - signé</span>
                             @forelse($variant->authors as $author)
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @empty
                                 <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                             @endforelse
@@ -156,7 +156,7 @@
                          ($variant->variant_type === App\Enums\TitleVariantType::SIGNTRADTITRE->value))
                         <span class='italic'>- signé</span>
                         @forelse($variant->authors as $author)
-                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                         @empty
                             <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                         @endforelse
@@ -176,7 +176,7 @@
                 <div class='ml-2 md:ml-8'>
                     <x-front.lien-texte link='/textes/{{ $variant->slug }}'>{!! $variant->name !!}</x-front.lien-texte> -
                     @forelse($variant->authors as $author)
-                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                        <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                     @empty
                         <span class='font-semibold text-red-500'> Non crédité ou inconnu</span>
                     @endforelse
@@ -273,7 +273,7 @@
                                             @if (!$loop->first)
                                                 ,
                                             @endif
-                                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                                         @endforeach
                                     @endif
 
@@ -322,7 +322,7 @@
                             @if (!$loop->first)
                                 ,
                             @endif
-                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                            <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                         @endforeach
                     @endif
 
@@ -380,7 +380,7 @@
                                     @if (!$loop->first)
                                         ,
                                     @endif
-                                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                    <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                                 @endforeach
                             @endif
 
@@ -436,7 +436,7 @@
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
@@ -484,7 +484,7 @@
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
@@ -529,7 +529,7 @@
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 
@@ -572,7 +572,7 @@
                                 @if (!$loop->first)
                                     ,
                                 @endif
-                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->fullname }}</x-front.lien-auteur>
+                                <x-front.lien-auteur link='/auteurs/{{ $author->slug }}'>{{ $author->firstNameFirst }}</x-front.lien-auteur>
                             @endforeach
                         @endif
 

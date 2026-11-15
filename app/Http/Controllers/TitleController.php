@@ -14,6 +14,7 @@ class TitleController extends Controller
     public $context = [
         'area'     => 'textes',
         'title'    => 'Textes, oeuvres',
+        'extended' => 'au titre vo et à la description',
         'icon'     => 'texte.png',
         'filament' => 'titles',
         'page'     => '',
@@ -55,22 +56,22 @@ class TitleController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
-        if ($large !== "on")
-        {
-            $results = Title::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
-        }
-        else
-        {
-            $results = Title::where(function($query) use($text) {
-                $query->where('name', 'like', '%' . $text .'%')
-                ->orWhere('title_vo', 'like', '%' . $text .'%')
-                ->orWhere('information', 'like', '%' . $text .'%')
-                ->orWhere('synopsis', 'like', '%' . $text .'%');
-            })->orderBy('name', 'asc')->simplePaginate($pagin)->withQueryString();
 
-        }
+        $results = Title::where(function($query) use($text, $large) {
+            $query->where('name', 'like', '%' . $text .'%');
+
+            if ($large === "on")
+            {
+                // recherche étendue
+                $query->orWhere('title_vo', 'like', '%' . $text .'%');
+                $query->orWhere('information', 'like', '%' . $text .'%');
+                $query->orWhere('synopsis', 'like', '%' . $text .'%');
+            }
+
+        })
+        ->orderBy('name', 'asc')
+        ->simplePaginate($pagin)
+        ->withQueryString();
 
         // Pour l'instant, dans tous les cas on aiguille sur la page de choix
         $this->context['page'] = "recherche \"$text\"";

@@ -45,7 +45,7 @@ class TitleSeeder extends Seeder
                 'target_audience'  => $obj->cible,
                 'target_age'       => $obj->age,
 
-                'information'      => $obj->description ?: 0,
+                'information'      => $obj->description ?: null,
                 'private'          => "",
 
                 'created_at'   => today(),

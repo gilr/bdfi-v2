@@ -8,6 +8,8 @@
         </h2>
     </x-slot>
 
+    <x-admin.discovery-notice :allowed="auth()->user()->hasProponentRole()" />
+
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="border border-blue-800 rounded-lg p-2 hidden sm:block my-2">
@@ -131,7 +133,7 @@
                 Couverture à rabat : {{ html()->checkbox($name = "has_coverflaps", $checked = false, $value = '0')->class("m-2 bg-yellow-200 font-mono") }}
             </div>
             <div class="p-2 text-xl border-yellow-800">
-                {{ html()->submit($text = "Faire la proposition")->class("bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2") }}
+                {{ html()->submit($text = "Faire la proposition")->class("bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2")->attributeIf(! auth()->user()->hasProponentRole(), "disabled") }}
                 {{ html()->form()->close() }}
             </div>
         </div>

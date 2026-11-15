@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,7 +22,7 @@ use App\Enums\BiblioCollectionStatus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class User extends Authenticatable  implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -85,6 +87,13 @@ class User extends Authenticatable
     protected $revisionCreationsEnabled = true;
 
     protected $dontKeepRevisionOf = ['deleted_by'];
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // Au moins invité : les invités et proposants consultent (lecture seule),
+        // les droits de création/modification/suppression sont portés par les policies.
+        return $this->hasGuestRole();
+    }
 
     public function revisionable_type() {
         return "Utilisateur";

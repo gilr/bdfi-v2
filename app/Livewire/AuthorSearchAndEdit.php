@@ -52,6 +52,9 @@ class AuthorSearchAndEdit extends Component
 
     public function save()
     {
+        // Modification réservée aux membres et plus (comme la création)
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
+
         // Valider les données du formulaire
         $this->validate([
             'birth_date'    => ['required', 'size:10', 'regex:/[\-012][\-0-9]{3}-([0-9]{2}-[0-9]{2}|circa)/'],

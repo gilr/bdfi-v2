@@ -8,6 +8,8 @@
         </h2>
     </x-slot>
 
+    <x-admin.discovery-notice :allowed="auth()->user()->hasMemberRole()" />
+
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="border border-blue-800 rounded-lg p-2 hidden sm:block my-2">
@@ -102,7 +104,7 @@
                 {{ html()->hidden($name = "private", $value="") }}
             </div>
             <div class="p-2 text-xl border-yellow-800">
-                {{ html()->submit($text = "Créer l'oeuvre")->class("bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2") }}
+                {{ html()->submit($text = "Créer l'oeuvre")->class("bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 m-2")->attributeIf(! auth()->user()->hasMemberRole(), "disabled") }}
                 {{ html()->form()->close() }}
             </div>
         </div>

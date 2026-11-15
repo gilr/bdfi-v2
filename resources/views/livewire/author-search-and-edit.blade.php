@@ -38,7 +38,7 @@
             <textarea wire:model="bio" rows="5"  class="border p-2 w-full mb-2"></textarea>
 
             <div class="flex space-x-2 mt-2">
-                <button wire:click="save" class="bg-blue-400 mr-2 text-white p-2">Enregistrer</button>
+                <button wire:click="save" @disabled(! auth()->user()?->hasMemberRole()) class="bg-blue-400 mr-2 text-white p-2 disabled:opacity-50 disabled:cursor-not-allowed">Enregistrer</button>
                 <button wire:click="resetSelection" class="bg-gray-500 text-white p-2">Annuler</button>
             </div>
 

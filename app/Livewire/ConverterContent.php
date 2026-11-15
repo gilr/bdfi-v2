@@ -18,12 +18,21 @@ class ConverterContent extends Component
     public string $inputData = '';
     public string $outputData = '';
 
+    // Ajout par sécurité
+    protected static $middlewares = [
+        'auth.bdfiadmin',
+        'admin.maintenance',
+    ];
     public function convert()
     {
+        // Exécution interdite aux invités (mode découverte)
+        abort_unless(auth()->user()?->hasProponentRole(), 403);
+
         $text = $this->inputData;
         $from = $this->inputFormat;
         $to = $this->outputFormat;
         if ($this->inputFormat === "TEXT-TPN") {
+            // TODO : voir si les autres fonctionnent, et les accepter dans le test d'entrée
             $this->convertFromTxt();
         }
         elseif ($this->inputFormat === "CSV-TAB") {
@@ -193,9 +202,10 @@ class ConverterContent extends Component
         return ($value === "_" ? "" : " " . $value);
     }
 
-    public function convertFromTxt()
+    protected function convertFromTxt()
     {
         $text = $this->inputData;
+        $from = $this->inputFormat;
 
         $text = rtrim(ltrim($text));
         $liste = preg_split("/\r\n|\n|\r/", $text);

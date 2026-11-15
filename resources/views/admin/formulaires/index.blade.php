@@ -7,6 +7,8 @@
         </h2>
     </x-slot>
 
+    <x-admin.discovery-notice :allowed="auth()->user()->hasProponentRole()" />
+
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -26,43 +28,40 @@
                             <livewire:title-search intro="" label="Existence d'un texte" />
                         </div>
 
-                    @if (auth()->user()->hasMemberRole())
+                    @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Création rapide
                         </div>
                         <div class="p-2">
-                            Attention, toute nouvelle publication devra être attachée à une oeuvre au moins (un contenu). S'il s'agit d'une première publication de l'oeuvre, il est plus simple de créer d'abord cette oeuvre ("Ajout d'une oeuvre") puis de créer la publication. Les formulaires seront améliorés pour pouvoir également renseigner d'autres informations (les auteurs par exemple) en une seule étape. Une oeuvre peut être un roman, un recueil, une nouvelle, un essai... Pour une variante d'oeuvre, passez par les tables (ou adressez vous au chef :-))
+                            Pour une variante d'oeuvre, attendez les nouveaux formulaires, passez par les tables... ou adressez vous au chef :-)
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link>
-                                --- ou --- <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue non déjà recensée</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/programme-parution'>Ajout publication à paraître</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou inconnu</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou inconnue</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus)(à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                    ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnant d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
                             </ul>
                         </div>
                     @endif
 
-                    @if (auth()->user()->hasMemberRole())
+                    @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
-                            Corrections rapides
-                        </div>
-                        <div class="p-2">
-                            ajout-variant : Choix de deux titres (auteur, trad) non déjà reliés, et du type de lien. Valider pour ajouter un lien.<br />
-                            inverser-variant : Recherche des variants via un titre - Afficher la liste, sélectionner, appliquer l'inversion
+                            Corrections et améliorations
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout d'un lien entre deux variantes de texte/oeuvre</x-admin.link>
-                                <li><x-admin.link lien='formulaires/ajout-texte'>Inversion du sens du lien entre deux variantes de texte/oeuvre</x-admin.link></li>
-                            </ul>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A revoir)</span> <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> ajout-variant : Choix de deux titres (auteur, trad) non déjà reliés, et du type de lien. Valider pour ajouter un lien.<br /></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> inverser-variant : Recherche des variants via un titre - Afficher la liste, sélectionner, appliquer l'inversion</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A faire)</span> scinder-variant : Supprimer une liaison erronée - Recherche des variants via un titre - Afficher la liste, sélectionner, supprimer le lien</li>
                         </div>
                     @endif
 
-                    @if (auth()->user()->hasProponentRole())
+                    @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Propositions
                         </div>
@@ -76,7 +75,7 @@
                         </div>
                     @endif
 
-                    @if (auth()->user()->hasMemberRole())
+                    @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Autres opérations
                         </div>
@@ -92,8 +91,21 @@
                         </div>
                     @endif
 
+                    @if (auth()->user()->hasMemberRole())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Raccourcis sur formulaires table
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li><x-admin.link-ext lien='https://bdfi-v2.test/filament/events/create'>Ajout évènement non déjà recensé</x-admin.link-ext></li>
+                                <li><x-admin.link-ext lien='https://bdfi-v2.test/filament/announcements/create'>Ajout remerciement ou annonce</x-admin.link-ext></li>
+                            </ul>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+

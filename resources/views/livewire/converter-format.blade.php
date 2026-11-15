@@ -55,7 +55,7 @@
     </form>
 
     <div class="mb-2">
-        <button wire:click="convert" wire:loading.attr="disabled" wire:target="inputFile" class="mt-4 bg-gray-300 hover:bg-slate-300 active:bg-slate-400 active:scale-95 transition-all px-4 py-2 border border-blue-800 rounded disabled:opacity-80">
+        <button wire:click="convert" @disabled(! auth()->user()?->hasProponentRole()) wire:loading.attr="disabled" wire:target="inputFile" class="mt-4 disabled:cursor-not-allowed bg-gray-300 hover:bg-slate-300 active:bg-slate-400 active:scale-95 transition-all px-4 py-2 border border-blue-800 rounded disabled:opacity-80">
             Lancer la conversion
         </button>
     </div>
@@ -75,7 +75,7 @@
                         Copier le résultat dans le clipboard
                     </button>
                     {{-- bouton télécharger --}}
-                    <a href="{{ route('labs.download') }}" target="_blank">
+                    <a href="{{ route('outils.download') }}" target="_blank">
                         <button
                         class="mx-2 bg-gray-300 hover:bg-gray-400 active:bg-gray-500 active:scale-95 transition-all px-4 py-2 border border-blue-800 rounded text-sm">
                             Télécharger le résultat

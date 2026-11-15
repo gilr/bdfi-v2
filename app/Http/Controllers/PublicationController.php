@@ -9,15 +9,21 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Collection;
 use App\Models\TableOfContent;
+use App\Models\Publisher;
+use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\PublicationStatus;
 use App\Enums\PublicationFormat;
+use App\Enums\PublisherType;
+use App\Enums\AuthorPublicationRole;
+use App\Enums\QualityStatus;
 
 class PublicationController extends Controller
 {
     public $context = [
         'area'     => 'ouvrages',
         'title'    => 'Publications',
+        'extended' => 'aux ISBN et aux cycles',
         'icon'     => 'livre.png',
         'filament' => 'publications',
         'page'     => '',
@@ -59,28 +65,27 @@ class PublicationController extends Controller
 
         $text = $request->input('s');
         $large = $request->input('m');
-        if ($large !== "on")
-        {
-            $results = Publication::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->with('publisher')
-                ->simplePaginate($pagin)
-                ->withQueryString();
-        }
-        else
-        {
-            $results = Publication::where(function($query) use($text) {
-                    $query->where('name', 'like', '%' . $text .'%')
-                        ->orWhere('cycle', 'like', '%' . $text .'%');
-                })
-                ->orderBy('name', 'asc')
-                ->with('publisher')
-                ->simplePaginate($pagin)
-                ->withQueryString();
 
-        }
+        $normalized = str_replace('-', '', $text);
+
+        $results = Publication::where(function($query) use($text, $normalized, $large)
+        {
+            // recherche sur titre
+            $query->where('name', 'like', '%' . $text .'%');
+
+            if ($large === "on")
+            {
+                // recherche étendue
+                // ...aux ISBN (normalisé)
+                $query->orWhereRaw("REPLACE(isbn, '-', '') LIKE ?", ["%{$normalized}%"]);
+                // ...et aux cycles
+                $query->orWhere('cycle', 'like', '%' . $text .'%');
+            }
+        })
+        ->orderBy('name', 'asc')
+        ->with('publisher')
+        ->simplePaginate($pagin)
+        ->withQueryString();
 
 /*
             $results = Publication::where(function($query) use($text) {
@@ -306,17 +311,38 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /**
+     * Création rapide d'une publication parue ou à paraître (formulaire unique).
+     * ?statut=annonce présélectionne "à paraître". Après une création (redirection depuis store),
+     * la session porte la publication créée.
+     */
+    public function create(Request $request)
     {
-        return view ('admin.formulaires.creer_publication');
+        $status = session('pubstatus')
+            ?? ($request->query('statut') === PublicationStatus::ANNONCE->value
+                ? PublicationStatus::ANNONCE->value : PublicationStatus::PUBLIE->value);
+
+        return view('admin.formulaires.creer_publication', $this->context + [
+            'pubStatus' => old('publication_status', $status),
+            'status'    => session('status'),
+            'id'        => session('id'),
+            'label'     => session('label'),
+            'slug'      => session('slug'),
+        ]);
     }
+
+    /** Ancienne adresse du formulaire "à paraître" : regroupé avec le formulaire de création */
     public function createFuture()
     {
-        return view ('admin.formulaires.programme_parution');
+        return redirect('/admin/formulaires/ajout-publication?statut=' . PublicationStatus::ANNONCE->value);
     }
+
     public function propose()
     {
-        return view ('admin.formulaires.proposer_publication');
+        return view('admin.formulaires.proposer_publication', $this->context + [
+            'status' => session('status'),
+            'id'     => session('id'),
+        ]);
     }
     public function indexProposal()
     {
@@ -347,16 +373,20 @@ class PublicationController extends Controller
 
         return view ('admin.formulaires.programmes_non_echus', compact('results'));
     }
+    // Actions de validation/confirmation (à écrire) : réservées aux membres et plus
     public function validateProposal()
     {
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
         //Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
     }
     public function updateExpiredFuture()
     {
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
         //Route::put('/admin/formulaires/programmes-echus', [PublicationController::class, 'updateExpiredFuture']);
     }
     public function updateFuture()
     {
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
         //Route::put('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'updateFuture']);
     }
 
@@ -370,49 +400,100 @@ class PublicationController extends Controller
     {
 
         $validated = $request->validated();
+
+        // Éditeur (EntityPicker) : existant, à créer à la volée, ou aucun pour l'instant
+        $publisherId = $this->resolvePublisher($validated['publisher_id'] ?? null, $validated['publisher_name'] ?? null);
+        if ($publisherId instanceof \Illuminate\Http\RedirectResponse) {
+            return $publisherId;
+        }
+
         $publication = Publication::create([
-            'status' => $request->publication_status,
-            'name' => $request->name,
-            'type' => $request->type,
-            'support' => $request->support,
-            'approximate_parution' => $request->approximate_parution,
-            'is_genre' => $request->is_genre,
-            'genre_stat' => $request->genre_stat,
-            'target_audience' => $request->target_audience,
-            'isbn' => $request->isbn,
+            'status' => $validated['publication_status'],
+            'name' => trim($validated['name']),
+            'type' => $validated['type'],
+            'support' => $validated['support'],
+            'format' => $validated['format'] ?? PublicationFormat::INCONNU->value,
+            'approximate_parution' => $validated['approximate_parution'],
+            'is_genre' => $validated['is_genre'],
+            'genre_stat' => $validated['genre_stat'],
+            'target_audience' => $validated['target_audience'],
+            // "-" : pas d'ISBN (ouvrage ancien, fanzine...) ; "?" : ISBN inconnu (champ laissé vide)
+            'isbn' => $request->boolean('no_isbn') ? '-' : (filled($validated['isbn'] ?? null) ? trim($validated['isbn']) : '?'),
+            'is_hardcover' => $request->boolean('is_hardcover'),
+            'has_dustjacket' => $request->boolean('has_dustjacket'),
+            'has_coverflaps' => $request->boolean('has_coverflaps'),
             'is_verified' => false,
             'private' => $request->private,
-            'format' => PublicationFormat::INCONNU->value,
+            'publisher_id' => $publisherId,
         ]);
 
         if ($request->selected_id !== NULL)
         {
-            // Ajouter le "sommaire"
+            // Formulaire de proposition : contenu principal choisi parmi les oeuvres existantes
             $content = TableOfContent::create([
                 'publication_id' => $publication->id,
                 'title_id' => $request->selected_id,
             ]);
         }
 
-        // Trier en fonction de la provenance pour ré-aiguiller sur la bonne page
-        if ($request->publication_status === PublicationStatus::PUBLIE->value)
-        {
-            return view ('admin.formulaires.creer_publication', $this->context)->with('status', true)->with('id', $publication->id);
-        }
-        else if ($request->publication_status === PublicationStatus::ANNONCE->value)
-        {
-            return view ('admin.formulaires.programme_parution', $this->context)->with('status', true)->with('id', $publication->id);
-        }
-        else if ($request->publication_status === PublicationStatus::PROPOSE->value)
-        {
-            return view ('admin.formulaires.proposer_publication', $this->context)->with('status', true)->with('id', $publication->id);
-        }
-        else
-        {
-            // Strange ?!
-            return view ('admin.formulaires.index');
+        // Collection (EntityPicker, existante uniquement) et son n° éventuel : rien si non choisie
+        if (filled($validated['collection_id'] ?? null)) {
+            $number = trim((string) ($validated['collection_number'] ?? ''));
+            $publication->collections()->attach($validated['collection_id'], [
+                // order (NOT NULL) : même convention que l'import (partie numérique du n°, 0 si absente/non numérique)
+                'order'  => (int) (preg_match('/\d+/', $number, $m) ? $m[0] : 0),
+                'number' => $number !== '' ? $number : null,
+            ]);
         }
 
+        // Auteurs (EntityPicker, existants uniquement) : jusqu'à deux pour l'instant, rôle "auteur"
+        $authorIds = collect([$validated['author1_id'] ?? null, $validated['author2_id'] ?? null])
+            ->filter(fn ($id) => filled($id))
+            ->unique();
+        if ($authorIds->isNotEmpty()) {
+            $publication->authors()->attach(
+                $authorIds->mapWithKeys(fn ($id) => [(int) $id => ['role' => AuthorPublicationRole::AUTHOR->value]])->all()
+            );
+        }
+
+        // Redirection (POST/redirect/GET) : un rafraîchissement de la page ne recrée pas la publication
+        $flash = ['status' => true, 'id' => $publication->id, 'label' => $publication->name, 'slug' => $publication->slug,
+                  'pubstatus' => $publication->status->value];
+
+        return $publication->status === PublicationStatus::PROPOSE
+            ? redirect('/admin/formulaires/proposer-publication')->with($flash)
+            : redirect('/admin/formulaires/ajout-publication?statut=' . $publication->status->value)->with($flash);
+    }
+
+    /**
+     * Résout l'éditeur choisi via l'EntityPicker : existant (id), à créer à la volée (nom saisi sans
+     * sélection), ou aucun (champ laissé vide). Même logique que CollectionController::resolvePublisher().
+     */
+    private function resolvePublisher(?int $publisherId, ?string $publisherName): int|null|\Illuminate\Http\RedirectResponse
+    {
+        if (filled($publisherId)) {
+            return $publisherId;
+        }
+
+        $name = trim((string) $publisherName);
+        if ($name === '') {
+            return null;
+        }
+
+        $existing = Publisher::where('name', $name)->first(['id', 'slug']);
+        if ($existing) {
+            return back()->withInput()->withErrors(['publisher_name' => "Un éditeur nommé « {$name} » existe déjà "
+                . "(#{$existing->id}) : utilisez la recherche pour le sélectionner, au lieu de taper son nom."]);
+        }
+
+        // Création à la volée : mêmes valeurs par défaut que le formulaire dédié (ajout-editeur)
+        return Publisher::create([
+            'name' => $name,
+            'year_start' => 0,   // inconnue ; à corriger ensuite dans Filament si besoin
+            'type' => PublisherType::EDITEUR->value,
+            'country_id' => Country::where('name', '?')->value('id'),
+            'quality' => QualityStatus::VIDE->value,
+        ])->id;
     }
 
 }

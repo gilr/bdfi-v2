@@ -7,8 +7,10 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase; // crée les tables dans la base SQLite de test (sinon : "no such table")
+
     /**
-     * A basic test example.
+     * La page d'accueil s'affiche (base vide).
      *
      * @return void
      */

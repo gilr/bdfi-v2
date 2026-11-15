@@ -27,7 +27,7 @@
     </div>
 
     <div class="mb-4">
-        <button wire:click="convert" class="mt-4 bg-gray-300 px-4 py-2 rounded">
+        <button wire:click="convert" @disabled(! auth()->user()?->hasProponentRole()) class="mt-4 bg-gray-300 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed">
             Lancer la conversion
         </button>
     </div>
@@ -38,7 +38,7 @@
                 <label class="block font-semibold">Résultat</label>
                 <textarea readonly rows="10" class="text-xs w-full border rounded p-2 font-mono bg-gray-100">{{ $outputData }}</textarea>
             </div>
-            <a href="{{ route('labs.download') }}" target="_blank" class="mt-6">
+            <a href="{{ route('outils.download') }}" target="_blank" class="mt-6">
                 <div class="mb-4">
                     <button class="mt-4 bg-gray-300 px-4 py-2 rounded">
                         Télécharger

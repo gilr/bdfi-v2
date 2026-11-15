@@ -6,13 +6,22 @@ use Illuminate\Support\Facades\Response;
 
 class DownloadController extends Controller
 {
+    /** Modèles jamais téléchargeables (données personnelles, mots de passe chiffrés...) */
+    private const EXCLUDED_MODELS = ['user'];
+
     public function index()
     {
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
+
         return view('admin.telechargements.index');
     }
 
     public function exportCSV(Request $request, $model)
     {
+        // Téléchargement des tables réservé aux membres et plus
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
+        abort_if(in_array(strtolower($model), self::EXCLUDED_MODELS, true), 403);
+
         // Contrôle existence du modèle
         if (!class_exists("App\\Models\\$model"))
         {

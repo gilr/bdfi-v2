@@ -8,6 +8,8 @@
         </h2>
     </x-slot>
 
+    <x-admin.discovery-notice :allowed="auth()->user()->hasMemberRole()" />
+
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="border border-blue-800 rounded-lg p-1 m-1">

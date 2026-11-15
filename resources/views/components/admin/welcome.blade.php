@@ -26,7 +26,7 @@
                 Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" ou cliquer sur "Formulaires de modif rapide" ci-dessus pour la liste complète.
             </div>
 
-            @if (auth()->user()->hasMemberRole())
+            @if (auth()->user()->hasGuestRole())
             <a href="admin/formulaires/ajout-auteur">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Ajouter un auteur non référencé
@@ -53,7 +53,7 @@
             </a>
             @endif
 
-            @if (auth()->user()->isProponent())
+            @if (auth()->user()->isProponent() || auth()->user()->isGuest())
             <a href="admin/formulaires/proposer-publication">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Proposer l'ajout d'une publication non référencée
@@ -69,12 +69,12 @@
     <div class="p-6">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="admin/outils">Rapports et outils</a></div>
+            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="admin/rapports">Rapports</a></div>
         </div>
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                Ensemble d'outils et de rapports listant des éléments potentiellement erronés ou à compléter. Cliquer sur "Rapports et outils" ci-dessus pour la liste complète.
+                Ensemble de rapports listant des éléments potentiellement erronés ou à compléter. Cliquer sur "Rapports" ci-dessus pour la liste complète.
             </div>
 
             <a href="admin/rapports/dates-bizarres">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </a>
-            <a href="admin/outils/anniversaires-fb-semaine">
+            <a href="admin/rapports/anniversaires-fb-semaine">
                 <div class="mt-2 flex items-center text-sm font-semibold text-indigo-700">
                     Anniversaires de la semaine
                     <div class="ml-1 text-indigo-500">
@@ -136,7 +136,13 @@
     <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="/admin/telechargements">Backup de tables</a></div>
+            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
+                @if (auth()->user()->hasMemberRole())
+                    <a href="/admin/telechargements">Backup de tables</a>
+                @else
+                    <span class="text-gray-400 cursor-not-allowed" title="Réservé aux membres">Backup de tables</span>
+                @endif
+            </div>
         </div>
 
         <div class="ml-12">

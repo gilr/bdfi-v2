@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserRole;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -34,7 +35,26 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
+            'role' => UserRole::USER,
         ];
+    }
+
+    /**
+     * Après création, recharge l'utilisateur depuis la base pour disposer des valeurs
+     * par défaut des colonnes (gestion_biblio, two_factor_confirmed_at...) : sinon le mode
+     * strict d'Eloquent (accès à un attribut absent) fait planter les vues.
+     */
+    public function configure(): static
+    {
+        return $this->afterCreating(fn (User $user) => $user->refresh());
+    }
+
+    /**
+     * Attribue un rôle BDFI à l'utilisateur (USER par défaut).
+     */
+    public function role(UserRole $role): static
+    {
+        return $this->state(fn (array $attributes) => ['role' => $role]);
     }
 
     /**

@@ -33,6 +33,11 @@ class ConverterFormat extends Component
         'admin.maintenance',
     ];
 
+    public function mount()
+    {
+        abort_unless(auth()->check(), 403);
+    }
+
     public array $formats = [
         'EXCEL' => 'EXCEL (format CM)',
         'CSV' => 'CSV (format CM)',
@@ -44,7 +49,13 @@ class ConverterFormat extends Component
     ];
 
     protected $rules = [
-        'inputFile' => 'nullable|file|mimes:xlsx,xls,csv,txt',
+        'inputFile' => [
+            'nullable',
+            'file',
+            'max:10240',
+            'mimes:text/plain,text/csv,application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'extensions:xlsx,xls,csv,txt',
+        ],
     ];
 
     public function updatedInputFormat($value)
@@ -59,6 +70,9 @@ class ConverterFormat extends Component
 
     public function convert()
     {
+        // Exécution interdite aux invités (mode découverte)
+        abort_unless(auth()->user()?->hasProponentRole(), 403);
+
         if ($this->wantFile) {
             if (!$this->inputFile) {
                 $this->addError('inputFile', 'Le fichier est en cours de téléchargement ou non sélectionné.');

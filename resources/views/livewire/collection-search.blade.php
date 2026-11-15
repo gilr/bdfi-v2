@@ -5,7 +5,7 @@
 
     <!-- Modale -->
     @if($showModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center shadow-lg shadow-indigo-500/50">
+        <div class="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center shadow-lg shadow-indigo-500/50">
             <div class="bg-white p-6 rounded-lg shadow-lg w-9/12">
                 <h2 class="text-lg font-semibold mb-4">Rechercher une collection</h2>
 

@@ -131,6 +131,12 @@
                                 {{ __('Preferences') }}
                             </x-dropdown-link>
 
+                            @if (Auth::user()->gestion_biblio)
+                                <x-dropdown-link href="{{ route('user/bibliotheque') }}">
+                                    Ma biblio
+                                </x-dropdown-link>
+                            @endif
+
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -225,6 +231,12 @@
                 <x-responsive-nav-link href="{{ route('preferences.show') }}" :active="request()->routeIs('preferences.show')">
                     {{ __('Preferences') }}
                 </x-responsive-nav-link>
+
+                @if (Auth::user()->gestion_biblio)
+                    <x-responsive-nav-link href="{{ route('user/bibliotheque') }}" :active="request()->routeIs('user/bibliotheque')">
+                        Ma biblio
+                    </x-responsive-nav-link>
+                @endif
 
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}

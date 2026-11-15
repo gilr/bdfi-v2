@@ -158,6 +158,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/user/retirer-collection', [UserController::class, 'removeBiblioCollection']);
         Route::post('/user/ajouter-publication', [UserController::class, 'addBiblioPublication']);
         Route::post('/user/retirer-publication', [UserController::class, 'removeBiblioPublication']);
+        Route::post('/user/etat-publication', [UserController::class, 'toggleBiblioPublicationStatus']);
 
         // Zone statistiques accès restreint
         Route::get('/stats/analyse', [StatController::class, 'analyse']);

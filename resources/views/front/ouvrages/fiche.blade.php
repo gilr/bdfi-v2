@@ -3,12 +3,14 @@
         @foreach ($results->collections as $collection)
             @if (auth()->user() && (auth()->user()->statusCollection($collection->id)) && (auth()->user()->statusCollection($collection->id) != 'cachee'))
                 <div class='text-lg mb-8 self-center bg-green-200 shadow-sm shadow-gray-400 rounded-sm px-1'>
-                    @if (auth()->user()->statusPublication($results->id))
+                    @if (auth()->user()->ownsDamagedPublication($results->id))
+                        <x-front.display-icon-pub-damaged /> Ouvrage possédé mais abîmé -
+                    @elseif (auth()->user()->ownsPublication($results->id))
                         <x-front.display-icon-pub-owned /> Ouvrage possédé -
                     @else
                         <x-front.display-icon-pub-missing /> Ouvrage non possédé -
                     @endif
-                    Collection suivie, {{ auth()->user()->statusCollection($collection->slug) }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
+                    Collection "{{ $collection->name }}" suivie, {{ App\Enums\BiblioCollectionStatus::tryFrom(auth()->user()->statusCollection($collection->id))?->getLabel() }} (<x-admin.link lien='/user/gestion-biblio'>&rarr; Gestion</x-admin.link>)
                 </div>
             @endif
         @endforeach

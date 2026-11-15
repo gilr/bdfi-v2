@@ -1,10 +1,12 @@
 @foreach ($results->publications as $publication)
     <div class='ml-2 md:ml-8'>
         @if (isset($suivie) && $suivie)
-            @if (auth()->user()->statusPublication($publication->id))
+            @if (auth()->user()->ownsDamagedPublication($publication->id))
+                <span title="Possédé mais abîmé"><x-front.display-icon-pub-damaged /></span>
+            @elseif (auth()->user()->ownsPublication($publication->id))
                 <x-front.display-icon-pub-owned />
             @else
-                <x-front.display-icon-pub-missing />
+                <span class="inline-block w-6"></span>
             @endif
         @endif
         @if($publication->pivot->number)

@@ -26,6 +26,9 @@ return new class extends Migration
                 ->on('publications')
                 ->onDelete('restrict');
 
+            // Voir enum BiblioPublicationStatus ['possede', 'abime'] (script SQL : database/sql/2026_11_user_publication_status.sql)
+            $table->string('status')->default('possede');
+
             $table->timestamps();
         });
     }

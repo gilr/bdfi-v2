@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Wildside\Userstamps\Userstamps;
 use App\Enums\UserRole;
 use App\Enums\BiblioCollectionStatus;
+use App\Enums\BiblioPublicationStatus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -217,6 +218,50 @@ class User extends Authenticatable  implements FilamentUser
         }
 
         return false;
+    }
+
+    // Ouvrages possédés (bibliothèque) : [publication_id => état], chargés une seule fois par requête
+    protected $ownedPublicationIds = null;
+
+    protected function ownedPublications(): array
+    {
+        if ($this->ownedPublicationIds === null) {
+            $this->ownedPublicationIds = DB::table('user_publication')
+                    ->where('user_id', $this->id)
+                    ->pluck('status', 'publication_id')
+                    ->all();
+        }
+        return $this->ownedPublicationIds;
+    }
+
+    // Ouvrage possédé ? (sans requête par ouvrage : la liste est chargée une seule fois)
+    public function ownsPublication($id): bool
+    {
+        return isset($this->ownedPublications()[$id]);
+    }
+
+    // Ouvrage possédé mais abîmé ?
+    public function ownsDamagedPublication($id): bool
+    {
+        return ($this->ownedPublications()[$id] ?? null) === BiblioPublicationStatus::ABIME->value;
+    }
+
+    // Nombre d'ouvrages possédés parmi ceux de la collection
+    public function countOwnedInCollection($collection): int
+    {
+        return $collection->publications
+                    ->pluck('id')
+                    ->unique()
+                    ->filter(fn ($id) => $this->ownsPublication($id))
+                    ->count();
+    }
+
+    // Ouvrages de la collection non possédés (mancoliste), et optionnellement ceux possédés mais abîmés
+    public function missingInCollection($collection, bool $withDamaged = false)
+    {
+        return $collection->publications
+                    ->filter(fn ($publication) => !$this->ownsPublication($publication->id)
+                        || ($withDamaged && $this->ownsDamagedPublication($publication->id)));
     }
 
     public function statusPublication($id)

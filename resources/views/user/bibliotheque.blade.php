@@ -28,7 +28,7 @@ $user = Auth::user()
         </div>
         @forelse ($user->collections_en_cours as $collection)
             <div class='ml-2 md:ml-8 py-0.5 my-0.5'>
-                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
+                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - {{ $user->countOwnedInCollection($collection) }} / {{ count($collection->publications) }}
             </div>
         @empty
             <span class='italic ml-2 md:ml-8'>aucune</span>
@@ -39,7 +39,7 @@ $user = Auth::user()
         </div>
         @forelse ($user->collections_quasi_ok as $collection)
             <div class='ml-2 md:ml-8 py-0.5 my-0.5'>
-                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
+                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - {{ $user->countOwnedInCollection($collection) }} / {{ count($collection->publications) }}
             </div>
         @empty
             <span class='italic ml-2 md:ml-8'>aucune</span>
@@ -50,7 +50,7 @@ $user = Auth::user()
         </div>
         @forelse ($user->collections_terminees as $collection)
             <div class='ml-2 md:ml-8 py-0.5 my-0.5'>
-                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
+                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - {{ $user->countOwnedInCollection($collection) }} / {{ count($collection->publications) }}
             </div>
         @empty
             <span class='italic ml-2 md:ml-8'>aucune</span>
@@ -61,7 +61,7 @@ $user = Auth::user()
         </div>
         @forelse ($user->collections_en_pause as $collection)
             <div class='ml-2 md:ml-8 py-0.5 my-0.5'>
-                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
+                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - {{ $user->countOwnedInCollection($collection) }} / {{ count($collection->publications) }}
             </div>
         @empty
             <span class='italic ml-2 md:ml-8'>aucune</span>
@@ -72,7 +72,7 @@ $user = Auth::user()
         </div>
         @forelse ($user->collections_cachees as $collection)
             <div class='ml-2 md:ml-8 py-0.5 my-0.5'>
-                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->id }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - xxx / {{ count($collection->publications) }}
+                <a class='border-b border-dotted border-purple-700 font-semibold hover:text-purple-700 focus:text-purple-900' href='/collections/{{ $collection->slug }}'>{{ $collection->name }} </a> - {{ $collection->publisher->name }} - {{ $user->countOwnedInCollection($collection) }} / {{ count($collection->publications) }}
             </div>
         @empty
             <span class='italic ml-2 md:ml-8'>aucune</span>

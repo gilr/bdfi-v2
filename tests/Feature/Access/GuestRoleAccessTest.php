@@ -9,6 +9,8 @@ use App\Livewire\BookImport;
 use App\Livewire\BookImportAnalysis;
 use App\Livewire\ConverterContent;
 use App\Livewire\ConverterFormat;
+use App\Livewire\EventOccurrenceAdd;
+use App\Livewire\TitleVariantsManager;
 use App\Models\User;
 use Filament\Facades\Filament;
 use Livewire\Livewire;
@@ -45,6 +47,8 @@ class GuestRoleAccessTest extends AccessTestCase
         '/admin/formulaires/publications-proposees',
         '/admin/formulaires/programmes-echus',
         '/admin/formulaires/programmes-non-echus',
+        '/admin/formulaires/gerer-variantes',
+        '/admin/formulaires/ajout-evenement',
         // Outils (affichés, conversion désactivée)
         '/admin/outils/conversion-format',
         '/admin/outils/conversion-content',
@@ -59,6 +63,8 @@ class GuestRoleAccessTest extends AccessTestCase
         '/admin/rapports/anniversaires-fb-jour',
         '/admin/rapports/anniversaires-fb-semaine',
         '/admin/rapports/anniversaires-fb-mois',
+        '/admin/rapports/erreurs-variantes',
+        '/admin/rapports/evenements-a-completer',
     ];
 
     /** Requêtes admin qui doivent être refusées (exécutions) */
@@ -74,11 +80,22 @@ class GuestRoleAccessTest extends AccessTestCase
         ['PUT',  '/admin/formulaires/publications-proposees'],
         ['PUT',  '/admin/formulaires/programmes-echus'],
         ['PUT',  '/admin/formulaires/programmes-non-echus'],
+        ['POST', '/admin/rapports/evenements-a-completer/clore'],
         ['GET',  '/admin/telechargements'],
         ['GET',  '/admin/telechargements/Author'],
         ['GET',  '/admin/telechargements/User'],
         ['GET',  '/admin/outils/import'],
         ['GET',  '/admin/outils/import-analyse'],
+    ];
+
+    /** Routes admin volontairement non testées pour l'invité (avec la raison) */
+    private const NOT_TESTED_ADMIN_ROUTES = [
+        // Simple redirection vers ajout-publication?statut=annonce (page testée)
+        ['GET', '/admin/formulaires/programme-parution'],
+        // Télécharge le résultat d'une conversion gardé en session : rien sans conversion (refusée à l'invité)
+        ['GET', '/admin/outils/telecharge-format'],
+        // Labs : essais divers, pas de règle définie pour l'invité
+        ['GET', '/admin/labs'],
     ];
 
     private User $guest;
@@ -135,6 +152,54 @@ class GuestRoleAccessTest extends AccessTestCase
         Livewire::test(ConverterFormat::class)->call('convert')->assertForbidden();
         Livewire::test(ConverterContent::class)->call('convert')->assertForbidden();
         Livewire::test(AuthorSearchAndEdit::class)->call('save')->assertForbidden();
+        Livewire::test(EventOccurrenceAdd::class)->call('save')->assertForbidden();
+    }
+
+    public function test_guest_cannot_change_title_variants(): void
+    {
+        $actions = [
+            ['addVariant', [1]],
+            ['detach',     [1]],
+            ['promote',    [1]],
+            ['setType',    [1, 'traduction']],
+            ['normalize',  []],
+        ];
+        foreach ($actions as [$method, $args]) {
+            Livewire::test(TitleVariantsManager::class)->call($method, ...$args)->assertForbidden();
+        }
+    }
+
+    /**
+     * Garde-fou : chaque route de la zone admin doit être classée dans l'une des listes
+     * (pages visibles, requêtes refusées, ou routes non concernées). Une nouvelle route
+     * (formulaire, rapport, action...) fait échouer ce test tant qu'elle n'y est pas ajoutée.
+     */
+    public function test_every_admin_route_is_classified(): void
+    {
+        $classified = collect(self::VISIBLE_ADMIN_PAGES)->map(fn ($uri) => ['GET', $uri])
+            ->merge(self::DENIED_ADMIN_REQUESTS)
+            ->merge(self::NOT_TESTED_ADMIN_ROUTES)
+            ->map(fn ($r) => [$r[0], strtok($r[1], '?')]);
+
+        $missing = [];
+        foreach (\Illuminate\Support\Facades\Route::getRoutes()->getRoutes() as $route) {
+            $uri = $route->uri();
+            if ($uri !== 'admin' && !str_starts_with($uri, 'admin/')) {
+                continue;
+            }
+            // {param} => n'importe quel segment
+            $pattern = '#^/' . preg_replace('/\\\\\{[^}]+\\\\\}/', '[^/]+', preg_quote($uri, '#')) . '$#';
+            foreach (array_diff($route->methods(), ['HEAD']) as $method) {
+                $found = $classified->contains(fn ($c) => $c[0] === $method && preg_match($pattern, $c[1]));
+                if (!$found) {
+                    $missing[] = "$method /$uri";
+                }
+            }
+        }
+
+        $this->assertSame([], $missing,
+            "Routes admin non classées dans GuestRoleAccessTest (à ajouter à VISIBLE_ADMIN_PAGES, "
+            . "DENIED_ADMIN_REQUESTS ou NOT_TESTED_ADMIN_ROUTES) :\n" . implode("\n", $missing));
     }
 
     public function test_guest_cannot_open_imports(): void

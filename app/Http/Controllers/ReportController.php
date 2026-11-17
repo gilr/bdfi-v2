@@ -263,7 +263,7 @@ class ReportController extends Controller
             FROM titles c JOIN titles p ON p.id = c.parent_id
             WHERE c.deleted_at IS NULL AND p.deleted_at IS NULL AND c.parent_id <> c.id
             AND c.variant_type <> 'feuilleton'
-            AND LEFT(c.copyright_fr, 4) <= LEFT(p.copyright_fr, 4)");
+            AND SUBSTR(c.copyright_fr, 1, 4) <= SUBSTR(p.copyright_fr, 1, 4)"); // SUBSTR (et non LEFT) : compatible MySQL et SQLite (tests)
         foreach ($pairs as $pair) {
             if (VariantDates::isEarlier($pair->child_date, $pair->parent_date)) {
                 $errors[$pair->id][] = 'Date fr antérieure à celle du parent (' . $pair->parent_date . ')';

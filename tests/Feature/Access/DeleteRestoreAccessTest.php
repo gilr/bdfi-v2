@@ -12,7 +12,7 @@ use ReflectionMethod;
  * Suppression (soft-delete) et restauration.
  *
  * Tables non internes :
- *   Invité, Proposant : ni D ni R
+ *   Invité, Contributeur : ni D ni R
  *   Membre            : d = supprimer si créateur et personne d'autre n'a modifié depuis
  *                       r = restaurer si on est celui qui a supprimé
  *   Admin, Sysadmin   : D et R sans condition

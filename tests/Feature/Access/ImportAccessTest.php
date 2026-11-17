@@ -23,7 +23,7 @@ class ImportAccessTest extends AccessTestCase
     {
         return [
             'invité'    => [UserRole::GUEST],
-            'proposant' => [UserRole::PROPONENT],
+            'contributeur' => [UserRole::PROPONENT],
             'membre'    => [UserRole::MEMBER],
             'admin'     => [UserRole::ADMIN],
         ];

@@ -91,7 +91,7 @@ class User extends Authenticatable  implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        // Au moins invité : les invités et proposants consultent (lecture seule),
+        // Au moins invité : les invités et contributeurs consultent (lecture seule),
         // les droits de création/modification/suppression sont portés par les policies.
         return $this->hasGuestRole();
     }

@@ -10,7 +10,7 @@ use Illuminate\Auth\Access\HandlesAuthorization;
  *
  * Sans cette policy, Filament autorise TOUT à tout utilisateur du panneau
  * (dont le changement de rôle, y compris le sien).
- *   - Consultation : membre et plus (pas les invités/proposants : données personnelles)
+ *   - Consultation : membre et plus (pas les invités/contributeurs : données personnelles)
  *   - Création / modification (dont les rôles) / suppression : admin et sysadmin
  *   - Suppression définitive : sysadmin
  */

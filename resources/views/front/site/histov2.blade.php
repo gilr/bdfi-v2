@@ -69,7 +69,7 @@
             <li>Ajout de la possibilité d'avoir un article approfondi pour certaines collections (pourra être étendu plus tard à d'autres types de fiches)</li>
             <li>Possibilité de stockage et présentations de documents PDF (type bibliographie) sur des auteurs (pourra être étendu plus tard à d'autres types de fiches)</li>
             <li>Ajout d'un "compte" utilisateur et de quelques préférences (format date, nombre d'items par page, gestion collection), et première mouture de la gestion de collection/bibliothèque personnelle</li>
-            <li>Administation : ajout d'un rôle membre "proposant"</li>
+            <li>Administation : ajout d'un rôle membre "proposant" (devenu "contributeur")</li>
             <li>Réinstallation sous Git avec stockage github</li>
         </ul>
     </div>

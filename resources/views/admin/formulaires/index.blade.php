@@ -95,7 +95,7 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un tout nouvel évènement (salon, festival...), ou d'une nouvelle occurence annuel d'un évènement déjà connu</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un tout nouvel évènement (salon, festival...), ou d'une nouvelle occurence annuelle d'un évènement déjà connu</x-admin.link></li>
                             </ul>
                         </div>
                     @endif

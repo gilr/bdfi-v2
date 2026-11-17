@@ -58,6 +58,14 @@ class EventOccurrenceAdd extends Component
         'admin.maintenance',
     ];
 
+    public function mount(): void
+    {
+        // Accès direct à un évènement : ?evenement=<id> (lien depuis le rapport des occurrences à ajouter…)
+        if (filled(request('evenement')) && ctype_digit((string) request('evenement'))) {
+            $this->selectEvent((int) request('evenement'));
+        }
+    }
+
     public function createNew(): void
     {
         $this->resetForm();

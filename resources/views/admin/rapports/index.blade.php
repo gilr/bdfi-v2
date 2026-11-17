@@ -17,7 +17,7 @@
                     </div>
                     <div class="p-2">
                         <ul class="list-disc pl-4">
-                            <li><x-admin.link lien='rapports/erreurs-variantes'>Erreurs sur les variantes de textes</x-admin.link> (rattachements incohérents)</li>
+                            <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='rapports/erreurs-variantes'>Erreurs sur les variantes de textes</x-admin.link> (rattachements incohérents)</li>
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
@@ -44,11 +44,20 @@
                         Rapports concernant les prix
                     </div>
                     <div class="p-2">
+                        <span class="font-semibold text-red-800 bg-yellow-200">(Revus avec lien vers formulaire - prêts)</span>
                         <ul class="list-disc pl-4">
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 3 }}'>Manquants avant {{ date("Y") - 3 }} (ou prix arrété non indiqué)</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 2 }}'>Manquants en {{ date("Y") - 2 }} ou avant</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 1 }}'>Manquants en {{ date("Y") - 1 }} ou avant</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") }}'>Manquants en {{ date("Y") }} ou avant</x-admin.link></li>
+                        </ul>
+                    </div>
+                    <div class="p-2 text-2xl border-b border-yellow-800">
+                        Rapports concernant les évènements
+                    </div>
+                    <div class="p-2">
+                        <ul class="list-disc pl-4">
+                            <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='rapports/evenements-a-completer'>Occurrences d'évènements à ajouter</x-admin.link> (dernière occurrence ancienne : nouvelle à saisir, ou évènement à clore)</li>
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">

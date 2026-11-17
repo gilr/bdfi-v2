@@ -215,6 +215,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 //        Route::get('/admin/rapports/manque-fiche', [ReportController::class, 'getMissingRecords']);
         Route::get('/admin/rapports/prix-{an}', [ReportController::class, 'getMissingAwards']);
         Route::get('/admin/rapports/erreurs-variantes', [ReportController::class, 'getVariantErrors']);
+        Route::get('/admin/rapports/evenements-a-completer', [ReportController::class, 'getMissingEventOccurrences']);
+        Route::post('/admin/rapports/evenements-a-completer/clore', [ReportController::class, 'closeEvent']);
         Route::get('/admin/rapports/anniversaires-fb-jour', [ReportController::class, 'getFbToday']);
         Route::get('/admin/rapports/anniversaires-fb-semaine', [ReportController::class, 'getFbWeek']);
         Route::get('/admin/rapports/anniversaires-fb-mois', [ReportController::class, 'getFbMonth']);

@@ -9,6 +9,8 @@ use DB;
 use App\Models\Award;
 use App\Models\AwardCategory;
 use App\Models\Title;
+use App\Models\Event;
+use App\Enums\EventPeriodicity;
 use App\Enums\TitleVariantType;
 use App\Bdfi\VariantDates;
 use App\Enums\QualityStatus;
@@ -274,6 +276,62 @@ class ReportController extends Controller
             ->values();
 
         return view('admin/rapports/erreurs-variantes', compact('titles', 'errors'));
+    }
+
+    /**
+     * Respond to request get /admin/rapports/evenements-a-completer
+     * Évènements toujours actifs (sans année de fin) dont la dernière occurrence est terminée depuis plus d'un
+     * certain délai, à peu près la moitié de l'intervalle entre deux occurrences (5 mois pour un annuel) :
+     * la suivante est peut-être annoncée, ou l'évènement a cessé.
+     * Une périodicité inconnue ou irrégulière est traitée comme annuelle ; un évènement unique terminé
+     * n'apparaît que pour être déclaré clos.
+     */
+    public function getMissingEventOccurrences()
+    {
+        $delays = [
+            EventPeriodicity::BIENNAL->value => 11,
+            EventPeriodicity::UNIQUE->value => 0,
+        ];
+        $defaultDelay = 5;
+
+        $events = Event::with(['occurrences' => fn ($q) => $q->orderByDesc('start_date')])
+            ->where(fn ($q) => $q->whereNull('year_end')->orWhere('year_end', ''))
+            ->get();
+
+        $rows = collect();
+        foreach ($events as $event) {
+            $last = $event->occurrences->first();
+            $months = $delays[$event->periodicity?->value] ?? $defaultDelay;
+            if ($last && $last->end_date->copy()->addMonths($months)->isFuture()) {
+                continue;
+            }
+            $rows->push((object) ['event' => $event, 'last' => $last]);
+        }
+
+        // Sans occurrence en tête, puis de la plus récente (sans doute à ajouter) à la plus ancienne (sans doute close)
+        $rows = $rows->sortByDesc(fn ($r) => $r->last?->end_date->format('Y-m-d') ?? '9999')->values();
+
+        return view('admin/rapports/evenements-a-completer', compact('rows', 'defaultDelay'));
+    }
+
+    /**
+     * Respond to request post /admin/rapports/evenements-a-completer/clore
+     * Déclare l'évènement clos : année de fin = année de sa dernière occurrence.
+     */
+    public function closeEvent(Request $request)
+    {
+        abort_unless(auth()->user()?->hasMemberRole(), 403);
+
+        $event = Event::with('occurrences')->findOrFail((int) $request->input('event'));
+        $last = $event->occurrences->sortByDesc('start_date')->first();
+        if (!$last) {
+            return back()->with('error', "« {$event->name} » n'a aucune occurrence : année de fin à saisir dans sa fiche.");
+        }
+
+        $event->year_end = $last->start_date->format('Y');
+        $event->save();
+
+        return back()->with('status', "« {$event->name} » déclaré clos en {$event->year_end}.");
     }
 
     /**

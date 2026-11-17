@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\AwardWinner;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AwardWinnerPolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,11 +30,11 @@ class AwardWinnerPolicy
     }
     public function delete(User $user, AwardWinner $record)
     {
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, AwardWinner $record)
     {
-        return $user->hasAdminRole();
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, AwardWinner $record)
     {

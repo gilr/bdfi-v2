@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\Title;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TitlePolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,13 +30,11 @@ class TitlePolicy
     }
     public function delete(User $user, Title $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->creator;
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Title $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
-        return $user->hasAdminRole();
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Title $record)
     {

@@ -3,11 +3,13 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use App\Models\Website;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class WebsitePolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,11 +30,11 @@ class WebsitePolicy
     }
     public function delete(User $user, Website $record)
     {
-        return $user->hasMemberRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Website $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Website $record)
     {

@@ -4,10 +4,13 @@ namespace App\Policies;
 
 use App\Models\AuthorPublication;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\Response;
 
 class AuthorPublicationPolicy
 {
+    use ManagesOwnRecords;
+
     /**
      * Determine whether the user can view any models.
      */
@@ -29,11 +32,11 @@ class AuthorPublicationPolicy
     }
     public function delete(User $user, AuthorPublication $record): bool
     {
-        return $user->hasMemberRole() && $user->id === $record->creator;
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, AuthorPublication $record): bool
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, AuthorPublication $record): bool
     {

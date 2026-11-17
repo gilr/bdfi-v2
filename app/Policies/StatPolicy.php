@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\Stat;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class StatPolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,11 +30,11 @@ class StatPolicy
     }
     public function delete(User $user, Stat $record)
     {
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Stat $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Stat $record)
     {

@@ -4,10 +4,13 @@ namespace App\Policies;
 
 use App\Models\Document;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\Response;
 
 class DocumentPolicy
 {
+    use ManagesOwnRecords;
+
     public function viewAny(User $user)
     {
         return $user->hasGuestRole();
@@ -26,13 +29,11 @@ class DocumentPolicy
     }
     public function delete(User $user, Document $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->creator;
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Document $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $record->destroyer;
-        return $user->hasAdminRole();
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Document $record)
     {

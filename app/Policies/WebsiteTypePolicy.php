@@ -32,7 +32,7 @@ class WebsiteTypePolicy
     }
     public function restore(User $user, WebsiteType $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $user->hasAdminRole();
     }
     public function forceDelete(User $user, WebsiteType $record)
     {

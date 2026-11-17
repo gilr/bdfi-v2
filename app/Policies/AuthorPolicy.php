@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\Author;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AuthorPolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,11 +30,11 @@ class AuthorPolicy
     }
     public function delete(User $user, Author $record)
     {
-        return ($user->hasMemberRole() && $user->id === $record->creator) || $user->hasSysAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Author $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Author $record)
     {

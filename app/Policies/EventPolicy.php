@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\Event;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EventPolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,13 +30,11 @@ class EventPolicy
     }
     public function delete(User $user, Event $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $author->creator;
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Event $record)
     {
-        // TBD        return $user->hasAdminRole() || $user->id === $author->destroyer;
-        return $user->hasAdminRole();
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Event $record)
     {

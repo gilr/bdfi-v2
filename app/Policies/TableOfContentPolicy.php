@@ -4,10 +4,13 @@ namespace App\Policies;
 
 use App\Models\TableOfContent;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\Response;
 
 class TableOfContentPolicy
 {
+    use ManagesOwnRecords;
+
     /**
      * Determine whether the user can view any models.
      */
@@ -45,7 +48,7 @@ class TableOfContentPolicy
      */
     public function delete(User $user, TableOfContent $tableOfContent): bool
     {
-        return $user->hasAdminRole();
+        return $this->canDeleteRecord($user, $tableOfContent);
     }
 
     /**
@@ -53,7 +56,7 @@ class TableOfContentPolicy
      */
     public function restore(User $user, TableOfContent $tableOfContent): bool
     {
-        return $user->hasAdminRole();
+        return $this->canRestoreRecord($user, $tableOfContent);
     }
 
     /**
@@ -61,6 +64,6 @@ class TableOfContentPolicy
      */
     public function forceDelete(User $user, TableOfContent $tableOfContent): bool
     {
-        return $user->hasAdminRole();
+        return $user->hasSysAdminRole();
     }
 }

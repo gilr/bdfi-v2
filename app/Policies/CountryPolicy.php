@@ -32,7 +32,7 @@ class CountryPolicy
     }
     public function restore(User $user, Country $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $user->hasAdminRole();
     }
     public function forceDelete(User $user, Country $record)
     {

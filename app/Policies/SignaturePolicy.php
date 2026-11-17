@@ -4,10 +4,12 @@ namespace App\Policies;
 
 use App\Models\Signature;
 use App\Models\User;
+use App\Policies\Concerns\ManagesOwnRecords;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SignaturePolicy
 {
+    use ManagesOwnRecords;
     use HandlesAuthorization;
 
     public function viewAny(User $user)
@@ -28,11 +30,11 @@ class SignaturePolicy
     }
     public function delete(User $user, Signature $record)
     {
-        return $user->hasMemberRole();
+        return $this->canDeleteRecord($user, $record);
     }
     public function restore(User $user, Signature $record)
     {
-        return $user->hasAdminRole() || $user->id === $record->destroyer;
+        return $this->canRestoreRecord($user, $record);
     }
     public function forceDelete(User $user, Signature $record)
     {

@@ -95,18 +95,8 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un tout nouvel évènement (salon, festival...), ou d'une nouvelle occurence annuelle d'un évènement déjà connu</x-admin.link></li>
-                            </ul>
-                        </div>
-                    @endif
-
-                    @if (auth()->user()->hasGuestRole())
-                        <div class="p-2 text-2xl border-b border-yellow-800">
-                            Raccourcis sur formulaires table
-                        </div>
-                        <div class="p-2">
-                            <ul class="list-disc pl-4">
-                                <li><x-admin.link-ext lien='https://bdfi-v2.test/filament/announcements/create'>Ajout remerciement ou annonce</x-admin.link-ext></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un salon ou festival, ou de son occurence annuelle</x-admin.link>; ou voir d'abord les <x-admin.link lien='rapports'>rapports</x-admin.link> pour des propositions</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annonce'>Ajout d'une annonce ou d'un remerciement</x-admin.link></li>
                             </ul>
                         </div>
                     @endif

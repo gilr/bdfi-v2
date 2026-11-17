@@ -30,10 +30,10 @@
 
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
-                            Création rapide, liée aux ouvrages
+                            Créations rapides, liées aux ouvrages
                         </div>
                         <div class="p-2">
-                            Pour une variante d'oeuvre, attendez les nouveaux formulaires, passez par les tables... ou adressez vous au chef :-)
+                            Pour les variantes d'oeuvre, voir plus bas
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
@@ -43,7 +43,6 @@
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnant d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
                             </ul>
                         </div>
                     @endif
@@ -89,13 +88,24 @@
                         </div>
                     @endif
 
-                    @if (auth()->user()->hasMemberRole())
+                    @if (auth()->user()->hasGuestRole())
+                        <div class="p-2 text-2xl border-b border-yellow-800">
+                            Autres ajouts ou modifications
+                        </div>
+                        <div class="p-2">
+                            <ul class="list-disc pl-4">
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un tout nouvel évènement (salon, festival...), ou d'une nouvelle occurence annuel d'un évènement déjà connu</x-admin.link></li>
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Raccourcis sur formulaires table
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link-ext lien='https://bdfi-v2.test/filament/events/create'>Ajout évènement non déjà recensé</x-admin.link-ext></li>
                                 <li><x-admin.link-ext lien='https://bdfi-v2.test/filament/announcements/create'>Ajout remerciement ou annonce</x-admin.link-ext></li>
                             </ul>
                         </div>

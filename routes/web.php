@@ -175,6 +175,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/admin/formulaires/ajout-auteur', [AuthorController::class, 'create']);
         Route::get('/admin/formulaires/modifier-auteur', function () { return view('admin/formulaires/modifier-auteur'); });
         Route::get('/admin/formulaires/gerer-variantes', function () { return view('admin/formulaires/gerer-variantes'); });
+        Route::get('/admin/formulaires/ajout-evenement', function () { return view('admin/formulaires/ajout-evenement'); });
         Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
         Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
         Route::get('/admin/formulaires/ajout-texte', [TitleController::class, 'create']);

@@ -91,8 +91,9 @@ class User extends Authenticatable  implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        // Au moins invité : les invités et contributeurs consultent (lecture seule),
-        // les droits de création/modification/suppression sont portés par les policies.
+        // Au moins invité : les invités consultent (lecture seule), les droits de
+        // création/modification/suppression sont portés par les policies.
+        // Les contributeurs n'y ont pas accès (zone de contribution seulement).
         return $this->hasGuestRole();
     }
 
@@ -169,6 +170,10 @@ class User extends Authenticatable  implements FilamentUser
         return ($this->role === UserRole::MEMBER);
     }
 
+    /**
+     * Peut faire des propositions : contributeur, membre et plus.
+     * L'invité est exclu (mode découverte, lecture seule) bien qu'il soit au-dessus dans la hiérarchie.
+     */
     public function hasProponentRole()
     {
         return (($this->role === UserRole::ADMIN) || ($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::MEMBER) || ($this->role === UserRole::PROPONENT));
@@ -178,10 +183,31 @@ class User extends Authenticatable  implements FilamentUser
         return ($this->role === UserRole::PROPONENT);
     }
 
+    /**
+     * Invité et plus : accès à toute la zone admin et à Filament (en lecture au minimum).
+     * Le contributeur, placé sous l'invité, n'en fait pas partie.
+     */
     public function hasGuestRole()
     {
-        return (($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::ADMIN) || ($this->role === UserRole::MEMBER) || ($this->role === UserRole::PROPONENT) || ($this->role === UserRole::GUEST));
+        return (($this->role === UserRole::SYSADMIN) || ($this->role === UserRole::ADMIN) || ($this->role === UserRole::MEMBER) || ($this->role === UserRole::GUEST));
     }
+    /**
+     * Un lien de la zone admin est-il ouvrable par cet utilisateur ?
+     * Invité et plus : tout. Contributeur : zone de contribution seulement
+     * (accueil admin, page formulaires, proposition, rapports) - ni Filament, ni autres
+     * formulaires, outils, labs ou téléchargements. Les liens hors admin restent ouvrables.
+     */
+    public function canOpenAdminLink(string $url): bool
+    {
+        if ($this->hasGuestRole()) {
+            return true;
+        }
+        $path = ltrim(parse_url($url, PHP_URL_PATH) ?? '', '/');
+        $path = preg_replace('#^admin/#', '', $path);
+
+        return ! preg_match('#^(filament|outils|labs|telechargements)(/|$)|^formulaires/(?!proposer-publication)#', $path);
+    }
+
     public function isGuest()
     {
         return ($this->role === UserRole::GUEST);

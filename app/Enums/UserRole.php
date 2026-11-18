@@ -5,8 +5,8 @@ use Filament\Support\Contracts\HasLabel;
 
 enum UserRole: string implements HasLabel {
     case USER      = 'user';
-    case GUEST     = 'guest';
     case PROPONENT = 'proponent';
+    case GUEST     = 'guest';
     case MEMBER    = 'member';
     case ADMIN     = 'admin';
     case SYSADMIN  = 'sysadmin';
@@ -15,9 +15,21 @@ enum UserRole: string implements HasLabel {
     {
         return match ($this) {
             self::USER       => 'Utilisateur',
+            self::PROPONENT  => 'Contributeur',   // ou "Membre contributeur"
             self::GUEST      => 'Invité',
-            self::PROPONENT  => 'Contributeur',
-            self::MEMBER     => 'Membre',
+            self::MEMBER     => 'Membre',         // ou "Membre bibliographe"
+            self::ADMIN      => 'Administrateur',
+            self::SYSADMIN   => 'Administrateur système',
+        };
+    }
+
+    public function getDescription(): ?string
+    {
+        return match ($this) {
+            self::USER       => 'Inscrit',
+            self::PROPONENT  => 'Membre contributeur',
+            self::GUEST      => 'Membre Invité en mode découverte',
+            self::MEMBER     => 'Membre bibliographe',
             self::ADMIN      => 'Administrateur',
             self::SYSADMIN   => 'Administrateur système',
         };

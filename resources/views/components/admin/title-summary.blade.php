@@ -15,5 +15,7 @@
 {{ $slot }}
 <span class="text-xs">
     · <a class="text-red-700" href="/textes/{{ $title->slug }}" target="_blank">page</a>
+    @if (auth()->user()?->hasGuestRole())
     · <a class="text-red-700" href="/filament/titles/{{ $title->id }}" target="_blank">fiche</a>
+    @endif
 </span>

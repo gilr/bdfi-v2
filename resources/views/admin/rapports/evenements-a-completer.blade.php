@@ -45,7 +45,11 @@
                                 @php($e = $row->event)
                                 <tr class="border border-blue-500">
                                     <td class="py-1 px-2 border border-blue-500">
+                                        @if (auth()->user()->hasGuestRole())
                                         <a href="/filament/events/{{ $e->id }}/edit" class="font-semibold text-blue-800 hover:underline">{{ $e->name }}</a>
+                                        @else
+                                        <span class="font-semibold text-blue-800">{{ $e->name }}</span>
+                                        @endif
                                         <span class="text-gray-600">— {{ collect([$e->type?->getLabel(), $e->periodicity?->getLabel(), $e->place])->filter()->implode(', ') }}</span>
                                         <span class="text-xs text-gray-500">#{{ $e->id }}</span>
                                     </td>

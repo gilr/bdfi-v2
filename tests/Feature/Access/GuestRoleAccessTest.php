@@ -49,6 +49,7 @@ class GuestRoleAccessTest extends AccessTestCase
         '/admin/formulaires/programmes-non-echus',
         '/admin/formulaires/gerer-variantes',
         '/admin/formulaires/ajout-evenement',
+        '/admin/formulaires/ajout-annonce',
         // Outils (affichés, conversion désactivée)
         '/admin/outils/conversion-format',
         '/admin/outils/conversion-content',

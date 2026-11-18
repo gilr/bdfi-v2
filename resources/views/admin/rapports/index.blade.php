@@ -3,21 +3,25 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/admin">Administration BDFI</a> &rarr;
-            <a href="/admin/rapports">Rapports</a>
+            <a href="/admin/rapports">Rapports et analyses</a>
         </h2>
     </x-slot>
 
     <div class="pt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
                 <div class="p-6">
                     <div class="p-2 text-2xl border-b border-yellow-800">
                         Rapports concernant les publications et textes
                     </div>
                     <div class="p-2">
+                        @if (auth()->user()->hasGuestRole())
+                            <div class="p-2">
+                                Un lien vers un formulaire d'analyse est proposé, afin d'apporter les corrections nécessaires.
+                            </div>
+                        @endif
                         <ul class="list-disc pl-4">
-                            <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='rapports/erreurs-variantes'>Erreurs sur les variantes de textes</x-admin.link> (rattachements incohérents)</li>
+                            <li><x-admin.link lien='rapports/erreurs-variantes'>Erreurs sur les variantes de textes</x-admin.link> (rattachements incohérents)</li>
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
@@ -41,11 +45,15 @@
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Rapports concernant les prix
+                        Rapports concernant les prix.
                     </div>
                     <div class="p-2">
-                        <span class="font-semibold text-red-800 bg-yellow-200">(Revus avec lien vers formulaire - prêts)</span>
                         <ul class="list-disc pl-4">
+                        @if (auth()->user()->hasGuestRole())
+                            <div class="p-2">
+                                Un lien vers un formulaire d'ajout est proposé.
+                            </div>
+                        @endif
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 3 }}'>Manquants avant {{ date("Y") - 3 }} (ou prix arrété non indiqué)</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 2 }}'>Manquants en {{ date("Y") - 2 }} ou avant</x-admin.link></li>
                             <li><x-admin.link lien='rapports/prix-{{ date("Y") - 1 }}'>Manquants en {{ date("Y") - 1 }} ou avant</x-admin.link></li>
@@ -53,11 +61,16 @@
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
-                        Rapports concernant les évènements
+                        Rapports concernant les évènements.
                     </div>
                     <div class="p-2">
+                        @if (auth()->user()->hasGuestRole())
+                            <div class="p-2">
+                                 Un bouton de "cloture" ou un lien vers le formulaire d'ajout d'une nouvelle occurence sont proposés.
+                            </div>
+                        @endif
                         <ul class="list-disc pl-4">
-                            <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='rapports/evenements-a-completer'>Occurrences d'évènements à ajouter</x-admin.link> (dernière occurrence ancienne : nouvelle à saisir, ou évènement à clore)</li>
+                            <li><x-admin.link lien='rapports/evenements-a-completer'>Occurrences d'évènements à ajouter</x-admin.link> (dernière occurrence ancienne : nouvelle à saisir, ou évènement à clore)</li>
                         </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">

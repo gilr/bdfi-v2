@@ -37,11 +37,11 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revus mais encore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Ecore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
                                 <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
                             </ul>
                         </div>
@@ -53,12 +53,12 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Revu - prêt)</span> <x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
+                                <li><x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
+                                <li></span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
                         </div>
                     @endif
 
-                    @if (auth()->user()->hasGuestRole())
+                    {{-- Seule section visible pour un contributeur (avec les vérifications rapides) --}}
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Propositions
                         </div>
@@ -70,7 +70,6 @@
                                 <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
                             </ul>
                         </div>
-                    @endif
 
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
@@ -94,9 +93,9 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un salon ou festival, ou de son occurence annuelle</x-admin.link>; ou voir d'abord les <x-admin.link lien='rapports'>rapports</x-admin.link> pour des propositions</li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - prêt)</span> <x-admin.link lien='formulaires/ajout-annonce'>Ajout d'une annonce ou d'un remerciement</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
+                                <li><x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un salon ou festival, ou de son occurence annuelle</x-admin.link>; ou voir d'abord les <x-admin.link lien='rapports'>rapports</x-admin.link> pour des propositions</li>
+                                <li><x-admin.link lien='formulaires/ajout-annonce'>Ajout d'une annonce ou d'un remerciement</x-admin.link></li>
                             </ul>
                         </div>
                     @endif

@@ -4,6 +4,7 @@
     </div>
 
     <div class="mt-4 text-lg">
+        @if (auth()->user()->hasGuestRole())
         Zone générale de l'administration BDFI. Cette zone offre :
         <ul class="list-inside list-disc text-sm text-gray-700">
             <li> Des formulaires de création rapide : auteur ou ouvrage à paraître par exemple</li>
@@ -11,6 +12,14 @@
             <li> Le backup des tables au format CSV brut</li>
             <li> L'accès à la gestion fine des tables au travers des menus Filament : <x-admin.link lien='/filament'>gestion des tables</x-admin.link></li>
         </ul>
+        @else
+        Espace contributeur BDFI. Cet espace vous permet :
+        <ul class="list-inside list-disc text-sm text-gray-700">
+            <li> De proposer l'ajout d'ouvrages non encore référencés, qui seront ensuite vérifiés et validés par l'équipe BDFI</li>
+            <li> De vérifier rapidement l'existence d'un auteur, d'un éditeur, d'une collection, d'un ouvrage ou d'un texte</li>
+            <li> De consulter les rapports listant les informations manquantes ou à vérifier</li>
+        </ul>
+        @endif
     </div>
 </div>
 
@@ -18,12 +27,20 @@
     <div class="p-6 border-t border-gray-200 md:border-l">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            @if (auth()->user()->hasGuestRole())
             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="admin/formulaires">Formulaires de modif rapide</a></div>
+            @else
+            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="admin/formulaires">Propositions</a></div>
+            @endif
         </div>
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
+                @if (auth()->user()->hasGuestRole())
                 Création rapide de fiche, proposition pour les non-encore-membres, validation de propositions. Passer par le menu "formulaires" ou cliquer sur "Formulaires de modif rapide" ci-dessus pour la liste complète.
+                @else
+                Proposer l'ajout d'un ouvrage, après avoir vérifié qu'il n'est pas déjà référencé. Passer par le menu "formulaires" ou cliquer sur "Propositions" ci-dessus pour les vérifications rapides.
+                @endif
             </div>
 
             @if (auth()->user()->hasGuestRole())
@@ -112,6 +129,8 @@
         </div>
     </div>
 
+    @if (auth()->user()->hasGuestRole())
+    {{-- Gestion des tables et backup : pas pour les contributeurs --}}
     <div class="p-6 border-t border-gray-200">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -153,5 +172,7 @@
 
         </div>
     </div>
+
+    @endif
 
 </div>

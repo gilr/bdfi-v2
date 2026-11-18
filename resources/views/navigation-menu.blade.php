@@ -25,18 +25,22 @@
                         <x-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
                             {{ __('Formulaires') }}
                         </x-nav-link>
+                        @if (Auth::user()->hasGuestRole())
                         <x-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
                             {{ __('Outils') }}
                         </x-nav-link>
+                        @endif
                         <x-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
                             {{ __('Rapports') }}
                         </x-nav-link>
+                        @if (Auth::user()->hasGuestRole())
                         <x-nav-link href="{{ route('admin/labs') }}" :active="request()->is('admin/labs*')">
                             {{ __('Labs') }}
                         </x-nav-link>
                         <x-nav-link href="{{ url('/filament') }}">
                             {{ __('Gestion tables') }}
                         </x-nav-link>
+                        @endif
                     @endif
                     <x-nav-link href="{{ route('welcome') }}" >
                         {{ __('Retour site') }}
@@ -189,18 +193,22 @@
                 <x-responsive-nav-link href="{{ route('admin/formulaires') }}" :active="request()->is('admin/formulaires*')">
                     {{ __('Formulaires') }}
                 </x-responsive-nav-link>
+                @if (Auth::user()->hasGuestRole())
                 <x-responsive-nav-link href="{{ route('admin/outils') }}" :active="request()->is('admin/outils*')">
                     {{ __('Outils') }}
                 </x-responsive-nav-link>
+                @endif
                 <x-responsive-nav-link href="{{ route('admin/rapports') }}" :active="request()->is('admin/rapports*')">
                     {{ __('Rapports') }}
                 </x-responsive-nav-link>
+                @if (Auth::user()->hasGuestRole())
                 <x-responsive-nav-link href="{{ route('admin/labs') }}" :active="request()->is('admin/labs*')">
                     {{ __('Labs') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ url('/filament') }}">
                     {{ __('Gestion tables') }}
                 </x-responsive-nav-link>
+                @endif
             @endif
             <x-responsive-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                 {{ __('Retour site') }}

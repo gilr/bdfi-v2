@@ -38,7 +38,7 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Ecore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Encore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
                                 <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
@@ -54,7 +54,8 @@
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li><x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li></span> <x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
+                                <li><x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
+                            </ul>
                         </div>
                     @endif
 

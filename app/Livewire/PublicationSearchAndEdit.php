@@ -61,6 +61,14 @@ class PublicationSearchAndEdit extends Component
         'admin.maintenance',
     ];
 
+    /** Lien direct depuis une liste : /admin/formulaires/modifier-publication?id=123 */
+    public function mount(): void
+    {
+        if (is_numeric(request()->query('id'))) {
+            $this->selectPublication((int) request()->query('id'));
+        }
+    }
+
     public function updated($property): void
     {
         $this->success = '';

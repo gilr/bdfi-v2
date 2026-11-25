@@ -13,45 +13,18 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
 
                 <div class="border border-yellow-800 bg-yellow-100 rounded-lg p-2">
-                    <p>Ici il sera possible d'éventuellement valider l'ouvrage (il est bien paru à la date indiquée), d'ajuster ou de repousser la date de publication, la repousser sans date (0000-00-00), voire le marquer 'jamais paru' si l'éditeur a abandonné.</p>
-                    <p>Dans un premier, temps, ces actions se font via la fiche table, en suivant le lien <span class="font-semibold">(qui s'ouvre dans un autre onglet)</span> pour :</p>
+                    <p>Pour chaque ouvrage annoncé dont la date est atteinte, vous pouvez directement :</p>
                     <ul class="list-disc pl-6">
-                        <li>Si publié, Passer en modification (bouton "Modifier") puis changer l'état de publication ("A paraître" -> "Paru")</li>
-                        <li>Si besoin, compléter les informations de la fiche</li>
-                        <li>Si non encore fait, attacher à une collection existante, ou la créer</li>
-                        <li>Si non encore fait, attacher le ou les auteurs - Si inexistant, il faudra le créer au préalable</li>
-                        <li>Si non encore fait, attacher ou créer le contenu - Si le ou les titres ne sont jamais parus, il faudra le/les créer au préalable</li>
+                        <li><span class="font-semibold">Cliquer sur 'Paru'</span> : l'ouvrage est bien paru, la date indiquée est conservée.</li>
+                        <li><span class="font-semibold">Changer la date</span> (AAAA-MM-JJ, AAAA-MM-00, AAAA-00-00 ou AAAA-Tn-00) : une date <em>précise et passée</em> suffit, l'ouvrage est alors marqué paru ; une date à venir repousse simplement la parution (l'ouvrage quitte cette liste).</li>
+                        <li><span class="font-semibold">Cliquer sur 'Jamais paru'</span> : l'éditeur a abandonné le projet.</li>
                     </ul>
+                    <p>Le lien « Fiche » (qui s'ouvre dans un autre onglet) permet de compléter le reste : informations, collection, auteur(s), contenu (créer au préalable les auteurs ou textes inexistants).</p>
                 </div>
 
                 <div class="p-2 text-xl">Liste des publications annoncées et dates dépassées :</div>
 
-                <table class="table-auto border-collapse border border-blue-800 w-full">
-                    <thead>
-                        <tr class="bg-blue-50">
-                            <th class="p-1">Type</th>
-                            <th class="p-1">Support</th>
-                            <th class="p-1">Titre ouvrage proposé et accès fiches</th>
-                            <th class="p-1">Dernière Modification</th>
-                            <th class="p-1">Date annoncée</th>
-                            <th class="p-1">Changer date</th>
-                            <th class="p-1">Paru !</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($results as $publication)
-                        <tr class="border border-blue-500">
-                            <td class="py-1 px-2 border border-blue-500">{{ $publication->type }}</td>
-                            <td class="py-1 px-2 border border-blue-500">{{ $publication->support }}</td>
-                            <td class="py-1 px-2 border border-blue-500"> {{ $publication->name }} {lien formulaire} <x-admin.link-ext lien='/filament/publications/{{ $publication->id }}'>Filament</x-admin.link-ext></td>
-                            <td class="py-1 px-2 border border-blue-500">{{ $publication->approximate_parution }}</td>
-                            <td class="py-1 px-2 border border-blue-500">{{ $publication->updated_at }} </td>
-                            <td class="py-1 px-2 border border-blue-500"> TO DO </td>
-                            <td class="py-1 px-2 border border-blue-500"> TO DO </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <livewire:scheduled-publications mode="expired" />
 
             </div>
         </div>

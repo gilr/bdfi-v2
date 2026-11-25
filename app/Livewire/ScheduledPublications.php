@@ -47,6 +47,30 @@ class ScheduledPublications extends Component
         return false;
     }
 
+    /**
+     * L'ouvrage peut-il déjà être paru ? Non si la date est formellement dans le futur : jour à venir,
+     * mois ou année à venir (AAAA-MM-00 du mois courant ou AAAA-00-00 de l'année courante : oui),
+     * trimestre non commencé.
+     */
+    public static function canBePublished(string $date): bool
+    {
+        if (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $date, $m)) {
+            if ($m[2] === '00') {
+                return (int) $m[1] <= (int) date('Y');
+            }
+            if ($m[3] === '00') {
+                return "{$m[1]}-{$m[2]}" <= date('Y-m');
+            }
+
+            return $date <= date('Y-m-d');
+        }
+        if (preg_match('/^(\d{4})-T([1-4])-00$/', $date, $m)) {
+            return sprintf('%s-%02d', $m[1], ((int) $m[2] - 1) * 3 + 1) <= date('Y-m');
+        }
+
+        return true;
+    }
+
     private function find(int $id): ?Publication
     {
         abort_unless(auth()->user()?->hasMemberRole(), 403);
@@ -88,6 +112,11 @@ class ScheduledPublications extends Component
     public function markPublished(int $id): void
     {
         $publication = $this->find($id);
+        if ($publication && !self::canBePublished((string) $publication->approximate_parution)) {
+            $this->error = "« {$publication->name} » : la date {$publication->approximate_parution} est dans le futur, l'ouvrage ne peut pas être marqué paru.";
+
+            return;
+        }
         if ($publication) {
             $publication->update(['status' => PublicationStatus::PUBLIE->value]);
             $this->notice = "« {$publication->name} » : marqué paru (date conservée : {$publication->approximate_parution}).";

@@ -15,8 +15,8 @@
                 <div class="border border-yellow-800 bg-yellow-100 rounded-lg p-2">
                     <p>Pour chaque ouvrage annoncé dont la date est atteinte, vous pouvez directement :</p>
                     <ul class="list-disc pl-6">
-                        <li><span class="font-semibold">Cliquer sur 'Paru'</span> : l'ouvrage est bien paru, la date indiquée est conservée.</li>
-                        <li><span class="font-semibold">Changer la date</span> (AAAA-MM-JJ, AAAA-MM-00, AAAA-00-00 ou AAAA-Tn-00) : une date <em>précise et passée</em> suffit, l'ouvrage est alors marqué paru ; une date à venir repousse simplement la parution (l'ouvrage quitte cette liste).</li>
+                        <li><span class="font-semibold">Cliquer sur 'Paru'</span> : l'ouvrage est bien paru, la date indiquée est conservée (l'ouvrage quitte cette liste).</li>
+                        <li><span class="font-semibold">Changer la date</span> (AAAA-MM-JJ, AAAA-MM-00, AAAA-00-00 ou AAAA-Tn-00) : une date <em>précise et passée</em> suffit, l'ouvrage est alors marqué paru (l'ouvrage quitte cette liste); une date à venir repousse simplement la parution (l'ouvrage passe dans la liste 'non échus').</li>
                         <li><span class="font-semibold">Cliquer sur 'Jamais paru'</span> : l'éditeur a abandonné le projet.</li>
                     </ul>
                     <p>Le lien « Fiche » (qui s'ouvre dans un autre onglet) permet de compléter le reste : informations, collection, auteur(s), contenu (créer au préalable les auteurs ou textes inexistants).</p>

@@ -33,7 +33,7 @@
                             Créations rapides, liées aux ouvrages
                         </div>
                         <div class="p-2">
-                            Pour les variantes d'oeuvre, voir plus bas
+                            Pour les variantes d'oeuvre, voir 'modifications et corrections'. L'Ajout d'oeuvre va être supprimé, elles seront créées lors de la création d'ouvrage, ou lors de création ou modification de sommaire.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
@@ -51,9 +51,6 @@
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
                             Modifications et corrections
-                        </div>
-                        <div class="p-2">
-                            Concernant les programmations, il sera possible dans la prochaine version de modifier la date de parution localement. Pour l'instant, ces pages listent les ouvrages concernés, en indiquant le lien pour d'accès à leur fiche côté gestion des tables.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">

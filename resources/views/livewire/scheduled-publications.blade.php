@@ -10,8 +10,7 @@
         <thead>
             <tr class="bg-blue-50">
                 <th class="p-1">Titre ouvrage et accès fiche</th>
-                <th class="p-1">Type</th>
-                <th class="p-1">Support</th>
+                <th class="p-1">Support et type</th>
                 <th class="p-1">Date annoncée</th>
                 <th class="p-1">Changer date ou état</th>
                 <th class="p-1">Dernière <br />modification</th>
@@ -28,8 +27,7 @@
                         <x-admin.link-ext lien='/admin/formulaires/modifier-publication?id={{ $publication->id }}'>Formulaire</x-admin.link-ext>
                         <x-admin.link-ext lien='/filament/publications/{{ $publication->id }}'>Table</x-admin.link-ext>
                     </td>
-                    <td class="py-1 px-2 border border-blue-500">{{ $publication->type->getLabel() }}</td>
-                    <td class="py-1 px-2 border border-blue-500">{{ $publication->support->getLabel() }}</td>
+                    <td class="py-1 px-2 border border-blue-500">{{ $publication->support->getLabel() }}, {{ $publication->type->getLabel() }}</td>
                     <td class="py-1 px-2 border border-blue-500 font-mono">{{ $publication->approximate_parution }}</td>
                     <td class="py-1 px-2 border border-blue-500 whitespace-nowrap">
                         <div class="flex items-center gap-2">
@@ -38,13 +36,15 @@
                             <button wire:click="changeDate({{ $publication->id }})" class="bg-blue-400 text-white px-1 rounded">OK</button>
                         </div>
                         <div class="mt-1 flex items-center gap-2">
-                            <button wire:click="markPublished({{ $publication->id }})" class="bg-green-100 text-green-800 border border-green-600 px-1 rounded font-semibold">Paru</button>
+                            @if (\App\Livewire\ScheduledPublications::canBePublished((string) $publication->approximate_parution))
+                                <button wire:click="markPublished({{ $publication->id }})" class="bg-green-100 text-green-800 border border-green-600 px-1 rounded font-semibold">Paru</button>
+                            @endif
                             <button wire:click="markAbandoned({{ $publication->id }})"
                                     wire:confirm="Marquer cet ouvrage comme jamais paru ?"
                                     class="bg-gray-500 text-white px-1 rounded">Jamais paru</button>
                         </div>
                     </td>
-                    <td class="py-1 px-2 border border-blue-500">{{ $publication->updated_at?->format('Y-m-d H:i') }}</td>
+                    <td class="py-1 px-2 border border-blue-500">{{ $publication->updated_at?->format('Y-m-d') }}</td>
                 </tr>
             @empty
                 <tr><td colspan="6" class="p-2 text-center italic">Aucune publication dans cette liste.</td></tr>

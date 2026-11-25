@@ -135,9 +135,10 @@ class BookImportAnalysis extends Component
         }
 
         $this->result = $base + [
-            'report'  => $report->toArray(),
-            'skipped' => $skipped,
-            'toAdd'   => $toAdd ? $this->relative($toAdd) : null,
+            'report'   => $report->toArray(),
+            'skipped'  => $skipped,
+            'toAdd'    => $toAdd ? $this->relative($toAdd) : null,
+            'warnings' => $prepared->warnings,
         ];
     }
 

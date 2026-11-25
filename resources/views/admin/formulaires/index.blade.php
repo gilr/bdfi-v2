@@ -37,27 +37,36 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajout auteur non déjà en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(Encore à compléter)</span> <x-admin.link lien='formulaires/ajout-publication'>Ajout publication parue</x-admin.link>
+                                <li><x-admin.link lien='formulaires/ajout-auteur'>Ajouter un auteur non en base</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">A compléter </span><x-admin.link lien='formulaires/ajout-publication'>Ajouter une publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
-                                <li><x-admin.link lien='formulaires/ajout-editeur'>Ajout éditeur nouveau ou non déjà référencé</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/ajout-collection'>Ajout collection nouvelle ou non déjà référencée</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajout d'une oeuvre non recensée</x-admin.link></li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Ajouter, compléter ou corriger un sommaire</li>
+                                <li><x-admin.link lien='formulaires/ajout-editeur'>Ajouter un éditeur non déjà référencé</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-collection'>Ajouter une collection non déjà référencée</x-admin.link></li>
+                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajouter une oeuvre non recensée</x-admin.link></li>
                             </ul>
                         </div>
                     @endif
 
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
-                            Corrections et améliorations
+                            Modifications et corrections
+                        </div>
+                        <div class="p-2">
+                            Concernant les programmations, il sera possible dans la prochaine version de modifier la date de parution localement. Pour l'instant, ces pages listent les ouvrages concernés, en indiquant le lien pour d'accès à leur fiche côté gestion des tables.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/modifier-auteur'>Modification auteur existant</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/gerer-variantes'>Variantes de textes</x-admin.link> : après choix d'un texte, affiche son ensemble (parent et variantes) pour ajouter ou retirer une variante, changer un type, ou désigner un autre parent</li>
+                                <li><x-admin.link lien='formulaires/modifier-auteur'>Modifier un auteur existant</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/modifier-publication'>Modifier ou améliorer une publication</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/verifier-publication'>Passer une publication à "vérifié" et compléter les infos "fines"</x-admin.link>(il faut l'avoir entre les mains)</li>
+                                <li><x-admin.link lien='formulaires/gerer-variantes'>Gérer les variantes de textes</x-admin.link> (ajouter, retirer, changer le parent)</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/programmes-echus'>Lister, ajuster ou confirmer une publication programmée, date échue</x-admin.link></li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/programmes-non-echus'>Lister et ajuster une publication programmée, date non échue</ x-admin.link></li>
                             </ul>
                         </div>
                     @endif
+
 
                     {{-- Seule section visible pour un contributeur (avec les vérifications rapides) --}}
                         <div class="p-2 text-2xl border-b border-yellow-800">
@@ -68,25 +77,15 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/proposer-publication'>Proposition ajout ouvrage <span class="italic font-semibold">paru</span> non recensé</x-admin.link></li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/proposer-publication'>Proposer l'ajout d'un ouvrage paru non recensé</x-admin.link> (le sommaire peut être omis)</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span><x-admin.link lien='formulaires/proposer-correction-publication'>Proposer une modification d'un ouvrage recensé</x-admin.link></li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Proposer un ajout ou complément de sommaire</li>
+                                @if (auth()->user()->hasGuestRole())
+                                    <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Consulter les propositions</li>
+                                    <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/publications-proposees'>Ajuster et/ou valider une proposition</x-admin.link></li>
+                                @endif
                             </ul>
                         </div>
-
-                    @if (auth()->user()->hasGuestRole())
-                        <div class="p-2 text-2xl border-b border-yellow-800">
-                            Autres opérations
-                        </div>
-                        <div class="p-2">
-                            Dans la prochaine version, il sera possible de modifier la date de parution, ou de valider une proposition localement. Pour l'instant, ces pages listent les ouvrages concernés, en indiquant le lien pour d'accès à leur fiche côté gestion des tables.
-                        </div>
-                        <div class="p-2">
-                            <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/publications-proposees'>Validation de proposition</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/programmes-echus'>Confirmation publication programmée, date échue</x-admin.link></li>
-                                <li><x-admin.link lien='formulaires/programmes-non-echus'>Confirmation publication programmée, date non échue</ x-admin.link></li>
-                            </ul>
-                        </div>
-                    @endif
 
                     @if (auth()->user()->hasGuestRole())
                         <div class="p-2 text-2xl border-b border-yellow-800">
@@ -94,9 +93,9 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><x-admin.link lien='formulaires/ajout-annee-prix'>Ajout des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
-                                <li><x-admin.link lien='formulaires/ajout-evenement'>Ajout d'un salon ou festival, ou de son occurence annuelle</x-admin.link>; ou voir d'abord les <x-admin.link lien='rapports'>rapports</x-admin.link> pour des propositions</li>
-                                <li><x-admin.link lien='formulaires/ajout-annonce'>Ajout d'une annonce ou d'un remerciement</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/ajout-annee-prix'>Ajouter des gagnants d'une année d'un prix</x-admin.link>; ou passer d'abord par les <x-admin.link lien='rapports'>rapports</x-admin.link> pour visualiser ce qui manque</li>
+                                <li><x-admin.link lien='formulaires/ajout-evenement'>Ajouter un salon ou festival, ou son occurence annuelle</x-admin.link>; ou voir d'abord les <x-admin.link lien='rapports'>rapports</x-admin.link> pour des propositions</li>
+                                <li><x-admin.link lien='formulaires/ajout-annonce'>Ajouter une annonce ou un remerciement</x-admin.link></li>
                             </ul>
                         </div>
                     @endif

@@ -19,16 +19,18 @@
                         Import de publications
                     </div>
                     <div class="p-2">
-                        <ul class="list-disc pl-4">
-                            @if (auth()->user()?->hasSysAdminRole())
+                        @if (auth()->user()?->hasSysAdminRole())
+                            <ul class="list-disc pl-4">
                                 <li><x-admin.link lien='outils/import-analyse'>Analyse d'un fichier d'import (COL, CSV, JSON)</x-admin.link></li>
                                 <li><x-admin.link lien='outils/import'>Importer un fichier d'import</x-admin.link> (simulation ou import réel)</li>
-                            @else
-                                <li><span class="text-gray-400 cursor-not-allowed" title="Réservé à l'administrateur système">Analyse d'un fichier d'import (COL, CSV, JSON)</span></li>
-                                <li><span class="text-gray-400 cursor-not-allowed" title="Réservé à l'administrateur système">Importer un fichier d'import</span> (simulation ou import réel)</li>
-                                <li class="list-none text-sm text-gray-500 italic">Réservé pour l'instant à l'administrateur système.</li>
+                            </ul>
+                        @else
+                            <span class="text-gray-500 italic">Réservé pour l'instant à l'administrateur système.</span>
+                            <ul class="list-disc pl-4">
+                                <li><span class="text-gray-500 cursor-not-allowed" title="Réservé à l'administrateur système">Analyse d'un fichier d'import (COL, CSV, JSON)</span></li>
+                                <li><span class="text-gray-500 cursor-not-allowed" title="Réservé à l'administrateur système">Importer un fichier d'import (simulation ou import réel)</span></li>
+                            </ul>
                             @endif
-                        </ul>
                     </div>
                     <div class="p-2 text-2xl border-b border-yellow-800">
                         Transformation entre formats

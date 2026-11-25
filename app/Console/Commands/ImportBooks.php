@@ -46,6 +46,7 @@ class ImportBooks extends Command
         }
 
         $this->info("JSON Livres : {$prepared->jsonPath}");
+        $this->renderWarnings($prepared->warnings);
 
         // 2. Sélection (clés d'origine conservées => numéros de livres stables)
         $books = array_slice(
@@ -110,6 +111,19 @@ class ImportBooks extends Command
     }
 
     // ------------------------------------------------------------------ Affichage
+
+    /** Écarts entre l'en-tête du fichier (format COL) et les noms d'éditeur/collection trouvés en base */
+    private function renderWarnings(array $warnings): void
+    {
+        if (!$warnings) {
+            return;
+        }
+
+        $this->warn(count($warnings) . ' écart(s) fichier / base (éditeur ou collection renommés en base ?) :');
+        foreach ($warnings as $w) {
+            $this->line("  - {$w}");
+        }
+    }
 
     private function renderValidationErrors(array $errors, array $books): void
     {

@@ -25,7 +25,7 @@
                     <p>Plus tard, certaines actions pourront directement être réalisées depuis cet écran (ajuster ou repousser la date de publication).</p>
                 </div>
 
-                <div class="p-2 text-xl">Dates de naissance potentiellement étranges...</div>
+                <div class="p-2 text-xl">Liste des publications annoncées et dates futures :</div>
 
                 <table class="table-auto border-collapse border border-blue-800 w-full">
                     <thead>

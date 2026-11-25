@@ -79,6 +79,17 @@
             </table>
         @endisset
 
+        @if ($result['warnings'] ?? [])
+            <div>
+                <div class="font-semibold text-yellow-800 mt-2">Écarts fichier / base (éditeur ou collection renommés en base ?)</div>
+                <ul class="list-disc pl-6 text-sm">
+                    @foreach ($result['warnings'] as $w)
+                        <li>{{ $w }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @isset($result['report'])
             @php($r = $result['report'])
             <table class="text-sm border">

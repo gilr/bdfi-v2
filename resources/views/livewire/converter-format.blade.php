@@ -1,8 +1,12 @@
 <div class="p-6 bg-white rounded shadow">
+    @if ($error)
+        <div class="mb-4 p-2 text-sm text-red-800 bg-red-100 border border-red-600 rounded">{{ $error }}</div>
+    @endif
+
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="mb-4 mr-4">
             <label for="inputFormat" class="block font-semibold">Format d'entrée</label>
-            <select wire:model="inputFormat" x-on:change="$wire.set('inputFormat', $event.target.value)" id="inputFormat" class="w-full border rounded p-2">
+            <select wire:model.live="inputFormat" id="inputFormat" class="w-full border rounded p-2">
                 @foreach($formats as $key => $label)
                     <option value="{{ $key }}">{{ $label }}</option>
                 @endforeach
@@ -12,12 +16,11 @@
         <div class="mb-4 ml-4">
             <label for="outputFormat" class="block font-semibold">Format de sortie</label>
             <select wire:model="outputFormat" id="outputFormat" class="w-full border rounded p-2">
-                @foreach($formats as $key => $label)
-                    @if($key !== $inputFormat)
-                        <option value="{{ $key }}">{{ $label }}</option>
-                    @endif
+                @foreach($this->outputFormats as $key => $label)
+                    <option value="{{ $key }}" @disabled(! $this->isOutputImplemented($key))>{{ $label }}</option>
                 @endforeach
             </select>
+            <span class="text-xs text-gray-500">Seul JSON est disponible en sortie pour l'instant ; les autres formats sont au catalogue mais pas encore écrits.</span>
         </div>
     </div>
 
@@ -44,9 +47,21 @@
                 @endif
             </div>
 
-            @if ($inputFormat !== 'EXCEL' && $inputFormat !== 'COL CP437')
+            @if ($this->needsEncoding)
+                <div wire:transition class="mt-2">
+                    <label for="encoding" class="block font-semibold">Encodage du fichier</label>
+                    <select wire:model="encoding" id="encoding" class="w-48 border rounded p-2 text-sm">
+                        <option value="auto">Auto-détection (UTF-8 sinon CP437)</option>
+                        <option value="utf8">UTF-8</option>
+                        <option value="cp437">CP437 (DOS)</option>
+                        <option value="cp1252">CP1252 (Windows)</option>
+                    </select>
+                </div>
+            @endif
+
+            @if ($this->isTextInput)
                 <div wire:transition>
-                    <label for="inputData" class="block font-semibold">... ou données à copier</label>
+                    <label for="inputData" class="block font-semibold">... ou données à copier (UTF-8)</label>
                     <textarea wire:model="inputData" id="inputData" rows="6" class="text-xs w-full border rounded p-2 font-mono"></textarea>
                 </div>
             @endif

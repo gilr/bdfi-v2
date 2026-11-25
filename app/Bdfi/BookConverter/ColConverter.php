@@ -32,7 +32,7 @@ class ColConverter extends AbstractBookConverter
         'christian', 'gilles', 'gallica', 'cpri', 'poche', 'imprim', 'rabat',
     ];
 
-    /** sigle => nom de collection, lus dans les lignes "_ SIGLE Nom" */
+    /** sigle => [éditeur, collection], lus dans les lignes "_ SIGLE Éditeur - Collection [■ années]" */
     private array $collectionNames = [];
 
     public static function extensions(): array
@@ -196,8 +196,25 @@ class ColConverter extends AbstractBookConverter
     private function readCollectionName(string $line): void
     {
         if (preg_match('/^_\s+(\S+)\s+(.+)$/u', $line, $m)) {
-            $this->collectionNames[trim($m[1])] = trim($m[2]);
+            $this->collectionNames[trim($m[1])] = $this->splitEditeurCollection(trim($m[2]));
         }
+    }
+
+    /**
+     * "Éditeur - Collection ■ années d'activité" => [éditeur, collection] ; sans " - " : éditeur seul,
+     * sans collection dédiée (le sigle désigne alors directement un éditeur, cf. buildBook()).
+     * @return array{0: string, 1: string}
+     */
+    private function splitEditeurCollection(string $value): array
+    {
+        $value = trim(explode('■', $value, 2)[0]);
+        $pos = mb_strpos($value, ' - ');
+
+        if ($pos === false) {
+            return [$value, ''];
+        }
+
+        return [trim(mb_substr($value, 0, $pos)), trim(mb_substr($value, $pos + 3))];
     }
 
     private function newUnit(string $line, string $kind, bool $notPublished, int $lineNo): array
@@ -524,6 +541,8 @@ class ColConverter extends AbstractBookConverter
 
         $authors = $this->toAuthors($content['auteurs']);
 
+        [$editeur, $collection] = $this->collectionNames[$raw['sigle']] ?? ['', ''];
+
         // Série du livre : nom imprimé (commentaire "!--- SERIE :") sinon cycle du texte
         [$printedSerie, $printedNum] = $this->splitCycle($raw['serie_imprimee']);
         $serie = $printedSerie !== '' ? $printedSerie : $content['cycle'];
@@ -536,9 +555,10 @@ class ColConverter extends AbstractBookConverter
         }
 
         return [
-            // éditeur & collection : le COL ne donne que le sigle de collection (résolu en base par sigle_bdfi)
-            'editeur' => '',
-            'collection' => $this->collectionNames[$raw['sigle']] ?? '',
+            // éditeur & collection : noms lus dans l'en-tête ("_ SIGLE ...") à titre informatif ;
+            // l'import réel résout plutôt le sigle en base (collections/publishers.sigle_bdfi)
+            'editeur' => $editeur,
+            'collection' => $collection,
             'collection_sigle' => $raw['sigle'],
             'no_collection' => $raw['num'],
 

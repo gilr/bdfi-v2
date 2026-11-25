@@ -14,6 +14,7 @@ final class BookImportPreparer
     public function __construct(
         private BookFormatRegistry $registry,
         private BookValidator $validator,
+        private BookLookup $lookup,
     ) {}
 
     /** @throws \InvalidArgumentException si chemin/extension invalides (autres exceptions : erreur de conversion) */
@@ -23,10 +24,64 @@ final class BookImportPreparer
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
         $books = $this->registry->for($extension)->import($path, $options);
+        [$books, $warnings] = $this->resolvePublisherNames($books);
 
         $jsonPath = $extension === 'json' ? $path : $this->writeJson($path, $books);
 
-        return new PreparedImport($path, $extension, $jsonPath, $books, $this->validator->validate($books));
+        return new PreparedImport($path, $extension, $jsonPath, $books, $this->validator->validate($books), $warnings);
+    }
+
+    /**
+     * Pour les livres avec un sigle (format COL) : remplace éditeur/collection par les noms canoniques
+     * trouvés en base (collections/publishers.sigle_bdfi), qui gère seule la hiérarchie des sous-collections
+     * et reste la source de vérité des noms. Le nom lu dans l'en-tête du fichier ("_ SIGLE ...") ne sert
+     * plus qu'à signaler un écart (collection renommée en base depuis la dernière mise à jour du fichier, etc.).
+     * Sigle introuvable en base : éditeur/collection du fichier conservés tels quels (déjà signalé par l'analyse).
+     *
+     * @return array{0: array<int, array<string, mixed>>, 1: string[]}
+     */
+    private function resolvePublisherNames(array $books): array
+    {
+        // Regroupées par sigle : un même sigle concerne souvent des dizaines de livres du fichier
+        $mismatches = [];     // sigle => ['fileEditeur' => ..., 'fileCollection' => ..., 'dbEditeur' => ..., 'dbCollection' => ..., 'count' => n]
+
+        foreach ($books as &$book) {
+            $sigle = BookLookup::norm($book['collection_sigle'] ?? '');
+            if ($sigle === '') {
+                continue;
+            }
+
+            $resolved = $this->lookup->resolve($book);
+            if ($resolved['missing'] !== null) {
+                continue;
+            }
+
+            $fileEditeur = BookLookup::norm($book['editeur'] ?? '');
+            $fileCollection = BookLookup::norm($book['collection'] ?? '');
+            $dbEditeur = $resolved['publisherName'];
+            $dbCollection = $resolved['collectionName'];
+
+            if (($fileEditeur !== '' && BookLookup::key($fileEditeur) !== BookLookup::key($dbEditeur))
+                || ($fileCollection !== '' && BookLookup::key($fileCollection) !== BookLookup::key($dbCollection))) {
+                $mismatches[$sigle] ??= [
+                    'fileEditeur' => $fileEditeur, 'fileCollection' => $fileCollection,
+                    'dbEditeur' => $dbEditeur, 'dbCollection' => $dbCollection, 'count' => 0,
+                ];
+                $mismatches[$sigle]['count']++;
+            }
+
+            $book['editeur'] = $dbEditeur;
+            $book['collection'] = $dbCollection;
+        }
+
+        $warnings = array_map(
+            fn (array $m, string $sigle) => "Sigle {$sigle} ({$m['count']} livre(s)) : fichier « {$m['fileEditeur']} / {$m['fileCollection']} », "
+                . "base « {$m['dbEditeur']} / {$m['dbCollection']} ».",
+            $mismatches,
+            array_keys($mismatches),
+        );
+
+        return [array_values($books), $warnings];
     }
 
     /**

@@ -15,9 +15,9 @@ enum UserRole: string implements HasLabel {
     {
         return match ($this) {
             self::USER       => 'Utilisateur',
-            self::PROPONENT  => 'Contributeur',   // ou "Membre contributeur"
+            self::PROPONENT  => 'Contributeur',
             self::GUEST      => 'Invité',
-            self::MEMBER     => 'Membre',         // ou "Membre bibliographe"
+            self::MEMBER     => 'Membre',         // ou "Bibliographe"
             self::ADMIN      => 'Administrateur',
             self::SYSADMIN   => 'Administrateur système',
         };
@@ -28,9 +28,9 @@ enum UserRole: string implements HasLabel {
         return match ($this) {
             self::USER       => 'Inscrit',
             self::PROPONENT  => 'Membre contributeur',
-            self::GUEST      => 'Membre Invité en mode découverte',
+            self::GUEST      => 'Membre invité en mode découverte',
             self::MEMBER     => 'Membre bibliographe',
-            self::ADMIN      => 'Administrateur',
+            self::ADMIN      => 'Administrateur bibliographe',
             self::SYSADMIN   => 'Administrateur système',
         };
     }

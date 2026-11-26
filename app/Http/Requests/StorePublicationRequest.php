@@ -30,10 +30,6 @@ class StorePublicationRequest extends FormRequest
         {
             return $this->user()->hasMemberRole();
         }
-        else if ($this->publication_status === PublicationStatus::PROPOSE->value)
-        {
-            return $this->user()->hasProponentRole();
-        }
         else
         {
             // Strange ?!

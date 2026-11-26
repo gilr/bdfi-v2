@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource;
 use App\Livewire\AuthorSearchAndEdit;
 use App\Livewire\BookImport;
 use App\Livewire\BookImportAnalysis;
+use App\Livewire\ProposalReview;
 use App\Livewire\ConverterContent;
 use App\Livewire\ConverterFormat;
 use App\Livewire\EventOccurrenceAdd;
@@ -43,6 +44,8 @@ class GuestRoleAccessTest extends AccessTestCase
         '/admin/formulaires/ajout-publication',
         '/admin/formulaires/ajout-publication?statut=annonce',
         '/admin/formulaires/proposer-publication',
+        '/admin/formulaires/modifier-publication',
+        '/admin/formulaires/verifier-publication',
         '/admin/formulaires/ajout-annee-prix',
         '/admin/formulaires/publications-proposees',
         '/admin/formulaires/programmes-echus',
@@ -78,7 +81,7 @@ class GuestRoleAccessTest extends AccessTestCase
         ['POST', '/admin/formulaires/programme-parution'],
         ['POST', '/admin/formulaires/proposer-publication'],
         ['POST', '/admin/formulaires/ajout-annee-prix'],
-        ['PUT',  '/admin/formulaires/publications-proposees'],
+        ['POST', '/admin/formulaires/proposer-publication/1/retirer'],
         ['PUT',  '/admin/formulaires/programmes-echus'],
         ['PUT',  '/admin/formulaires/programmes-non-echus'],
         ['POST', '/admin/rapports/evenements-a-completer/clore'],
@@ -154,6 +157,8 @@ class GuestRoleAccessTest extends AccessTestCase
         Livewire::test(ConverterContent::class)->call('convert')->assertForbidden();
         Livewire::test(AuthorSearchAndEdit::class)->call('save')->assertForbidden();
         Livewire::test(EventOccurrenceAdd::class)->call('save')->assertForbidden();
+        Livewire::test(ProposalReview::class)->set('selectedId', 1)->call('accept')->assertForbidden();
+        Livewire::test(ProposalReview::class)->set('selectedId', 1)->call('reject')->assertForbidden();
     }
 
     public function test_guest_cannot_change_title_variants(): void

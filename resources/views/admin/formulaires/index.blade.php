@@ -69,16 +69,15 @@
                             Propositions
                         </div>
                         <div class="p-2">
-                            Va être totalement remis à plat : les propositions seront stockées au format JSON dans une table spécifique, et non dans la table 'normale' des publications. Cela permettra plus facilement de gérer des données encore manquantes (auteur ou cycle non existant en base), et est plus ouvert pour évoluer vers d'autres propositions (d'autres données, ou en modification en plus de création).
+                            Les propositions sont stockées à part, au format JSON, et non dans la table des publications : rien n'entre dans la base avant l'acceptation par un membre.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/proposer-publication'>Proposer l'ajout d'un ouvrage paru non recensé</x-admin.link> (le sommaire peut être omis)</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/proposer-publication'>Proposer l'ajout d'un ouvrage paru non recensé</x-admin.link> (sans sommaire ; suivi de vos propositions sur la même page)</li>
                                 <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span><x-admin.link lien='formulaires/proposer-correction-publication'>Proposer une modification d'un ouvrage recensé</x-admin.link></li>
                                 <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Proposer un ajout ou complément de sommaire</li>
                                 @if (auth()->user()->hasGuestRole())
-                                    <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Consulter les propositions</li>
-                                    <li><span class="font-semibold text-red-800 bg-yellow-200">A REVOIR </span><x-admin.link lien='formulaires/publications-proposees'>Ajuster et/ou valider une proposition</x-admin.link></li>
+                                    <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/publications-proposees'>Étudier les propositions d'ouvrages (accepter ou refuser)</x-admin.link></li>
                                 @endif
                             </ul>
                         </div>

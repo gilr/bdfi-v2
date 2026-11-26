@@ -337,21 +337,6 @@ class PublicationController extends Controller
         return redirect('/admin/formulaires/ajout-publication?statut=' . PublicationStatus::ANNONCE->value);
     }
 
-    public function propose()
-    {
-        return view('admin.formulaires.proposer_publication', $this->context + [
-            'status' => session('status'),
-            'id'     => session('id'),
-        ]);
-    }
-    public function indexProposal()
-    {
-        $results = Publication::where('status', PublicationStatus::PROPOSE->value)
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        return view ('admin.formulaires.publications_proposees', compact('results'));
-    }
     public function indexExpiredFuture()
     {
         $today = date("Y-m-d");
@@ -374,11 +359,6 @@ class PublicationController extends Controller
         return view ('admin.formulaires.programmes_non_echus', compact('results'));
     }
     // Actions de validation/confirmation (à écrire) : réservées aux membres et plus
-    public function validateProposal()
-    {
-        abort_unless(auth()->user()?->hasMemberRole(), 403);
-        //Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
-    }
     public function updateExpiredFuture()
     {
         abort_unless(auth()->user()?->hasMemberRole(), 403);
@@ -427,15 +407,6 @@ class PublicationController extends Controller
             'publisher_id' => $publisherId,
         ]);
 
-        if ($request->selected_id !== NULL)
-        {
-            // Formulaire de proposition : contenu principal choisi parmi les oeuvres existantes
-            $content = TableOfContent::create([
-                'publication_id' => $publication->id,
-                'title_id' => $request->selected_id,
-            ]);
-        }
-
         // Collection (EntityPicker, existante uniquement) et son n° éventuel : rien si non choisie
         if (filled($validated['collection_id'] ?? null)) {
             $number = trim((string) ($validated['collection_number'] ?? ''));
@@ -460,9 +431,7 @@ class PublicationController extends Controller
         $flash = ['status' => true, 'id' => $publication->id, 'label' => $publication->name, 'slug' => $publication->slug,
                   'pubstatus' => $publication->status->value];
 
-        return $publication->status === PublicationStatus::PROPOSE
-            ? redirect('/admin/formulaires/proposer-publication')->with($flash)
-            : redirect('/admin/formulaires/ajout-publication?statut=' . $publication->status->value)->with($flash);
+        return redirect('/admin/formulaires/ajout-publication?statut=' . $publication->status->value)->with($flash);
     }
 
     /**

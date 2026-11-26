@@ -8,6 +8,7 @@ use App\Http\Controllers\CycleController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ReprintController;
 use App\Http\Controllers\EventController;
@@ -172,8 +173,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/admin/formulaires', function () { return view('admin/formulaires/index'); })->name('admin/formulaires');
 
         // Propositions
-        Route::get('/admin/formulaires/proposer-publication', [PublicationController::class, 'propose']);
-        Route::post('/admin/formulaires/proposer-publication', [PublicationController::class, 'store']);
+        Route::get('/admin/formulaires/proposer-publication', [ProposalController::class, 'create']);
+        Route::post('/admin/formulaires/proposer-publication', [ProposalController::class, 'store']);
+        Route::post('/admin/formulaires/proposer-publication/{id}/retirer', [ProposalController::class, 'withdraw']);
 
         // Rapports : listes d'éléments potentiellement erronés ou à compléter
         Route::get('/admin/rapports', [ReportController::class, 'index'])->name('admin/rapports');
@@ -219,12 +221,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('/admin/formulaires/ajout-annee-prix', [AwardWinnerController::class, 'store']);
 
             // Mais aussi les autres actions comme validation et confirmation
-            Route::get('/admin/formulaires/publications-proposees', [PublicationController::class, 'indexProposal']);
+            Route::get('/admin/formulaires/publications-proposees', function () { return view('admin/formulaires/publications_proposees'); });
             Route::get('/admin/formulaires/programmes-echus', [PublicationController::class, 'indexExpiredFuture']);
             Route::get('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'indexFuture']);
 
             // plus les put pour valider/confirmer unitairement...
-            Route::put('/admin/formulaires/publications-proposees', [PublicationController::class, 'validateProposal']);
             Route::put('/admin/formulaires/programmes-echus', [PublicationController::class, 'updateExpiredFuture']);
             Route::put('/admin/formulaires/programmes-non-echus', [PublicationController::class, 'updateFuture']);
 

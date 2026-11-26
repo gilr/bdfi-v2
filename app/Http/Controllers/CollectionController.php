@@ -50,7 +50,7 @@ class CollectionController extends Controller
                 ->get();
 
         // Taux de remplissage approximatif
-        $taux_remplissage = round((Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
+        $taux_remplissage = round((Publication::where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
 
         $this->context['page'] = 'Collections V2 bêta';
 

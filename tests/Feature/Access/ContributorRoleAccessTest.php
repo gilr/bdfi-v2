@@ -25,6 +25,7 @@ class ContributorRoleAccessTest extends AccessTestCase
         ['GET',  'admin/formulaires'],
         ['GET',  'admin/formulaires/proposer-publication'],
         ['POST', 'admin/formulaires/proposer-publication'],
+        ['POST', 'admin/formulaires/proposer-publication/{id}/retirer'],
         ['GET',  'admin/rapports'],
         ['GET',  'admin/rapports/dates-bizarres'],
         ['GET',  'admin/rapports/manque-date-naissance'],
@@ -106,7 +107,10 @@ class ContributorRoleAccessTest extends AccessTestCase
 
     public function test_contributor_can_only_propose_not_publish(): void
     {
-        $this->post('/admin/formulaires/proposer-publication', ['publication_status' => 'paru'])->assertForbidden();
+        // Le contributeur peut proposer (formulaire vide : erreur de validation, pas de refus de droits)...
+        $this->post('/admin/formulaires/proposer-publication', [])->assertSessionHasErrors('name');
+        // ... mais pas créer directement une publication
+        $this->post('/admin/formulaires/ajout-publication', ['publication_status' => 'paru'])->assertForbidden();
     }
 
     public function test_menu_hides_tools_labs_and_tables(): void

@@ -53,15 +53,13 @@ class HomeController extends Controller
                     ->with('publisher')
                     ->get();
 
-        $created = Publication::where('status', '<>', 'propose')
-                    ->where('status', '<>', 'annonce')
+        $created = Publication::where('status', '<>', 'annonce')
                     ->orderBy('created_at', 'desc')
                     ->limit(15)
                     ->with('publisher')
                     ->get();
 
-        $recents = Publication::where('status', '<>', 'propose')
-                    ->where('status', '<>', 'annonce')
+        $recents = Publication::where('status', '<>', 'annonce')
                     ->where('cover_front', '<>', '')
                     ->orderBy('approximate_parution', 'desc')
                     ->limit(15)
@@ -102,7 +100,7 @@ class HomeController extends Controller
             ->get();
 
         // Taux de remplissage approximatif
-        $taux_remplissage = round((Publication::where('status', '<>', 'propose')->where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
+        $taux_remplissage = round((Publication::where('status', '<>', 'annonce')->count() + Title::count()) * 100 / 240000, 1);
 
         // Définir des variables supplémentaires
         $area = '';

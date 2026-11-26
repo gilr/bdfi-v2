@@ -41,9 +41,6 @@
                      @if ($publication->status === App\Enums\PublicationStatus::ABANDONNE)
                         <span class="font-semibold">(ouvrage annoncé mais non paru)</span>
                      @endif
-                     @if ($publication->status === App\Enums\PublicationStatus::PROPOSE)
-                        <span class="font-semibold">(Sous réserve - référencement en cours de traitement)</span>
-                     @endif
                 </li>
             @endforeach
         </ul>
@@ -92,9 +89,6 @@
                             @endif
                             @if ($publication->status == App\Enums\PublicationStatus::ABANDONNE)
                                 (prévu mais non paru)
-                            @endif
-                            @if ($publication->status == App\Enums\PublicationStatus::PROPOSE)
-                                (référencement en cours)
                             @endif
                         </li>
                     @endforeach

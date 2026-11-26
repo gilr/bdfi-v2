@@ -104,15 +104,6 @@ class Collection extends Model
                 ->wherePivot('deleted_at', null)
                 ->orderByPivot('order', 'asc');
     }
-    public function publication_proposals(): BelongsToMany
-    {
-        return $this->belongsToMany('App\Models\Publication')
-                ->where('status', 'proposal')
-                ->withTimestamps()
-                ->withPivot('id', 'order','number', 'deleted_at')
-                ->wherePivot('deleted_at', null)
-                ->orderByPivot('order', 'asc');
-    }
     public function publication_abandonned(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Publication')

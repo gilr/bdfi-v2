@@ -350,9 +350,6 @@
                     @if ($publication->status === App\Enums\PublicationStatus::ABANDONNE)
                         <img src='/img/warning.png' class="inline w-5 mb-1" /> <span class="font-semibold text-red-700">Ouvrage annoncé, mais jamais publié</span>
                     @endif
-                    @if ($publication->status === App\Enums\PublicationStatus::PROPOSE)
-                        <img src='/img/warning.png' class="inline w-5 mb-1" /> <span class="font-semibold text-red-700">Sous réserve - référencement en cours de traitement</span>
-                    @endif
 
 
                 </div>

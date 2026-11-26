@@ -33,17 +33,16 @@
                             Créations rapides, liées aux ouvrages
                         </div>
                         <div class="p-2">
-                            Pour les variantes d'oeuvre, voir 'modifications et corrections'. L'Ajout d'oeuvre va être supprimé, elles seront créées lors de la création d'ouvrage, ou lors de création ou modification de sommaire.
+                            Pour les variantes d'oeuvre, voir 'modifications et corrections'. Les oeuvres (textes) ne se créent pas isolément : elles sont créées avec l'ouvrage (contenu principal), ou lors de la création ou modification d'un sommaire.
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
                                 <li><x-admin.link lien='formulaires/ajout-auteur'>Ajouter un auteur non en base</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">A compléter </span><x-admin.link lien='formulaires/ajout-publication'>Ajouter une publication parue</x-admin.link>
-                                    ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée</li>
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Ajouter, compléter ou corriger un sommaire</li>
+                                <li><x-admin.link lien='formulaires/ajout-publication'>Ajouter une publication parue</x-admin.link>
+                                    ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée (hors sommaire, et éditeur et collection doivent pré-exister)</li>
+                                <li>Ajouter, compléter ou corriger un sommaire</li>
                                 <li><x-admin.link lien='formulaires/ajout-editeur'>Ajouter un éditeur non déjà référencé</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-collection'>Ajouter une collection non déjà référencée</x-admin.link></li>
-                                <li> <span class="font-semibold text-red-800 bg-yellow-200">(A supprimer à terme ?)</span> <x-admin.link lien='formulaires/ajout-texte'>Ajouter une oeuvre non recensée</x-admin.link></li>
                             </ul>
                         </div>
                     @endif
@@ -58,6 +57,7 @@
                                 <li><x-admin.link lien='formulaires/modifier-publication'>Modifier ou améliorer une publication</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/verifier-publication'>Passer une publication à "vérifié" et compléter les infos "fines"</x-admin.link>(il faut l'avoir entre les mains)</li>
                                 <li><x-admin.link lien='formulaires/gerer-variantes'>Gérer les variantes de textes</x-admin.link> (ajouter, retirer, changer le parent)</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/modifier-oeuvre'>Modifier ou compléter un texte (oeuvre, contenu)</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/programmes-echus'>Lister, ajuster ou confirmer une publication programmée, date échue</x-admin.link></li>
                                 <li></span><x-admin.link lien='formulaires/programmes-non-echus'>Lister et ajuster une publication programmée, date non échue</ x-admin.link></li>
                             </ul>

@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Title;
-use App\Http\Requests\StoreTitleRequest;
 use App\Http\Requests\UpdateTitleRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Enums\TitleVariantType;
 
 class TitleController extends Controller
 {
@@ -170,38 +168,5 @@ class TitleController extends Controller
                 return view ('front._generic.choix', compact('text', 'results', 'large'), $this->context);
             }
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view ('admin.formulaires.creer_texte');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTitleRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreTitleRequest $request)
-    {
-
-        $validated = $request->validated();
-        $texte = Title::create([
-            'name' => $request->name,
-            'type' => $request->type,
-            'variant_type' => TitleVariantType::PREMIER->value,
-            'copyright' => $request->copyright,
-            'is_genre' => $request->is_genre,
-            'genre_stat' => $request->genre_stat,
-            'target_audience' => $request->target_audience,
-        ]);
-
-        return view ('admin.formulaires.creer_texte', $this->context)->with('status', true)->with('id', $texte->id);
     }
 }

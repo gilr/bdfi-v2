@@ -204,8 +204,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('/admin/formulaires/ajout-annonce', function () { return view('admin/formulaires/ajout-annonce'); });
             Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
             Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
-            Route::get('/admin/formulaires/ajout-texte', [TitleController::class, 'create']);
             Route::get('/admin/formulaires/ajout-publication', [PublicationController::class, 'create']);
+            Route::get('/admin/formulaires/modifier-oeuvre', function () { return view('admin/formulaires/modifier-oeuvre'); });
             Route::get('/admin/formulaires/modifier-publication', function () { return view('admin/formulaires/modifier-publication'); });
             Route::get('/admin/formulaires/verifier-publication', function () { return view('admin/formulaires/verifier-publication'); });
             Route::get('/admin/formulaires/programme-parution', [PublicationController::class, 'createFuture']);
@@ -215,7 +215,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('/admin/formulaires/ajout-auteur', [AuthorController::class, 'store']);
             Route::post('/admin/formulaires/ajout-editeur', [PublisherController::class, 'store']);
             Route::post('/admin/formulaires/ajout-collection', [CollectionController::class, 'store']);
-            Route::post('/admin/formulaires/ajout-texte', [TitleController::class, 'store']);
             Route::post('/admin/formulaires/ajout-publication', [PublicationController::class, 'store']);
             Route::post('/admin/formulaires/programme-parution', [PublicationController::class, 'store']);
             Route::post('/admin/formulaires/ajout-annee-prix', [AwardWinnerController::class, 'store']);

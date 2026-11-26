@@ -11,6 +11,7 @@ use App\Livewire\ProposalReview;
 use App\Livewire\ConverterContent;
 use App\Livewire\ConverterFormat;
 use App\Livewire\EventOccurrenceAdd;
+use App\Livewire\TitleSearchAndEdit;
 use App\Livewire\TitleVariantsManager;
 use App\Models\User;
 use Filament\Facades\Filament;
@@ -40,7 +41,7 @@ class GuestRoleAccessTest extends AccessTestCase
         '/admin/formulaires/modifier-auteur',
         '/admin/formulaires/ajout-editeur',
         '/admin/formulaires/ajout-collection',
-        '/admin/formulaires/ajout-texte',
+        '/admin/formulaires/modifier-oeuvre',
         '/admin/formulaires/ajout-publication',
         '/admin/formulaires/ajout-publication?statut=annonce',
         '/admin/formulaires/proposer-publication',
@@ -76,7 +77,6 @@ class GuestRoleAccessTest extends AccessTestCase
         ['POST', '/admin/formulaires/ajout-auteur'],
         ['POST', '/admin/formulaires/ajout-editeur'],
         ['POST', '/admin/formulaires/ajout-collection'],
-        ['POST', '/admin/formulaires/ajout-texte'],
         ['POST', '/admin/formulaires/ajout-publication'],
         ['POST', '/admin/formulaires/programme-parution'],
         ['POST', '/admin/formulaires/proposer-publication'],
@@ -156,6 +156,7 @@ class GuestRoleAccessTest extends AccessTestCase
         Livewire::test(ConverterFormat::class)->call('convert')->assertForbidden();
         Livewire::test(ConverterContent::class)->call('convert')->assertForbidden();
         Livewire::test(AuthorSearchAndEdit::class)->call('save')->assertForbidden();
+        Livewire::test(TitleSearchAndEdit::class)->call('save')->assertForbidden();
         Livewire::test(EventOccurrenceAdd::class)->call('save')->assertForbidden();
         Livewire::test(ProposalReview::class)->set('selectedId', 1)->call('accept')->assertForbidden();
         Livewire::test(ProposalReview::class)->set('selectedId', 1)->call('reject')->assertForbidden();

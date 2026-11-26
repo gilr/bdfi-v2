@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Collection;
 use App\Models\TableOfContent;
+use App\Models\Title;
+use App\Enums\TitleVariantType;
 use App\Models\Publisher;
 use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
@@ -328,6 +330,7 @@ class PublicationController extends Controller
             'id'        => session('id'),
             'label'     => session('label'),
             'slug'      => session('slug'),
+            'content'   => session('content'),
         ]);
     }
 
@@ -387,6 +390,8 @@ class PublicationController extends Controller
             return $publisherId;
         }
 
+        // Publication, rattachements et contenu principal : tout ou rien
+        [$publication, $content] = DB::transaction(function () use ($request, $validated, $publisherId) {
         $publication = Publication::create([
             'status' => $validated['publication_status'],
             'name' => trim($validated['name']),
@@ -427,11 +432,51 @@ class PublicationController extends Controller
             );
         }
 
+        // Contenu principal (premier élément du sommaire) : texte existant identique, ou nouveau texte
+        $title = $validated['title_choice'] === 'new'
+            ? $this->createMainContent($publication, $validated, $authorIds->all())
+            : Title::findOrFail((int) $validated['title_choice']);
+        TableOfContent::create(['publication_id' => $publication->id, 'title_id' => $title->id, 'level' => 0, 'order' => 1]);
+
+        return [$publication, ['id' => $title->id, 'slug' => $title->slug, 'created' => $validated['title_choice'] === 'new']];
+        });
+
         // Redirection (POST/redirect/GET) : un rafraîchissement de la page ne recrée pas la publication
         $flash = ['status' => true, 'id' => $publication->id, 'label' => $publication->name, 'slug' => $publication->slug,
-                  'pubstatus' => $publication->status->value];
+                  'pubstatus' => $publication->status->value, 'content' => $content];
 
         return redirect('/admin/formulaires/ajout-publication?statut=' . $publication->status->value)->with($flash);
+    }
+
+    /**
+     * Nouveau texte, contenu principal de la publication : même titre et mêmes auteurs que la publication,
+     * première publication connue (variante "premier"), genre et public de la publication. Sa date de première
+     * parution française est celle de la publication, si elle est précise (ni "circa" ni approximative).
+     */
+    private function createMainContent(Publication $publication, array $validated, array $authorIds): Title
+    {
+        $parution = (string) $publication->approximate_parution;
+
+        $title = Title::create(array_filter([
+            'name'            => $publication->name,
+            'type'            => $validated['new_title_type'],
+            // Extrait : à rattacher ensuite à son texte complet (formulaire des variantes)
+            'variant_type'    => ($validated['new_title_extract'] ?? false) ? TitleVariantType::EXTRAIT->value : TitleVariantType::PREMIER->value,
+            'is_novelization' => ($validated['new_title_novelization'] ?? null) ?: null,
+            'copyright'       => filled($validated['new_title_copyright'] ?? null) ? trim($validated['new_title_copyright']) : null,
+            'copyright_fr'    => preg_match('/^\d{4}-(\d{2}-\d{2}|T[1-4]-00)$/', $parution) ? $parution : null,
+            'title_vo'        => filled($validated['new_title_vo'] ?? null) ? trim($validated['new_title_vo']) : null,
+            'translators'     => filled($validated['new_title_translators'] ?? null) ? trim($validated['new_title_translators']) : null,
+            'is_genre'        => $validated['is_genre'],
+            'genre_stat'      => $validated['genre_stat'],
+            'target_audience' => $validated['target_audience'],
+        ], fn ($v) => $v !== null));
+
+        if ($authorIds) {
+            $title->authors()->attach($authorIds);
+        }
+
+        return $title;
     }
 
     /**

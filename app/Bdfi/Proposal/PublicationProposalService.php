@@ -25,16 +25,6 @@ use App\Models\User;
  */
 final class PublicationProposalService
 {
-    /** Type d'ouvrage => type du texte principal */
-    private const MAIN_TEXT_TYPE = [
-        'roman'       => TitleType::ROMAN,
-        'fiction'     => TitleType::RECUEIL,
-        'compilation' => TitleType::RECUEIL,
-        'omnibus'     => TitleType::OMNIBUS,
-        'periodique'  => TitleType::MAGAZINE,
-        'non-fiction' => TitleType::ESSAI,
-    ];
-
     public function __construct(private BookLookup $lookup = new BookLookup()) {}
 
     /**
@@ -85,7 +75,7 @@ final class PublicationProposalService
         // Sommaire réduit au contenu principal : même titre, mêmes auteurs que le livre
         $book['sommaire'] = [[
             'titre'      => $book['titre'],
-            'type_texte' => (self::MAIN_TEXT_TYPE[$d['type']] ?? TitleType::INCONNU)->value,
+            'type_texte' => (PublicationContent::tryFrom($d['type'])?->mainContentTypes()[0] ?? TitleType::INCONNU)->value,
             'auteurs'    => $book['auteurs'],
         ]];
 

@@ -106,10 +106,16 @@ class EntityPicker extends Component
 
         $columns = $this->searchColumns();
         $model = $this->model;
+        // Chaque mot doit se trouver dans l'une des colonnes : "Tad Williams" trouve prénom "Tad" + nom "Williams"
+        $words = preg_split('/\s+/u', $term, -1, PREG_SPLIT_NO_EMPTY);
 
-        return $model::where(function ($q) use ($columns, $term) {
-                foreach ($columns as $c) {
-                    $q->orWhere($c, 'like', '%' . $term . '%');
+        return $model::where(function ($q) use ($columns, $words) {
+                foreach ($words as $word) {
+                    $q->where(function ($q) use ($columns, $word) {
+                        foreach ($columns as $c) {
+                            $q->orWhere($c, 'like', '%' . $word . '%');
+                        }
+                    });
                 }
             })
             ->orderBy($columns[count($columns) - 1])   // nom de famille en dernier pour Author : tri par nom

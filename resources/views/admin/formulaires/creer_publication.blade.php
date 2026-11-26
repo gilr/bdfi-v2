@@ -42,8 +42,14 @@
                         — fiche à compléter : <a class="text-red-700" href="/filament/{{ $filament }}/{{ $id }}" target="_blank">fiche {{ $area }} <span class="font-bold">{{ $id }}</span></a>
                         (nouvel onglet : auteurs, éditeur et collection, informations du livre si possédé…).
                     </div>
+                    @if (!empty($content))
+                        <div class="p-2">
+                            Contenu principal : texte {{ $content['created'] ? 'créé avec la publication' : 'existant rattaché' }}
+                            (<a class="text-red-700" href="/textes/{{ $content['slug'] }}" target="_blank">page du texte #{{ $content['id'] }}</a>).
+                        </div>
+                    @endif
                     <div class="p-2">
-                        {{-- Étape suivante : le contenu. Formulaire sommaire à venir ; en attendant, la fiche Filament --}}
+                        {{-- Étape suivante : le reste du sommaire. Formulaire sommaire à venir ; en attendant, la fiche Filament --}}
                         <a href="/filament/{{ $filament }}/{{ $id }}" target="_blank"
                            class="inline-block bg-gray-300 px-4 py-2 border border-blue-800 rounded">
                             Faut-il renseigner un sommaire ou contenu ? →
@@ -73,7 +79,7 @@
                 <div class="flex flex-wrap items-center gap-2 mb-1">
                     <label for="name" class="w-32 font-semibold">Titre *</label>
                     <input id="name" name="name" value="{{ old('name') }}" maxlength="128" required class="w-full border rounded bg-yellow-100 max-w-xl"
-                           placeholder="Titre de l'ouvrage, tel qu'imprimé en couverture">
+                           placeholder="Titre de l'ouvrage, tel qu'imprimé en début d'ouvrage (page de titre)">
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2 mb-1">
@@ -205,6 +211,20 @@
                     </div>
                 </div>
                 <div class="text-xs text-gray-500 mb-1">Auteur non trouvé, ou plus de deux auteurs ? Laissez vide ici et complétez-le ensuite dans Filament.</div>
+
+                <livewire:main-content-picker
+                    :old-choice="old('title_choice')"
+                    :old-name="old('name')"
+                    :old-author1="old('author1_id')"
+                    :old-author2="old('author2_id')"
+                    :old-type="old('new_title_type')"
+                    :old-copyright="old('new_title_copyright')"
+                    :old-title-vo="old('new_title_vo')"
+                    :old-translators="old('new_title_translators')"
+                    :old-publication-type="old('type')"
+                    :old-extract="old('new_title_extract')"
+                    :old-novelization="old('new_title_novelization')"
+                />
 
                 <div class="flex flex-wrap items-center gap-2 mt-2">
                     <button type="submit" @disabled(! auth()->user()->hasMemberRole())  class="bg-blue-400 font-semibold border border-blue-800 rounded px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed">Créer la publication</button>

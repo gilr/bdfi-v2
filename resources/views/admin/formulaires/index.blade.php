@@ -40,7 +40,7 @@
                                 <li><x-admin.link lien='formulaires/ajout-auteur'>Ajouter un auteur non en base</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-publication'>Ajouter une publication parue</x-admin.link>
                                     ou <x-admin.link lien='formulaires/ajout-publication?statut=annonce'>à paraître</x-admin.link>, non déjà recensée (hors sommaire, et éditeur et collection doivent pré-exister)</li>
-                                <li>Ajouter, compléter ou corriger un sommaire</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/modifier-sommaire'>Ajouter, compléter ou corriger un sommaire</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-editeur'>Ajouter un éditeur non déjà référencé</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/ajout-collection'>Ajouter une collection non déjà référencée</x-admin.link></li>
                             </ul>
@@ -57,7 +57,7 @@
                                 <li><x-admin.link lien='formulaires/modifier-publication'>Modifier ou améliorer une publication</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/verifier-publication'>Passer une publication à "vérifié" et compléter les infos "fines"</x-admin.link>(il faut l'avoir entre les mains)</li>
                                 <li><x-admin.link lien='formulaires/gerer-variantes'>Gérer les variantes de textes</x-admin.link> (ajouter, retirer, changer le parent)</li>
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/modifier-oeuvre'>Modifier ou compléter un texte (oeuvre, contenu)</x-admin.link></li>
+                                <li><x-admin.link lien='formulaires/modifier-oeuvre'>Modifier ou compléter un texte (oeuvre, contenu)</x-admin.link></li>
                                 <li><x-admin.link lien='formulaires/programmes-echus'>Lister, ajuster ou confirmer une publication programmée, date échue</x-admin.link></li>
                                 <li></span><x-admin.link lien='formulaires/programmes-non-echus'>Lister et ajuster une publication programmée, date non échue</ x-admin.link></li>
                             </ul>
@@ -73,11 +73,11 @@
                         </div>
                         <div class="p-2">
                             <ul class="list-disc pl-4">
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/proposer-publication'>Proposer l'ajout d'un ouvrage paru non recensé</x-admin.link> (sans sommaire ; suivi de vos propositions sur la même page)</li>
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span><x-admin.link lien='formulaires/proposer-correction-publication'>Proposer une modification d'un ouvrage recensé</x-admin.link></li>
-                                <li><span class="font-semibold text-red-800 bg-yellow-200">A FAIRE </span>Proposer un ajout ou complément de sommaire</li>
+                                <li><x-admin.link lien='formulaires/proposer-publication'>Proposer l'ajout d'un ouvrage paru non recensé</x-admin.link> (sans sommaire ; suivi de vos propositions sur la même page)</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A DISCUTER</span> Proposer une modification d'un ouvrage recensé</li>
+                                <li><span class="font-semibold text-red-800 bg-yellow-200">A DISCUTER</span> Proposer un ajout ou complément de sommaire</li>
                                 @if (auth()->user()->hasGuestRole())
-                                    <li><span class="font-semibold text-red-800 bg-yellow-200">(Nouveau - à tester) </span><x-admin.link lien='formulaires/publications-proposees'>Étudier les propositions d'ouvrages (accepter ou refuser)</x-admin.link></li>
+                                    <li><x-admin.link lien='formulaires/publications-proposees'>Étudier les propositions d'ouvrages (accepter ou refuser)</x-admin.link></li>
                                 @endif
                             </ul>
                         </div>

@@ -205,6 +205,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('/admin/formulaires/ajout-editeur', [PublisherController::class, 'create']);
             Route::get('/admin/formulaires/ajout-collection', [CollectionController::class, 'create']);
             Route::get('/admin/formulaires/ajout-publication', [PublicationController::class, 'create']);
+            Route::get('/admin/formulaires/modifier-sommaire', function () { return view('admin/formulaires/modifier-sommaire'); });
             Route::get('/admin/formulaires/modifier-oeuvre', function () { return view('admin/formulaires/modifier-oeuvre'); });
             Route::get('/admin/formulaires/modifier-publication', function () { return view('admin/formulaires/modifier-publication'); });
             Route::get('/admin/formulaires/verifier-publication', function () { return view('admin/formulaires/verifier-publication'); });

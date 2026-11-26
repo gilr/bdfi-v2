@@ -49,12 +49,12 @@
                         </div>
                     @endif
                     <div class="p-2">
-                        {{-- Étape suivante : le reste du sommaire. Formulaire sommaire à venir ; en attendant, la fiche Filament --}}
-                        <a href="/filament/{{ $filament }}/{{ $id }}" target="_blank"
+                        {{-- Étape suivante : le reste du sommaire --}}
+                        <a href="/admin/formulaires/modifier-sommaire?id={{ $id }}" target="_blank"
                            class="inline-block bg-gray-300 px-4 py-2 border border-blue-800 rounded">
-                            Faut-il renseigner un sommaire ou contenu ? →
+                            Faut-il renseigner le reste du sommaire ? →
                         </a>
-                        <span class="text-xs text-gray-500">(formulaire sommaire à venir ; en attendant, onglet contenu de la fiche Filament)</span>
+                        <span class="text-xs text-gray-500">(le contenu principal est déjà rattaché)</span>
                     </div>
                     <div class="p-2 bg-green-100">
                         Vous pouvez en créer une autre :
